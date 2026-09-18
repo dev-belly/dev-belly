@@ -10,7 +10,7 @@ Building reproducible tools for **quantitative research, causal inference, and A
 
 A Python research pipeline connecting factor evaluation, walk-forward modeling, portfolio construction, transaction costs, and HTML reports. Includes a FastAPI service and a Streamlit dashboard.
 
-**Start here:** [Quick start](https://github.com/dev-belly/alphaforge#quick-start) · [Source](https://github.com/dev-belly/alphaforge/tree/main/src/alphaforge) · [Tests](https://github.com/dev-belly/alphaforge/tree/main/tests)
+**Start here:** [Documentation](https://dev-belly.github.io/alphaforge/) · [Computed sample](https://dev-belly.github.io/alphaforge/sample-run/) · [Source & tests](https://github.com/dev-belly/alphaforge)
 
 The bundled sample data is synthetic; its results demonstrate the workflow and do not establish a tradable edge.
 
@@ -34,9 +34,11 @@ The default run uses synthetic data. Complete point-in-time financial statement 
 
 | Project | Focus |
 | --- | --- |
-| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | Comparing point and distributional features for risk classification on synthetic financial data. |
-| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | Testing graph structure against tabular baselines in simulated stock-return prediction. |
+| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Experiment report](https://dev-belly.github.io/interval-financial-risk/) comparing point and distributional features, with temporal validation and downloadable predictions. |
+| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | [Three-seed benchmark](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17): fixed-checkpoint graph ablations, saved predictions and independent metric checks. |
 | [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows with a Python backend and React interface. |
+
+[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) also provides a local simulated chat mode and a separately configured private model connection.
 
 ## Tools & research practice
 
