@@ -60,6 +60,12 @@ The default run uses synthetic data. Complete point-in-time financial statement 
 
 ## Tools & research practice
 
-Python · SQL · C++20 · NumPy · pandas · scikit-learn · PyTorch · FastAPI · TypeScript · React
+| Project | Stack |
+|---|---|
+| AuditLens | Python, pandas, scikit-learn, SQLite / SQLAlchemy, Streamlit |
+| AlphaForge | Python, LightGBM, CVXPY, Parquet / DuckDB, FastAPI, Streamlit |
+| TradeForge | C++20, pybind11, Python, Parquet / DuckDB, FastAPI, Streamlit |
+
+Across the other projects I also use PyTorch, TypeScript and React.
 
 I focus on explicit data provenance, reproducible experiments, baseline comparisons, and tests that check model and application behavior. Each repository documents its setup and current limitations.
