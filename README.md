@@ -10,10 +10,12 @@ Building reproducible tools for **audit analytics, financial risk, and quantitat
 
 An audit analytics workflow for a synthetic 30,000-voucher ledger: nine review
 procedures, Benford analysis, Isolation Forest, an explainable risk score, a
-queryable SQLite warehouse, and a six-page reviewer dashboard.
+queryable SQLite warehouse, a six-page reviewer dashboard, and a budgeted
+review workpaper with validated human outcomes.
 
 **Start here:** [Source & setup](https://github.com/dev-belly/AuditLens#quickstart) ·
 [Methodology and limitations](https://github.com/dev-belly/AuditLens/blob/main/docs/methodology.md) ·
+[Review workpaper](https://github.com/dev-belly/AuditLens#audit-review-workpaper) ·
 [Reproducible reports](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports)
 
 Its injected anomalies match the rule definitions; the benchmark measures the
@@ -34,7 +36,8 @@ book core and Python reference model. Its published cost comparisons use synthet
 sessions and report both arrival-price and interval-VWAP benchmarks.
 
 **Explore:** [Reproducible demo](https://github.com/dev-belly/TradeForge#sixty-second-tour) ·
-[Design and test evidence](https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible)
+[Design and test evidence](https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible) ·
+[Transaction cost guide](https://github.com/dev-belly/TradeForge/blob/main/docs/guides/tca.md)
 
 ### [FactorLab · A-share Multi-Factor Research](https://github.com/dev-belly/ashare-multifactor-research)
 
