@@ -39,6 +39,17 @@ sessions and report both arrival-price and interval-VWAP benchmarks.
 [Design and test evidence](https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible) ·
 [Transaction cost guide](https://github.com/dev-belly/TradeForge/blob/main/docs/guides/tca.md)
 
+### [LedgerX](https://github.com/dev-belly/LedgerX)
+
+A double-entry ledger for research fills with exact USD accounting, deterministic
+replay, a hash-chained JSONL journal, and optional external head checkpoints.
+It shows cash, historical inventory cost, and realized P&L; the synthetic demo
+does not claim market valuation or live trading performance.
+
+**Explore:** [Accounting model](https://github.com/dev-belly/LedgerX#python-api) ·
+[Reproducible demo](https://github.com/dev-belly/LedgerX#run-it) ·
+[Passing CI](https://github.com/dev-belly/LedgerX/actions/runs/36291902491)
+
 ### [FactorLab · A-share Multi-Factor Research](https://github.com/dev-belly/ashare-multifactor-research)
 
 A factor research workflow with point-in-time feature alignment, purged out-of-sample evaluation, portfolio accounting, and browser reports.
@@ -65,6 +76,7 @@ The default run uses synthetic data. Complete point-in-time financial statement 
 | AuditLens | Python, pandas, scikit-learn, SQLite / SQLAlchemy, Streamlit |
 | AlphaForge | Python, LightGBM, CVXPY, Parquet / DuckDB, FastAPI, Streamlit |
 | TradeForge | C++20, pybind11, Python, Parquet / DuckDB, FastAPI, Streamlit |
+| LedgerX | Python standard library, Decimal, pytest, Ruff, mypy |
 
 Across the other projects I also use PyTorch, TypeScript and React.
 
