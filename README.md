@@ -30,7 +30,7 @@ out-of-time testing, and a reviewable static report with test predictions.
 **Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
 [Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
 [Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
-[Passing CI](https://github.com/dev-belly/CreditVintage/actions/runs/36293384782)
+[CI runs](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml)
 
 All published data is synthetic. The independent calibration worsened Brier in
 this run; the negative result is reported rather than tuned away.
@@ -62,7 +62,7 @@ does not claim market valuation or live trading performance.
 
 **Explore:** [Accounting model](https://github.com/dev-belly/LedgerX#python-api) ·
 [Reproducible demo](https://github.com/dev-belly/LedgerX#run-it) ·
-[Passing CI](https://github.com/dev-belly/LedgerX/actions/runs/36291902491)
+[CI runs](https://github.com/dev-belly/LedgerX/actions/workflows/ci.yml)
 
 ## More work
 
