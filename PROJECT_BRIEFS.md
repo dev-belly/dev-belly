@@ -12,6 +12,14 @@ These are **candidate resume bullets**, not claims about live customers or reali
 - **Discuss:** Why the random inclusion probability applies only to the non-targeted frame; why an anomaly flag is not a confirmed fraud finding; how the workpaper checksum and input fingerprint differ.
 - **Boundary:** The 919 injected anomalies and all detection metrics come from synthetic data. No client ledger or real fraud labels were used.
 
+### [ControlTrace](https://github.com/dev-belly/ControlTrace)
+
+> 构建系统访问与生产变更的合成审计平台：以稳定 ID 连接 HR、账号、授权、审批、代码提交和部署记录，执行五项内控测试；逐条保留规则口径、时间线和来源证据，支持追加式人工复核，并导出可校验与重放的工作底稿。
+
+- **Evidence:** [control catalog](https://github.com/dev-belly/ControlTrace/blob/main/docs/CONTROL_CATALOG.md), [worked review case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md), [CI](https://github.com/dev-belly/ControlTrace/actions/workflows/ci.yml).
+- **Discuss:** Why a missing join is a data gap rather than proof of control failure; why approval must follow request and precede grant or deployment; why the workpaper hash checks internal consistency but does not prove external source authenticity.
+- **Boundary:** The twelve seeded observations are synthetic test cases, not a measured detection rate. Full extract completeness and real access effectiveness need separate procedures.
+
 ## Bank credit / model validation
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
@@ -49,7 +57,8 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ## Choosing what goes on a resume
 
-- **Audit / IT audit:** AuditLens first; CreditVintage or Interval Financial Risk second.
+- **Financial audit analytics:** AuditLens first; ControlTrace or CreditVintage second.
+- **IT audit / technology risk:** ControlTrace first; AuditLens second.
 - **Bank data / risk analytics:** CreditVintage first; AuditLens or Interval Financial Risk second.
 - **Quant engineering:** TradeForge first; AlphaForge or LedgerX second.
 

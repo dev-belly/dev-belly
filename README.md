@@ -8,7 +8,7 @@ Building reproducible tools for **audit analytics, credit risk, and quantitative
 
 | Interested in | Start here | Evidence to inspect |
 | --- | --- | --- |
-| Audit analytics / risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) | [Review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports), rule evidence, CI |
+| Audit analytics / IT risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) · [ControlTrace](https://github.com/dev-belly/ControlTrace) | [Financial review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) · [IT control case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) · CI |
 | Bank credit / model validation | [CreditVintage](https://github.com/dev-belly/CreditVintage) · [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Out-of-time report](https://dev-belly.github.io/CreditVintage/demo/) · [negative interval result](https://dev-belly.github.io/interval-financial-risk/) |
 | Quant research / execution | [TradeForge](https://github.com/dev-belly/TradeForge) · [AlphaForge](https://github.com/dev-belly/alphaforge) · [LedgerX](https://github.com/dev-belly/LedgerX) | [Execution comparison](https://github.com/dev-belly/TradeForge#sixty-second-tour) · [backtest record](https://dev-belly.github.io/alphaforge/sample-run/) · [ledger reconciliation](https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks) |
 
@@ -30,6 +30,21 @@ review workpaper with validated human outcomes.
 
 Its injected anomalies match the rule definitions; the benchmark measures the
 workflow, not real-world fraud detection.
+
+### [ControlTrace](https://github.com/dev-belly/ControlTrace)
+
+A synthetic IT audit workbench connecting HR events, access requests, roles,
+change tickets, code commits, and production deployments. Five control tests
+produce evidence-linked review candidates; analysts record append-only decisions
+and export workpapers with source hashes and a replay check.
+
+**Start here:** [Run the demo](https://github.com/dev-belly/ControlTrace) ·
+[Control definitions](https://github.com/dev-belly/ControlTrace/blob/main/docs/CONTROL_CATALOG.md) ·
+[Reviewed case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) ·
+[CI](https://github.com/dev-belly/ControlTrace/actions/workflows/ci.yml)
+
+All source records are fictional. A rule hit is a review candidate, not an audit
+opinion; a missing whole-system extract cannot be detected from these records.
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
@@ -97,6 +112,7 @@ Other prototypes: [Digital Craftsman](https://github.com/dev-belly/digital-craft
 | Project | Stack |
 |---|---|
 | AuditLens | Python, pandas, scikit-learn, SQLite / SQLAlchemy, Streamlit |
+| ControlTrace | Python, DuckDB, Streamlit, pytest |
 | CreditVintage | Python, NumPy, scikit-learn, HTML/CSS, pytest, Ruff, mypy |
 | AlphaForge | Python, LightGBM, CVXPY, Parquet / DuckDB, FastAPI, Streamlit |
 | TradeForge | C++20, pybind11, Python, Parquet / DuckDB, FastAPI, Streamlit |
