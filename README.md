@@ -30,7 +30,7 @@ out-of-time testing, and a reviewable static report with test predictions.
 **Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
 [Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
 [Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
-[Passing CI](https://github.com/dev-belly/CreditVintage/actions/runs/36293116150)
+[Passing CI](https://github.com/dev-belly/CreditVintage/actions/runs/36293384782)
 
 All published data is synthetic. The independent calibration worsened Brier in
 this run; the negative result is reported rather than tuned away.
