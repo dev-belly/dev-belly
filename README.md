@@ -25,9 +25,11 @@ workflow, not real-world fraud detection.
 
 A point-in-time credit cohort workflow: application-time features, fully mature
 180-day delinquency labels, separate training and calibration vintages, untouched
-out-of-time testing, and a reviewable static report with test predictions.
+out-of-time testing, early score monitoring before labels mature, and reviewable
+static reports with downloadable rows.
 
 **Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
+[Early score monitor](https://dev-belly.github.io/CreditVintage/monitor/) ·
 [Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
 [Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
 [CI runs](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml)
