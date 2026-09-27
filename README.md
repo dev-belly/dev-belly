@@ -58,11 +58,13 @@ sessions and report both arrival-price and interval-VWAP benchmarks.
 ### [LedgerX](https://github.com/dev-belly/LedgerX)
 
 A double-entry ledger for research fills with exact USD accounting, deterministic
-replay, a hash-chained JSONL journal, and optional external head checkpoints.
-It shows cash, historical inventory cost, and realized P&L; the synthetic demo
-does not claim market valuation or live trading performance.
+replay, a hash-chained JSONL journal, optional external head checkpoints, and
+separate point-in-time quote marks for open positions. The synthetic demo
+reconciles historical cost, realized P&L, and marked unrealized P&L without
+claiming live trading performance.
 
 **Explore:** [Accounting model](https://github.com/dev-belly/LedgerX#python-api) ·
+[Valuation example](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) ·
 [Reproducible demo](https://github.com/dev-belly/LedgerX#run-it) ·
 [CI runs](https://github.com/dev-belly/LedgerX/actions/workflows/ci.yml)
 
