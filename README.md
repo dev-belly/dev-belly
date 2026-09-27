@@ -4,6 +4,16 @@ Building reproducible tools for **audit analytics, credit risk, and quantitative
 
 关注审计数据分析、信贷风险与量化研究，把方法做成可以运行、检查和复现的项目。
 
+## Start with the role
+
+| Interested in | Start here | Evidence to inspect |
+| --- | --- | --- |
+| Audit analytics / risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) | [Review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports), rule evidence, CI |
+| Bank credit / model validation | [CreditVintage](https://github.com/dev-belly/CreditVintage) · [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Out-of-time report](https://dev-belly.github.io/CreditVintage/demo/) · [negative interval result](https://dev-belly.github.io/interval-financial-risk/) |
+| Quant research / execution | [TradeForge](https://github.com/dev-belly/TradeForge) · [AlphaForge](https://github.com/dev-belly/alphaforge) · [LedgerX](https://github.com/dev-belly/LedgerX) | [Execution comparison](https://github.com/dev-belly/TradeForge#sixty-second-tour) · [backtest record](https://dev-belly.github.io/alphaforge/sample-run/) · [ledger reconciliation](https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks) |
+
+[Project evidence and interview notes](PROJECT_BRIEFS.md) collects concise, source-linked results and the assumptions worth challenging. All published financial examples use synthetic data; none demonstrate production performance.
+
 ## Selected projects
 
 ### [AuditLens](https://github.com/dev-belly/AuditLens)
@@ -79,6 +89,8 @@ claiming live trading performance.
 | [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows with a Python backend and React interface. |
 
 [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) also provides a local simulated chat mode and a separately configured private model connection.
+
+Other prototypes: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman) (WeChat mini program for student credentials), [Ranxin](https://github.com/dev-belly/ranxin-mini-program) (team-built tie-dye mini program, local Mock mode), and [Goose Leg Auntie case study](https://github.com/dev-belly/goose-leg-auntie-site) (static analysis site). They are separate from the financial research work above.
 
 ## Tools & research practice
 
