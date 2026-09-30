@@ -1,20 +1,39 @@
 # dev-belly
 
-Building reproducible tools for **audit analytics, credit risk, and quantitative research**.
+Building reproducible tools for **credit risk, quantitative research, and audit analytics**.
 
-关注审计数据分析、信贷风险与量化研究，把方法做成可以运行、检查和复现的项目。
+关注金融数据分析、信贷风控与量化研究，把方法做成可以运行、检查和复现的项目。
 
 ## Start with the role
 
 | Interested in | Start here | Evidence to inspect |
 | --- | --- | --- |
-| Audit analytics / IT risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) · [ControlTrace](https://github.com/dev-belly/ControlTrace) | [Financial review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) · [IT control case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) · CI |
 | Bank credit / model validation | [CreditVintage](https://github.com/dev-belly/CreditVintage) · [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Out-of-time report](https://dev-belly.github.io/CreditVintage/demo/) · [negative interval result](https://dev-belly.github.io/interval-financial-risk/) |
+| Audit analytics / IT risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) · [ControlTrace](https://github.com/dev-belly/ControlTrace) | [Financial review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) · [IT control case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) · CI |
 | Quant research / execution | [TradeForge](https://github.com/dev-belly/TradeForge) · [AlphaForge](https://github.com/dev-belly/alphaforge) · [LedgerX](https://github.com/dev-belly/LedgerX) | [Execution comparison](https://github.com/dev-belly/TradeForge#sixty-second-tour) · [backtest record](https://dev-belly.github.io/alphaforge/sample-run/) · [ledger reconciliation](https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks) |
 
 [Project evidence and interview notes](PROJECT_BRIEFS.md) collects concise, source-linked results and the assumptions worth challenging. All published financial examples use synthetic data; none demonstrate production performance.
 
 ## Selected projects
+
+### [CreditVintage](https://github.com/dev-belly/CreditVintage)
+
+A point-in-time credit cohort workflow: application-time features, fully mature
+180-day delinquency labels, separate training and calibration vintages, untouched
+out-of-time testing, early score monitoring before labels mature, and reviewable
+static reports with downloadable rows. Independent checks recompute report metrics
+and score drift, enforce maturity windows and review capacity, and reject invalid
+numeric claims or malformed evidence tables.
+
+**Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
+[Early score monitor](https://dev-belly.github.io/CreditVintage/monitor/) ·
+[Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
+[Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
+[CI runs](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml) ·
+[Report verification tests](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_artifact_contract.py)
+
+All published data is synthetic. The independent calibration worsened Brier in
+this run; the negative result is reported rather than tuned away.
 
 ### [AuditLens](https://github.com/dev-belly/AuditLens)
 
@@ -45,22 +64,6 @@ and export workpapers with source hashes and a replay check.
 
 All source records are fictional. A rule hit is a review candidate, not an audit
 opinion; a missing whole-system extract cannot be detected from these records.
-
-### [CreditVintage](https://github.com/dev-belly/CreditVintage)
-
-A point-in-time credit cohort workflow: application-time features, fully mature
-180-day delinquency labels, separate training and calibration vintages, untouched
-out-of-time testing, early score monitoring before labels mature, and reviewable
-static reports with downloadable rows.
-
-**Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
-[Early score monitor](https://dev-belly.github.io/CreditVintage/monitor/) ·
-[Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
-[Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
-[CI runs](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml)
-
-All published data is synthetic. The independent calibration worsened Brier in
-this run; the negative result is reported rather than tuned away.
 
 ### [AlphaForge](https://github.com/dev-belly/alphaforge)
 
