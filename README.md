@@ -1,126 +1,107 @@
-# dev-belly
+<div align="center">
+  <img src="assets/profile-hero.svg" width="100%" alt="dev-belly — financial data, credit risk and quantitative research systems" />
 
-Building reproducible tools for **credit risk, quantitative research, and audit analytics**.
+  <br />
 
-关注金融数据分析、信贷风控与量化研究，把方法做成可以运行、检查和复现的项目。
+  <b>CUFE · Data Science & Big Data Technology</b><br />
+  金融数据工程 · 信贷风控 · 量化研究
 
-## Start with the role
+  <br /><br />
 
-| Interested in | Start here | Evidence to inspect |
-| --- | --- | --- |
-| Bank credit / model validation | [CreditVintage](https://github.com/dev-belly/CreditVintage) · [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Out-of-time report](https://dev-belly.github.io/CreditVintage/demo/) · [negative interval result](https://dev-belly.github.io/interval-financial-risk/) |
-| Audit analytics / IT risk consulting | [AuditLens](https://github.com/dev-belly/AuditLens) · [ControlTrace](https://github.com/dev-belly/ControlTrace) | [Financial review workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) · [IT control case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) · CI |
-| Quant research / execution | [TradeForge](https://github.com/dev-belly/TradeForge) · [AlphaForge](https://github.com/dev-belly/alphaforge) · [LedgerX](https://github.com/dev-belly/LedgerX) | [Execution comparison](https://github.com/dev-belly/TradeForge#sixty-second-tour) · [backtest record](https://dev-belly.github.io/alphaforge/sample-run/) · [ledger reconciliation](https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks) |
+  <a href="#selected-work"><b>Explore projects</b></a> &nbsp; / &nbsp;
+  <a href="#live-research-desk"><b>Open reports</b></a> &nbsp; / &nbsp;
+  <a href="PROJECT_BRIEFS.md"><b>Evidence & interview notes</b></a>
 
-[Project evidence and interview notes](PROJECT_BRIEFS.md) collects concise, source-linked results and the assumptions worth challenging. All published financial examples use synthetic data; none demonstrate production performance.
+  <br /><br />
 
-## Selected projects
+  <img src="assets/stack.svg" width="100%" alt="Python, SQL, C++20, scikit-learn, LightGBM, FastAPI and PyTorch" />
+</div>
 
-### [CreditVintage](https://github.com/dev-belly/CreditVintage)
+<br />
 
-A point-in-time credit cohort workflow: application-time features, fully mature
-180-day delinquency labels, separate training and calibration vintages, untouched
-out-of-time testing, early score monitoring before labels mature, and reviewable
-static reports with downloadable rows. Independent checks recompute report metrics
-and score drift, enforce maturity windows and review capacity, and reject invalid
-numeric claims or malformed evidence tables.
+I build research systems around **data availability, measured assumptions, and reproducible results**. My projects connect the financial question to the data pipeline, model evaluation, and the evidence needed to inspect the answer.
 
-**Start here:** [Live synthetic report](https://dev-belly.github.io/CreditVintage/demo/) ·
-[Early score monitor](https://dev-belly.github.io/CreditVintage/monitor/) ·
-[Methodology & run instructions](https://github.com/dev-belly/CreditVintage#what-is-actually-evaluated) ·
-[Predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv) ·
-[CI runs](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml) ·
-[Report verification tests](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_artifact_contract.py)
+关注金融数据分析、信贷风险与量化系统。希望每一个结果，都能追到数据来源、方法口径和可运行的代码。
 
-All published data is synthetic. The independent calibration worsened Brier in
-this run; the negative result is reported rather than tuned away.
+## Selected work
 
-### [AuditLens](https://github.com/dev-belly/AuditLens)
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage.svg" width="100%" alt="CreditVintage: point-in-time credit cohorts, mature labels and independently verified reports" /></a>
+<br />
+<a href="https://github.com/dev-belly/CreditVintage"><b>Source</b></a> · <a href="https://dev-belly.github.io/CreditVintage/demo/">Risk report</a> · <a href="https://dev-belly.github.io/CreditVintage/monitor/">Score monitor</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/alphaforge"><img src="assets/alphaforge.svg" width="100%" alt="AlphaForge: factors, walk-forward models, portfolio optimization and backtest reports" /></a>
+<br />
+<a href="https://github.com/dev-belly/alphaforge"><b>Source</b></a> · <a href="https://dev-belly.github.io/alphaforge/">Docs</a> · <a href="https://dev-belly.github.io/alphaforge/sample-run/">Computed example</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/TradeForge"><img src="assets/tradeforge.svg" width="100%" alt="TradeForge: a C++20 order book, Python execution research and causality and parity checks" /></a>
+<br />
+<a href="https://github.com/dev-belly/TradeForge"><b>Source</b></a> · <a href="https://github.com/dev-belly/TradeForge#sixty-second-tour">Execution demo</a> · <a href="https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible">Verification</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/AuditLens"><img src="assets/auditlens.svg" width="100%" alt="AuditLens: nine audit procedures over a synthetic 30,128-voucher ledger, with explainable review evidence" /></a>
+<br />
+<a href="https://github.com/dev-belly/AuditLens"><b>Source</b></a> · <a href="https://github.com/dev-belly/AuditLens#dashboard">Dashboard</a> · <a href="https://github.com/dev-belly/AuditLens/tree/main/outputs/reports">Workpapers</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/ControlTrace"><img src="assets/controltrace.svg" width="100%" alt="ControlTrace: five IT control tests, linked source evidence, human reviews and replayable workpapers" /></a>
+<br />
+<a href="https://github.com/dev-belly/ControlTrace"><b>Source</b></a> · <a href="https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md">Case study</a> · <a href="https://github.com/dev-belly/ControlTrace/blob/main/docs/CONTROL_CATALOG.md">Control catalog</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/LedgerX"><img src="assets/ledgerx.svg" width="100%" alt="LedgerX: exact Decimal double-entry accounting, deterministic replay and available-quote portfolio valuation" /></a>
+<br />
+<a href="https://github.com/dev-belly/LedgerX"><b>Source</b></a> · <a href="https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks">Valuation model</a> · <a href="https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json">Example</a>
+</td>
+</tr>
+</table>
 
-An audit analytics workflow for a synthetic 30,000-voucher ledger: nine review
-procedures, Benford analysis, Isolation Forest, an explainable risk score, a
-queryable SQLite warehouse, a six-page reviewer dashboard, and a budgeted
-review workpaper with validated human outcomes.
+**Financial examples use synthetic data.** They demonstrate the implemented workflow and its checks; their metrics do not establish live investment performance or real borrower risk.
 
-**Start here:** [Source & setup](https://github.com/dev-belly/AuditLens#quickstart) ·
-[Methodology and limitations](https://github.com/dev-belly/AuditLens/blob/main/docs/methodology.md) ·
-[Review workpaper](https://github.com/dev-belly/AuditLens#audit-review-workpaper) ·
-[Reproducible reports](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports)
+## Live research desk
 
-Its injected anomalies match the rule definitions; the benchmark measures the
-workflow, not real-world fraud detection.
+| Open | What to inspect |
+| :--- | :--- |
+| [CreditVintage · evaluation](https://dev-belly.github.io/CreditVintage/demo/) | Chronological cohorts, raw and calibrated probabilities, downloadable predictions and review capacity. |
+| [CreditVintage · early monitor](https://dev-belly.github.io/CreditVintage/monitor/) | Score drift before current outcomes mature; reference bins and row-level evidence. |
+| [AlphaForge · computed run](https://dev-belly.github.io/alphaforge/sample-run/) | The signal, execution timing, transaction-cost assumptions and backtest artifacts. |
+| [Interval Financial Risk · experiment](https://dev-belly.github.io/interval-financial-risk/) | A retained negative result: distributional features reduced AUC in the synthetic experiment. |
+| [FactorLab · A-share research](https://dev-belly.github.io/ashare-multifactor-research/) | Factor evaluation and purged validation; the default run is synthetic. |
 
-### [ControlTrace](https://github.com/dev-belly/ControlTrace)
+## Engineering priorities
 
-A synthetic IT audit workbench connecting HR events, access requests, roles,
-change tickets, code commits, and production deployments. Five control tests
-produce evidence-linked review candidates; analysts record append-only decisions
-and export workpapers with source hashes and a replay check.
+| Data | Evaluation | Evidence |
+| :--- | :--- | :--- |
+| Publication time, schema contracts, source lineage and explicit missingness. | Chronological splits, fixed baselines, separate calibration and measured costs. | Saved rows, deterministic replay, independent metric checks and CI. |
 
-**Start here:** [Run the demo](https://github.com/dev-belly/ControlTrace) ·
-[Control definitions](https://github.com/dev-belly/ControlTrace/blob/main/docs/CONTROL_CATALOG.md) ·
-[Reviewed case](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) ·
-[CI](https://github.com/dev-belly/ControlTrace/actions/workflows/ci.yml)
+[Project evidence](PROJECT_BRIEFS.md) contains source-linked resume wording and interview questions. [Portfolio review](PROJECT_REVIEW.md) explains which projects to lead with for a role and which assumptions deserve a closer look.
 
-All source records are fictional. A rule hit is a review candidate, not an audit
-opinion; a missing whole-system extract cannot be detected from these records.
+<details>
+<summary><b>Research lab & other builds</b></summary>
 
-### [AlphaForge](https://github.com/dev-belly/alphaforge)
-
-A Python research pipeline connecting factor evaluation, walk-forward modeling, portfolio construction, transaction costs, and HTML reports. Includes a FastAPI service and a Streamlit dashboard.
-
-**Start here:** [Documentation](https://dev-belly.github.io/alphaforge/) · [Computed sample](https://dev-belly.github.io/alphaforge/sample-run/) · [Source & tests](https://github.com/dev-belly/alphaforge)
-
-The bundled sample data is synthetic; its results demonstrate the workflow and do not establish a tradable edge.
-
-### [TradeForge](https://github.com/dev-belly/TradeForge)
-
-An event-driven market microstructure and execution research platform with a C++20
-book core and Python reference model. Its published cost comparisons use synthetic
-sessions and report both arrival-price and interval-VWAP benchmarks.
-
-**Explore:** [Reproducible demo](https://github.com/dev-belly/TradeForge#sixty-second-tour) ·
-[Design and test evidence](https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible) ·
-[Transaction cost guide](https://github.com/dev-belly/TradeForge/blob/main/docs/guides/tca.md)
-
-### [LedgerX](https://github.com/dev-belly/LedgerX)
-
-A double-entry ledger for research fills with exact USD accounting, deterministic
-replay, a hash-chained JSONL journal, optional external head checkpoints, and
-separate point-in-time quote marks for open positions. The synthetic demo
-reconciles historical cost, realized P&L, and marked unrealized P&L without
-claiming live trading performance.
-
-**Explore:** [Accounting model](https://github.com/dev-belly/LedgerX#python-api) ·
-[Valuation example](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) ·
-[Reproducible demo](https://github.com/dev-belly/LedgerX#run-it) ·
-[CI runs](https://github.com/dev-belly/LedgerX/actions/workflows/ci.yml)
-
-## More work
+<br />
 
 | Project | Focus |
-| --- | --- |
-| [FactorLab · A-share Multi-Factor Research](https://github.com/dev-belly/ashare-multifactor-research) | [Live report](https://dev-belly.github.io/ashare-multifactor-research/), [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md), and purged evaluation. The default run is synthetic; real-market point-in-time statement normalization is still in progress. |
-| [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | [Browser demo](https://dev-belly.github.io/highdim-causal-allocation-lab/) for simulated covariate adjustment, causal estimation, and robust allocation. |
-| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | [Experiment report](https://dev-belly.github.io/interval-financial-risk/) comparing point and distributional features, with temporal validation and downloadable predictions. |
-| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | [Three-seed benchmark](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17): fixed-checkpoint graph ablations, saved predictions and independent metric checks. |
+| :--- | :--- |
+| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | Saved predictions, graph ablations and a [three-seed benchmark](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17). |
+| [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | Simulated covariate adjustment, causal estimation and robust allocation; [browser demo](https://dev-belly.github.io/highdim-causal-allocation-lab/). |
+| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | Expanding-window financial risk experiments with distributional features. |
+| [FactorLab](https://github.com/dev-belly/ashare-multifactor-research) | A-share multi-factor research; [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md). |
 | [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows with a Python backend and React interface. |
+| [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) | Local simulated chat and a separately configured private model connection. |
 
-[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) also provides a local simulated chat mode and a separately configured private model connection.
+Earlier application work: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman), [Ranxin](https://github.com/dev-belly/ranxin-mini-program), and the [Goose Leg Auntie case study](https://github.com/dev-belly/goose-leg-auntie-site).
 
-Other prototypes: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman) (WeChat mini program for student credentials), [Ranxin](https://github.com/dev-belly/ranxin-mini-program) (team-built tie-dye mini program, local Mock mode), and [Goose Leg Auntie case study](https://github.com/dev-belly/goose-leg-auntie-site) (static analysis site). They are separate from the financial research work above.
+</details>
 
-## Tools & research practice
+---
 
-| Project | Stack |
-|---|---|
-| AuditLens | Python, pandas, scikit-learn, SQLite / SQLAlchemy, Streamlit |
-| ControlTrace | Python, DuckDB, Streamlit, pytest |
-| CreditVintage | Python, NumPy, scikit-learn, HTML/CSS, pytest, Ruff, mypy |
-| AlphaForge | Python, LightGBM, CVXPY, Parquet / DuckDB, FastAPI, Streamlit |
-| TradeForge | C++20, pybind11, Python, Parquet / DuckDB, FastAPI, Streamlit |
-| LedgerX | Python standard library, Decimal, pytest, Ruff, mypy |
-
-Across the other projects I also use PyTorch, TypeScript and React.
-
-I focus on explicit data provenance, reproducible experiments, baseline comparisons, and tests that check model and application behavior. Each repository documents its setup and current limitations.
+<p align="center"><sub>Financial questions. Explicit assumptions. Inspectable systems.</sub></p>
