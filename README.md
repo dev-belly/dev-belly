@@ -33,6 +33,18 @@ I build research systems around **data availability, measured assumptions, and r
 <a href="https://github.com/dev-belly/CreditVintage"><b>Source</b></a> · <a href="https://dev-belly.github.io/CreditVintage/demo/">Risk report</a> · <a href="https://dev-belly.github.io/CreditVintage/monitor/">Score monitor</a>
 </td>
 <td width="50%" valign="top">
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: availability-aware SQL features, source revisions, tombstones and independent replay" /></a>
+<br />
+<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/demo/snapshots.csv">Snapshot lineage</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Interview notes</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: borrower-level defaults, 20,000 common random paths, discrete VaR and ES, and additive sector risk" /></a>
+<br />
+<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/CASE_STUDY.md">Computed case</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv">Tail attribution</a>
+</td>
+<td width="50%" valign="top">
 <a href="https://github.com/dev-belly/alphaforge"><img src="assets/alphaforge.svg" width="100%" alt="AlphaForge: factors, walk-forward models, portfolio optimization and backtest reports" /></a>
 <br />
 <a href="https://github.com/dev-belly/alphaforge"><b>Source</b></a> · <a href="https://dev-belly.github.io/alphaforge/">Docs</a> · <a href="https://dev-belly.github.io/alphaforge/sample-run/">Computed example</a>

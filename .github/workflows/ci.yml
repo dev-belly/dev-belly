@@ -1,0 +1,27 @@
+name: Profile assets
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild self-contained SVGs
+        run: |
+          python scripts/build_profile_assets.py
+          git diff --exit-code -- assets
+      - name: Check SVG XML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          for path in Path('assets').glob('*.svg'):
+              ET.parse(path)
+          PY

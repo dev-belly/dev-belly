@@ -22,6 +22,24 @@ These are **candidate resume bullets**, not claims about live customers or reali
 - **Discuss:** Why test-fold averages differ from a pooled ROC curve; why nominal 90% conformal coverage with a near-unit-width interval is not useful discrimination; why same-company quarters weaken independence.
 - **Boundary:** Labels are synthetic contemporaneous outcomes, not real future defaults. Financial statement publication timing remains unvalidated.
 
+## Financial data engineering / portfolio risk
+
+### [PITBridge](https://github.com/dev-belly/PITBridge)
+
+> 构建金融多源数据时点特征组件，使用 SQLite 窗口函数处理公开/入库延迟、历史修订、撤销及特征有效期，保留记录级溯源；用独立 Python 枚举及随机历史对照验证 SQL 输出，在 45 次合成特征查询中识别事件时间基线的 11 次未来信息使用，并实现报告哈希校验与语义重放。
+
+- **Evidence:** [counterexamples](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [snapshot lineage](https://github.com/dev-belly/PITBridge/blob/main/demo/snapshots.csv), [temporal tests](https://github.com/dev-belly/PITBridge/blob/main/tests/test_temporal.py), [中文面试问答](https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md).
+- **Discuss:** Event time versus knowledge time; highest known revision versus latest arrival; why filtering tombstones before ranking resurrects deleted observations; why 11 future-data selections and 16 changed selections are different counts.
+- **Boundary:** Compact synthetic fixture, scalar observations and no distributed benchmark. It is a separate component from CreditVintage, with no integrated pipeline claimed.
+
+### [StressAtlas](https://github.com/dev-belly/StressAtlas)
+
+> 构建信用组合压力测试研究组件，基于全局/行业高斯因子及借款人共享违约事件，在 160 笔贷款、80 个借款人的合成组合上复用 20,000 条随机路径比较五个情景；输出解析期望损失、99% VaR/ES、配对均值差异标准误及可加总的行业尾部贡献，验证贷款拆分不变性、离散尾部并列值和报告语义重放。
+
+- **Evidence:** [computed scenarios](https://github.com/dev-belly/StressAtlas/blob/main/demo/scenarios.csv), [sector contributions](https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv), [case study](https://github.com/dev-belly/StressAtlas/blob/main/docs/CASE_STUDY.md), [中文面试问答](https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md).
+- **Discuss:** Why correlation can change the tail while analytic EL stays constant; why loans to one obligor share a default; common random numbers and paired mean SE; fixed empirical tail mass and equal boundary-tie weights.
+- **Boundary:** One-period Gaussian-factor prototype and assumed PD/LGD/EAD shocks. No regulatory-capital implementation or empirical macro calibration. Mean MC SE is not a VaR/ES confidence interval.
+
 ## Audit / risk consulting
 
 ### [AuditLens](https://github.com/dev-belly/AuditLens)
@@ -61,7 +79,9 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 - **Financial audit analytics:** AuditLens first; ControlTrace or CreditVintage second.
 - **IT audit / technology risk:** ControlTrace first; AuditLens second.
-- **Bank data / risk analytics:** CreditVintage first; AuditLens or Interval Financial Risk second.
+- **Bank data / risk analytics:** CreditVintage first; PITBridge or StressAtlas second, according to whether the role emphasizes data pipelines or portfolio risk.
+- **Financial data engineering:** PITBridge first; CreditVintage second.
+- **Portfolio risk analytics:** StressAtlas first; CreditVintage second.
 - **Quant engineering:** TradeForge first; AlphaForge or LedgerX second.
 
 The remaining repositories include exploratory research and application prototypes. Their READMEs describe the implemented scope and limitations; do not present every repository as an equal-depth flagship project.

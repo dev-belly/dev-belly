@@ -1,6 +1,6 @@
-# Portfolio review · 2026-09-30
+# Portfolio review · 2026-10-01
 
-本次复查覆盖六个主项目的展示入口、方法说明、保存的结果文件和当前 `main` 的 CI 状态。项目定位应由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
+此前六个主项目的复查记录保留如下。本次补齐 PITBridge 与 StressAtlas 的实现、保存结果、双语文档和反例测试，并将八个项目按银行数据与风控主线展示。新项目 CI 状态以发布后的 Actions 运行记录为准。项目定位应由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 ## Lead with the role
 
@@ -15,7 +15,7 @@
 
 ## What changed in this review
 
-- 主页采用统一的深色横幅和六张项目卡片；每张卡片直接连接源码、演示或可检查的成果。
+- 主页采用统一的深色横幅和八张项目卡片；每张卡片直接连接源码、演示或可检查的成果。
 - 银行与风控方向优先展示 CreditVintage；AlphaForge 和 TradeForge 体现研究工程与底层实现能力。
 - 在线报告集中放在一个入口；探索性研究和早期应用收进折叠区，便于读者迅速找到主线。
 - [PROJECT_BRIEFS.md](PROJECT_BRIEFS.md) 保留有来源的简历表述和面试问题。
@@ -33,11 +33,21 @@
 | ControlTrace | `f7cc605` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/36511726878) |
 | LedgerX | `ba94961` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/36420275411) |
 
-## Where the portfolio has room to grow
+## New components completed on 2026-10-01
 
-现有作品较好地覆盖了模型评估、研究流程、财务异常、执行模拟与记账。继续建设时，优先补上两项可以深入解释的能力：
+| Component | Implemented evidence | Boundary |
+| :--- | :--- | :--- |
+| [PITBridge](https://github.com/dev-belly/PITBridge) | 发生/公开/入库时点、已知修订、撤销、有效期；SQL 与独立 Python 对照；45 次查询的逐条证据。 | 合成标量数据；不宣称分布式吞吐量或已接入 CreditVintage。 |
+| [StressAtlas](https://github.com/dev-belly/StressAtlas) | 160 笔贷款、80 个借款人、20,000 条公共随机路径；五个情景、离散 ES 和行业可加总贡献。 | 一周期高斯模型及假设压力；没有宏观校准或监管资本计算。 |
+
+新项目在本地通过反例与合同测试、保存证据重放和可安装命令行检查。发布后的 CI 记录见各仓库 Actions 页面。
+
+## Next evidence gap
+
+现有作品较好地覆盖了模型评估、研究流程、财务异常、执行模拟与记账。PITBridge 与 StressAtlas 已补上两项可以深入解释的能力：
 
 1. **金融数据工程：** 多来源数据在决策时点的可得性、迟到与修订记录、质量约束、SQL 特征计算、源记录级溯源。
 2. **组合风控：** 明确的一年期 PD/LGD/EAD 假设、违约相关性、压力情景、尾部损失及可重算的分组贡献。
 
-这些方向能够与现有项目形成完整的业务链条。增加真实公开数据时，还需要同时保存许可、发布时间、标签定义和复现配置。
+这些组件目前分别演示，不能宣称已有集成业务链条。下一步的证据缺口是可许可、可保存发布时间的公开真实数据。增加真实公开数据时，还需要同时保存许可、发布时间、标签定义和复现配置。
+
