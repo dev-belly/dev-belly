@@ -2,6 +2,26 @@
 
 These are **candidate resume bullets**, not claims about live customers or realized investment returns. Every quoted result is from a linked synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
 
+## Financial data engineering
+
+### [PITBridge](https://github.com/dev-belly/PITBridge)
+
+> 构建金融多源数据的时点特征快照，区分观测、发布与入库时间，用 SQLite 窗口函数选择当时可见的修订并处理删除和新鲜度；通过独立 Python 枚举核验 15 个合成历史决策、45 次特征查找，展示仅按业务时间关联会选入未来信息的 11 个反例；补充 CSV 文本保护与证据重放，覆盖 44 项自动化测试。
+
+- **Evidence:** [online report](https://dev-belly.github.io/PITBridge/), [source history](https://github.com/dev-belly/PITBridge/blob/main/demo/inputs.json), [selected-record lineage](https://github.com/dev-belly/PITBridge/blob/main/demo/snapshots.csv), [counterexample comparison](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [CI](https://github.com/dev-belly/PITBridge/actions/workflows/ci.yml).
+- **Discuss:** Why availability must include publication and ingestion; why eligibility comes before revision ranking; why an older-period correction cannot replace the latest period; why deleting one observation must not revive its earlier revision; why a missing feature must keep its reason.
+- **Boundary:** Scalar observations with source-supplied timestamps and revisions. No production ingestion, distributed-scale benchmark, rolling aggregation or integrated CreditVintage pipeline is claimed. The 11 counterexamples are fixture counts, not a real population leakage rate.
+
+## Credit portfolio risk
+
+### [StressAtlas](https://github.com/dev-belly/StressAtlas)
+
+> 实现含全局与行业因子的信用组合压力模拟，同一借款人的多笔贷款共享违约事件，以共同随机驱动比较情景；对 160 笔合成贷款、80 个借款人运行 5 组各 20,000 条路径，计算经验 VaR、支持并列边界分数权重的 ES、可加总的行业贡献及情景差异的配对标准误；支持保存输入与随机种子的全量重放，覆盖 48 项自动化测试。
+
+- **Evidence:** [online report](https://dev-belly.github.io/StressAtlas/), [scenario table](https://github.com/dev-belly/StressAtlas/blob/main/demo/scenarios.csv), [sector attribution](https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv), [model contract](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md), [CI](https://github.com/dev-belly/StressAtlas/actions/workflows/ci.yml).
+- **Discuss:** Why splitting a loan must not create extra independent defaults; why changing correlation leaves analytical EL unchanged when marginal inputs stay fixed; why averaging all losses at or above VaR can mismeasure ES; why industry contributions use the portfolio's tail weights; what paired mean-loss SE measures.
+- **Boundary:** Synthetic parameters, one-period Gaussian factors and deterministic scenario LGD/EAD. No historical calibration, real borrower forecast or regulatory capital is claimed. The exported CSV contains the first 200 paths; full 20,000-path replay comes from saved inputs and seed.
+
 ## Bank credit / model validation
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
@@ -61,7 +81,9 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 - **Financial audit analytics:** AuditLens first; ControlTrace or CreditVintage second.
 - **IT audit / technology risk:** ControlTrace first; AuditLens second.
-- **Bank data / risk analytics:** CreditVintage first; AuditLens or Interval Financial Risk second.
+- **Financial data engineering:** PITBridge first; CreditVintage second.
+- **Bank model validation:** CreditVintage first; PITBridge second.
+- **Portfolio risk analytics:** StressAtlas first; CreditVintage second.
 - **Quant engineering:** TradeForge first; AlphaForge or LedgerX second.
 
 The remaining repositories include exploratory research and application prototypes. Their READMEs describe the implemented scope and limitations; do not present every repository as an equal-depth flagship project.

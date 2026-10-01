@@ -8,7 +8,7 @@
 
   <br /><br />
 
-  <a href="#selected-work"><b>Explore projects</b></a> &nbsp; / &nbsp;
+  <a href="#new-systems"><b>Explore projects</b></a> &nbsp; / &nbsp;
   <a href="#live-research-desk"><b>Open reports</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>Evidence & interview notes</b></a>
 
@@ -22,6 +22,25 @@
 I build research systems around **data availability, measured assumptions, and reproducible results**. My projects connect the financial question to the data pipeline, model evaluation, and the evidence needed to inspect the answer.
 
 关注金融数据分析、信贷风险与量化系统。希望每一个结果，都能追到数据来源、方法口径和可运行的代码。
+
+## New systems
+
+Two focused research components for financial data engineering and portfolio risk. Their saved examples are synthetic and independently inspectable.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: availability-aware financial snapshots, revision lineage and a Python replay oracle" /></a>
+<br />
+<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Data evidence</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: global and sector risk factors, one default per borrower and exact empirical tail attribution" /></a>
+<br />
+<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+</td>
+</tr>
+</table>
 
 ## Selected work
 
@@ -70,6 +89,8 @@ I build research systems around **data availability, measured assumptions, and r
 
 | Open | What to inspect |
 | :--- | :--- |
+| [PITBridge · historical lookups](https://dev-belly.github.io/PITBridge/) | Compare decision-time features with an explicitly unsafe event-only baseline; inspect record IDs and missingness. |
+| [StressAtlas · portfolio scenarios](https://dev-belly.github.io/StressAtlas/) | Borrower-level defaults, paired loss changes, discrete-tail ES and additive industry contributions. |
 | [CreditVintage · evaluation](https://dev-belly.github.io/CreditVintage/demo/) | Chronological cohorts, raw and calibrated probabilities, downloadable predictions and review capacity. |
 | [CreditVintage · early monitor](https://dev-belly.github.io/CreditVintage/monitor/) | Score drift before current outcomes mature; reference bins and row-level evidence. |
 | [AlphaForge · computed run](https://dev-belly.github.io/alphaforge/sample-run/) | The signal, execution timing, transaction-cost assumptions and backtest artifacts. |
