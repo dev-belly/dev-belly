@@ -1,27 +1,26 @@
-name: Profile assets
+name: Profile checks
+
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
-  assets:
+  profile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Rebuild self-contained SVGs
+      - name: Check graphics, project cards and local navigation
+        run: python scripts/check_profile.py
+      - name: Rebuild graphics and check for uncommitted outputs
         run: |
           python scripts/build_profile_assets.py
           git diff --exit-code -- assets
-      - name: Check SVG XML
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import xml.etree.ElementTree as ET
-          for path in Path('assets').glob('*.svg'):
-              ET.parse(path)
-          PY
+          test -z "$(git ls-files --others --exclude-standard assets)"

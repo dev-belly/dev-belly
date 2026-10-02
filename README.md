@@ -8,7 +8,7 @@
 
   <br /><br />
 
-  <a href="#selected-work"><b>Explore projects</b></a> &nbsp; / &nbsp;
+  <a href="#new-systems"><b>Explore projects</b></a> &nbsp; / &nbsp;
   <a href="#live-research-desk"><b>Open reports</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>Evidence & interview notes</b></a>
 
@@ -23,6 +23,25 @@ I build research systems around **data availability, measured assumptions, and r
 
 关注金融数据分析、信贷风险与量化系统。希望每一个结果，都能追到数据来源、方法口径和可运行的代码。
 
+## New systems
+
+Two focused research components for financial data engineering and portfolio risk. Their saved examples are synthetic and independently inspectable.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: availability-aware financial snapshots, revision lineage and a Python replay oracle" /></a>
+<br />
+<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Data evidence</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: global and sector risk factors, one default per borrower and exact empirical tail attribution" /></a>
+<br />
+<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+</td>
+</tr>
+</table>
+
 ## Selected work
 
 <table>
@@ -31,18 +50,6 @@ I build research systems around **data availability, measured assumptions, and r
 <a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage.svg" width="100%" alt="CreditVintage: point-in-time credit cohorts, mature labels and independently verified reports" /></a>
 <br />
 <a href="https://github.com/dev-belly/CreditVintage"><b>Source</b></a> · <a href="https://dev-belly.github.io/CreditVintage/demo/">Risk report</a> · <a href="https://dev-belly.github.io/CreditVintage/monitor/">Score monitor</a>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: availability-aware SQL features, source revisions, tombstones and independent replay" /></a>
-<br />
-<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/demo/snapshots.csv">Snapshot lineage</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Interview notes</a>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: borrower-level defaults, 20,000 common random paths, discrete VaR and ES, and additive sector risk" /></a>
-<br />
-<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/CASE_STUDY.md">Computed case</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv">Tail attribution</a>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/dev-belly/alphaforge"><img src="assets/alphaforge.svg" width="100%" alt="AlphaForge: factors, walk-forward models, portfolio optimization and backtest reports" /></a>
@@ -82,6 +89,8 @@ I build research systems around **data availability, measured assumptions, and r
 
 | Open | What to inspect |
 | :--- | :--- |
+| [PITBridge · historical lookups](https://dev-belly.github.io/PITBridge/) | Compare decision-time features with an explicitly unsafe event-only baseline; inspect record IDs and missingness. |
+| [StressAtlas · portfolio scenarios](https://dev-belly.github.io/StressAtlas/) | Borrower-level defaults, paired loss changes, discrete-tail ES and additive industry contributions. |
 | [CreditVintage · evaluation](https://dev-belly.github.io/CreditVintage/demo/) | Chronological cohorts, raw and calibrated probabilities, downloadable predictions and review capacity. |
 | [CreditVintage · early monitor](https://dev-belly.github.io/CreditVintage/monitor/) | Score drift before current outcomes mature; reference bins and row-level evidence. |
 | [AlphaForge · computed run](https://dev-belly.github.io/alphaforge/sample-run/) | The signal, execution timing, transaction-cost assumptions and backtest artifacts. |
@@ -95,6 +104,8 @@ I build research systems around **data availability, measured assumptions, and r
 | Publication time, schema contracts, source lineage and explicit missingness. | Chronological splits, fixed baselines, separate calibration and measured costs. | Saved rows, deterministic replay, independent metric checks and CI. |
 
 [Project evidence](PROJECT_BRIEFS.md) contains source-linked resume wording and interview questions. [Portfolio review](PROJECT_REVIEW.md) explains which projects to lead with for a role and which assumptions deserve a closer look.
+
+[Profile checks](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml) validate the generated graphics, project-card links and local navigation on every change.
 
 <details>
 <summary><b>Research lab & other builds</b></summary>

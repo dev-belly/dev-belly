@@ -67,21 +67,21 @@ def hero():
 
 
 PROJECTS = [
+    ("pitbridge", "07", "PITBridge", "FINANCIAL DATA", "#6be6cc",
+     "Decision-time source availability.", "Revision-safe snapshots and lineage.", "15 DECISIONS / 45 FEATURE LOOKUPS", "Python · SQLite · independent replay"),
+    ("stressatlas", "08", "StressAtlas", "PORTFOLIO RISK", "#f4b76a",
+     "Borrower-level correlated defaults.", "Stress scenarios and tail attribution.", "160 LOANS / 80 OBLIGORS / 20K PATHS", "Python · NumPy · SciPy · paired simulation"),
     ("creditvintage", "01", "CreditVintage", "CREDIT RISK", "#6be6cc",
      "Application-time data.", "Prospective cohort evaluation.", "PIT FEATURES + MATURE LABELS", "Python · scikit-learn · report verification"),
-    ("pitbridge", "02", "PITBridge", "FINANCIAL DATA ENGINEERING", "#64e5c4",
-     "Only what the decision could know.", "Late data, revisions and tombstones.", "SQL SNAPSHOTS + INDEPENDENT REPLAY", "Python · SQLite · source-record lineage"),
-    ("stressatlas", "03", "StressAtlas", "PORTFOLIO RISK", "#f4b76a",
-     "Marginal risk and clustered defaults.", "Paired scenarios with additive tail risk.", "160 LOANS / 20,000 SHARED PATHS", "Python · NumPy · SciPy · discrete ES"),
-    ("alphaforge", "04", "AlphaForge", "QUANT RESEARCH", "#7eb7ff",
+    ("alphaforge", "02", "AlphaForge", "QUANT RESEARCH", "#7eb7ff",
      "Factor research to portfolios.", "Walk-forward models and backtests.", "FACTORS → PORTFOLIOS → REPORTS", "Python · LightGBM · CVXPY · FastAPI"),
-    ("tradeforge", "05", "TradeForge", "EXECUTION SYSTEMS", "#a6a2ff",
+    ("tradeforge", "03", "TradeForge", "EXECUTION SYSTEMS", "#a6a2ff",
      "Event-driven execution research.", "C++ core, Python reference model.", "CAUSALITY + EVENT-BY-EVENT PARITY", "C++20 · pybind11 · transaction costs"),
-    ("auditlens", "06", "AuditLens", "AUDIT ANALYTICS", "#efc47b",
+    ("auditlens", "04", "AuditLens", "AUDIT ANALYTICS", "#efc47b",
      "Explainable financial anomaly triage.", "From source ledger to review queue.", "30,128 VOUCHERS / 9 PROCEDURES", "Python · SQL · Isolation Forest · Streamlit"),
-    ("controltrace", "07", "ControlTrace", "EVIDENCE ENGINEERING", "#6fcbeb",
+    ("controltrace", "05", "ControlTrace", "EVIDENCE ENGINEERING", "#6fcbeb",
      "Access and change-control evidence.", "Human review with replayable exports.", "5 CONTROL TESTS / SOURCE LINEAGE", "Python · DuckDB · append-only reviews"),
-    ("ledgerx", "08", "LedgerX", "ACCOUNTING SYSTEMS", "#d2a6e3",
+    ("ledgerx", "06", "LedgerX", "ACCOUNTING SYSTEMS", "#d2a6e3",
      "Double-entry accounting for fills.", "Independent point-in-time valuation.", "DECIMAL LEDGER / QUOTE-BASED MARKS", "Python · Decimal · journal verification"),
 ]
 
