@@ -68,9 +68,9 @@ def hero():
 
 PROJECTS = [
     ("pitbridge", "07", "PITBridge", "FINANCIAL DATA", "#6be6cc",
-     "Decision-time source availability.", "Revision-safe snapshots and lineage.", "15 DECISIONS / 45 FEATURE LOOKUPS", "Python · SQLite · independent replay"),
+     "Decision-time snapshots and rolling flows.", "Revision-safe features and source lineage.", "SQL + INDEPENDENT TEMPORAL REPLAY", "Python · SQLite · independent replay"),
     ("stressatlas", "08", "StressAtlas", "PORTFOLIO RISK", "#f4b76a",
-     "Borrower-level correlated defaults.", "Stress scenarios and tail attribution.", "160 LOANS / 80 OBLIGORS / 20K PATHS", "Python · NumPy · SciPy · paired simulation"),
+     "Borrower-level correlated defaults.", "Stress, attribution and tail precision.", "20K PATHS / 300 PAIRED RESAMPLES", "Python · NumPy · SciPy · paired simulation"),
     ("creditvintage", "01", "CreditVintage", "CREDIT RISK", "#6be6cc",
      "Application-time data.", "Prospective cohort evaluation.", "PIT FEATURES + MATURE LABELS", "Python · scikit-learn · report verification"),
     ("alphaforge", "02", "AlphaForge", "QUANT RESEARCH", "#7eb7ff",

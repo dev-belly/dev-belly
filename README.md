@@ -25,19 +25,19 @@ I build research systems around **data availability, measured assumptions, and r
 
 ## New systems
 
-Two focused research components for financial data engineering and portfolio risk. Their saved examples are synthetic and independently inspectable.
+Decision-time financial features and portfolio tail risk, with source membership, paired precision diagnostics and replayable evidence. Their saved examples are synthetic and independently inspectable.
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: availability-aware financial snapshots, revision lineage and a Python replay oracle" /></a>
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg" width="100%" alt="PITBridge: decision-time snapshots and rolling financial features, source membership and independent temporal replay" /></a>
 <br />
-<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Data evidence</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Snapshots</a> · <a href="https://dev-belly.github.io/PITBridge/rolling/">Rolling features</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: global and sector risk factors, one default per borrower and exact empirical tail attribution" /></a>
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg" width="100%" alt="StressAtlas: borrower-level correlated defaults, exact empirical tail attribution and paired bootstrap precision diagnostics" /></a>
 <br />
-<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
+<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://dev-belly.github.io/StressAtlas/precision/">Tail precision</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
 </td>
 </tr>
 </table>
@@ -90,7 +90,9 @@ Two focused research components for financial data engineering and portfolio ris
 | Open | What to inspect |
 | :--- | :--- |
 | [PITBridge · historical lookups](https://dev-belly.github.io/PITBridge/) | Compare decision-time features with an explicitly unsafe event-only baseline; inspect record IDs and missingness. |
+| [PITBridge · rolling features](https://dev-belly.github.io/PITBridge/rolling/) | Reconstruct 7/30-day financial statistics using revisions available at each decision; inspect every contributing source record. |
 | [StressAtlas · portfolio scenarios](https://dev-belly.github.io/StressAtlas/) | Borrower-level defaults, paired loss changes, discrete-tail ES and additive industry contributions. |
+| [StressAtlas · tail precision](https://dev-belly.github.io/StressAtlas/precision/) | Inspect 300 paired resamples of 20,000 simulated paths, approximate VaR/ES intervals and baseline changes. |
 | [CreditVintage · evaluation](https://dev-belly.github.io/CreditVintage/demo/) | Chronological cohorts, raw and calibrated probabilities, downloadable predictions and review capacity. |
 | [CreditVintage · early monitor](https://dev-belly.github.io/CreditVintage/monitor/) | Score drift before current outcomes mature; reference bins and row-level evidence. |
 | [AlphaForge · computed run](https://dev-belly.github.io/alphaforge/sample-run/) | The signal, execution timing, transaction-cost assumptions and backtest artifacts. |

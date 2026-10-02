@@ -6,21 +6,21 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [PITBridge](https://github.com/dev-belly/PITBridge)
 
-> 构建金融多源数据的时点特征快照，区分观测、发布与入库时间，用 SQLite 窗口函数选择当时可见的修订并处理删除和新鲜度；通过独立 Python 枚举核验 15 个合成历史决策、45 次特征查找，展示仅按业务时间关联会选入未来信息的 11 个反例；补充 CSV 文本保护与证据重放，覆盖 44 项自动化测试。
+> 构建金融多源数据的时点特征引擎，区分观测、发布与入库时间，以 SQLite 选择当时可见的修订并处理删除、新鲜度与滚动窗口；实现 sum/mean/count 和逐源记录成员表，通过独立 Python 枚举、60 组随机历史与手算案例核验，覆盖 70 项自动化测试。
 
-- **Evidence:** [online report](https://dev-belly.github.io/PITBridge/), [source history](https://github.com/dev-belly/PITBridge/blob/main/demo/inputs.json), [selected-record lineage](https://github.com/dev-belly/PITBridge/blob/main/demo/snapshots.csv), [counterexample comparison](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [CI](https://github.com/dev-belly/PITBridge/actions/workflows/ci.yml).
-- **Discuss:** Why availability must include publication and ingestion; why eligibility comes before revision ranking; why an older-period correction cannot replace the latest period; why deleting one observation must not revive its earlier revision; why a missing feature must keep its reason.
-- **Boundary:** Scalar observations with source-supplied timestamps and revisions. No production ingestion, distributed-scale benchmark, rolling aggregation or integrated CreditVintage pipeline is claimed. The 11 counterexamples are fixture counts, not a real population leakage rate.
+- **Evidence:** [snapshot report](https://dev-belly.github.io/PITBridge/), [rolling report](https://dev-belly.github.io/PITBridge/rolling/), [rolling members](https://github.com/dev-belly/PITBridge/blob/main/demo/rolling/members.csv), [hand-calculated case](https://github.com/dev-belly/PITBridge/blob/main/docs/ROLLING.md), [counterexample comparison](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [CI](https://github.com/dev-belly/PITBridge/actions/workflows/ci.yml).
+- **Discuss:** Why availability must include publication and ingestion; why eligibility comes before revision ranking; why a tombstone must not revive an earlier revision; why the same 30-day inflow is 1,500 on February 10 and 4,300 on February 11; why member count does not establish business-data completeness; why zero differs from no history.
+- **Boundary:** Scalar and rolling observations with source-supplied timestamps and revisions. A logical event is entity/source/feature/event time, so independent transactions sharing that identity need upstream aggregation or distinct features. No production ingestion, distributed-scale benchmark or integrated CreditVintage pipeline is claimed. The original 11 leakage counterexamples are fixture counts, not a population rate.
 
 ## Credit portfolio risk
 
 ### [StressAtlas](https://github.com/dev-belly/StressAtlas)
 
-> 实现含全局与行业因子的信用组合压力模拟，同一借款人的多笔贷款共享违约事件，以共同随机驱动比较情景；对 160 笔合成贷款、80 个借款人运行 5 组各 20,000 条路径，计算经验 VaR、支持并列边界分数权重的 ES、可加总的行业贡献及情景差异的配对标准误；支持保存输入与随机种子的全量重放，覆盖 48 项自动化测试。
+> 实现含全局与行业因子的信用组合压力模拟，同一借款人的多笔贷款共享违约事件，以共同随机驱动比较情景；对 160 笔合成贷款、80 个借款人运行 5 组各 20,000 条路径，计算离散尾部 ES 与行业贡献；新增 300 次完整路径配对 bootstrap，诊断 VaR/ES 和情景变化的抽样精度，支持全量重放，覆盖 68 项自动化测试。
 
-- **Evidence:** [online report](https://dev-belly.github.io/StressAtlas/), [scenario table](https://github.com/dev-belly/StressAtlas/blob/main/demo/scenarios.csv), [sector attribution](https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv), [model contract](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md), [CI](https://github.com/dev-belly/StressAtlas/actions/workflows/ci.yml).
-- **Discuss:** Why splitting a loan must not create extra independent defaults; why changing correlation leaves analytical EL unchanged when marginal inputs stay fixed; why averaging all losses at or above VaR can mismeasure ES; why industry contributions use the portfolio's tail weights; what paired mean-loss SE measures.
-- **Boundary:** Synthetic parameters, one-period Gaussian factors and deterministic scenario LGD/EAD. No historical calibration, real borrower forecast or regulatory capital is claimed. The exported CSV contains the first 200 paths; full 20,000-path replay comes from saved inputs and seed.
+- **Evidence:** [scenario report](https://dev-belly.github.io/StressAtlas/), [tail precision report](https://dev-belly.github.io/StressAtlas/precision/), [all bootstrap estimates](https://github.com/dev-belly/StressAtlas/blob/main/demo/precision/resamples.csv), [precision method and case](https://github.com/dev-belly/StressAtlas/blob/main/docs/PRECISION.md), [sector attribution](https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv), [CI](https://github.com/dev-belly/StressAtlas/actions/workflows/ci.yml).
+- **Discuss:** Why splitting a loan must not create extra independent defaults; why averaging all losses at or above VaR can mismeasure ES; why resampling whole paths preserves within-path borrower/factor dependence; why every scenario shares bootstrap indices; why a difference of two ES estimates is not ES of their pathwise loss difference; why a narrow interval cannot validate PD/LGD assumptions.
+- **Boundary:** Synthetic parameters, one-period Gaussian factors and deterministic scenario LGD/EAD. Percentile intervals approximate Monte Carlo sampling uncertainty under fixed assumptions; discrete/sparse tails and unseen rare losses limit coverage. No calibration-error estimate, real borrower forecast or regulatory capital is claimed. Original path CSVs retain 200 inspection rows; full 20,000-path and 300-resample replay comes from saved inputs and seeds.
 
 ## Bank credit / model validation
 
