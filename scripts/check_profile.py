@@ -14,6 +14,11 @@ DOCS = ("README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md")
 CARDS = {f"assets/{project[0]}.svg": project for project in PROJECTS}
 
 
+def local_image_source(source):
+    parts = urlsplit(source)
+    return unquote(parts.path) if not parts.scheme and not parts.netloc else None
+
+
 class ProfileHTML(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -37,11 +42,12 @@ class ProfileHTML(HTMLParser):
                 raise ValueError("Every profile image needs a source and useful alt text")
             self.references.append(source)
             self.images.append(source)
-            if source in CARDS:
+            card_source = local_image_source(source)
+            if card_source in CARDS:
                 if self.row is None:
                     raise ValueError(f"Project card is outside a table row: {source}")
-                self.row.append(source)
-                expected = f"https://github.com/dev-belly/{CARDS[source][2]}"
+                self.row.append(card_source)
+                expected = f"https://github.com/dev-belly/{CARDS[card_source][2]}"
                 if not self.links or self.links[-1].casefold() != expected.casefold():
                     raise ValueError(f"Project card links to the wrong repository: {source}")
 
@@ -118,7 +124,8 @@ def check():
             local_links += check_local_reference(target, document, contents)
 
     profile = parsed["README.md"]
-    if Counter(source for source in profile.images if source in CARDS) != Counter(CARDS.keys()):
+    image_sources = [local_image_source(source) for source in profile.images]
+    if Counter(source for source in image_sources if source in CARDS) != Counter(CARDS.keys()):
         raise ValueError("Each generated project card must appear exactly once in README.md")
     if any(len(row) != 2 for row in profile.card_rows):
         raise ValueError("Every project-card row must contain two cards")
