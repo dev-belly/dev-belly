@@ -1,0 +1,26 @@
+name: Profile checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check graphics, project cards and local navigation
+        run: python scripts/check_profile.py
+      - name: Rebuild graphics and check for uncommitted outputs
+        run: |
+          python scripts/build_profile_assets.py
+          git diff --exit-code -- assets
+          test -z "$(git ls-files --others --exclude-standard assets)"

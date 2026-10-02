@@ -105,6 +105,8 @@ Two focused research components for financial data engineering and portfolio ris
 
 [Project evidence](PROJECT_BRIEFS.md) contains source-linked resume wording and interview questions. [Portfolio review](PROJECT_REVIEW.md) explains which projects to lead with for a role and which assumptions deserve a closer look.
 
+[Profile checks](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml) validate the generated graphics, project-card links and local navigation on every change.
+
 <details>
 <summary><b>Research lab & other builds</b></summary>
 
