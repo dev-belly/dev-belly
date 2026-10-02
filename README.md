@@ -30,12 +30,12 @@ Decision-time financial features and portfolio tail risk, with source membership
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge.svg?v=rolling-1" width="100%" alt="PITBridge: decision-time snapshots and rolling financial features, source membership and independent temporal replay" /></a>
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-rolling-v1.svg" width="100%" alt="PITBridge: decision-time snapshots and rolling financial features, source membership and independent temporal replay" /></a>
 <br />
 <a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Snapshots</a> · <a href="https://dev-belly.github.io/PITBridge/rolling/">Rolling features</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas.svg?v=precision-1" width="100%" alt="StressAtlas: borrower-level correlated defaults, exact empirical tail attribution and paired bootstrap precision diagnostics" /></a>
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas-precision-v1.svg" width="100%" alt="StressAtlas: borrower-level correlated defaults, exact empirical tail attribution and paired bootstrap precision diagnostics" /></a>
 <br />
 <a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://dev-belly.github.io/StressAtlas/precision/">Tail precision</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
 </td>
