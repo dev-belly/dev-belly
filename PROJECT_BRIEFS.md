@@ -10,7 +10,7 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 - **Evidence:** [snapshot report](https://dev-belly.github.io/PITBridge/), [rolling report](https://dev-belly.github.io/PITBridge/rolling/), [rolling members](https://github.com/dev-belly/PITBridge/blob/main/demo/rolling/members.csv), [hand-calculated case](https://github.com/dev-belly/PITBridge/blob/main/docs/ROLLING.md), [counterexample comparison](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [CI](https://github.com/dev-belly/PITBridge/actions/workflows/ci.yml).
 - **Discuss:** Why availability must include publication and ingestion; why eligibility comes before revision ranking; why a tombstone must not revive an earlier revision; why the same 30-day inflow is 1,500 on February 10 and 4,300 on February 11; why member count does not establish business-data completeness; why zero differs from no history.
-- **Boundary:** Scalar and rolling observations with source-supplied timestamps and revisions. A logical event is entity/source/feature/event time, so independent transactions sharing that identity need upstream aggregation or distinct features. No production ingestion, distributed-scale benchmark or integrated CreditVintage pipeline is claimed. The original 11 leakage counterexamples are fixture counts, not a population rate.
+- **Boundary:** Scalar and rolling observations with source-supplied timestamps and revisions. A logical event is entity/source/feature/event time, so independent transactions sharing that identity need upstream aggregation or distinct features. The optional [CreditVintage adapter](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md) consumes scalar credit features under an explicit UTC day-end contract; rolling cash-flow outputs remain a separate example. No production ingestion or distributed-scale benchmark is claimed. The original 11 leakage counterexamples are fixture counts, not a population rate.
 
 ## Credit portfolio risk
 
@@ -30,8 +30,14 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 > 数据质量与验证侧表述：为信贷风险报告实现独立核验，基于逐笔预测重算模型指标、分组损失场景和分数漂移；校验标签成熟窗口、复核容量与 CSV 结构，以更新哈希后的异常报告验证核验流程能够拒绝不一致结果。
 
+> 系统集成侧表述：连接 PITBridge 的决策时点源记录与 CreditVintage 模型，校验身份、单位、七天新鲜度和 UTC 日终边界；在 480 笔合成申请的联合案例中导出 1,440 个特征值，排除 192 条决策后才可得的记录，保留 120 笔测试预测，并从原始事件完整重放到模型输出。
+
+联合案例与上方原始评估使用不同样本：原始评估有 480 笔测试申请，联合案例有 480 笔总申请、其中 120 笔测试申请。不要把两者的样本量和模型指标混在一起。
+
 - **Evidence:** [test report](https://dev-belly.github.io/CreditVintage/demo/), [row-level predictions](https://github.com/dev-belly/CreditVintage/blob/main/docs/demo/predictions.csv), [early monitor](https://dev-belly.github.io/CreditVintage/monitor/), [report-contract regressions](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_artifact_contract.py), [CI](https://github.com/dev-belly/CreditVintage/actions/workflows/ci.yml).
+- **Integration evidence:** [local explorer setup](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage), [adapter contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md), [source generator and lineage exporter](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/lineage.py), [integration regressions](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_lineage.py). The default per-application bundle is generated locally, not committed as a public dataset.
 - **Discuss:** `observed_at` versus `available_at`; why missing six-report coverage is not a nondefault; why PSI cannot establish realized default or calibration drift; why isotonic calibration was retained as a negative result; why `NaN` breaks an ordinary tolerance comparison and a matching hash does not establish valid report content.
+- **Integration questions:** Why a noon publication ingested at next-day midnight is unavailable at the decision; why calendar dates require an explicit UTC day-end convention; why source replay and model refitting add evidence beyond file hashes; why changed evaluation configurations must fail even when prediction values happen to remain the same.
 - **Boundary:** The 90+ DPD within 180 days is a research label. The synthetic AUC and probability × principal × assumed LGD scenario are not regulatory default or expected credit loss estimates.
 
 ### [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk)

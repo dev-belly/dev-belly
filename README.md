@@ -1,132 +1,89 @@
 <div align="center">
-  <img src="assets/profile-hero.svg" width="100%" alt="dev-belly — financial data, credit risk and quantitative research systems" />
-
-  <br />
-
-  <b>CUFE · Data Science & Big Data Technology</b><br />
-  金融数据工程 · 信贷风控 · 量化研究
-
+  <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial research systems." />
   <br /><br />
-
-  <a href="#new-systems"><b>Explore projects</b></a> &nbsp; / &nbsp;
-  <a href="#live-research-desk"><b>Open reports</b></a> &nbsp; / &nbsp;
-  <a href="PROJECT_BRIEFS.md"><b>Evidence & interview notes</b></a>
-
-  <br /><br />
-
-  <img src="assets/stack.svg" width="100%" alt="Python, SQL, C++20, scikit-learn, LightGBM, FastAPI and PyTorch" />
+  <a href="#flagship-projects"><b>PROJECTS</b></a> &nbsp; / &nbsp;
+  <a href="#research-in-public"><b>RECENT WORK</b></a> &nbsp; / &nbsp;
+  <a href="PROJECT_BRIEFS.md"><b>PROJECT NOTES</b></a>
 </div>
 
 <br />
 
-I build research systems around **data availability, measured assumptions, and reproducible results**. My projects connect the financial question to the data pipeline, model evaluation, and the evidence needed to inspect the answer.
+I'm **dev-belly**, a Data Science & Big Data Technology student at **Central University of Finance and Economics**. I build tools for credit risk, financial data and quantitative research.
 
-关注金融数据分析、信贷风险与量化系统。希望每一个结果，都能追到数据来源、方法口径和可运行的代码。
+把金融问题拆成能运行、能检验、能追溯的系统。最近在做：**决策时点的数据、跨期信贷评估，以及组合尾部风险**。
 
-## New systems
+## Flagship projects
 
-Decision-time financial features and portfolio tail risk, with source membership, paired precision diagnostics and replayable evidence. Their saved examples are synthetic and independently inspectable.
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — chronological credit evaluation with separate training, calibration and holdout cohorts, and a PITBridge source-lineage integration." /></a>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-rolling-v1.svg" width="100%" alt="PITBridge: decision-time snapshots and rolling financial features, source membership and independent temporal replay" /></a>
+**01 · CreditVintage** — A credit score is only useful if its data and evaluation hold up.
+
+训练、校准、测试分期隔离；标签等待完整表现期；同时展示原始与校准后的结果。新增 **PITBridge 联合案例**，从预测追到特征值、源记录、修订版本和可用时间。
+
+[Source](https://github.com/dev-belly/CreditVintage) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
+
 <br />
-<a href="https://github.com/dev-belly/PITBridge"><b>Source</b></a> · <a href="https://dev-belly.github.io/PITBridge/">Snapshots</a> · <a href="https://dev-belly.github.io/PITBridge/rolling/">Rolling features</a> · <a href="https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md">Walkthrough</a>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas-precision-v1.svg" width="100%" alt="StressAtlas: borrower-level correlated defaults, exact empirical tail attribution and paired bootstrap precision diagnostics" /></a>
-<br />
-<a href="https://github.com/dev-belly/StressAtlas"><b>Source</b></a> · <a href="https://dev-belly.github.io/StressAtlas/">Stress report</a> · <a href="https://dev-belly.github.io/StressAtlas/precision/">Tail precision</a> · <a href="https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md">Walkthrough</a>
-</td>
-</tr>
-</table>
 
-## Selected work
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v3.svg" width="100%" alt="PITBridge — temporal data engineering with event and knowledge time, revision-safe snapshots, rolling financial features and independent Python replay." /></a>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage.svg" width="100%" alt="CreditVintage: point-in-time credit cohorts, mature labels and independently verified reports" /></a>
-<br />
-<a href="https://github.com/dev-belly/CreditVintage"><b>Source</b></a> · <a href="https://dev-belly.github.io/CreditVintage/demo/">Risk report</a> · <a href="https://dev-belly.github.io/CreditVintage/monitor/">Score monitor</a>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/alphaforge"><img src="assets/alphaforge.svg" width="100%" alt="AlphaForge: factors, walk-forward models, portfolio optimization and backtest reports" /></a>
-<br />
-<a href="https://github.com/dev-belly/alphaforge"><b>Source</b></a> · <a href="https://dev-belly.github.io/alphaforge/">Docs</a> · <a href="https://dev-belly.github.io/alphaforge/sample-run/">Computed example</a>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/TradeForge"><img src="assets/tradeforge.svg" width="100%" alt="TradeForge: a C++20 order book, Python execution research and causality and parity checks" /></a>
-<br />
-<a href="https://github.com/dev-belly/TradeForge"><b>Source</b></a> · <a href="https://github.com/dev-belly/TradeForge#sixty-second-tour">Execution demo</a> · <a href="https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible">Verification</a>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/AuditLens"><img src="assets/auditlens.svg" width="100%" alt="AuditLens: nine audit procedures over a synthetic 30,128-voucher ledger, with explainable review evidence" /></a>
-<br />
-<a href="https://github.com/dev-belly/AuditLens"><b>Source</b></a> · <a href="https://github.com/dev-belly/AuditLens#dashboard">Dashboard</a> · <a href="https://github.com/dev-belly/AuditLens/tree/main/outputs/reports">Workpapers</a>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/ControlTrace"><img src="assets/controltrace.svg" width="100%" alt="ControlTrace: five IT control tests, linked source evidence, human reviews and replayable workpapers" /></a>
-<br />
-<a href="https://github.com/dev-belly/ControlTrace"><b>Source</b></a> · <a href="https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md">Case study</a> · <a href="https://github.com/dev-belly/ControlTrace/blob/main/docs/CONTROL_CATALOG.md">Control catalog</a>
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/dev-belly/LedgerX"><img src="assets/ledgerx.svg" width="100%" alt="LedgerX: exact Decimal double-entry accounting, deterministic replay and available-quote portfolio valuation" /></a>
-<br />
-<a href="https://github.com/dev-belly/LedgerX"><b>Source</b></a> · <a href="https://github.com/dev-belly/LedgerX#point-in-time-portfolio-marks">Valuation model</a> · <a href="https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json">Example</a>
-</td>
-</tr>
-</table>
+**02 · PITBridge** — Reconstruct what a decision could actually know.
 
-**Financial examples use synthetic data.** They demonstrate the implemented workflow and its checks; their metrics do not establish live investment performance or real borrower risk.
+同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值都有源记录成员，SQLite 结果与独立 Python 实现逐项核对。
 
-## Live research desk
+[Source](https://github.com/dev-belly/PITBridge) · [Snapshot counterexample](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/) · [Walkthrough](https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md)
 
-| Open | What to inspect |
+<br />
+
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas-v3.svg" width="100%" alt="StressAtlas — correlated portfolio defaults, discrete-tail VaR and expected shortfall, industry attribution and paired bootstrap uncertainty. Diagram is schematic." /></a>
+
+**03 · StressAtlas** — A tail estimate should come with its uncertainty.
+
+用借款人层面的相关违约路径比较基准与压力情景；计算离散尾部 ES 和行业贡献；再用 300 次成对重采样检查 20,000 条路径下的估计精度。
+
+[Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Walkthrough](https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md)
+
+<sub>Public financial examples use synthetic data. They demonstrate the code and methodology; they do not establish live investment performance or real borrower risk.</sub>
+
+## Research in public
+
+| Shipped | Inspect the work |
 | :--- | :--- |
-| [PITBridge · historical lookups](https://dev-belly.github.io/PITBridge/) | Compare decision-time features with an explicitly unsafe event-only baseline; inspect record IDs and missingness. |
-| [PITBridge · rolling features](https://dev-belly.github.io/PITBridge/rolling/) | Reconstruct 7/30-day financial statistics using revisions available at each decision; inspect every contributing source record. |
-| [StressAtlas · portfolio scenarios](https://dev-belly.github.io/StressAtlas/) | Borrower-level defaults, paired loss changes, discrete-tail ES and additive industry contributions. |
-| [StressAtlas · tail precision](https://dev-belly.github.io/StressAtlas/precision/) | Inspect 300 paired resamples of 20,000 simulated paths, approximate VaR/ES intervals and baseline changes. |
-| [CreditVintage · evaluation](https://dev-belly.github.io/CreditVintage/demo/) | Chronological cohorts, raw and calibrated probabilities, downloadable predictions and review capacity. |
-| [CreditVintage · early monitor](https://dev-belly.github.io/CreditVintage/monitor/) | Score drift before current outcomes mature; reference bins and row-level evidence. |
-| [AlphaForge · computed run](https://dev-belly.github.io/alphaforge/sample-run/) | The signal, execution timing, transaction-cost assumptions and backtest artifacts. |
-| [Interval Financial Risk · experiment](https://dev-belly.github.io/interval-financial-risk/) | A retained negative result: distributional features reduced AUC in the synthetic experiment. |
-| [FactorLab · A-share research](https://dev-belly.github.io/ashare-multifactor-research/) | Factor evaluation and purged validation; the default run is synthetic. |
+| **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
+| **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
+| **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-## Engineering priorities
+## More builds
 
-| Data | Evaluation | Evidence |
-| :--- | :--- | :--- |
-| Publication time, schema contracts, source lineage and explicit missingness. | Chronological splits, fixed baselines, separate calibration and measured costs. | Saved rows, deterministic replay, independent metric checks and CI. |
+| Project | The engineering question |
+| :--- | :--- |
+| [AlphaForge](https://github.com/dev-belly/alphaforge) | Do factor signals survive walk-forward validation, portfolio constraints and costs? [Computed run ↗](https://dev-belly.github.io/alphaforge/sample-run/) |
+| [TradeForge](https://github.com/dev-belly/TradeForge) | Can C++ execution events agree with an independent Python reference? [60-second tour ↗](https://github.com/dev-belly/TradeForge#sixty-second-tour) |
+| [AuditLens](https://github.com/dev-belly/AuditLens) | Can an anomaly become an explainable review item? [Workpapers ↗](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) |
+| [ControlTrace](https://github.com/dev-belly/ControlTrace) | Can an IT control finding be traced to the original evidence? [Case study ↗](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) |
+| [LedgerX](https://github.com/dev-belly/LedgerX) | Can trading fills, accounting and portfolio marks reconcile exactly? [Valuation example ↗](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) |
 
-[Project evidence](PROJECT_BRIEFS.md) contains source-linked resume wording and interview questions. [Portfolio review](PROJECT_REVIEW.md) explains which projects to lead with for a role and which assumptions deserve a closer look.
-
-[Profile checks](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml) validate the generated graphics, project-card links and local navigation on every change.
+<img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
 <details>
-<summary><b>Research lab & other builds</b></summary>
+<summary><b>Experiments & earlier work</b></summary>
 
 <br />
 
-| Project | Focus |
+| Experiment | What it explores |
 | :--- | :--- |
-| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | Saved predictions, graph ablations and a [three-seed benchmark](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17). |
-| [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | Simulated covariate adjustment, causal estimation and robust allocation; [browser demo](https://dev-belly.github.io/highdim-causal-allocation-lab/). |
-| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | Expanding-window financial risk experiments with distributional features. |
-| [FactorLab](https://github.com/dev-belly/ashare-multifactor-research) | A-share multi-factor research; [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md). |
-| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows with a Python backend and React interface. |
-| [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) | Local simulated chat and a separately configured private model connection. |
+| [Investor Network GNN](https://github.com/dev-belly/investor-network-gnn) | Graph ablations and [three-seed saved predictions](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17). |
+| [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | Simulated causal estimation and robust allocation; [interactive example](https://dev-belly.github.io/highdim-causal-allocation-lab/). |
+| [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | A [retained negative result](https://dev-belly.github.io/interval-financial-risk/): distributional features reduced AUC in this synthetic experiment. |
+| [FactorLab](https://github.com/dev-belly/ashare-multifactor-research) | A-share factor evaluation and purged validation; [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md). |
+| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows. |
+| [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) | Local chat plus a separately configured private model connection. |
 
-Earlier application work: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman), [Ranxin](https://github.com/dev-belly/ranxin-mini-program), and the [Goose Leg Auntie case study](https://github.com/dev-belly/goose-leg-auntie-site).
+Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman) · [Ranxin](https://github.com/dev-belly/ranxin-mini-program) · [Goose Leg Auntie](https://github.com/dev-belly/goose-leg-auntie-site).
 
 </details>
 
 ---
 
-<p align="center"><sub>Financial questions. Explicit assumptions. Inspectable systems.</sub></p>
+[Project evidence](PROJECT_BRIEFS.md) · [Portfolio review](PROJECT_REVIEW.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+
+<sub>Financial questions. Runnable code. Evidence you can inspect.</sub>

@@ -1,126 +1,101 @@
-"""Build the profile's self-contained SVGs using only the Python standard library."""
-
+"""Generate portable profile SVGs: typography and schematic method illustrations."""
 from html import escape
 from pathlib import Path
-
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets"
-FONT = "Arial, DejaVu Sans, sans-serif"
-MONO = "DejaVu Sans Mono, monospace"
+ASSETS = ROOT / 'assets'
+FONT = 'Arial, DejaVu Sans, sans-serif'
+MONO = 'DejaVu Sans Mono, monospace'
+PAPER, INK, LIME = '#f1f0e9', '#111319', '#d7fa73'
 
-
-def text(x, y, value, size=22, color="#c2ccda", weight=400, family=FONT, spacing=0):
-    return (
-        f'<text x="{x}" y="{y}" fill="{color}" font-family="{family}" '
-        f'font-size="{size}" font-weight="{weight}" letter-spacing="{spacing}">'
-        f"{escape(value)}</text>"
-    )
-
+def text(x, y, value, size=22, color=PAPER, weight=400, family=FONT, spacing=0):
+    return (f'<text x="{x}" y="{y}" fill="{color}" font-family="{family}" font-size="{size}" '
+            f'font-weight="{weight}" letter-spacing="{spacing}">{escape(value)}</text>')
 
 def svg(width, height, title, content):
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'viewBox="0 0 {width} {height}" role="img">'
-        f"<title>{escape(title)}</title>{content}</svg>\n"
-    )
-
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+            f'viewBox="0 0 {width} {height}" role="img"><title>{escape(title)}</title>{content}</svg>\n')
 
 def hero():
-    parts = [
-        '<defs><linearGradient id="bg" x2="1" y2="1">'
-        '<stop stop-color="#0b1421"/><stop offset="1" stop-color="#081018"/>'
-        '</linearGradient><linearGradient id="accent">'
-        '<stop stop-color="#64e7cf"/><stop offset="1" stop-color="#61b8ff"/>'
-        '</linearGradient><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">'
-        '<path d="M32 0H0V32" fill="none" stroke="#678ba5" stroke-opacity=".10"/>'
-        '</pattern></defs>',
-        '<rect x="1" y="1" width="1278" height="418" rx="22" fill="url(#bg)" '
-        'stroke="#244153" stroke-width="2"/>',
-        '<rect x="744" y="24" width="510" height="372" fill="url(#grid)"/>',
-        '<rect x="48" y="44" width="42" height="4" rx="2" fill="#69e2cc"/>',
-        text(102, 51, "FINANCIAL DATA / RESEARCH SYSTEMS", 15, "#8cabbf", 600, MONO, 1.8),
-        text(48, 161, "dev-belly", 88, "#f2f7fc", 700, spacing=-3),
-        '<rect x="507" y="111" width="13" height="57" rx="2" fill="#69e2cc"/>',
-        text(50, 215, "Build the system.", 34, "#e3edf7", 600),
-        text(50, 259, "Make the result inspectable.", 34, "#69e2cc", 600),
-        text(50, 318, "CREDIT RISK    /    QUANT RESEARCH    /    AUDIT ANALYTICS", 15, "#9cb3c5", 400, MONO),
-        '<path d="M48 354H695" stroke="#263d4f"/>',
-        text(50, 383, "CUFE · Data Science & Big Data Technology", 18, "#819daf"),
-        '<path d="M782 141H818M1054 141H1103V208H1054M818 270H781V141" '
-        'stroke="url(#accent)" stroke-width="2" fill="none" opacity=".60"/>',
-    ]
-    stages = [
-        (818, 92, "01 / DATA", "Point-in-time inputs"),
-        (872, 181, "02 / MODEL", "Measured assumptions"),
-        (818, 270, "03 / EVIDENCE", "Replayable outputs"),
-    ]
-    for x, y, label, detail in stages:
-        parts += [
-            f'<rect x="{x}" y="{y}" width="294" height="76" rx="12" fill="#101e2b" '
-            'stroke="#335063"/>',
-            f'<rect x="{x}" y="{y+18}" width="3" height="39" rx="1" fill="#69e2cc"/>',
-            text(x + 22, y + 28, label, 14, "#6ddccb", 600, MONO, 1),
-            text(x + 22, y + 54, detail, 20, "#dbe7f3", 500),
-        ]
-    parts.append(text(818, 382, "CODE  ·  BASELINES  ·  VERIFICATION", 13, "#66879f", 400, MONO))
-    return svg(1280, 420, "dev-belly — financial data and research systems", "".join(parts))
-
+    p = ['<defs><linearGradient id="surface" x2="1" y2="1"><stop stop-color="#151920"/>'
+         '<stop offset="1" stop-color="#090b0f"/></linearGradient><clipPath id="frame">'
+         '<rect width="1280" height="570" rx="20"/></clipPath></defs><g clip-path="url(#frame)">',
+         '<rect width="1280" height="570" fill="url(#surface)"/>',
+         '<path d="M836 0V570M0 500H1280" stroke="#343a40"/>',
+         '<circle cx="1220" cy="58" r="7" fill="#d7fa73"/>',
+         text(44, 63, 'dev-belly', 25, weight=700),
+         text(880, 63, 'FINANCIAL RESEARCH / CODE', 13, LIME, 500, MONO, .4),
+         text(39, 174, 'FINANCE.', 107, weight=800, spacing=-5),
+         text(39, 286, 'DATA.', 107, weight=800, spacing=-5),
+         text(39, 398, 'EVIDENCE.', 107, LIME, 800, spacing=-5),
+         text(44, 455, 'I turn financial questions into inspectable systems.', 23, '#b9c0c9'),
+         text(44, 539, 'CUFE / DATA SCIENCE & BIG DATA TECHNOLOGY', 16, '#b9c0c9', 500, MONO),
+         text(880, 539, 'BUILT TO BE QUESTIONED.', 15, LIME, 500, MONO),
+         '<circle cx="1048" cy="265" r="137" fill="none" stroke="#2a313a"/>',
+         '<circle cx="1048" cy="265" r="104" fill="none" stroke="#434e44"/>',
+         '<path d="M880 265H1224M1048 100V430" stroke="#36402e" stroke-dasharray="3 9"/>',
+         text(949, 315, 'db', 134, weight=700, spacing=-10),
+         '<circle cx="1166" cy="329" r="13" fill="#d7fa73"/>',
+         '<path d="M909 393L954 363M1151 154L1181 121" stroke="#d7fa73" stroke-width="3"/>',
+         text(879, 467, 'CREDIT / TEMPORAL DATA / RISK', 14, '#909daa', family=MONO), '</g>']
+    return svg(1280, 570, 'dev-belly: finance, data, evidence. CUFE data science student.', ''.join(p))
 
 PROJECTS = [
-    ("pitbridge-rolling-v1", "07", "PITBridge", "FINANCIAL DATA", "#6be6cc",
-     "Decision-time snapshots and rolling flows.", "Revision-safe features and source lineage.", "SQL + INDEPENDENT TEMPORAL REPLAY", "Python · SQLite · independent replay"),
-    ("stressatlas-precision-v1", "08", "StressAtlas", "PORTFOLIO RISK", "#f4b76a",
-     "Borrower-level correlated defaults.", "Stress, attribution and tail precision.", "20K PATHS / 300 PAIRED RESAMPLES", "Python · NumPy · SciPy · paired simulation"),
-    ("creditvintage", "01", "CreditVintage", "CREDIT RISK", "#6be6cc",
-     "Application-time data.", "Prospective cohort evaluation.", "PIT FEATURES + MATURE LABELS", "Python · scikit-learn · report verification"),
-    ("alphaforge", "02", "AlphaForge", "QUANT RESEARCH", "#7eb7ff",
-     "Factor research to portfolios.", "Walk-forward models and backtests.", "FACTORS → PORTFOLIOS → REPORTS", "Python · LightGBM · CVXPY · FastAPI"),
-    ("tradeforge", "03", "TradeForge", "EXECUTION SYSTEMS", "#a6a2ff",
-     "Event-driven execution research.", "C++ core, Python reference model.", "CAUSALITY + EVENT-BY-EVENT PARITY", "C++20 · pybind11 · transaction costs"),
-    ("auditlens", "04", "AuditLens", "AUDIT ANALYTICS", "#efc47b",
-     "Explainable financial anomaly triage.", "From source ledger to review queue.", "30,128 VOUCHERS / 9 PROCEDURES", "Python · SQL · Isolation Forest · Streamlit"),
-    ("controltrace", "05", "ControlTrace", "EVIDENCE ENGINEERING", "#6fcbeb",
-     "Access and change-control evidence.", "Human review with replayable exports.", "5 CONTROL TESTS / SOURCE LINEAGE", "Python · DuckDB · append-only reviews"),
-    ("ledgerx", "06", "LedgerX", "ACCOUNTING SYSTEMS", "#d2a6e3",
-     "Double-entry accounting for fills.", "Independent point-in-time valuation.", "DECIMAL LEDGER / QUOTE-BASED MARKS", "Python · Decimal · journal verification"),
+    ('creditvintage-v3', '01', 'CreditVintage', 'CREDIT MODEL VALIDATION', LIME,
+     'When does a credit score deserve trust?', 'Chronological cohorts. Mature outcomes. Source lineage.',
+     'PITBRIDGE → FEATURES → PROSPECTIVE EVALUATION', 'Python / scikit-learn / reproducible reports'),
+    ('pitbridge-v3', '02', 'PITBridge', 'TEMPORAL DATA ENGINEERING', '#365ad9',
+     'Know what was known.', 'Publication, ingestion, revisions and rolling windows.',
+     'SQL SNAPSHOTS = INDEPENDENT PYTHON REPLAY', 'Python / SQLite / record-level provenance'),
+    ('stressatlas-v3', '03', 'StressAtlas', 'PORTFOLIO TAIL RISK', '#ffb994',
+     'Measure the tail. Then measure uncertainty.', 'Correlated defaults, exact tail attribution and paired paths.',
+     '20,000 PATHS / 300 PAIRED RESAMPLES', 'Python / NumPy / SciPy / Monte Carlo'),
 ]
 
-
 def card(project):
-    slug, index, name, category, accent, first, second, proof, stack = project
-    parts = [
-        '<rect x="1" y="1" width="598" height="276" rx="18" fill="#0d1723" '
-        'stroke="#284252" stroke-width="2"/>',
-        f'<path d="M24 1H140" stroke="{accent}" stroke-width="3"/>',
-        text(28, 40, category, 14, accent, 600, MONO, 1.5),
-        text(547, 40, index, 16, "#526d82", 500, MONO),
-        text(27, 89, name, 37, "#f1f6fc", 700, spacing=-.7),
-        text(28, 129, first, 22, "#b8c9d8"),
-        text(28, 158, second, 22, "#b8c9d8"),
-        f'<rect x="27" y="182" width="546" height="34" rx="7" fill="{accent}" fill-opacity=".07"/>',
-        text(40, 205, proof, 15, accent, 600, MONO, .5),
-        text(28, 251, stack, 17, "#7993a9"),
-    ]
-    return svg(600, 278, f"{name} — {category.lower()}", "".join(parts))
-
+    slug, index, name, category, accent, first, second, proof, technology = project
+    bg, fg, muted, border = (PAPER, INK, '#535c69', '#ced1cd') if index == '02' else (INK, PAPER, '#acb6c1', '#353c45')
+    p = [f'<rect x="1" y="1" width="1278" height="338" rx="16" fill="{bg}" stroke="{border}"/>',
+         text(38, 46, index+' / '+category, 15, accent, 600, MONO, .8),
+         text(34, 119, name, 65, fg, 700, spacing=-2),
+         text(38, 169, first, 26, fg, 600), text(38, 207, second, 21, muted),
+         f'<path d="M38 242H771M814 32V308" stroke="{border}"/>',
+         text(38, 272, proof, 16, accent, 600, MONO), text(38, 309, technology, 17, muted)]
+    if index == '01':
+        for y, label, dates in [(67, 'TRAIN', '2022'), (131, 'CALIBRATE', '2023 H2'), (195, 'HOLD OUT', '2024 H2')]:
+            p += [f'<rect x="851" y="{y}" width="345" height="47" rx="4" fill="#222b20" stroke="#4f6337"/>',
+                  text(866, y+29, label, 15, LIME, 600, MONO), text(1092, y+29, dates, 15, family=MONO)]
+        p.append(text(853, 293, 'SEPARATE TIME. SAVE THE PROOF.', 13, muted, 500, MONO))
+    elif index == '02':
+        p += ['<path d="M853 191H1230" stroke="#8d98ba" stroke-width="2"/>',
+              '<path d="M1105 79V248" stroke="#365ad9" stroke-width="2" stroke-dasharray="5 6"/>',
+              text(864, 112, 'AVAILABLE', 16, accent, 700, MONO), text(864, 141, 'AT THE DECISION', 16, accent, 700, MONO)]
+        for x, label, fill in [(879, 'v1', accent), (1000, 'v2', accent), (1188, 'LATE', '#c5c8ca')]:
+            p += [f'<circle cx="{x}" cy="191" r="8" fill="{fill}"/>', text(x-17, 224, label, 14, muted, family=MONO)]
+        p.append(text(853, 293, 'EVENT TIME + KNOWLEDGE TIME', 13, muted, 500, MONO))
+    else:
+        p.append(text(853, 84, 'SAME PATHS. TWO SCENARIOS.', 14, accent, 600, MONO))
+        for i in range(7):
+            y = 125+i*18
+            p.append(f'<path d="M852 {y}C938 {y+20} 939 {y-18} 1028 {y+4}S1146 {y+38} 1224 {y+6}" fill="none" stroke="{accent}" stroke-opacity="{.22+i*.09:.2f}" stroke-width="2"/>')
+        p += [text(853, 276, 'VaR / ES / INDUSTRY CONTRIBUTIONS', 13, muted, family=MONO),
+              text(853, 300, 'METHOD ILLUSTRATION', 11, '#76818d', family=MONO)]
+    return svg(1280, 340, f'{name}: {first} {second}', ''.join(p))
 
 def stack():
-    labels = [("PYTHON", 126), ("SQL / DUCKDB", 184), ("C++20", 122),
-              ("SCIKIT-LEARN", 184), ("LIGHTGBM", 150), ("FASTAPI", 134), ("PYTORCH", 148)]
-    x = 0
-    parts = []
-    for label, width in labels:
-        parts.append(f'<rect x="{x}" y="1" width="{width}" height="40" rx="8" '
-                     'fill="#101f2d" stroke="#2a4758"/>')
-        parts.append(text(x+18, 27, label, 14, "#aacbdb", 600, MONO, .6))
-        x += width + 12
-    return svg(x-12, 43, "Python, SQL, C++20, scikit-learn, LightGBM, FastAPI and PyTorch", "".join(parts))
+    return svg(1280, 60, 'Python, SQL, C++20, scikit-learn, LightGBM and NumPy.',
+               '<rect width="1280" height="60" rx="8" fill="#1a1d23"/>'+text(28, 38,
+               'PYTHON  /  SQL  /  C++20  /  SCIKIT-LEARN  /  LIGHTGBM  /  NUMPY', 21, '#b9c0c9', 500, MONO))
 
+def outputs():
+    return {'profile-signal-v3.svg': hero(), 'stack-v3.svg': stack(),
+            **{f'{project[0]}.svg': card(project) for project in PROJECTS}}
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     ASSETS.mkdir(exist_ok=True)
-    (ASSETS / "profile-hero.svg").write_text(hero(), encoding="utf-8")
-    (ASSETS / "stack.svg").write_text(stack(), encoding="utf-8")
-    for project in PROJECTS:
-        (ASSETS / f"{project[0]}.svg").write_text(card(project), encoding="utf-8")
-    print(f"Built {len(PROJECTS)+2} profile SVGs")
+    expected = outputs()
+    for path in ASSETS.glob('*.svg'):
+        if path.name not in expected:
+            path.unlink()
+    for name, content in expected.items():
+        (ASSETS/name).write_text(content, encoding='utf-8')
+    print(f'Built {len(expected)} profile SVGs')

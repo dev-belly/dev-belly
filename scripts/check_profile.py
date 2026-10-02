@@ -7,10 +7,10 @@ import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 
-from build_profile_assets import PROJECTS, card, hero, stack
+from build_profile_assets import PROJECTS, outputs
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = ("README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md")
+DOCS = ("README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md", "PROFILE_REFERENCES.md")
 CARDS = {f"assets/{project[0]}.svg": project for project in PROJECTS}
 
 
@@ -44,9 +44,8 @@ class ProfileHTML(HTMLParser):
             self.images.append(source)
             card_source = local_image_source(source)
             if card_source in CARDS:
-                if self.row is None:
-                    raise ValueError(f"Project card is outside a table row: {source}")
-                self.row.append(card_source)
+                if self.row is not None:
+                    self.row.append(card_source)
                 expected = f"https://github.com/dev-belly/{CARDS[card_source][2]}"
                 if not self.links or self.links[-1].casefold() != expected.casefold():
                     raise ValueError(f"Project card links to the wrong repository: {source}")
@@ -65,7 +64,7 @@ class ProfileHTML(HTMLParser):
 
 
 def heading_anchors(markdown):
-    """Recognize the ordinary Markdown headings used by these three documents."""
+    """Recognize the ordinary Markdown headings used by the profile documents."""
     anchors, occurrences = set(), Counter()
     for heading in re.findall(r"^#{1,6}\s+(.+?)\s*#*\s*$", markdown, re.MULTILINE):
         slug = re.sub(r"[^\w\- ]", "", heading.lower()).replace(" ", "-")
@@ -92,8 +91,7 @@ def check_local_reference(target, document, contents):
 
 
 def check():
-    expected = {"profile-hero.svg": hero(), "stack.svg": stack()}
-    expected.update({f"{project[0]}.svg": card(project) for project in PROJECTS})
+    expected = outputs()
     assets = ROOT / "assets"
     if {path.name for path in assets.glob("*.svg")} != set(expected):
         raise ValueError("SVG file set differs from the generator's expected outputs")
@@ -127,11 +125,11 @@ def check():
     image_sources = [local_image_source(source) for source in profile.images]
     if Counter(source for source in image_sources if source in CARDS) != Counter(CARDS.keys()):
         raise ValueError("Each generated project card must appear exactly once in README.md")
-    if any(len(row) != 2 for row in profile.card_rows):
-        raise ValueError("Every project-card row must contain two cards")
+    if profile.card_rows:
+        raise ValueError("Flagship projects must use the full-width layout")
     print(
         f"Profile checks passed: {len(expected)} deterministic SVGs, "
-        f"{len(CARDS)} linked cards in {len(profile.card_rows)} pairs, "
+        f"{len(CARDS)} linked flagship panels, "
         f"{len(DOCS)} documents and {local_links} local references."
     )
 
