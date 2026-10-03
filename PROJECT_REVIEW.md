@@ -1,6 +1,6 @@
-# Portfolio review · 2026-10-02
+# Portfolio review · 2026-10-03
 
-9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
+9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3 日合并三项数值边界修复和 ControlTrace 底稿 JSON 校验修复，并核对八个重点项目的最新主分支检查。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 ## Lead with the role
 
@@ -25,26 +25,32 @@
 - 新增 [PITBridge 滚动报告](https://dev-belly.github.io/PITBridge/rolling/)：4 个合成决策、12 条特征结果、28 条源成员关联；30 天净流入从 1,500 变为 4,300 的案例解释修订的可得时点。
 - 新增 [StressAtlas 精度报告](https://dev-belly.github.io/StressAtlas/precision/)：20,000 条路径、300 次配对重采样、30 条区间结果及 1,500 条情景重采样记录；区分 99% 风险水平和 95% 近似区间置信水平。
 - 新增 [CreditVintage × PITBridge 联合案例](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage)：默认本地生成 480 笔合成申请、1,440 个源特征、192 条决策后才可得记录及 120 笔测试预测；原始事件、模型输入、预测和交互页面都保留在生成目录的固定清单中，并支持完整重放。当前发布生成器和源码，逐笔联合案例数据包没有公开提交。
+- 已发布 [PITBridge 数值契约修复](https://github.com/dev-belly/PITBridge/pull/3)：SQLite 与独立实现统一采用有限 binary64 输入；均值和最终有限的求和不再因中间溢出被误拒绝。原始整数仍留在输入证据中，浮点计算不替代精确账务。
+- 已发布 [StressAtlas 尾部秩修复](https://github.com/dev-belly/StressAtlas/pull/3)与 [LedgerX Decimal 隔离及金额精度修复](https://github.com/dev-belly/LedgerX/pull/1)：外部程序改变 Decimal 精度、舍入、指数边界或异常设置，不应改变项目自身的尾部秩或账务重放；现金和费用会核对原始金额中的非零小数位。
+- 已发布 [ControlTrace 底稿 JSON 修复](https://github.com/dev-belly/ControlTrace/pull/2)：类型错误的清单或源表行返回退出码 1；重复键和非有限数值在重放前被拒绝。13 项新增回归包含更新哈希后仍不合法的输入。
+- 在 GitHub 实际主页核对了新版主图和旗舰项目卡片；主页的主分支检查已成功。页面可见性与仓库方法验证分开核对。
 
 ## Verified main-branch CI
 
-以下链接固定到实际运行记录。六个原项目保留 9 月 30 日的核对快照；两个新项目列出功能升级后的运行。后续状态应查看各仓库 Actions 页面。
+以下是 2026-10-03 核对的主分支快照，链接固定到与所列提交对应的成功运行。未修改的项目保留其最新成功记录；后续状态应查看各仓库 Actions 页面。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
-| PITBridge | `2f2438a` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/36975651082) |
-| StressAtlas | `840e259` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/36975777831) |
-| CreditVintage | `55f79fe` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/36735178230) |
+| PITBridge | `ed19dc6` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/37089437109) |
+| StressAtlas | `b8fa33a` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/37089449943) |
+| CreditVintage | `08ec4d4` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/37030157090) |
 | AlphaForge | `a1d3b03` | [Successful CI](https://github.com/dev-belly/alphaforge/actions/runs/36516317652) |
 | TradeForge | `c692717` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/36516132505) |
 | AuditLens | `1a483b7` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/36733072243) |
-| ControlTrace | `f7cc605` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/36511726878) |
-| LedgerX | `ba94961` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/36420275411) |
+| ControlTrace | `5c42038` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/37089393347) |
+| LedgerX | `b66c8c5` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/37089464841) |
 
 ## Newly filled gaps and the next step
 
-PITBridge 从标量快照扩展到决策时点的滚动经营统计，导出每条贡献记录并以独立枚举核验；StressAtlas 从尾部点估计扩展到配对抽样精度诊断，重放全部情景和重采样统计。PITBridge 70 项、StressAtlas 68 项测试通过，合计新增 46 项测试；CI 同时核验原报告和新增报告，并从输入重新生成案例。
+PITBridge 从标量快照扩展到决策时点的滚动经营统计，导出每条贡献记录并以独立枚举核验；StressAtlas 从尾部点估计扩展到配对抽样精度诊断，重放全部情景和重采样统计。数值边界修复后，PITBridge 75 项、StressAtlas 70 项测试通过；CI 同时核验原报告和新增报告，并从输入重新生成案例。
 
 PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 UTC 日终约定接入 CreditVintage。联合案例从源记录选择一直核对到模型重拟合后的每条测试预测；核验还拒绝更新哈希后的伪造特征、溯源、模型输入摘要、页面内容及不一致模型配置。CreditVintage 的 58 项测试包含 18 项集成回归，格式、lint 和类型检查也纳入 CI。
+
+ControlTrace 的 59 项测试核对底稿重放、证据关联和非法 JSON 的命令行错误行为。LedgerX 的 38 项测试涵盖不利 Decimal 调用环境、完整账本重放、独立报价估值，以及工作精度之后仍存在非零金额小数位的拒绝行为；lint、格式与严格类型检查通过。
 
 PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合案例没有声称把它们接进信贷模型或组合风险引擎。下一步引入真实公开数据时，需要保留许可、发布时间、标签定义和复现配置。
