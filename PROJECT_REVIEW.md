@@ -1,6 +1,6 @@
-# Portfolio review · 2026-10-03
+# Portfolio review · 2026-10-04
 
-9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3 日合并三项数值边界修复和 ControlTrace 底稿 JSON 校验修复，并核对八个重点项目的最新主分支检查。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
+9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3 日合并三项数值边界修复和 ControlTrace 底稿 JSON 校验修复；10 月 4 日合并 CreditVintage 报告内容核验和 AlphaForge 成交配置修复，更新主分支提交与 CI 入口。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 ## Lead with the role
 
@@ -30,16 +30,16 @@
 - 已发布 [ControlTrace 底稿 JSON 修复](https://github.com/dev-belly/ControlTrace/pull/2)：类型错误的清单或源表行返回退出码 1；重复键和非有限数值在重放前被拒绝。13 项新增回归包含更新哈希后仍不合法的输入。
 - 在 GitHub 实际主页核对了新版主图和旗舰项目卡片；主页的主分支检查已成功。页面可见性与仓库方法验证分开核对。
 
-## Verified main-branch CI
+## Main commits and CI
 
-以下是 2026-10-03 核对的主分支快照，链接固定到与所列提交对应的成功运行。未修改的项目保留其最新成功记录；后续状态应查看各仓库 Actions 页面。
+CreditVintage 和 AlphaForge 列出 2026-10-04 合并后的主分支提交及其 CI 运行；对应修复的 PR 检查均已通过。其余项目保留 10 月 3 日核对的成功记录。链接固定到所列提交的运行，实际状态及后续变化以各仓库 Actions 页面为准。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
 | PITBridge | `ed19dc6` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/37089437109) |
 | StressAtlas | `b8fa33a` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/37089449943) |
-| CreditVintage | `08ec4d4` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/37030157090) |
-| AlphaForge | `a1d3b03` | [Successful CI](https://github.com/dev-belly/alphaforge/actions/runs/36516317652) |
+| CreditVintage | `0b66b6f` | [Main CI](https://github.com/dev-belly/CreditVintage/actions/runs/37167633394) |
+| AlphaForge | `513abc6` | [Main CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845) |
 | TradeForge | `c692717` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/36516132505) |
 | AuditLens | `1a483b7` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/36733072243) |
 | ControlTrace | `5c42038` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/37089393347) |
@@ -47,7 +47,7 @@
 
 ## Recent validation
 
-10 月 3 日继续核验数值边界和报告内容，以下五项修复已发布为独立 PR。PITBridge、StressAtlas、LedgerX 已合入且 `main` CI 成功；CreditVintage 和 AlphaForge 仍待合并。未合入项目的测试数属于对应修复分支。
+10 月 3 日核验数值边界和报告内容，以下五项修复于 10 月 4 日全部完成合并。表中的测试数属于已发布的修复版本；各 PR 保留通过的检查记录，合并后的主分支运行链接列在上方。
 
 | Project / PR | Reproduced problem and resulting behavior | Validation |
 | :--- | :--- | :--- |
@@ -63,7 +63,7 @@
 
 PITBridge 从标量快照扩展到决策时点的滚动经营统计，导出每条贡献记录并以独立枚举核验；StressAtlas 从尾部点估计扩展到配对抽样精度诊断，重放全部情景和重采样统计。数值边界修复后，PITBridge 75 项、StressAtlas 70 项测试通过；CI 同时核验原报告和新增报告，并从输入重新生成案例。
 
-PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 UTC 日终约定接入 CreditVintage。联合案例从源记录选择一直核对到模型重拟合后的每条测试预测；核验还拒绝更新哈希后的伪造特征、溯源、模型输入摘要、页面内容及不一致模型配置。CreditVintage 的 58 项测试包含 18 项集成回归，格式、lint 和类型检查也纳入 CI。
+PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 UTC 日终约定接入 CreditVintage。联合案例从源记录选择一直核对到模型重拟合后的每条测试预测；核验还拒绝更新哈希后的伪造特征、溯源、模型输入摘要、页面内容及不一致模型配置。CreditVintage 当前的 70 项测试包含 18 项集成回归和 12 项新增报告篡改回归，并有 5 项子测试通过；格式、lint 和类型检查也纳入 CI。
 
 ControlTrace 的 59 项测试核对底稿重放、证据关联和非法 JSON 的命令行错误行为。LedgerX 的 38 项测试涵盖不利 Decimal 调用环境、完整账本重放、独立报价估值，以及工作精度之后仍存在非零金额小数位的拒绝行为；lint、格式与严格类型检查通过。
 

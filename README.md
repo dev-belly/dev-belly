@@ -52,7 +52,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-Recent validation: [five fixes with test evidence](PROJECT_REVIEW.md#recent-validation) cover numeric boundaries, reproducible tail estimates, report tampering and execution settings. The review records each PR's merge status and CI evidence.
+**2026-10-04 · [Five fixes merged](PROJECT_REVIEW.md#recent-validation).** Numeric boundaries, reproducible tail estimates, report tampering and execution settings now have published regression cases. The review links each repair and its CI evidence.
 
 ## More builds
 
