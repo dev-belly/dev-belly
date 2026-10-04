@@ -2,6 +2,7 @@
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial research systems." />
   <br /><br />
   <a href="#flagship-projects"><b>PROJECTS</b></a> &nbsp; / &nbsp;
+  <a href="https://dev-belly.github.io/CreditVintage/lineage/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>PROJECT NOTES</b></a>
 </div>
@@ -20,7 +21,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 训练、校准、测试分期隔离；标签等待完整表现期；同时展示原始与校准后的结果。新增 **PITBridge 联合案例**，从预测追到特征值、源记录、修订版本和可用时间。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
+[Source](https://github.com/dev-belly/CreditVintage) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
 
 <br />
 
@@ -48,7 +49,8 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 | Shipped | Inspect the work |
 | :--- | :--- |
-| **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://github.com/dev-belly/CreditVintage#source-to-prediction-lineage): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
+| **2026-10-04 · Evidence you can open** | [Online lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) and [complete example ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip): generated from source and verified before publication. |
+| **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://dev-belly.github.io/CreditVintage/lineage/): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
