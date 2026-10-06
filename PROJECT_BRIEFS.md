@@ -58,7 +58,8 @@ These are **candidate resume bullets**, not claims about live customers or reali
 > 构建合成凭证审计分析流程：对 30,128 笔凭证运行九项审计规则、Benford 检验与 Isolation Forest，输出可追溯的规则证据、SQLite 查询结果和 Streamlit 风险看板；按规则覆盖、风险排序与概率抽样生成 300 笔复核工作底稿，并验证人工复核结果与抽样来源。
 
 - **Evidence:** [reports and the 300-row workpaper](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports), [methodology](https://github.com/dev-belly/AuditLens/blob/main/docs/methodology.md), [CI](https://github.com/dev-belly/AuditLens/actions/workflows/ci.yml).
-- **Discuss:** Why the random inclusion probability applies only to the non-targeted frame; why an anomaly flag is not a confirmed fraud finding; how the workpaper checksum and input fingerprint differ.
+- **Review validation:** [PR #3](https://github.com/dev-belly/AuditLens/pull/3) binds outcome counts and file digests to the same captured CSV bytes. A concurrent save cannot make the report cite one version while counting another; [main CI](https://github.com/dev-belly/AuditLens/actions/runs/37191026460) passes the pipeline, tests and reproducibility check.
+- **Discuss:** Why the random inclusion probability applies only to the non-targeted frame; why an anomaly flag is not a confirmed fraud finding; how the workpaper checksum and input fingerprint differ; why hashing and parsing a file in separate reads can cite inconsistent versions.
 - **Boundary:** The 919 injected anomalies and all detection metrics come from synthetic data. No client ledger or real fraud labels were used.
 
 ### [ControlTrace](https://github.com/dev-belly/ControlTrace)
@@ -76,7 +77,8 @@ These are **candidate resume bullets**, not claims about live customers or reali
 > 构建 C++20 订单簿与 Python 研究层，对四种执行策略在同一合成事件流下进行可复现对比；同时报告到达价与区间 VWAP 的交易成本，并用 Python/C++ 逐事件对照、因果测试和 CI sanitizers 检查结果可靠性。
 
 - **Evidence:** [deterministic cost table](https://github.com/dev-belly/TradeForge#sixty-second-tour), [verification contract](https://github.com/dev-belly/TradeForge#what-makes-the-numbers-defensible), [CI](https://github.com/dev-belly/TradeForge/actions/workflows/ci.yml).
-- **Discuss:** Why one execution can beat arrival price but lose to interval VWAP; exact L3 FIFO versus approximate L2 queue; why a synthetic cost difference is not a venue performance claim.
+- **Numeric validation:** [PR #2](https://github.com/dev-belly/TradeForge/pull/2) converts human prices to half-up integer ticks by exact integer ratios and constructs decimal notionals without intermediate rounding. Low-precision Decimal contexts and arithmetic traps cannot change those conversions; [main CI](https://github.com/dev-belly/TradeForge/actions/runs/37191280682) also passes the C++ differential, sanitizer and deterministic replay jobs.
+- **Discuss:** Why one execution can beat arrival price but lose to interval VWAP; exact L3 FIFO versus approximate L2 queue; why a synthetic cost difference is not a venue performance claim; why a very long decimal just below half a tick must not round upward before tick conversion.
 
 ### [AlphaForge](https://github.com/dev-belly/alphaforge) and [LedgerX](https://github.com/dev-belly/LedgerX)
 

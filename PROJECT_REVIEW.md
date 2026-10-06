@@ -1,6 +1,6 @@
-# Portfolio review · 2026-10-04
+# Portfolio review · 2026-10-06
 
-9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3 日合并三项数值边界修复和 ControlTrace 底稿 JSON 校验修复；10 月 4 日合并 CreditVintage 报告内容核验和 AlphaForge 成交配置修复，更新主分支提交与 CI 入口。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
+9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日同步最新主分支证据，并将联合案例依赖固定到 PITBridge 的数值修复版本。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 ## Lead with the role
 
@@ -32,22 +32,22 @@
 
 ## Main commits and CI
 
-2026-10-04 收尾核验确认：CreditVintage 与 AlphaForge 合并后的主分支 CI 均成功。AlphaForge 的 Python 3.10–3.12 常规检查及完整流水线/API 集成检查均已完成；CreditVintage 的研究报告发布也已成功。其余项目保留 10 月 3 日核对的成功记录。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
+2026-10-06 复查确认：八个主项目所列主分支 CI 均成功。TradeForge 与 AuditLens 已同步最近的金额转换和复核文件快照修复；AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
 | PITBridge | `ed19dc6` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/37089437109) |
 | StressAtlas | `b8fa33a` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/37089449943) |
-| CreditVintage | `e9a259d` | [Main CI](https://github.com/dev-belly/CreditVintage/actions/runs/37168027483) |
+| CreditVintage | `50623a4` | [Successful main CI](https://github.com/dev-belly/CreditVintage/actions/runs/37400017422) |
 | AlphaForge | `513abc6` | [Successful main CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845) |
-| TradeForge | `c692717` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/36516132505) |
-| AuditLens | `1a483b7` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/36733072243) |
+| TradeForge | `2685c4b` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/37191280682) |
+| AuditLens | `8333060` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/37191026460) |
 | ControlTrace | `5c42038` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/37089393347) |
 | LedgerX | `b66c8c5` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/37089464841) |
 
 ## Recent validation
 
-10 月 3 日核验数值边界和报告内容，以下五项修复于 10 月 4 日全部完成合并。表中的测试数属于已发布的修复版本；各 PR 保留通过的检查记录，合并后的主分支运行链接列在上方。
+10 月 3–4 日合并的数值、报告和配置修复，以及 TradeForge、AuditLens 的后续修复，均在 10 月 6 日再次核对远端 CI。表中的测试数属于所列修复版本；各 PR 保留通过的检查记录，主分支运行链接列在上方。
 
 | Project / PR | Reproduced problem and resulting behavior | Validation |
 | :--- | :--- | :--- |
@@ -56,6 +56,8 @@
 | [CreditVintage #4](https://github.com/dev-belly/CreditVintage/pull/4) | 更新哈希后的伪造置信区间或页面可能通过验证；独立重算 300 次整月重采样，按核验数据重建 HTML，并拒绝重复 JSON 键。 | 70 tests、5 subtests；评估、无标签监控、公开报告和完整源到预测链路全部核验；[Python 3.12/3.13 CI](https://github.com/dev-belly/CreditVintage/actions/runs/37089359255) 成功。 |
 | [AlphaForge #2](https://github.com/dev-belly/alphaforge/pull/2) | 1.9 个成交延迟日被截为 1；字符串 `"false"` 开启零股；负成本增加净值。配置在成交前校验整数、布尔值和成本范围。 | 本地 1,267 tests 全部通过，含完整流水线与 API，覆盖率 96%；合并后的 Python 3.10–3.12 常规测试、lint、format、mypy、文档入口检查以及完整流水线/API 集成检查均成功，见 [主分支 CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845)。 |
 | [LedgerX #1](https://github.com/dev-belly/LedgerX/pull/1) | 外部 Decimal traps 使部分卖出失败；极深小数位可能绕过记账量子约束。隔离算术环境，并把原始金额与可记账单位精确比较。 | 38 tests；格式、lint、mypy 通过，原估值案例保持一致。 |
+| [TradeForge #2](https://github.com/dev-belly/TradeForge/pull/2) | 外部 Decimal 精度、舍入和 traps 会改变价格刻度与成交金额；改为整数比例确定 half-up 刻度，直接构造精确金额，并拒绝非有限价格。 | Python 3.11–3.13、C++ 单元与逐事件对照、ASan/UBSan 和确定性重放检查均成功。 |
+| [AuditLens #3](https://github.com/dev-belly/AuditLens/pull/3) | 读取后又被保存的 CSV 可能使复核计数与所引用哈希来自不同版本；改为从同一份字节快照计算摘要并解析数据。 | Python 3.11/3.12 流水线与测试成功，3.11 同时通过报告复现检查；并发保存回归核对计数与文件摘要一致。 |
 
 这些修复补充实现层面的核验，不改变合成数据结果的业务适用边界。各 PR 提供变更文件、回归案例和远端 CI 状态。
 
@@ -73,4 +75,4 @@ PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合
 
 [在线联合案例](https://dev-belly.github.io/CreditVintage/lineage/)可选择测试申请查看源记录；[完整 ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip)包含源事件、模型输入、预测和清单。发布构建同时核验原评估、监控和完整联合案例；PR 只构建、主分支才部署。联合案例有 480 笔总申请、120 笔测试预测；原始风险报告的 480 笔测试申请属于另一份样例。
 
-[成功的发布构建](https://github.com/dev-belly/CreditVintage/actions/runs/37168027460)对应提交 `e9a259d`；[PR #5](https://github.com/dev-belly/CreditVintage/pull/5)保留脚本检查、页面构建和原有 Python 3.12/3.13 CI 的通过记录。
+[最近成功的发布构建](https://github.com/dev-belly/CreditVintage/actions/runs/37400017383)对应提交 `50623a4`；[PR #6](https://github.com/dev-belly/CreditVintage/pull/6)将代码、CI 和公共网页的依赖固定到包含数值契约修复的 PITBridge `ed19dc6`。70 项测试及 5 项子测试通过；线上 ZIP 的 19 个文件和清单哈希全部匹配，7 份输入、预测和指标 CSV 与已核验的本地构建逐字节一致。原发布脚本与报告核验记录保留在 [PR #5](https://github.com/dev-belly/CreditVintage/pull/5)。
