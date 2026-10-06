@@ -49,12 +49,13 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-06 · Inputs and evidence agree** | [Repaired PITBridge dependency](https://github.com/dev-belly/CreditVintage/pull/6), [exact price and notional conversion](https://github.com/dev-belly/TradeForge/pull/2), and [review counts tied to their CSV snapshot](https://github.com/dev-belly/AuditLens/pull/3). |
 | **2026-10-04 · Evidence you can open** | [Online lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) and [complete example ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip): generated from source and verified before publication. |
 | **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://dev-belly.github.io/CreditVintage/lineage/): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-04 · [Five fixes merged](PROJECT_REVIEW.md#recent-validation).** Numeric boundaries, reproducible tail estimates, report tampering and execution settings now have published regression cases. The review links each repair and its CI evidence.
+**2026-10-06 · [Seven validation fixes](PROJECT_REVIEW.md#recent-validation).** Numeric boundaries, tail estimates, report tampering, execution settings and CSV snapshot consistency have published regression cases. The review links the merged repairs and their CI evidence.
 
 ## More builds
 
