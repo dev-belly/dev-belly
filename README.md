@@ -49,6 +49,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-08 · Download, extract, replay** | [CreditVintage evidence download](https://github.com/dev-belly/CreditVintage/pull/7): local and published explorers provide the same fixed 19-file ZIP; earlier evidence keeps its original page verification and model replay. |
 | **2026-10-08 · Execution window boundaries** | [TradeForge execution-window repair](https://github.com/dev-belly/TradeForge/pull/7): replay earlier events to rebuild the book without leaking warm-up volume, freeze benchmarks at the deadline, and use later prices only to measure markouts. [Six passing CI jobs](https://github.com/dev-belly/TradeForge/actions/runs/37712196848). |
 | **2026-10-08 · Costs across partial fills** | [TradeForge fee model](https://github.com/dev-belly/TradeForge/pull/4): charge one broker minimum per child order, preserve exact venue fees and rebates, and reject invalid fee assumptions before execution. |
 | **2026-10-06 · One reference, end to end** | [CreditVintage integration update](https://github.com/dev-belly/CreditVintage/pull/6): the adapter, CI and public report build use the repaired PITBridge revision; saved inputs and predictions replay unchanged. |
@@ -57,7 +58,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-08 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** TradeForge's partial-fill fees reconcile to independent order totals; its [revised synthetic demo](https://github.com/dev-belly/TradeForge/pull/8) measures participation only inside the parent window (2.198%, versus the old 1.888% window-mixed display). Numeric, report and review-file regressions retain independent CI evidence.
+**2026-10-08 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** The downloaded credit evidence replays from sources to model predictions. TradeForge's partial-fill fees reconcile to independent order totals; its [revised synthetic demo](https://github.com/dev-belly/TradeForge/pull/8) measures participation only inside the parent window (2.198%, versus the old 1.888% window-mixed display). Numeric, report and review-file regressions retain independent CI evidence.
 
 ## More builds
 
