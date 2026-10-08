@@ -32,7 +32,7 @@
 
 ## Main commits and CI
 
-2026-10-08 复查确认：八个主项目所列主分支 CI 均成功。TradeForge 的逐订单佣金、精确费用和非法输入校验已合并，修复提交及合并后的主分支各六项 CI 均成功。AuditLens 的复核文件快照修复和 AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
+2026-10-08 复查确认：八个主项目所列主分支 CI 均成功。TradeForge 的逐订单佣金、精确费用和非法输入校验已合并，修复提交及合并后的主分支各六项 CI 均成功。AuditLens 的复核文件快照修复和 AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。 [TradeForge #7](https://github.com/dev-belly/TradeForge/pull/7) 随后已合并，六项 PR 检查全部成功；该次提交与下表较早的主分支 CI 快照分开记录，避免将 PR 检查误称为最新主分支检查。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
@@ -58,6 +58,7 @@
 | [LedgerX #1](https://github.com/dev-belly/LedgerX/pull/1) | 外部 Decimal traps 使部分卖出失败；极深小数位可能绕过记账量子约束。隔离算术环境，并把原始金额与可记账单位精确比较。 | 38 tests；格式、lint、mypy 通过，原估值案例保持一致。 |
 | [TradeForge #2](https://github.com/dev-belly/TradeForge/pull/2) | 外部 Decimal 精度、舍入和 traps 会改变价格刻度与成交金额；改为整数比例确定 half-up 刻度，直接构造精确金额，并拒绝非有限价格。 | Python 3.11–3.13、C++ 单元与逐事件对照、ASan/UBSan 和确定性重放检查均成功。 |
 | [TradeForge #3](https://github.com/dev-belly/TradeForge/pull/3)、[#4](https://github.com/dev-belly/TradeForge/pull/4)、[#5](https://github.com/dev-belly/TradeForge/pull/5) | 三次部分成交曾重复收取最低佣金；低精度可能把 0.99 美元增量佣金算成零，非法费率也可能生成虚假收益。逐子订单收取累计佣金增量，以精确有理数计算费用，并在成交前校验参数和成交输入；极小负数下溢成负零也不能绕过符号校验。 | 78 项费用回归通过，包含 400 组混合 maker/taker 部分成交独立对账；修复提交的 Python 3.11–3.13、C++ 对照、ASan/UBSan 和确定性检查均成功，合并后的主分支六项 CI 也全部成功。 |
+| [TradeForge #7](https://github.com/dev-belly/TradeForge/pull/7) | 延迟开始的执行任务曾把预热成交和窗口外行情混入参与率及基准；行情跳过精确截止时刻还可能延后终场扫单。现在以窗口开始时刻作为成交量口径，窗口前事件只重建订单簿，窗口后仅用于 markout；在截止时刻按最后的窗口内行情完成终场处理，不使用未来报价。 | 六项 normalized-CSV 执行窗口回归覆盖延迟开始、空窗口、窗口后 markout 与稀疏收盘；[PR CI](https://github.com/dev-belly/TradeForge/actions/runs/37712196848) 的 Python 3.11–3.13、C++ differential、ASan/UBSan 和可复现性共六项检查全部成功，PR 已合并。 |
 | [AuditLens #3](https://github.com/dev-belly/AuditLens/pull/3) | 读取后又被保存的 CSV 可能使复核计数与所引用哈希来自不同版本；改为从同一份字节快照计算摘要并解析数据。 | Python 3.11/3.12 流水线与测试成功，3.11 同时通过报告复现检查；并发保存回归核对计数与文件摘要一致。 |
 
 这些修复补充实现层面的核验，不改变合成数据结果的业务适用边界。各 PR 提供变更文件、回归案例和远端 CI 状态。
