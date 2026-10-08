@@ -57,7 +57,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-08 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** Regression cases cover numeric boundaries, report contents, execution settings and review-file snapshots. TradeForge's partial-fill fees reconcile to independent order totals; AuditLens's review counts remain bound to the same file snapshot as their hashes.
+**2026-10-08 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** TradeForge's partial-fill fees reconcile to independent order totals; its [revised synthetic demo](https://github.com/dev-belly/TradeForge/pull/8) measures participation only inside the parent window (2.198%, versus the old 1.888% window-mixed display). Numeric, report and review-file regressions retain independent CI evidence.
 
 ## More builds
 
