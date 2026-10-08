@@ -49,6 +49,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-08 · Cancel before replacing** | [TradeForge order lifecycle repair](https://github.com/dev-belly/TradeForge/pull/9): cancel children still in transit before submitting the terminal sweep, so a 100-unit parent cannot become a 150-unit execution through duplicate fills. |
 | **2026-10-08 · Download, extract, replay** | [CreditVintage evidence download](https://github.com/dev-belly/CreditVintage/pull/7): local and published explorers provide the same fixed 19-file ZIP; earlier evidence keeps its original page verification and model replay. |
 | **2026-10-08 · Execution window boundaries** | [TradeForge execution-window repair](https://github.com/dev-belly/TradeForge/pull/7): replay earlier events to rebuild the book without leaking warm-up volume, freeze benchmarks at the deadline, and use later prices only to measure markouts. [Six passing CI jobs](https://github.com/dev-belly/TradeForge/actions/runs/37712196848). |
 | **2026-10-08 · Costs across partial fills** | [TradeForge fee model](https://github.com/dev-belly/TradeForge/pull/4): charge one broker minimum per child order, preserve exact venue fees and rebates, and reject invalid fee assumptions before execution. |
