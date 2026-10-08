@@ -32,7 +32,7 @@
 
 ## Main commits and CI
 
-2026-10-08 复查确认：除 TradeForge 外，其余七个主项目所列主分支 CI 均成功。TradeForge 的逐订单佣金、精确费用和非法输入校验已合并，修复提交的六项 CI 均成功，合并后的主分支检查正在运行。AuditLens 的复核文件快照修复和 AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
+2026-10-08 复查确认：八个主项目所列主分支 CI 均成功。TradeForge 的逐订单佣金、精确费用和非法输入校验已合并，修复提交及合并后的主分支各六项 CI 均成功。AuditLens 的复核文件快照修复和 AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
@@ -40,7 +40,7 @@
 | StressAtlas | `b8fa33a` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/37089449943) |
 | CreditVintage | `50623a4` | [Successful main CI](https://github.com/dev-belly/CreditVintage/actions/runs/37400017422) |
 | AlphaForge | `513abc6` | [Successful main CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845) |
-| TradeForge | `3aaae46` | [Main CI in progress](https://github.com/dev-belly/TradeForge/actions/runs/37711097927) |
+| TradeForge | `3aaae46` | [Successful main CI](https://github.com/dev-belly/TradeForge/actions/runs/37711097927) |
 | AuditLens | `8333060` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/37191026460) |
 | ControlTrace | `5c42038` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/37089393347) |
 | LedgerX | `b66c8c5` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/37089464841) |
@@ -57,7 +57,7 @@
 | [AlphaForge #2](https://github.com/dev-belly/alphaforge/pull/2) | 1.9 个成交延迟日被截为 1；字符串 `"false"` 开启零股；负成本增加净值。配置在成交前校验整数、布尔值和成本范围。 | 本地 1,267 tests 全部通过，含完整流水线与 API，覆盖率 96%；合并后的 Python 3.10–3.12 常规测试、lint、format、mypy、文档入口检查以及完整流水线/API 集成检查均成功，见 [主分支 CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845)。 |
 | [LedgerX #1](https://github.com/dev-belly/LedgerX/pull/1) | 外部 Decimal traps 使部分卖出失败；极深小数位可能绕过记账量子约束。隔离算术环境，并把原始金额与可记账单位精确比较。 | 38 tests；格式、lint、mypy 通过，原估值案例保持一致。 |
 | [TradeForge #2](https://github.com/dev-belly/TradeForge/pull/2) | 外部 Decimal 精度、舍入和 traps 会改变价格刻度与成交金额；改为整数比例确定 half-up 刻度，直接构造精确金额，并拒绝非有限价格。 | Python 3.11–3.13、C++ 单元与逐事件对照、ASan/UBSan 和确定性重放检查均成功。 |
-| [TradeForge #3](https://github.com/dev-belly/TradeForge/pull/3)、[#4](https://github.com/dev-belly/TradeForge/pull/4)、[#5](https://github.com/dev-belly/TradeForge/pull/5) | 三次部分成交曾重复收取最低佣金；低精度可能把 0.99 美元增量佣金算成零，非法费率也可能生成虚假收益。逐子订单收取累计佣金增量，以精确有理数计算费用，并在成交前校验参数和成交输入；极小负数下溢成负零也不能绕过符号校验。 | 78 项费用回归通过，包含 400 组混合 maker/taker 部分成交独立对账；修复提交的 Python 3.11–3.13、C++ 对照、ASan/UBSan 和确定性检查均成功，合并后的主分支检查待完成。 |
+| [TradeForge #3](https://github.com/dev-belly/TradeForge/pull/3)、[#4](https://github.com/dev-belly/TradeForge/pull/4)、[#5](https://github.com/dev-belly/TradeForge/pull/5) | 三次部分成交曾重复收取最低佣金；低精度可能把 0.99 美元增量佣金算成零，非法费率也可能生成虚假收益。逐子订单收取累计佣金增量，以精确有理数计算费用，并在成交前校验参数和成交输入；极小负数下溢成负零也不能绕过符号校验。 | 78 项费用回归通过，包含 400 组混合 maker/taker 部分成交独立对账；修复提交的 Python 3.11–3.13、C++ 对照、ASan/UBSan 和确定性检查均成功，合并后的主分支六项 CI 也全部成功。 |
 | [AuditLens #3](https://github.com/dev-belly/AuditLens/pull/3) | 读取后又被保存的 CSV 可能使复核计数与所引用哈希来自不同版本；改为从同一份字节快照计算摘要并解析数据。 | Python 3.11/3.12 流水线与测试成功，3.11 同时通过报告复现检查；并发保存回归核对计数与文件摘要一致。 |
 
 这些修复补充实现层面的核验，不改变合成数据结果的业务适用边界。各 PR 提供变更文件、回归案例和远端 CI 状态。
