@@ -49,13 +49,14 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-08 · Costs across partial fills** | [TradeForge fee model](https://github.com/dev-belly/TradeForge/pull/4): charge one broker minimum per child order, preserve exact venue fees and rebates, and reject invalid fee assumptions before execution. |
 | **2026-10-06 · One reference, end to end** | [CreditVintage integration update](https://github.com/dev-belly/CreditVintage/pull/6): the adapter, CI and public report build use the repaired PITBridge revision; saved inputs and predictions replay unchanged. |
 | **2026-10-04 · Evidence you can open** | [Online lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) and [complete example ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip): generated from source and verified before publication. |
 | **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://dev-belly.github.io/CreditVintage/lineage/): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-06 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** Regression cases cover numeric boundaries, report contents, execution settings and review-file snapshots. TradeForge's exact price conversions and AuditLens's snapshot-bound review counts now have linked repair and CI evidence.
+**2026-10-08 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** Regression cases cover numeric boundaries, report contents, execution settings and review-file snapshots. TradeForge's partial-fill fees reconcile to independent order totals; AuditLens's review counts remain bound to the same file snapshot as their hashes.
 
 ## More builds
 
