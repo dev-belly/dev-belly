@@ -2,9 +2,11 @@
 
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
+10 月 9 日核对原八个主项目的已发布版本与 CI，并补齐 TradeForge 的含费成本口径、真实 CLI 表格对照及主页证据。
+
 ## New project releases · 2026-10-09
 
-新增两个可安装、可复算且有在线演示的项目，补上真实公开财报处理与机构债务网络分析。原八个项目的历史 CI 证据保留在下方，日期和提交口径没有改写成今天全部重测。
+新增两个可安装、可复算且有在线演示的项目，补上真实公开财报处理与机构债务网络分析。下方继续保留原八个项目的固定 CI 证据；10 月 9 日补记已发布版本的检查状态，旧测试数仍对应各自修复版本。
 
 | Project | Release commit | Validation and deployment |
 | :--- | :--- | :--- |
@@ -47,22 +49,22 @@ StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录�
 
 ## Main commits and CI
 
-2026-10-08 复查确认：八个主项目所列主分支 CI 均成功。TradeForge 的逐订单佣金、精确费用和非法输入校验已合并，修复提交及合并后的主分支各六项 CI 均成功。AuditLens 的复核文件快照修复和 AlphaForge 的完整流水线/API 集成检查也已完成。CreditVintage 联合案例的代码、CI 与发布构建固定到包含数值契约修复的 PITBridge 提交。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。 [TradeForge #7](https://github.com/dev-belly/TradeForge/pull/7) 的六项 PR 检查及合并后 `1ba7129` 提交的六项主分支检查均已成功；后续 README 口径修正 [PR #8](https://github.com/dev-belly/TradeForge/pull/8) 同样经过六项 PR 检查后合并，README 修正后的 `689d255` 主分支六项检查也全部成功。CreditVintage 已发布完整下载入口，实际线上 ZIP 的源记录、特征与模型预测重放通过；其 PITBridge 依赖仍固定到 `ed19dc6`。 最新在途子订单撤销修复 [TradeForge #9](https://github.com/dev-belly/TradeForge/pull/9) 的六项 PR 检查和合并后的六项主分支检查均成功。
+2026-10-09 复查确认：原八个主项目所列主分支 CI 均成功。TradeForge 的费用金额、含费 shortfall、执行窗口和订单生命周期修复均已合并；Python 3.11–3.13、C++ 逐事件对照、ASan/UBSan 与确定性重放检查成功。PITBridge 主分支新增运行示例与贡献指南，其 CI 和 Pages 构建成功；CreditVintage 联合案例仍固定到数值契约修复提交 `ed19dc6`，完整下载和源到模型重放的既有证据保留。链接固定到所列提交的运行，后续变化以各仓库 Actions 页面为准。
 
 | Project | Main commit | CI evidence |
 | :--- | :--- | :--- |
-| PITBridge | `26542a9` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/37711473675) |
+| PITBridge | `734c4e2` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/37775585872) |
 | StressAtlas | `b8fa33a` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/37089449943) |
 | CreditVintage | `2f5d6b0` | [Successful main CI](https://github.com/dev-belly/CreditVintage/actions/runs/37711860986) |
 | AlphaForge | `513abc6` | [Successful main CI](https://github.com/dev-belly/alphaforge/actions/runs/37167641845) |
-| TradeForge | `4046d7e` | [Successful main CI](https://github.com/dev-belly/TradeForge/actions/runs/37773367077) |
+| TradeForge | `c992354` | [Successful main CI](https://github.com/dev-belly/TradeForge/actions/runs/37866454671) |
 | AuditLens | `8333060` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/37191026460) |
 | ControlTrace | `5c42038` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/37089393347) |
 | LedgerX | `b66c8c5` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/37089464841) |
 
 ## Recent validation
 
-10 月 3–4 日合并的数值、报告和配置修复，以及 TradeForge、AuditLens 的后续修复，均在 10 月 8 日再次核对远端 CI。TradeForge 新增费用修复同时核验逐订单累计佣金、返佣精度与非法配置。表中的测试数属于所列修复版本；各 PR 保留通过的检查记录，主分支运行链接列在上方。
+10 月 3–4 日合并的数值、报告和配置修复，以及 TradeForge、AuditLens 的后续修复，均在 10 月 9 日再次核对所列主分支 CI。TradeForge 后续修复补齐含费总成本及公开演示的输出契约。表中的测试数属于所列修复版本；各 PR 保留通过的检查记录，主分支运行链接列在上方。
 
 | Project / PR | Reproduced problem and resulting behavior | Validation |
 | :--- | :--- | :--- |
@@ -77,6 +79,8 @@ StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录�
 | [TradeForge #3](https://github.com/dev-belly/TradeForge/pull/3)、[#4](https://github.com/dev-belly/TradeForge/pull/4)、[#5](https://github.com/dev-belly/TradeForge/pull/5) | 三次部分成交曾重复收取最低佣金；低精度可能把 0.99 美元增量佣金算成零，非法费率也可能生成虚假收益。逐子订单收取累计佣金增量，以精确有理数计算费用，并在成交前校验参数和成交输入；极小负数下溢成负零也不能绕过符号校验。 | 78 项费用回归通过，包含 400 组混合 maker/taker 部分成交独立对账；修复提交的 Python 3.11–3.13、C++ 对照、ASan/UBSan 和确定性检查均成功，合并后的主分支六项 CI 也全部成功。 |
 | [TradeForge #7](https://github.com/dev-belly/TradeForge/pull/7) | 延迟开始的执行任务曾把预热成交和窗口外行情混入参与率及基准；行情跳过精确截止时刻还可能延后终场扫单。现在以窗口开始时刻作为成交量口径，窗口前事件只重建订单簿，窗口后仅用于 markout；在截止时刻按最后的窗口内行情完成终场处理，不使用未来报价。 | 六项 normalized-CSV 回归覆盖延迟开窗、无窗口内报价、窗口外 markout 与稀疏截止；合成场景 50 单位成交/100 单位窗口内成交量维持 50% 参与率。已发布树的 113 项费用/窗口组合测试通过；[PR CI](https://github.com/dev-belly/TradeForge/actions/runs/37712196848) 与[合并后主分支 CI](https://github.com/dev-belly/TradeForge/actions/runs/37738744500) 的 Python 3.11–3.13、C++ differential、ASan/UBSan 和可复现性检查均通过。 |
 | [TradeForge #9](https://github.com/dev-belly/TradeForge/pull/9) | 截止撤单曾漏掉仍在传输中的子订单，随后迟到成交和替代扫单把 100 单位请求变成 150 单位成交。现在允许接受前撤单，忽略已结束订单的到达回调，并按仍存活的订单计算容量。 | 8 项 normalized-CSV 回归覆盖撤单、扫单、显式保留、截止时点到达及 1/10 笔容量限制；核对原订单在截止时点结束、没有接受或成交记录，替代扫单不超父订单数量。本地全套验证 836 项通过，152 项跳过；PR 及合并后的主分支 Python 3.11–3.13、C++ 对照、ASan/UBSan 和确定性重放均成功。 |
+| [TradeForge #10](https://github.com/dev-belly/TradeForge/pull/10) | 显式费用曾未进入总 shortfall，还被相反方向的归因残差抵消。费用按请求与成交的到达价金额分别计量，BUY/SELL 均加计费用、减计净返佣，并同步 Parquet 和 SQL。 | 20 项现金成本回归覆盖双向交易、部分成交、净返佣、缺失基准、Decimal traps 和存储对账；[合并后六项主分支检查](https://github.com/dev-belly/TradeForge/actions/runs/37774684223) 全部成功。 |
+| [TradeForge #11](https://github.com/dev-belly/TradeForge/pull/11) | 费用修复后，README 八行 `is_bps` 和指南归因表仍保留旧口径。按真实 CLI 更新全部数据；公开命令测试核对文档列与报告行，防止旧价格成本继续冒充含费总成本。 | 新增 3 项文档输出回归；本地全套 859 项通过、152 项跳过，135 个 Python 文件的 lint/format 与空白检查通过。[PR 检查](https://github.com/dev-belly/TradeForge/actions/runs/37865674865)及[合并后主分支检查](https://github.com/dev-belly/TradeForge/actions/runs/37866454671)的 Python 3.11–3.13、C++ 对照、sanitizers 和确定性重放均成功。 |
 | [AuditLens #3](https://github.com/dev-belly/AuditLens/pull/3) | 读取后又被保存的 CSV 可能使复核计数与所引用哈希来自不同版本；改为从同一份字节快照计算摘要并解析数据。 | Python 3.11/3.12 流水线与测试成功，3.11 同时通过报告复现检查；并发保存回归核对计数与文件摘要一致。 |
 
 这些修复补充实现层面的核验，不改变合成数据结果的业务适用边界。各 PR 提供变更文件、回归案例和远端 CI 状态。
