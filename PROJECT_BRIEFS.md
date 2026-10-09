@@ -1,6 +1,26 @@
 # Project evidence and interview notes
 
-These are **candidate resume bullets**, not claims about live customers or realized investment returns. Every quoted result is from a linked synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
+These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify their linked public-filing excerpt or synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
+
+## Public financial statement analysis
+
+### [StatementTrace](https://github.com/dev-belly/StatementTrace)
+
+> 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 30 项自动化测试。
+
+- **Evidence:** [live report](https://dev-belly.github.io/StatementTrace/), [source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md), [selected facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/selected_facts.csv), [metric lineage](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/lineage.csv), [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547).
+- **Discuss:** Why filing `fy` cannot replace start/end; why filing date and acceptance timestamp differ; why missing is not zero; why reported annual growth is not week-normalized; why rehashed output corruption still fails replay.
+- **Boundary:** Eleven configured US-GAAP USD concepts, date-granularity availability and a manually curated CompanyFacts-shaped excerpt. No raw-API-download, actual-restatement, universal-XBRL, credit-rating or investment-performance claim.
+
+## Counterparty network risk
+
+### [NetworkClear](https://github.com/dev-belly/NetworkClear)
+
+> 实现精确有理数债务清算与交易对手传染分析，在八家合成机构的 15 组压力情景中区分直接与连锁违约、内部未偿债务与外部债权人短缺；建立固定点证书和全网络资金勾稽，以独立违约集合穷举复核全部情景及 100 个随机小网络，覆盖 33 项自动化测试。
+
+- **Evidence:** [live report](https://dev-belly.github.io/NetworkClear/), [method and schema](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md), [payments](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/payments.csv), [individual debt flows](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/flows.csv), [main CI and deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853).
+- **Discuss:** Debtor rows versus creditor columns; why outside debt ensures the implemented regularity contract; why rounds are not elapsed time; why fractional cents are a continuous-model output; why gross internal unpaid debt is not outside social loss.
+- **Boundary:** Synthetic exposures, pro-rata one-period clearing and a stronger sufficient uniqueness condition. Exhaustive oracle limited to eight nodes; no collateral, seniority, fire sales, global-optimal capital allocation or real-bank risk estimate.
 
 ## Financial data engineering
 
@@ -102,9 +122,11 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 - **Financial audit analytics:** AuditLens first; ControlTrace or CreditVintage second.
 - **IT audit / technology risk:** ControlTrace first; AuditLens second.
-- **Financial data engineering:** PITBridge first; CreditVintage second.
+- **Financial statement / financial data analysis:** StatementTrace first; PITBridge second.
+- **Financial data engineering:** PITBridge first; CreditVintage or StatementTrace second.
 - **Bank model validation:** CreditVintage first; PITBridge second.
 - **Portfolio risk analytics:** StressAtlas first; CreditVintage second.
+- **Counterparty / network risk:** NetworkClear first; StressAtlas second.
 - **Quant engineering:** TradeForge first; AlphaForge or LedgerX second.
 
 The remaining repositories include exploratory research and application prototypes. Their READMEs describe the implemented scope and limitations; do not present every repository as an equal-depth flagship project.

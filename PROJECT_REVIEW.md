@@ -1,11 +1,26 @@
-# Portfolio review · 2026-10-08
+# Portfolio review · 2026-10-09
 
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
+
+## New project releases · 2026-10-09
+
+新增两个可安装、可复算且有在线演示的项目，补上真实公开财报处理与机构债务网络分析。原八个项目的历史 CI 证据保留在下方，日期和提交口径没有改写成今天全部重测。
+
+| Project | Release commit | Validation and deployment |
+| :--- | :--- | :--- |
+| [StatementTrace](https://github.com/dev-belly/StatementTrace) | [`654eac1`](https://github.com/dev-belly/StatementTrace/commit/654eac1e9f73d8807c55df1eca6f8a25d6e65ad6) | [Main CI + Pages](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547): Python 3.11–3.13；30 tests、独立 SQL 取数对照、九文件逐字节复算、预览复建和安装包离开源码目录后的演示核验。 |
+| [NetworkClear](https://github.com/dev-belly/NetworkClear) | [`1436d53`](https://github.com/dev-belly/NetworkClear/commit/1436d538e9ccd91f5ae7792a3673e02c8619f78e) | [Main CI + Pages](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853): Python 3.11–3.13；33 tests，含 100 个随机小网络独立对照；15 情景逐个穷举 256 个违约集合，核对固定点与资金勾稽、报告复算及安装包演示。 |
+
+StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录，原表 USD 百万转换为 USD；保留真实申报链接、比较期和 53/52 周财年，不宣称未修改 API 下载或实际重述。NetworkClear 完全使用合成债务；A 受到 50% 外部资产冲击后，B/C/D 为新增传染违约，12,020 美元内部加外部未偿债务与 3,380 美元外部债权人短缺分开展示，不把重复网络暴露包装为实际社会损失。
+
+[StatementTrace report](https://dev-belly.github.io/StatementTrace/) · [NetworkClear report](https://dev-belly.github.io/NetworkClear/). 两个项目均在全部测试矩阵通过后发布；官方 Actions 固定到已核对发行版提交。项目说明与中文面试讲解列在 [PROJECT_BRIEFS.md](PROJECT_BRIEFS.md)。
 
 ## Lead with the role
 
 | 目标方向 | 主讲项目 | 最值得展示的证据 | 需要讲清的边界 |
 | :--- | :--- | :--- | :--- |
+| 公开财报 / 财务数据 | [StatementTrace](https://github.com/dev-belly/StatementTrace) | 精确财年、申报截止日、比较期、指标公式到源事实的血缘，以及独立 SQL 对照。 | 人工公开财报摘录、十一概念、日期级可得性；无周数归一化或信用评级。 |
+| 交易对手 / 网络风险 | [NetworkClear](https://github.com/dev-belly/NetworkClear) | 精确债务清算、违约集合、外部短缺与逐流勾稽、独立穷举算法。 | 合成曝光，一期比例清偿；未建模火售、抵押物、优先级或真实银行风险。 |
 | 金融数据工程 | [PITBridge](https://github.com/dev-belly/PITBridge) | SQL 时点关联、独立枚举、修订/删除/新鲜度、滚动 sum/mean/count 和逐成员溯源；标量信贷特征实际接入 CreditVintage。 | 依赖可信源时间和逻辑事件身份；成员数量不等于经营数据完整；集成约定为 UTC 日终，没有生产采集。 |
 | 组合风控 / 压力测试 | [StressAtlas](https://github.com/dev-belly/StressAtlas) | 借款人共享违约、离散尾部 ES、可加总贡献和完整路径配对 bootstrap 的 VaR/ES 精度。 | 合成 PD/LGD/EAD；区间仅诊断固定模型下的抽样误差，不能覆盖参数校准误差或未出现的稀有损失。 |
 | 银行数据 / 信贷风控 | [CreditVintage](https://github.com/dev-belly/CreditVintage) | 申请时点特征、180 天标签成熟、分离校准、跨期测试；从 PIT 源记录重建特征并重拟合模型，保留逐笔预测溯源。 | 合成借款人；联合案例与原评估样本不同；损失场景中的 LGD 是假设值；标签并非完整监管违约定义。 |
@@ -74,7 +89,7 @@ PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 
 
 ControlTrace 的 59 项测试核对底稿重放、证据关联和非法 JSON 的命令行错误行为。LedgerX 的 38 项测试涵盖不利 Decimal 调用环境、完整账本重放、独立报价估值，以及工作精度之后仍存在非零金额小数位的拒绝行为；lint、格式与严格类型检查通过。
 
-PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合案例没有声称把它们接进信贷模型或组合风险引擎。下一步引入真实公开数据时，需要保留许可、发布时间、标签定义和复现配置。
+PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合案例没有声称把它们接进信贷模型或组合风险引擎。StatementTrace 已新增一条公开年报摘录路径，保留来源、申报日期、实际财年和复现请求；它没有接入信贷模型。后续更广泛的真实数据集仍需核对许可、发布时间、标签定义与复现配置。
 
 ## Online evidence publication
 

@@ -11,7 +11,7 @@
 
 I'm **dev-belly**, a Data Science & Big Data Technology student at **Central University of Finance and Economics**. I build tools for credit risk, financial data and quantitative research.
 
-把金融问题拆成能运行、能检验、能追溯的系统。最近在做：**决策时点的数据、跨期信贷评估，以及组合尾部风险**。
+把金融问题拆成能运行、能检验、能追溯的系统。最近在做：**决策时点的数据、公开财报追溯、跨期信贷评估与网络风险**。
 
 ## Flagship projects
 
@@ -43,12 +43,23 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 [Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Walkthrough](https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md)
 
-<sub>Public financial examples use synthetic data. They demonstrate the code and methodology; they do not establish live investment performance or real borrower risk.</sub>
+<sub>Examples identify their public-filing or synthetic inputs. They demonstrate code and methodology; they do not establish live investment performance or real borrower risk.</sub>
+
+## New projects
+
+| Project | The engineering question | Inspect |
+| :--- | :--- | :--- |
+| [StatementTrace](https://github.com/dev-belly/StatementTrace) | Which publicly filed numbers were available at this cutoff, and which records produced each financial metric? | [Live report](https://dev-belly.github.io/StatementTrace/) · [SEC source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) · [Walkthrough](https://github.com/dev-belly/StatementTrace/blob/main/docs/INTERVIEW.md) |
+| [NetworkClear](https://github.com/dev-belly/NetworkClear) | Which institutions default after a counterparty shock, and can every cleared debt flow reconcile exactly? | [Live report](https://dev-belly.github.io/NetworkClear/) · [Clearing method](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) · [Walkthrough](https://github.com/dev-belly/NetworkClear/blob/main/docs/INTERVIEW.md) |
+
+StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses **synthetic exposures**. Both ship an offline CLI, inspectable CSV/JSON, source-backed methodology and semantic report replay.
 
 ## Research in public
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-09 · Public statements, traceable metrics** | [StatementTrace #1](https://github.com/dev-belly/StatementTrace/pull/1): 33 curated SEC-filing records, exact fiscal periods, six cutoff panels, nine financial metrics and independent SQL selection checks. [Main CI + deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547). |
+| **2026-10-09 · Counterparty clearing certificates** | [NetworkClear #1](https://github.com/dev-belly/NetworkClear/pull/1): 15 synthetic stress cases with rational payments, outside-loss reconciliation and independent exhaustive clearing checks. [Main CI + deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853). |
 | **2026-10-08 · Cancel before replacing** | [TradeForge order lifecycle repair](https://github.com/dev-belly/TradeForge/pull/9): cancel children still in transit before submitting the terminal sweep, so a 100-unit parent cannot become a 150-unit execution through duplicate fills. |
 | **2026-10-08 · Download, extract, replay** | [CreditVintage evidence download](https://github.com/dev-belly/CreditVintage/pull/7): local and published explorers provide the same fixed 19-file ZIP; earlier evidence keeps its original page verification and model replay. |
 | **2026-10-08 · Execution window boundaries** | [TradeForge execution-window repair](https://github.com/dev-belly/TradeForge/pull/7): replay earlier events to rebuild the book without leaking warm-up volume, freeze benchmarks at the deadline, and use later prices only to measure markouts. [Six passing CI jobs](https://github.com/dev-belly/TradeForge/actions/runs/37712196848). |
