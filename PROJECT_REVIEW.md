@@ -1,4 +1,4 @@
-# Portfolio review · 2026-10-09
+# Portfolio review · 2026-10-10
 
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
@@ -16,6 +16,19 @@
 StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录，原表 USD 百万转换为 USD；保留真实申报链接、比较期和 53/52 周财年，不宣称未修改 API 下载或实际重述。NetworkClear 完全使用合成债务；A 受到 50% 外部资产冲击后，B/C/D 为新增传染违约，12,020 美元内部加外部未偿债务与 3,380 美元外部债权人短缺分开展示，不把重复网络暴露包装为实际社会损失。
 
 [StatementTrace report](https://dev-belly.github.io/StatementTrace/) · [NetworkClear report](https://dev-belly.github.io/NetworkClear/). 两个项目均在全部测试矩阵通过后发布；官方 Actions 固定到已核对发行版提交。项目说明与中文面试讲解列在 [PROJECT_BRIEFS.md](PROJECT_BRIEFS.md)。
+
+## Cross-platform replay · 2026-10-10
+
+在 Windows 默认 `core.autocrlf=true` 的全新克隆中复现：Git 将演示与预览从 LF 转成 CRLF，导致报告清单哈希、逐字节复算和预览核验失败；中文 Windows 默认编码还使 UTF-8 HTML 篡改测试报错，真实符号链接创建则可能被系统权限拒绝。
+
+[StatementTrace #4](https://github.com/dev-belly/StatementTrace/pull/4) 和 [NetworkClear #4](https://github.com/dev-belly/NetworkClear/pull/4) 用 `.gitattributes` 保留 LF 字节，测试显式使用 UTF-8，并将真实符号链接用例与文件集、非空输出等检查分开；仅 Windows 创建链接的权限错误 1314 会跳过该用例。PowerShell 快速开始直接调用虚拟环境中的程序，无需激活脚本。
+
+| Project | Local Windows Python 3.12 validation | Continuous checks |
+| :--- | :--- | :--- |
+| [StatementTrace](https://github.com/dev-belly/StatementTrace/pull/4) | 33 tests：32 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后重建并核验六个面板。 | Linux Python 3.11–3.13 + Windows Python 3.12；Windows checkout 明确使用 `core.autocrlf=true`，测试关闭 UTF-8 mode 以覆盖原生编码。 |
+| [NetworkClear](https://github.com/dev-belly/NetworkClear/pull/4) | 36 tests：35 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后核验 15 个场景及独立穷举结果。 | 同一 Linux / Windows 检查组合；Pages 发布同时等待两个平台的检查。 |
+
+两个修复均在另外的全新 Windows 克隆中复查；财务指标、清算金额和演示内容保持原结果。Windows 本机的权限跳过不代表符号链接校验已取消，Linux CI 仍执行真实链接用例。
 
 ## Lead with the role
 
