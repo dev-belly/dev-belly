@@ -25,8 +25,8 @@ StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录�
 
 | Project | Local Windows Python 3.12 validation | Continuous checks |
 | :--- | :--- | :--- |
-| [StatementTrace](https://github.com/dev-belly/StatementTrace/pull/4) | 33 tests：32 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后重建并核验六个面板。 | Linux Python 3.11–3.13 + Windows Python 3.12；Windows checkout 明确使用 `core.autocrlf=true`，测试关闭 UTF-8 mode 以覆盖原生编码。 |
-| [NetworkClear](https://github.com/dev-belly/NetworkClear/pull/4) | 36 tests：35 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后核验 15 个场景及独立穷举结果。 | 同一 Linux / Windows 检查组合；Pages 发布同时等待两个平台的检查。 |
+| [StatementTrace](https://github.com/dev-belly/StatementTrace/pull/4) | 33 tests：32 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后重建并核验六个面板。 | [四项 PR 检查成功](https://github.com/dev-belly/StatementTrace/actions/runs/38042121934)：Linux Python 3.11–3.13 + Windows Python 3.12；Windows checkout 明确使用 `core.autocrlf=true`，测试关闭 UTF-8 mode 以覆盖原生编码。 |
+| [NetworkClear](https://github.com/dev-belly/NetworkClear/pull/4) | 36 tests：35 通过、1 符号链接权限跳过；九文件与预览逐字节重放；源码目录外安装 wheel 后核验 15 个场景及独立穷举结果。 | [四项 PR 检查成功](https://github.com/dev-belly/NetworkClear/actions/runs/38042122841)：同一 Linux / Windows 检查组合；Pages 发布同时等待两个平台的检查。 |
 
 两个修复均在另外的全新 Windows 克隆中复查；财务指标、清算金额和演示内容保持原结果。Windows 本机的权限跳过不代表符号链接校验已取消，Linux CI 仍执行真实链接用例。
 
