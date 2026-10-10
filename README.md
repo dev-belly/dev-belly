@@ -58,6 +58,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-10 · Inputs and exported evidence** | [StressAtlas #4](https://github.com/dev-belly/StressAtlas/pull/4) preserves PD endpoints under extreme stress inputs; [CreditVintage #8](https://github.com/dev-belly/CreditVintage/pull/8) makes all three Windows report paths verifiable; [LedgerX #2](https://github.com/dev-belly/LedgerX/pull/2) rejects malformed quote CSV. Each adds Windows checks and direct PowerShell commands. |
 | **2026-10-10 · Try one invoice, then CSV tables** | [PITBridge #10](https://github.com/dev-belly/PITBridge/pull/10): fix Windows checkout hashes and native-encoding checks; bring the three-decision example, optional pandas adapter and [trial feedback](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md) into the English and Chinese entry points. |
 | **2026-10-10 · Replay on Windows** | [StatementTrace #4](https://github.com/dev-belly/StatementTrace/pull/4) and [NetworkClear #4](https://github.com/dev-belly/NetworkClear/pull/4): preserve report hashes under Windows Git settings, test native text encoding and verify installed wheels outside the source directory. Both now check Linux Python 3.11–3.13 and Windows Python 3.12. |
 | **2026-10-09 · Public statements, traceable metrics** | [StatementTrace #1](https://github.com/dev-belly/StatementTrace/pull/1): 33 curated SEC-filing records, exact fiscal periods, six cutoff panels, nine financial metrics and independent SQL selection checks. [Main CI + deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547). |
@@ -73,7 +74,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-10 · [Latest validation](PROJECT_REVIEW.md#invoice-trials--2026-10-10).** PITBridge's invoice API and CSV adapter agree field for field, with all 88 tests passing in the local native-encoding pandas environment. A fresh Windows checkout replays both saved bundles. StatementTrace and NetworkClear [Windows and installed-package checks](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10) and earlier model, execution-cost and source-lineage validation remain in the [portfolio review](PROJECT_REVIEW.md#recent-validation).
+**2026-10-10 · [Latest validation](PROJECT_REVIEW.md#input-contracts-and-portable-exports--2026-10-10).** StressAtlas, CreditVintage and LedgerX pass 74, 75 and 41 local tests respectively, with fresh Windows checkout checks and strict verification preserved. [PITBridge invoice/CSV trials](PROJECT_REVIEW.md#invoice-trials--2026-10-10), StatementTrace and NetworkClear [Windows and installed-package checks](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10), and earlier model, execution-cost and source-lineage validation remain in the [portfolio review](PROJECT_REVIEW.md#recent-validation).
 
 ## More builds
 

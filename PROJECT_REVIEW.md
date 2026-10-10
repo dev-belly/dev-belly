@@ -42,6 +42,20 @@ StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录�
 
 [六项 PR 检查全部成功](https://github.com/dev-belly/PITBridge/actions/runs/38043124722)：Linux Python 3.11/3.12、Linux pandas 2/3、Windows pandas 3，以及增加原生编码和保存报告检查的 Windows 快速开始。
 
+## Input contracts and portable exports · 2026-10-10
+
+继续检查已有项目，先复现用户可见的失败，再保留验证强度完成修复：
+
+| Project | Reproduced problem and repair | Local validation |
+| :--- | :--- | :--- |
+| [StressAtlas #4](https://github.com/dev-belly/StressAtlas/pull/4) | 两个合法正赔率乘数的乘积下溢时，PD=1 曾除以零；现在先保持 PD=0/1 端点。超大整数输入返回合同错误，CLI 不再泄漏 `OverflowError`。 | 新增四项 API/CLI 回归，修复前均失败；74 tests 全通过。全新 Windows 检出保留 11 份证据的文件哈希，本机生成的场景和精度报告完整重放。 |
+| [CreditVintage #8](https://github.com/dev-belly/CreditVintage/pull/8) | Windows 生成评估、监控和 lineage 页面后，默认 CRLF 写出使三个验证命令立即失败；HTML/JSON 现显式写出 UTF-8/LF，提交证据也保留 LF。 | 75 tests、28 subtests 全通过，Ruff、格式和类型检查成功；480 笔测试评估、320 笔当前监控及 480 申请/1,440 特征的联合案例重放成功。 |
+| [LedgerX #2](https://github.com/dev-belly/LedgerX/pull/2) | 缺闭引号的报价 CSV 曾被接受为有效价格；现在严格解析并报告物理输入行号。Windows 检出保持已发布报价的原始字节摘要。 | 41 tests、Ruff、格式和类型检查成功；全新 Windows 检出与已发布估值完全相等。合法带引号的 CRLF 外部文件仍支持，摘要记录其实际字节。 |
+
+三个项目均补上 Windows Python 3.12 自动检查和 PowerShell 入口，继续保留各自的 Linux 检查。CreditVintage 的三个验证器、StressAtlas 的场景及精度验证器均未改写；重新计算文件哈希后的伪造内容仍会被独立重放拒绝。LedgerX 的畸形报价不会产生估值或改变账本。
+
+StressAtlas 另外发现一个实际平台边界：在所测试的 Windows 与 Linux 数值构建中，即使 Python、NumPy、SciPy 版本相同，随机驱动的字节指纹仍不同。保存的 Linux 演示在 Windows 只核对文件哈希；Windows 新生成的报告做完整重放，Linux 继续完整重放保存演示。中英 README 与[方法说明](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md#reproducibility-and-limitations)明确这一区别，没有把摘要检查写成数值重放。
+
 ## Lead with the role
 
 | 目标方向 | 主讲项目 | 最值得展示的证据 | 需要讲清的边界 |
