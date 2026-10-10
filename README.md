@@ -31,7 +31,7 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值都有源记录成员，SQLite 结果与独立 Python 实现逐项核对。
 
-[Source](https://github.com/dev-belly/PITBridge) · [Snapshot counterexample](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/) · [Walkthrough](https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md)
+[Source](https://github.com/dev-belly/PITBridge) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot counterexample](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/) · [Walkthrough](https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md)
 
 <br />
 
@@ -58,6 +58,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-10 · Try one invoice, then CSV tables** | [PITBridge #10](https://github.com/dev-belly/PITBridge/pull/10): fix Windows checkout hashes and native-encoding checks; bring the three-decision example, optional pandas adapter and [trial feedback](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md) into the English and Chinese entry points. |
 | **2026-10-10 · Replay on Windows** | [StatementTrace #4](https://github.com/dev-belly/StatementTrace/pull/4) and [NetworkClear #4](https://github.com/dev-belly/NetworkClear/pull/4): preserve report hashes under Windows Git settings, test native text encoding and verify installed wheels outside the source directory. Both now check Linux Python 3.11–3.13 and Windows Python 3.12. |
 | **2026-10-09 · Public statements, traceable metrics** | [StatementTrace #1](https://github.com/dev-belly/StatementTrace/pull/1): 33 curated SEC-filing records, exact fiscal periods, six cutoff panels, nine financial metrics and independent SQL selection checks. [Main CI + deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547). |
 | **2026-10-09 · Counterparty clearing certificates** | [NetworkClear #1](https://github.com/dev-belly/NetworkClear/pull/1): 15 synthetic stress cases with rational payments, outside-loss reconciliation and independent exhaustive clearing checks. [Main CI + deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853). |
@@ -72,7 +73,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-10 · [Latest validation](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10).** Fresh Windows checkouts preserve StatementTrace and NetworkClear report bytes, and separately installed packages reproduce their demos. The local native-encoding runs passed 67 tests; two real symlink tests skipped because this machine cannot create links. Linux CI exercises those link checks. Earlier model, execution-cost and source-lineage validation remains in the [portfolio review](PROJECT_REVIEW.md#recent-validation).
+**2026-10-10 · [Latest validation](PROJECT_REVIEW.md#invoice-trials--2026-10-10).** PITBridge's invoice API and CSV adapter agree field for field, with all 88 tests passing in the local native-encoding pandas environment. A fresh Windows checkout replays both saved bundles. StatementTrace and NetworkClear [Windows and installed-package checks](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10) and earlier model, execution-cost and source-lineage validation remain in the [portfolio review](PROJECT_REVIEW.md#recent-validation).
 
 ## More builds
 

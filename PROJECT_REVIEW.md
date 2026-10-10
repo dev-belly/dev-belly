@@ -30,6 +30,18 @@ StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录�
 
 两个修复均在另外的全新 Windows 克隆中复查；财务指标、清算金额和演示内容保持原结果。Windows 本机的权限跳过不代表符号链接校验已取消，Linux CI 仍执行真实链接用例。
 
+## Invoice trials · 2026-10-10
+
+复查旧待办：[PITBridge #8](https://github.com/dev-belly/PITBridge/pull/8) 的 pandas/CSV 示例与 [#9](https://github.com/dev-belly/PITBridge/pull/9) 的可选适配器检查均在 10 月 9 日合并，[#7](https://github.com/dev-belly/PITBridge/issues/7) 已按完成状态关闭。10 月 10 日读取原八个主项目的最新主分支检查，均成功。
+
+[PITBridge #10](https://github.com/dev-belly/PITBridge/pull/10) 补齐新读者的试用路径：主页链接到[三次决策的发票案例和可选 CSV 输入](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)，中文 README 加入 pandas 命令，新增[试用反馈模板](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md)。两个版本均对应 2026-01-31；2 月 1 日不可用，2 月 15 日选择 100,000 元的 `invoice-v1`，4 月 15 日才选择 135,000 元的 `invoice-v2`，API 与 CSV 全部输出字段一致。
+
+试用复查还发现 Windows 的两类问题：原生中文编码使两个 HTML 测试失败，默认 `core.autocrlf=true` 克隆使保存的快照、滚动报告均出现 `hash mismatch: inputs.json`。显式 UTF-8 测试和 LF 属性修复后，另一次全新 Windows 克隆的两份保存报告均完整重放，CI 的 Windows 快速开始也加入保存报告与原生编码检查。
+
+本机 Python 3.12：没有 pandas 时 80 项通过、8 项可选检查跳过；pandas 3.0.6 时 88 项全部通过，其中 CSV 专项 9 项通过。45 条快照特征、12 条滚动特征及 28 条源成员都能核验。标准库核心、时点规则和既有结果不变。
+
+[六项 PR 检查全部成功](https://github.com/dev-belly/PITBridge/actions/runs/38043124722)：Linux Python 3.11/3.12、Linux pandas 2/3、Windows pandas 3，以及增加原生编码和保存报告检查的 Windows 快速开始。
+
 ## Lead with the role
 
 | 目标方向 | 主讲项目 | 最值得展示的证据 | 需要讲清的边界 |
