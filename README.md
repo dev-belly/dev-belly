@@ -58,6 +58,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-10 · Replay on Windows** | [StatementTrace #4](https://github.com/dev-belly/StatementTrace/pull/4) and [NetworkClear #4](https://github.com/dev-belly/NetworkClear/pull/4): preserve report hashes under Windows Git settings, test native text encoding and verify installed wheels outside the source directory. Both now check Linux Python 3.11–3.13 and Windows Python 3.12. |
 | **2026-10-09 · Public statements, traceable metrics** | [StatementTrace #1](https://github.com/dev-belly/StatementTrace/pull/1): 33 curated SEC-filing records, exact fiscal periods, six cutoff panels, nine financial metrics and independent SQL selection checks. [Main CI + deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547). |
 | **2026-10-09 · Counterparty clearing certificates** | [NetworkClear #1](https://github.com/dev-belly/NetworkClear/pull/1): 15 synthetic stress cases with rational payments, outside-loss reconciliation and independent exhaustive clearing checks. [Main CI + deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853). |
 | **2026-10-09 · Price and cash costs** | [TradeForge cash-cost reconciliation](https://github.com/dev-belly/TradeForge/pull/10): fees and rebates reach total shortfall, attribution, Parquet and SQL; [public CLI checks](https://github.com/dev-belly/TradeForge/pull/11) keep the quoted demo and report consistent with actual output. |
@@ -71,7 +72,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-09 · [Latest validation](PROJECT_REVIEW.md#recent-validation).** Credit evidence replays from sources to model predictions. TradeForge now separates price-only benchmarks from fee-inclusive shortfall and keeps its quoted tables aligned with the CLI; the full local check passed 859 tests, with 152 compiled/optional cases skipped. Fixed CI runs document each published repair.
+**2026-10-10 · [Latest validation](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10).** Fresh Windows checkouts preserve StatementTrace and NetworkClear report bytes, and separately installed packages reproduce their demos. The local native-encoding runs passed 67 tests; two real symlink tests skipped because this machine cannot create links. Linux CI exercises those link checks. Earlier model, execution-cost and source-lineage validation remains in the [portfolio review](PROJECT_REVIEW.md#recent-validation).
 
 ## More builds
 
