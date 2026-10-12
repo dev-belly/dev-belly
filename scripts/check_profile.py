@@ -10,7 +10,10 @@ import xml.etree.ElementTree as ET
 from build_profile_assets import PROJECTS, outputs
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = ("README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md", "PROFILE_REFERENCES.md")
+DOCS = (
+    "README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md", "PROFILE_REFERENCES.md",
+    "INTERVIEW_PLAYBOOK.zh-CN.md", "PROJECT_ADOPTION.zh-CN.md",
+)
 CARDS = {f"assets/{project[0]}.svg": project for project in PROJECTS}
 
 

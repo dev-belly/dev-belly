@@ -4,7 +4,7 @@
   <a href="#flagship-projects"><b>PROJECTS</b></a> &nbsp; / &nbsp;
   <a href="https://dev-belly.github.io/CreditVintage/lineage/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a> &nbsp; / &nbsp;
-  <a href="PROJECT_BRIEFS.md"><b>PROJECT NOTES</b></a>
+  <a href="INTERVIEW_PLAYBOOK.zh-CN.md"><b>BUSINESS WALKTHROUGH</b></a>
 </div>
 
 <br />
@@ -12,6 +12,16 @@
 I'm **dev-belly**, a Data Science & Big Data Technology student at **Central University of Finance and Economics**. I build tools for credit risk, financial data and quantitative research.
 
 把金融问题拆成能运行、能检验、能追溯的系统。最近在做：**决策时点的数据、公开财报追溯、跨期信贷评估与网络风险**。
+
+## Start with one business question
+
+| Your question | Start here | Inspect the implementation |
+| :--- | :--- | :--- |
+| Which credit cohorts need attention, and who handles the review queue? | [CreditVintage SQL report](https://dev-belly.github.io/CreditVintage/analysis/) | [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
+| What could a decision actually know before a late correction arrived? | [PITBridge three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) |
+| Does a closed audit finding still apply after its evidence changes? | [ControlTrace case study](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) | [Review evidence contract](https://github.com/dev-belly/ControlTrace/blob/main/src/controltrace/reviews.py) |
+
+**面试与代码导览：** [60 秒开场、3 分钟讲述、追问回答和现场练习](INTERVIEW_PLAYBOOK.zh-CN.md)。每条主线都连接业务决定、具体代码和可复核结果；[项目证据](PROJECT_BRIEFS.md)提供更细的结果口径。
 
 ## Flagship projects
 
@@ -56,6 +66,11 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 ## Research in public
 
+<details>
+<summary><b>Implementation changes and their validation evidence</b></summary>
+
+**2026-10-12 · [Business workflow closure](PROJECT_REVIEW.md#business-workflow-closure--2026-10-12).** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds durable case ownership, review reasons, version conflicts and retry protection; [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) ties current review conclusions to the evidence version; [WeCom #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) queries all indexed contract/holding rows and reports exact currency totals. Their Linux and Windows checks pass. [Practice the business decisions and code paths](INTERVIEW_PLAYBOOK.zh-CN.md).
+
 | Shipped | Inspect the work |
 | :--- | :--- |
 | **2026-10-12 · Credit analysis with explicit denominators** | [CreditVintage #10](https://github.com/dev-belly/CreditVintage/pull/10): verified SQLite cohort/segment analysis, a label-free fixed-capacity review queue and independent Python replay. The [business case](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) distinguishes 25/48 review precision from 25/107 event capture in the synthetic example. [Live analysis](https://dev-belly.github.io/CreditVintage/analysis/). |
@@ -81,6 +96,8 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 **2026-10-12 · [Latest validation](PROJECT_REVIEW.md#sql-credit-business-case--2026-10-12).** CreditVintage's SQL cohort views and portable, label-free review queue pass 98 tests plus 28 subtests. Linux and Windows main-branch checks and publication pass; the live analysis page and summary match the verified public build byte-for-byte.
 
+</details>
+
 ## More builds
 
 | Project | The engineering question |
@@ -104,7 +121,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | Simulated causal estimation and robust allocation; [interactive example](https://dev-belly.github.io/highdim-causal-allocation-lab/). |
 | [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | A [retained negative result](https://dev-belly.github.io/interval-financial-risk/): distributional features reduced AUC in this synthetic experiment. |
 | [FactorLab](https://github.com/dev-belly/ashare-multifactor-research) | A-share factor evaluation and purged validation; [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md). |
-| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Document retrieval and query workflows. |
+| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Complete contract filtering and currency-aware holding totals from indexed tables; [offline business trial](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md). |
 | [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) | Local chat plus a separately configured private model connection. |
 
 Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman) · [Ranxin](https://github.com/dev-belly/ranxin-mini-program) · [Goose Leg Auntie](https://github.com/dev-belly/goose-leg-auntie-site).
@@ -113,6 +130,6 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 
 ---
 
-[Project evidence](PROJECT_BRIEFS.md) · [Portfolio review](PROJECT_REVIEW.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+[Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Project evidence](PROJECT_BRIEFS.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 
 <sub>Financial questions. Runnable code. Evidence you can inspect.</sub>
