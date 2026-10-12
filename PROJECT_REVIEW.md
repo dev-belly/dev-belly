@@ -6,6 +6,20 @@
 
 10 月 12 日收尾合并 AlphaForge 的初始本金回撤与安装包默认配置修复，以及 Ranxin 的云端记录归属修复；同步 10 月 11 日已合并的输入、时点和 Windows 修复。下方保留历史运行证据，新增按确切提交记录的当前检查表。
 
+## SQL credit business case · 2026-10-12
+
+已合并 [CreditVintage #10](https://github.com/dev-belly/CreditVintage/pull/10)，在原始成熟测试报告上增加 SQLite 业务分析。按全体、客群、放款月份和月份 × 客群输出 21 个组；保留 48 笔固定容量复核申请的排序，导出清单不含未来风险事件标签。[在线分析](https://dev-belly.github.io/CreditVintage/analysis/)与[中文业务讲述](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)从主页首个项目直接进入。
+
+合成样本有 480 笔成熟测试申请和 107 个研究标签事件，复核组包含其中 25 个事件。精确率为 25/48 = 52.08%，捕获率为 25/107 = 23.36%；平均校准后 PD 为 18.78%，本金加权 PD 为 18.49%。10% 是全体容量，不是每个客群各选 10%，也不能据此宣称减少了实际坏账。四种分析视角包含同一批申请，不能混在一起合计。
+
+| Verification | Evidence |
+| :--- | :--- |
+| SQL and Python | SQL 的条件聚合、`NULLIF`、`LAG` 和排序，与一条不执行 SQL 的 Python 路径逐组对照；数量与本金分精确匹配，比率保留八位小数，场景金额保留两位。零分母为未定义，跨月份比较使用同一客群前一个有数据的月份。 |
+| Frozen source and portable replay | 原报告先复制到内存并冻结为临时快照，再核验、解析和计算；并发保存不会让分析引用一版、读取另一版。输出携带原报告六个文件的完整副本；`verify-analysis` 重新验证源报告，再重建全部 SQL、CSV、摘要和 HTML。 |
+| Regression checks | 本机 Python 3.12 全部 98 tests、28 subtests 通过，含 18 个新增业务回归：不同分母、空值、排序同分、错误 SQL、整数溢出、并发快照、篡改后重算、CLI 与不覆盖现有输出。Ruff、格式检查与严格 mypy 通过。 |
+| Installed package | 构建 wheel 并安装到源码目录之外；三份 SQL 与 HTML 模板完整打包，命令生成的整个分析目录与公开站点构建结果逐字节一致。四个网页分析视角在 Node DOM 检查中分别显示 6/2/12/1 行。 |
+| Continuous and publication checks | [PR CI](https://github.com/dev-belly/CreditVintage/actions/runs/38203476369) 的 Linux Python 3.12/3.13 与 Windows Python 3.12 均成功；[预发布构建](https://github.com/dev-belly/CreditVintage/actions/runs/38203476361)成功。合并后 [main CI](https://github.com/dev-belly/CreditVintage/actions/runs/38203639114)三个平台和 [Pages 发布](https://github.com/dev-belly/CreditVintage/actions/runs/38203639194)也均成功，对应提交 [`a168b39`](https://github.com/dev-belly/CreditVintage/commit/a168b39ee05d3dfa56403db5a1ff7eceda7e866f)。线上 `summary.json` 与 `index.html` 返回 HTTP 200，并与已核验的本地公开构建逐字节一致。 |
+
 ## Drawdowns and cloud ownership · 2026-10-12
 
 [AlphaForge #3](https://github.com/dev-belly/alphaforge/pull/3) 与 [Ranxin #50](https://github.com/dev-belly/ranxin-mini-program/pull/50) 已合并，原先停留的草稿与待合并状态已收尾。
@@ -40,7 +54,7 @@ Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明]
 | :--- | :--- | :--- |
 | PITBridge | `f9e8758` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/38110242829) |
 | StressAtlas | `bc577bb` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/38050961034) |
-| CreditVintage | `058e626` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/38110432465) |
+| CreditVintage | `a168b39` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/38203639114) |
 | AlphaForge | `d7153c9` | [Successful full CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) · 1,273 tests, 96% coverage |
 | TradeForge | `bb27f55` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/38111562908) |
 | AuditLens | `5f6e641` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/38111034368) |
@@ -49,7 +63,7 @@ Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明]
 | StatementTrace | `ed5ee1c` | [Successful CI and Pages](https://github.com/dev-belly/StatementTrace/actions/runs/38042185670) |
 | NetworkClear | `27bb7c4` | [Successful CI and Pages](https://github.com/dev-belly/NetworkClear/actions/runs/38042229238) |
 
-本轮实际请求主页里的十个在线报告入口，CreditVintage 的三页、PITBridge 的两页、StressAtlas 的两页、StatementTrace、NetworkClear 和 AlphaForge 样例页均返回 HTTP 200，标题与对应项目一致。这是页面可访问性检查；文件哈希、模型和报告重放仍由各项目所链接的 CI 核验。
+此前收尾实际请求主页里的十个在线报告入口，CreditVintage 的三页、PITBridge 的两页、StressAtlas 的两页、StatementTrace、NetworkClear 和 AlphaForge 样例页均返回 HTTP 200，标题与对应项目一致。这是页面可访问性检查；文件哈希、模型和报告重放仍由各项目所链接的 CI 核验。本轮新增 CreditVintage SQL 分析页，线上页面与摘要的逐字节检查记录在上方业务案例验证表中。
 
 ## New project releases · 2026-10-09
 
