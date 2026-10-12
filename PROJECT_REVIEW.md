@@ -12,12 +12,12 @@
 
 | Project | Problem and resulting behavior | Verified evidence |
 | :--- | :--- | :--- |
-| AlphaForge | 收益率 -20%、+10% 曾因首期净值被当作起始峰值而显示零回撤；现在从初始本金计算，最大回撤为 20%，期末仍低于初始本金 12%。汇总、滚动指标、回撤区间和图表使用同一基准，首期全损仍为 100% 回撤。wheel 内含默认 YAML，源码工作区和显式配置路径继续支持。 | [PR CI](https://github.com/dev-belly/alphaforge/actions/runs/38111341159)：Linux Python 3.10–3.12、Windows Python 3.12，以及完整流水线/API 检查均成功；完整运行日志确认 1,273 tests 通过。合并后 [main CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) 的四平台快速检查均成功；全量自动复跑状态以该链接为准。 |
+| AlphaForge | 收益率 -20%、+10% 曾因首期净值被当作起始峰值而显示零回撤；现在从初始本金计算，最大回撤为 20%，期末仍低于初始本金 12%。汇总、滚动指标、回撤区间和图表使用同一基准，首期全损仍为 100% 回撤。wheel 内含默认 YAML，源码工作区和显式配置路径继续支持。 | [PR CI](https://github.com/dev-belly/alphaforge/actions/runs/38111341159) 与合并后 [main CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) 均全部成功：Linux Python 3.10–3.12、Windows Python 3.12，以及完整流水线/API。主分支完整运行日志确认 1,273 tests 通过、96% 覆盖率。 |
 | Ranxin | 云函数管理端写入未自动保存 `_openid`，导致自己的作品查不到、重复登录/解锁插入新记录，游戏奖励无法前进；现在只保存服务端调用者身份，忽略伪造所有者，匿名读取为空且个人写入被拒绝。 | 本轮本地复查 13/13 tests 通过，36 个已跟踪 JavaScript 文件语法检查通过；[main CI](https://github.com/dev-belly/ranxin-mini-program/actions/runs/38186554507) 成功，提交 `dbb5646`。 |
 
 Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明](https://github.com/dev-belly/ranxin-mini-program/blob/main/cloudfunctions/README.md)重新部署，缺少所有者的旧记录由管理员核对后处理；本轮未操作线上数据库或云端部署。[协作边界 Issue #19](https://github.com/dev-belly/ranxin-mini-program/issues/19)继续开放，未将团队协调事项视为代码修复后的自动完成。
 
-本轮还实际构建 AlphaForge wheel，确认其 `alphaforge/resources/default.yaml` 与源码 `configs/default.yaml` 逐字节一致，且保留 `py.typed`。已测试 PR 与合并提交的 Git tree 均为 `3817731470f5fb5d737235a54bee167863a38291`，所以全量测试证据对应同一份合并后的文件，而不只是同名分支；合并后的文档发布运行也已成功。
+本轮还实际构建 AlphaForge wheel，确认其 `alphaforge/resources/default.yaml` 与源码 `configs/default.yaml` 逐字节一致，且保留 `py.typed`。已测试 PR 与合并提交的 Git tree 均为 `3817731470f5fb5d737235a54bee167863a38291`；合并后主分支的独立全量复跑与文档发布也均成功，最终验证直接对应提交 `d7153c9353c78a2966da020f5c0ddd87abd450ee`。
 
 ## Input and lifecycle repairs · 2026-10-11
 
@@ -34,14 +34,14 @@ Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明]
 
 ## Current main checks · 2026-10-12
 
-读取十个金融项目最新 `main` 的运行记录：九个完整 CI 已成功，AlphaForge 四个平台的快速检查成功，完整流水线/API 已在与合并提交完全相同的文件树上通过。全量自动复跑保留单独入口，不预设它的最终状态；历史测试数和运行表仍保留在后文。
+读取十个金融项目最新 `main` 的运行记录，并逐一核对运行的完整提交 SHA 与当前主分支一致：十个项目的完整 CI 均已成功，AlphaForge 的四平台快速检查和完整流水线/API 也全部结束。下表保留本次主分支验证入口，历史测试数和运行表仍保留在后文。
 
 | Project | Main commit | Current CI |
 | :--- | :--- | :--- |
 | PITBridge | `f9e8758` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/38110242829) |
 | StressAtlas | `bc577bb` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/38050961034) |
 | CreditVintage | `058e626` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/38110432465) |
-| AlphaForge | `d7153c9` | [Four platform checks](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) · [1,273 passing tests](https://github.com/dev-belly/alphaforge/actions/runs/38111341159) |
+| AlphaForge | `d7153c9` | [Successful full CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) · 1,273 tests, 96% coverage |
 | TradeForge | `bb27f55` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/38111562908) |
 | AuditLens | `5f6e641` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/38111034368) |
 | ControlTrace | `c3a90d8` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/38110970904) |
