@@ -19,9 +19,9 @@ I'm **dev-belly**, a Data Science & Big Data Technology student at **Central Uni
 
 **01 · CreditVintage** — A credit score is only useful if its data and evaluation hold up.
 
-训练、校准、测试分期隔离；标签等待完整表现期；同时展示原始与校准后的结果。新增 **PITBridge 联合案例**，从预测追到特征值、源记录、修订版本和可用时间。
+训练、校准、测试分期隔离；标签等待完整表现期；同时展示原始与校准后的结果。**SQL 业务分析**按放款月份与客群对比风险事件、预测偏差和复核覆盖；**PITBridge 联合案例**从预测追到特征值、源记录、修订版本和可用时间。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
+[Source](https://github.com/dev-belly/CreditVintage) · [SQL cohorts](https://dev-belly.github.io/CreditVintage/analysis/) · [中文业务讲述](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
 
 <br />
 
@@ -58,6 +58,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 
 | Shipped | Inspect the work |
 | :--- | :--- |
+| **2026-10-12 · Credit analysis with explicit denominators** | [CreditVintage #10](https://github.com/dev-belly/CreditVintage/pull/10): verified SQLite cohort/segment analysis, a label-free fixed-capacity review queue and independent Python replay. The [business case](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) distinguishes 25/48 review precision from 25/107 event capture in the synthetic example. [Live analysis](https://dev-belly.github.io/CreditVintage/analysis/). |
 | **2026-10-12 · Finish the pending repairs** | [AlphaForge #3](https://github.com/dev-belly/alphaforge/pull/3) includes starting capital in drawdowns and ships wheel defaults; [Ranxin #50](https://github.com/dev-belly/ranxin-mini-program/pull/50) keeps personal cloud records tied to the server-derived caller. Both are merged; the financial full suite and cloud regressions remain linked in the [review](PROJECT_REVIEW.md#drawdowns-and-cloud-ownership--2026-10-12). |
 | **2026-10-11 · Reject invalid inputs before changing evidence** | [CreditVintage #9](https://github.com/dev-belly/CreditVintage/pull/9) rejects malformed CSV; [PITBridge #12](https://github.com/dev-belly/PITBridge/pull/12) and [LedgerX #3](https://github.com/dev-belly/LedgerX/pull/3) report UTC overflow cleanly; [ControlTrace #4](https://github.com/dev-belly/ControlTrace/pull/4) excludes accounts created after the audit cutoff; [TradeForge #12](https://github.com/dev-belly/TradeForge/pull/12) rejects illegal fills before mutating quantities. [AuditLens #4](https://github.com/dev-belly/AuditLens/pull/4) closes SQLite readers before replacing the warehouse on Windows. |
 | **2026-10-10 · Inputs and exported evidence** | [StressAtlas #4](https://github.com/dev-belly/StressAtlas/pull/4) preserves PD endpoints under extreme stress inputs; [CreditVintage #8](https://github.com/dev-belly/CreditVintage/pull/8) makes all three Windows report paths verifiable; [LedgerX #2](https://github.com/dev-belly/LedgerX/pull/2) rejects malformed quote CSV. Each adds Windows checks and direct PowerShell commands. |
@@ -76,7 +77,9 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
 | **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
 
-**2026-10-12 · [Latest validation](PROJECT_REVIEW.md#drawdowns-and-cloud-ownership--2026-10-12).** All ten financial projects pass their [current main-branch CI](PROJECT_REVIEW.md#current-main-checks--2026-10-12). AlphaForge's [post-merge full run](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) passes 1,273 tests with 96% coverage; Ranxin passes 13 offline regressions locally and in main CI. The review records the exact commits and keeps the earlier [Windows export checks](PROJECT_REVIEW.md#input-contracts-and-portable-exports--2026-10-10), [invoice/CSV trials](PROJECT_REVIEW.md#invoice-trials--2026-10-10) and [installed-package replay](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10).
+**2026-10-12 · [Earlier validation](PROJECT_REVIEW.md#drawdowns-and-cloud-ownership--2026-10-12).** The review records passing [main-branch CI for ten financial projects](PROJECT_REVIEW.md#current-main-checks--2026-10-12). AlphaForge's [post-merge full run](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) passes 1,273 tests with 96% coverage; Ranxin passes 13 offline regressions locally and in main CI. The review records the exact commits and keeps the earlier [Windows export checks](PROJECT_REVIEW.md#input-contracts-and-portable-exports--2026-10-10), [invoice/CSV trials](PROJECT_REVIEW.md#invoice-trials--2026-10-10) and [installed-package replay](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10).
+
+**2026-10-12 · [Latest validation](PROJECT_REVIEW.md#sql-credit-business-case--2026-10-12).** CreditVintage's SQL cohort views and portable, label-free review queue pass 98 tests plus 28 subtests. Linux and Windows main-branch checks and publication pass; the live analysis page and summary match the verified public build byte-for-byte.
 
 ## More builds
 

@@ -48,6 +48,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
+> 业务分析侧表述：为信贷风险项目增加可复现的 SQL 分组分析，按放款批次与客群生成 21 个聚合组及 48 笔无未来标签的复核清单；以独立 Python 重算验证指标分母、分组覆盖和排序，在 480 笔合成成熟测试申请上展示风险分析与报告核验流程。
+
+**Business analysis:** [SQL cohort report](https://dev-belly.github.io/CreditVintage/analysis/) · [中文业务案例与面试追问](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) · [executed cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql). 21 行覆盖四种分析视角，不能跨视角重复合计；48 笔复核清单不含未来标签。复核精确率为 25/48，事件捕获率为 25/107，不宣称减少实际损失。全体 10% 容量不等于每个客群各选 10%。
+
 > 实现申请时点可得特征和 180 天逾期标签成熟校验，以分离的训练、校准及跨期测试批次评估信贷风险基线；在 480 笔合成测试申请上得到 ROC-AUC 0.747、Brier 0.155，并保留独立校准后 Brier 变差的结果；早期监控路径仅用当期申请分数计算分布漂移，不偷用尚未成熟的逾期结果。
 
 > 数据质量与验证侧表述：为信贷风险报告实现独立核验，基于逐笔预测重算模型指标、分组损失场景和分数漂移；校验标签成熟窗口、复核容量与 CSV 结构，以更新哈希后的异常报告验证核验流程能够拒绝不一致结果。
