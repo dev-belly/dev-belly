@@ -6,6 +6,18 @@
 
 10 月 12 日收尾合并 AlphaForge 的初始本金回撤与安装包默认配置修复，以及 Ranxin 的云端记录归属修复；同步 10 月 11 日已合并的输入、时点和 Windows 修复。下方保留历史运行证据，新增按确切提交记录的当前检查表。
 
+## Business workflow closure · 2026-10-12
+
+本轮在现有代码上补齐处理过程和业务查询，集中解决有失败案例的工程问题。以下测试数量对应各 PR 的本机完整验证；三个 PR 的 Linux 与 Windows 检查均成功后合并。
+
+| Change | Concrete behavior | Validation |
+| :--- | :--- | :--- |
+| [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) | 核验后的无标签清单进入 SQLite 工作区；认领、释放、结案、重开以追加事件记录。事务加版本防止并发覆盖，请求 ID 防止重复提交。 | 118 tests + 28 subtests；完整 Windows 命令实际生成 48 案例、处理 1 条、重复结案仍只有 2 个事件；lint、格式与严格类型通过。[PR CI](https://github.com/dev-belly/CreditVintage/actions/runs/38259829210)的 Linux 3.12/3.13 与 Windows 3.12 成功。[设计与边界](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md)。 |
+| [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) | 同一发现 ID 的源证据被修正后，旧关闭结论保留在历史但不套到新证据。旧表单必须重载，同版本并发提交只接受一方。 | 90 tests；实际导出重放 12 条发现、28 个源文件；[PR CI](https://github.com/dev-belly/ControlTrace/actions/runs/38259648339)的 Linux 3.11/3.12 与 Windows 3.12 成功。格式 3 新增证据绑定，格式 2 / 0.2.7 明示旧保证。[证据合同](https://github.com/dev-belly/ControlTrace/blob/main/docs/REVIEW_INTEGRITY.md)。 |
+| [WeCom Agent Platform #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) | 合同条件在全部索引表格行上查询；业务编号保留前导零，客户持仓用 Decimal 按币种完整汇总。缺失估值不能假装是零。 | 73 passed，2 个 Windows 不适用的既有 POSIX 用例跳过；4 个离线业务场景和源码树外 wheel 导入通过；[PR CI](https://github.com/dev-belly/wecom-agent-platform/actions/runs/38259840960)的 Linux、Windows、前端全部成功。[业务案例](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md)。 |
+
+人工处理完成率、历史事件捕获率和实际损失变化是不同指标。当前队列是合成历史分析示例，本地复核者名字是声明，证据引用不等于已验真的材料；企业查询针对已索引行，不能推断源系统完整性。这些边界都写进项目说明和[面试练习手册](INTERVIEW_PLAYBOOK.zh-CN.md)。
+
 ## SQL credit business case · 2026-10-12
 
 已合并 [CreditVintage #10](https://github.com/dev-belly/CreditVintage/pull/10)，在原始成熟测试报告上增加 SQLite 业务分析。按全体、客群、放款月份和月份 × 客群输出 21 个组；保留 48 笔固定容量复核申请的排序，导出清单不含未来风险事件标签。[在线分析](https://dev-belly.github.io/CreditVintage/analysis/)与[中文业务讲述](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)从主页首个项目直接进入。
