@@ -1,8 +1,55 @@
-# Portfolio review · 2026-10-10
+# Portfolio review · 2026-10-12
 
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 10 月 9 日核对原八个主项目的已发布版本与 CI，并补齐 TradeForge 的含费成本口径、真实 CLI 表格对照及主页证据。
+
+10 月 12 日收尾合并 AlphaForge 的初始本金回撤与安装包默认配置修复，以及 Ranxin 的云端记录归属修复；同步 10 月 11 日已合并的输入、时点和 Windows 修复。下方保留历史运行证据，新增按确切提交记录的当前检查表。
+
+## Drawdowns and cloud ownership · 2026-10-12
+
+[AlphaForge #3](https://github.com/dev-belly/alphaforge/pull/3) 与 [Ranxin #50](https://github.com/dev-belly/ranxin-mini-program/pull/50) 已合并，原先停留的草稿与待合并状态已收尾。
+
+| Project | Problem and resulting behavior | Verified evidence |
+| :--- | :--- | :--- |
+| AlphaForge | 收益率 -20%、+10% 曾因首期净值被当作起始峰值而显示零回撤；现在从初始本金计算，最大回撤为 20%，期末仍低于初始本金 12%。汇总、滚动指标、回撤区间和图表使用同一基准，首期全损仍为 100% 回撤。wheel 内含默认 YAML，源码工作区和显式配置路径继续支持。 | [PR CI](https://github.com/dev-belly/alphaforge/actions/runs/38111341159)：Linux Python 3.10–3.12、Windows Python 3.12，以及完整流水线/API 检查均成功；完整运行日志确认 1,273 tests 通过。合并后 [main CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) 的四平台快速检查均成功；全量自动复跑状态以该链接为准。 |
+| Ranxin | 云函数管理端写入未自动保存 `_openid`，导致自己的作品查不到、重复登录/解锁插入新记录，游戏奖励无法前进；现在只保存服务端调用者身份，忽略伪造所有者，匿名读取为空且个人写入被拒绝。 | 本轮本地复查 13/13 tests 通过，36 个已跟踪 JavaScript 文件语法检查通过；[main CI](https://github.com/dev-belly/ranxin-mini-program/actions/runs/38186554507) 成功，提交 `dbb5646`。 |
+
+Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明](https://github.com/dev-belly/ranxin-mini-program/blob/main/cloudfunctions/README.md)重新部署，缺少所有者的旧记录由管理员核对后处理；本轮未操作线上数据库或云端部署。[协作边界 Issue #19](https://github.com/dev-belly/ranxin-mini-program/issues/19)继续开放，未将团队协调事项视为代码修复后的自动完成。
+
+本轮还实际构建 AlphaForge wheel，确认其 `alphaforge/resources/default.yaml` 与源码 `configs/default.yaml` 逐字节一致，且保留 `py.typed`。已测试 PR 与合并提交的 Git tree 均为 `3817731470f5fb5d737235a54bee167863a38291`，所以全量测试证据对应同一份合并后的文件，而不只是同名分支；合并后的文档发布运行也已成功。
+
+## Input and lifecycle repairs · 2026-10-11
+
+这些修复已合并，当前主分支检查链接列在下一节。测试数对应各 PR 记录的验证环境，Windows 权限或可选扩展跳过继续保留原说明。
+
+| Merged change | Reproduced failure and repair | Recorded validation |
+| :--- | :--- | :--- |
+| [PITBridge #12](https://github.com/dev-belly/PITBridge/pull/12) | 年份边界的 ISO 时区换算曾抛出未处理的 `OverflowError`；现在以合同错误拒绝，CLI 返回退出码 2，且不创建输出目录。 | 91 tests；覆盖两个 UTC 端点及 build/aggregate。 |
+| [CreditVintage #9](https://github.com/dev-belly/CreditVintage/pull/9) | 输入或证据 CSV 的末行缺少闭引号曾被接受；严格解析后返回含文件和物理行号的合同错误，合法引号及 CRLF 仍支持。 | 80 tests、28 subtests；四个回归在修复前失败。 |
+| [LedgerX #3](https://github.com/dev-belly/LedgerX/pull/3) | 账本、报价和估值截止日的 UTC 换算越界曾泄漏异常；改为 `LedgerError`，非法估值不写出结果且账本保持不变。 | 51 tests；八项事件/报价/CLI 新回归。 |
+| [ControlTrace #4](https://github.com/dev-belly/ControlTrace/pull/4) | 审计截止日之后创建的账户曾进入更早的生命周期控制总体；现在排除已知未来账户，保留缺证据的人工复核与截止时刻相等的记录。 | 74 tests；两项回归核对 UTC 偏移和包含端点，底稿验证 12 个发现、28 个源文件。 |
+| [TradeForge #12](https://github.com/dev-belly/TradeForge/pull/12) | 对新建、已撤销、拒绝或过期订单施加成交曾在报错前改变 `filled_base`；现在先验证状态转换，再提交成交数量。 | 本地 867 tests 通过、152 个编译/可选用例跳过；远端仍保留 C++ 对照与 sanitizers。 |
+| [AuditLens #4](https://github.com/dev-belly/AuditLens/pull/4) | Windows SQLite 读连接持有文件句柄，导致仓库原子替换出现 WinError 32；显式关闭检查连接并停用读连接池，继续保留无效构建的回滚。 | Windows 464 tests 通过、1 个缺少 make 的用例跳过；十步流水线、15 个 SQL 查询、十份报告连续两次生成字节相同。 |
+
+## Current main checks · 2026-10-12
+
+读取十个金融项目最新 `main` 的运行记录：九个完整 CI 已成功，AlphaForge 四个平台的快速检查成功，完整流水线/API 已在与合并提交完全相同的文件树上通过。全量自动复跑保留单独入口，不预设它的最终状态；历史测试数和运行表仍保留在后文。
+
+| Project | Main commit | Current CI |
+| :--- | :--- | :--- |
+| PITBridge | `f9e8758` | [Successful CI](https://github.com/dev-belly/PITBridge/actions/runs/38110242829) |
+| StressAtlas | `bc577bb` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/38050961034) |
+| CreditVintage | `058e626` | [Successful CI](https://github.com/dev-belly/CreditVintage/actions/runs/38110432465) |
+| AlphaForge | `d7153c9` | [Four platform checks](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) · [1,273 passing tests](https://github.com/dev-belly/alphaforge/actions/runs/38111341159) |
+| TradeForge | `bb27f55` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/38111562908) |
+| AuditLens | `5f6e641` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/38111034368) |
+| ControlTrace | `c3a90d8` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/38110970904) |
+| LedgerX | `6725092` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/38110250708) |
+| StatementTrace | `ed5ee1c` | [Successful CI and Pages](https://github.com/dev-belly/StatementTrace/actions/runs/38042185670) |
+| NetworkClear | `27bb7c4` | [Successful CI and Pages](https://github.com/dev-belly/NetworkClear/actions/runs/38042229238) |
+
+本轮实际请求主页里的十个在线报告入口，CreditVintage 的三页、PITBridge 的两页、StressAtlas 的两页、StatementTrace、NetworkClear 和 AlphaForge 样例页均返回 HTTP 200，标题与对应项目一致。这是页面可访问性检查；文件哈希、模型和报告重放仍由各项目所链接的 CI 核验。
 
 ## New project releases · 2026-10-09
 
