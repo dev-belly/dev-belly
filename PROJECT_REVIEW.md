@@ -247,9 +247,9 @@ StressAtlas 另外发现一个实际平台边界：在所测试的 Windows 与 L
 
 PITBridge 从标量快照扩展到决策时点的滚动经营统计，导出每条贡献记录并以独立枚举核验；StressAtlas 从尾部点估计扩展到配对抽样精度诊断，重放全部情景和重采样统计。数值边界修复后，PITBridge 75 项、StressAtlas 70 项测试通过；CI 同时核验原报告和新增报告，并从输入重新生成案例。
 
-PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 UTC 日终约定接入 CreditVintage。联合案例从源记录选择一直核对到模型重拟合后的每条测试预测；核验还拒绝更新哈希后的伪造特征、溯源、模型输入摘要、页面内容及不一致模型配置。CreditVintage 当前的 75 项测试包含原 18 项集成回归、12 项报告篡改回归和 5 项下载/兼容回归，并有 28 项子测试通过；格式、lint 和类型检查也纳入 CI。
+PITBridge 的标量特征现通过明确的身份、单位、七天新鲜度和 UTC 日终约定接入 CreditVintage。联合案例从源记录选择一直核对到模型重拟合后的每条测试预测；核验还拒绝更新哈希后的伪造特征、溯源、模型输入摘要、页面内容及不一致模型配置。CreditVintage 下载与兼容修复版本的 75 项测试包含原 18 项集成回归、12 项报告篡改回归和 5 项下载/兼容回归，并有 28 项子测试通过；格式、lint 和类型检查也纳入 CI。
 
-ControlTrace 的 59 项测试核对底稿重放、证据关联和非法 JSON 的命令行错误行为。LedgerX 的 38 项测试涵盖不利 Decimal 调用环境、完整账本重放、独立报价估值，以及工作精度之后仍存在非零金额小数位的拒绝行为；lint、格式与严格类型检查通过。
+ControlTrace 底稿 JSON 修复版本的 59 项测试核对底稿重放、证据关联和非法 JSON 的命令行错误行为。LedgerX Decimal 隔离修复版本的 38 项测试涵盖不利 Decimal 调用环境、完整账本重放、独立报价估值，以及工作精度之后仍存在非零金额小数位的拒绝行为；lint、格式与严格类型检查通过。
 
 PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合案例没有声称把它们接进信贷模型或组合风险引擎。StatementTrace 已新增一条公开年报摘录路径，保留来源、申报日期、实际财年和复现请求；它没有接入信贷模型。后续更广泛的真实数据集仍需核对许可、发布时间、标签定义与复现配置。
 
@@ -257,6 +257,6 @@ PITBridge 的滚动现金流与 StressAtlas 仍是单独的研究路径，联合
 
 [在线联合案例](https://dev-belly.github.io/CreditVintage/lineage/)可选择测试申请查看源记录；[完整 ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip)包含源事件、模型输入、预测和清单。发布构建同时核验原评估、监控和完整联合案例；PR 只构建、主分支才部署。联合案例有 480 笔总申请、120 笔测试预测；原始风险报告的 480 笔测试申请属于另一份样例。
 
-[最近成功的发布构建](https://github.com/dev-belly/CreditVintage/actions/runs/37711860987)对应提交 `2f5d6b0`；[PR #7](https://github.com/dev-belly/CreditVintage/pull/7)补齐页面和本地生成的完整 ZIP 入口，并保留原页面的验证方式。10 月 8 日实际切换到测试申请 `CV202412-0019`，页面显示对应预测与三条源记录；120 个测试申请选项可用。点击页面入口下载的 ZIP 含 19 个文件，18 项清单哈希全部匹配，解压后以已发布源码重放 PIT 选择、特征和模型预测通过。ZIP 是清单外的派生下载，核验对象为解压后的文件。
+[该版本成功的发布构建](https://github.com/dev-belly/CreditVintage/actions/runs/37711860987)对应提交 `2f5d6b0`；[PR #7](https://github.com/dev-belly/CreditVintage/pull/7)补齐页面和本地生成的完整 ZIP 入口，并保留原页面的验证方式。10 月 8 日实际切换到测试申请 `CV202412-0019`，页面显示对应预测与三条源记录；120 个测试申请选项可用。点击页面入口下载的 ZIP 含 19 个文件，18 项清单哈希全部匹配，解压后以已发布源码重放 PIT 选择、特征和模型预测通过。ZIP 是清单外的派生下载，核验对象为解压后的文件。
 
-[PR #6](https://github.com/dev-belly/CreditVintage/pull/6)将代码、CI 和公共网页的依赖固定到包含数值契约修复的 PITBridge `ed19dc6`。当时的 70 项测试与 5 项子测试、线上 ZIP 清单及 7 份输入/预测/指标 CSV 的对照记录仍保留；当前总数为 75 项测试和 28 项子测试。原发布脚本与报告核验记录见 [PR #5](https://github.com/dev-belly/CreditVintage/pull/5)。
+[PR #6](https://github.com/dev-belly/CreditVintage/pull/6)将代码、CI 和公共网页的依赖固定到包含数值契约修复的 PITBridge `ed19dc6`。当时的 70 项测试与 5 项子测试、线上 ZIP 清单及 7 份输入/预测/指标 CSV 的对照记录仍保留；随后下载与兼容修复版本为 75 项测试和 28 项子测试。原发布脚本与报告核验记录见 [PR #5](https://github.com/dev-belly/CreditVintage/pull/5)。
