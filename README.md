@@ -1,114 +1,85 @@
 <div align="center">
-  <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial research systems." />
+  <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
   <a href="#flagship-projects"><b>PROJECTS</b></a> &nbsp; / &nbsp;
-  <a href="https://dev-belly.github.io/CreditVintage/lineage/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
-  <a href="#research-in-public"><b>RECENT WORK</b></a> &nbsp; / &nbsp;
-  <a href="INTERVIEW_PLAYBOOK.zh-CN.md"><b>BUSINESS WALKTHROUGH</b></a>
+  <a href="https://dev-belly.github.io/CreditVintage/analysis/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
+  <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
+  <a href="#research-in-public"><b>RECENT WORK</b></a>
 </div>
 
 <br />
 
-I'm **dev-belly**, a Data Science & Big Data Technology student at **Central University of Finance and Economics**. I build tools for credit risk, financial data and quantitative research.
+I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central University of Finance and Economics**. I build tools for credit risk, financial data analysis and quantitative research.
 
-把金融问题拆成能运行、能检验、能追溯的系统。最近在做：**决策时点的数据、公开财报追溯、跨期信贷评估与网络风险**。
+把金融问题拆成能运行、能检验、能追溯的系统：从 SQL 客群分析和人工复核，到决策时点的数据、财报指标与组合风险。
 
-## Start with one business question
+## Start with a business question
 
-| Your question | Start here | Inspect the implementation |
+| Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
-| Which credit cohorts need attention, and who handles the review queue? | [CreditVintage SQL report](https://dev-belly.github.io/CreditVintage/analysis/) | [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
-| What could a decision actually know before a late correction arrived? | [PITBridge three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) |
-| Does a closed audit finding still apply after its evidence changes? | [ControlTrace case study](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) | [Review evidence contract](https://github.com/dev-belly/ControlTrace/blob/main/src/controltrace/reviews.py) |
+| Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
+| What could a decision know before a late correction arrived? | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
+| How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
-**面试与代码导览：** [60 秒开场、3 分钟讲述、追问回答和现场练习](INTERVIEW_PLAYBOOK.zh-CN.md)。每条主线都连接业务决定、具体代码和可复核结果；[项目证据](PROJECT_BRIEFS.md)提供更细的结果口径。
+**A useful result includes its limits.** In CreditVintage's synthetic test, calibration worsened Brier score. The result stays in the report. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
 
 ## Flagship projects
 
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — chronological credit evaluation with separate training, calibration and holdout cohorts, and a PITBridge source-lineage integration." /></a>
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — chronological credit evaluation with separate training, calibration and holdout cohorts, plus source-record lineage." /></a>
 
-**01 · CreditVintage** — A credit score is only useful if its data and evaluation hold up.
+**01 · CreditVintage — Credit analysis that reaches a review decision.**
 
-训练、校准、测试分期隔离；标签等待完整表现期；同时展示原始与校准后的结果。**SQL 业务分析**按放款月份与客群对比风险事件、预测偏差和复核覆盖；**PITBridge 联合案例**从预测追到特征值、源记录、修订版本和可用时间。
+训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [SQL cohorts](https://dev-belly.github.io/CreditVintage/analysis/) · [中文业务讲述](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) · [Score monitor](https://dev-belly.github.io/CreditVintage/monitor/)
-
-<br />
-
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v3.svg" width="100%" alt="PITBridge — temporal data engineering with event and knowledge time, revision-safe snapshots, rolling financial features and independent Python replay." /></a>
-
-**02 · PITBridge** — Reconstruct what a decision could actually know.
-
-同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值都有源记录成员，SQLite 结果与独立 Python 实现逐项核对。
-
-[Source](https://github.com/dev-belly/PITBridge) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot counterexample](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/) · [Walkthrough](https://github.com/dev-belly/PITBridge/blob/main/docs/INTERVIEW.md)
+[Source](https://github.com/dev-belly/CreditVintage) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) · [中文业务案例](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)
 
 <br />
 
-<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas-v3.svg" width="100%" alt="StressAtlas — correlated portfolio defaults, discrete-tail VaR and expected shortfall, industry attribution and paired bootstrap uncertainty. Diagram is schematic." /></a>
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v3.svg" width="100%" alt="PITBridge — event and knowledge time, revision-safe snapshots, rolling financial features and independent Python replay." /></a>
 
-**03 · StressAtlas** — A tail estimate should come with its uncertainty.
+**02 · PITBridge — Reconstruct what a decision could actually know.**
 
-用借款人层面的相关违约路径比较基准与压力情景；计算离散尾部 ES 和行业贡献；再用 300 次成对重采样检查 20,000 条路径下的估计精度。
+同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值保留源记录成员，SQLite 结果与独立 Python 实现逐项核对。先试一张发票，再接 CSV 或可选的 pandas。
 
-[Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Walkthrough](https://github.com/dev-belly/StressAtlas/blob/main/docs/INTERVIEW.md)
+[Source](https://github.com/dev-belly/PITBridge) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
 
-<sub>Examples identify their public-filing or synthetic inputs. They demonstrate code and methodology; they do not establish live investment performance or real borrower risk.</sub>
+<br />
 
-## New projects
+<a href="https://github.com/dev-belly/StressAtlas"><img src="assets/stressatlas-v3.svg" width="100%" alt="StressAtlas — correlated defaults, discrete-tail VaR and expected shortfall, sector attribution and paired bootstrap uncertainty. Diagram is schematic." /></a>
 
-| Project | The engineering question | Inspect |
+**03 · StressAtlas — A tail estimate should come with its uncertainty.**
+
+用借款人层面的相关违约路径比较基准与压力情景；计算离散尾部 ES 和行业贡献，再用成对重采样检查估计精度。相同借款人的多笔贷款共享一次违约事件；不把平均损失的标准误当作 VaR 的置信区间。
+
+[Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Method](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md)
+
+<sub>Examples identify their public-filing or synthetic inputs. Synthetic scores and loss scenarios demonstrate methods; they do not establish real borrower risk or live investment performance.</sub>
+
+## More financial systems
+
+| Project | What to inspect | Result / walkthrough |
 | :--- | :--- | :--- |
-| [StatementTrace](https://github.com/dev-belly/StatementTrace) | Which publicly filed numbers were available at this cutoff, and which records produced each financial metric? | [Live report](https://dev-belly.github.io/StatementTrace/) · [SEC source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) · [Walkthrough](https://github.com/dev-belly/StatementTrace/blob/main/docs/INTERVIEW.md) |
-| [NetworkClear](https://github.com/dev-belly/NetworkClear) | Which institutions default after a counterparty shock, and can every cleared debt flow reconcile exactly? | [Live report](https://dev-belly.github.io/NetworkClear/) · [Clearing method](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) · [Walkthrough](https://github.com/dev-belly/NetworkClear/blob/main/docs/INTERVIEW.md) |
+| [StatementTrace](https://github.com/dev-belly/StatementTrace) | Public filings → availability cutoff → exact fiscal periods → financial metrics | [Live report](https://dev-belly.github.io/StatementTrace/) · [SEC source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) |
+| [NetworkClear](https://github.com/dev-belly/NetworkClear) | Counterparty shocks, exact debt clearing and outside-loss reconciliation | [Live report](https://dev-belly.github.io/NetworkClear/) · [Clearing method](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) |
+| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor signals, walk-forward validation, portfolio constraints and costs | [Computed sample run](https://dev-belly.github.io/alphaforge/sample-run/) |
+| [TradeForge](https://github.com/dev-belly/TradeForge) | C++ execution events checked against an independent Python reference | [60-second tour](https://github.com/dev-belly/TradeForge#sixty-second-tour) |
+| [ControlTrace](https://github.com/dev-belly/ControlTrace) | Audit conclusions tied to the current evidence version | [Case study](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) |
+| [AuditLens](https://github.com/dev-belly/AuditLens) | Anomaly detection → an explainable review item | [Workpapers](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) |
+| [LedgerX](https://github.com/dev-belly/LedgerX) | Trading fills, accounting entries and valuation reconciled exactly | [Valuation example](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) |
 
-StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses **synthetic exposures**. Both ship an offline CLI, inspectable CSV/JSON, source-backed methodology and semantic report replay.
+StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses **synthetic exposures**. Both have an offline CLI and inspectable CSV/JSON outputs.
+
+<img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
 ## Research in public
 
-<details>
-<summary><b>Implementation changes and their validation evidence</b></summary>
+Recent changes connect the demonstrations to concrete operational checks:
 
-**2026-10-12 · [Business workflow closure](PROJECT_REVIEW.md#business-workflow-closure--2026-10-12).** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds durable case ownership, review reasons, version conflicts and retry protection; [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) ties current review conclusions to the evidence version; [WeCom #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) queries all indexed contract/holding rows and reports exact currency totals. Their Linux and Windows checks pass. [Practice the business decisions and code paths](INTERVIEW_PLAYBOOK.zh-CN.md).
+- **Installed packages:** [CreditVintage #12](https://github.com/dev-belly/CreditVintage/pull/12) and [PITBridge #13](https://github.com/dev-belly/PITBridge/pull/13) replay built wheels in clean environments outside their source trees on Linux and Windows.
+- **Credit review:** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds case ownership, recorded reasons, version conflicts and retry protection.
+- **Evidence and report access:** [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) binds conclusions to evidence versions; [TradeForge #13](https://github.com/dev-belly/TradeForge/pull/13) confines report requests to the configured directory.
 
-| Shipped | Inspect the work |
-| :--- | :--- |
-| **2026-10-12 · Credit analysis with explicit denominators** | [CreditVintage #10](https://github.com/dev-belly/CreditVintage/pull/10): verified SQLite cohort/segment analysis, a label-free fixed-capacity review queue and independent Python replay. The [business case](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) distinguishes 25/48 review precision from 25/107 event capture in the synthetic example. [Live analysis](https://dev-belly.github.io/CreditVintage/analysis/). |
-| **2026-10-12 · Finish the pending repairs** | [AlphaForge #3](https://github.com/dev-belly/alphaforge/pull/3) includes starting capital in drawdowns and ships wheel defaults; [Ranxin #50](https://github.com/dev-belly/ranxin-mini-program/pull/50) keeps personal cloud records tied to the server-derived caller. Both are merged; the financial full suite and cloud regressions remain linked in the [review](PROJECT_REVIEW.md#drawdowns-and-cloud-ownership--2026-10-12). |
-| **2026-10-11 · Reject invalid inputs before changing evidence** | [CreditVintage #9](https://github.com/dev-belly/CreditVintage/pull/9) rejects malformed CSV; [PITBridge #12](https://github.com/dev-belly/PITBridge/pull/12) and [LedgerX #3](https://github.com/dev-belly/LedgerX/pull/3) report UTC overflow cleanly; [ControlTrace #4](https://github.com/dev-belly/ControlTrace/pull/4) excludes accounts created after the audit cutoff; [TradeForge #12](https://github.com/dev-belly/TradeForge/pull/12) rejects illegal fills before mutating quantities. [AuditLens #4](https://github.com/dev-belly/AuditLens/pull/4) closes SQLite readers before replacing the warehouse on Windows. |
-| **2026-10-10 · Inputs and exported evidence** | [StressAtlas #4](https://github.com/dev-belly/StressAtlas/pull/4) preserves PD endpoints under extreme stress inputs; [CreditVintage #8](https://github.com/dev-belly/CreditVintage/pull/8) makes all three Windows report paths verifiable; [LedgerX #2](https://github.com/dev-belly/LedgerX/pull/2) rejects malformed quote CSV. Each adds Windows checks and direct PowerShell commands. |
-| **2026-10-10 · Try one invoice, then CSV tables** | [PITBridge #10](https://github.com/dev-belly/PITBridge/pull/10): fix Windows checkout hashes and native-encoding checks; bring the three-decision example, optional pandas adapter and [trial feedback](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md) into the English and Chinese entry points. |
-| **2026-10-10 · Replay on Windows** | [StatementTrace #4](https://github.com/dev-belly/StatementTrace/pull/4) and [NetworkClear #4](https://github.com/dev-belly/NetworkClear/pull/4): preserve report hashes under Windows Git settings, test native text encoding and verify installed wheels outside the source directory. Both now check Linux Python 3.11–3.13 and Windows Python 3.12. |
-| **2026-10-09 · Public statements, traceable metrics** | [StatementTrace #1](https://github.com/dev-belly/StatementTrace/pull/1): 33 curated SEC-filing records, exact fiscal periods, six cutoff panels, nine financial metrics and independent SQL selection checks. [Main CI + deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547). |
-| **2026-10-09 · Counterparty clearing certificates** | [NetworkClear #1](https://github.com/dev-belly/NetworkClear/pull/1): 15 synthetic stress cases with rational payments, outside-loss reconciliation and independent exhaustive clearing checks. [Main CI + deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853). |
-| **2026-10-09 · Price and cash costs** | [TradeForge cash-cost reconciliation](https://github.com/dev-belly/TradeForge/pull/10): fees and rebates reach total shortfall, attribution, Parquet and SQL; [public CLI checks](https://github.com/dev-belly/TradeForge/pull/11) keep the quoted demo and report consistent with actual output. |
-| **2026-10-08 · Cancel before replacing** | [TradeForge order lifecycle repair](https://github.com/dev-belly/TradeForge/pull/9): cancel children still in transit before submitting the terminal sweep, so a 100-unit parent cannot become a 150-unit execution through duplicate fills. |
-| **2026-10-08 · Download, extract, replay** | [CreditVintage evidence download](https://github.com/dev-belly/CreditVintage/pull/7): local and published explorers provide the same fixed 19-file ZIP; earlier evidence keeps its original page verification and model replay. |
-| **2026-10-08 · Execution window boundaries** | [TradeForge execution-window repair](https://github.com/dev-belly/TradeForge/pull/7): replay earlier events to rebuild the book without leaking warm-up volume, freeze benchmarks at the deadline, and use later prices only to measure markouts. [Six passing CI jobs](https://github.com/dev-belly/TradeForge/actions/runs/37712196848). |
-| **2026-10-08 · Costs across partial fills** | [TradeForge fee model](https://github.com/dev-belly/TradeForge/pull/4): charge one broker minimum per child order, preserve exact venue fees and rebates, and reject invalid fee assumptions before execution. |
-| **2026-10-06 · One reference, end to end** | [CreditVintage integration update](https://github.com/dev-belly/CreditVintage/pull/6): the adapter, CI and public report build use the repaired PITBridge revision; saved inputs and predictions replay unchanged. |
-| **2026-10-04 · Evidence you can open** | [Online lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) and [complete example ZIP](https://dev-belly.github.io/CreditVintage/lineage/evidence.zip): generated from source and verified before publication. |
-| **2026-10 · Sources meet the model** | [CreditVintage × PITBridge](https://dev-belly.github.io/CreditVintage/lineage/): checked feature contracts, original event records, end-to-end replay and a browser explorer. |
-| **2026-10 · Revision-safe cash-flow windows** | [PITBridge rolling features](https://github.com/dev-belly/PITBridge/pull/2): select eligible revisions before aggregation; preserve every contributing record. |
-| **2026-10 · Precision of portfolio tails** | [StressAtlas paired bootstrap](https://github.com/dev-belly/StressAtlas/pull/2): resample complete simulation paths together; recompute absolute and incremental VaR/ES. |
-
-**2026-10-12 · [Earlier validation](PROJECT_REVIEW.md#drawdowns-and-cloud-ownership--2026-10-12).** The review records passing [main-branch CI for ten financial projects](PROJECT_REVIEW.md#current-main-checks--2026-10-12). AlphaForge's [post-merge full run](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) passes 1,273 tests with 96% coverage; Ranxin passes 13 offline regressions locally and in main CI. The review records the exact commits and keeps the earlier [Windows export checks](PROJECT_REVIEW.md#input-contracts-and-portable-exports--2026-10-10), [invoice/CSV trials](PROJECT_REVIEW.md#invoice-trials--2026-10-10) and [installed-package replay](PROJECT_REVIEW.md#cross-platform-replay--2026-10-10).
-
-**2026-10-12 · [Latest validation](PROJECT_REVIEW.md#sql-credit-business-case--2026-10-12).** CreditVintage's SQL cohort views and portable, label-free review queue pass 98 tests plus 28 subtests. Linux and Windows main-branch checks and publication pass; the live analysis page and summary match the verified public build byte-for-byte.
-
-</details>
-
-## More builds
-
-| Project | The engineering question |
-| :--- | :--- |
-| [AlphaForge](https://github.com/dev-belly/alphaforge) | Do factor signals survive walk-forward validation, portfolio constraints and costs? [Computed run ↗](https://dev-belly.github.io/alphaforge/sample-run/) |
-| [TradeForge](https://github.com/dev-belly/TradeForge) | Can C++ execution events agree with an independent Python reference? [60-second tour ↗](https://github.com/dev-belly/TradeForge#sixty-second-tour) |
-| [AuditLens](https://github.com/dev-belly/AuditLens) | Can an anomaly become an explainable review item? [Workpapers ↗](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) |
-| [ControlTrace](https://github.com/dev-belly/ControlTrace) | Can an IT control finding be traced to the original evidence? [Case study ↗](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) |
-| [LedgerX](https://github.com/dev-belly/LedgerX) | Can trading fills, accounting and portfolio marks reconcile exactly? [Valuation example ↗](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) |
-
-<img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
+[Build history](CHANGELOG.md) · [Validation evidence and exact commits](PROJECT_REVIEW.md) · [Business walkthrough and interview practice](INTERVIEW_PLAYBOOK.zh-CN.md)
 
 <details>
 <summary><b>Experiments & earlier work</b></summary>
@@ -121,7 +92,7 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 | [High-dimensional Causal Allocation Lab](https://github.com/dev-belly/highdim-causal-allocation-lab) | Simulated causal estimation and robust allocation; [interactive example](https://dev-belly.github.io/highdim-causal-allocation-lab/). |
 | [Interval Financial Risk](https://github.com/dev-belly/interval-financial-risk) | A [retained negative result](https://dev-belly.github.io/interval-financial-risk/): distributional features reduced AUC in this synthetic experiment. |
 | [FactorLab](https://github.com/dev-belly/ashare-multifactor-research) | A-share factor evaluation and purged validation; [中文文档](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md). |
-| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Complete contract filtering and currency-aware holding totals from indexed tables; [offline business trial](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md). |
+| [WeCom Agent Platform](https://github.com/dev-belly/wecom-agent-platform) | Contract filtering and currency-aware holding totals; [offline business trial](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md). |
 | [Personal AI Chat](https://github.com/dev-belly/personal-ai-chat) | Local chat plus a separately configured private model connection. |
 
 Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsman) · [Ranxin](https://github.com/dev-belly/ranxin-mini-program) · [Goose Leg Auntie](https://github.com/dev-belly/goose-leg-auntie-site).
@@ -130,6 +101,6 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 
 ---
 
-[Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Project evidence](PROJECT_BRIEFS.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+[Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 
 <sub>Financial questions. Runnable code. Evidence you can inspect.</sub>

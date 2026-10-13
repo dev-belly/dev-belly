@@ -1,10 +1,42 @@
-# Portfolio review · 2026-10-12
+# Portfolio review · 2026-10-13
 
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 10 月 9 日核对原八个主项目的已发布版本与 CI，并补齐 TradeForge 的含费成本口径、真实 CLI 表格对照及主页证据。
 
 10 月 12 日收尾合并 AlphaForge 的初始本金回撤与安装包默认配置修复，以及 Ranxin 的云端记录归属修复；同步 10 月 11 日已合并的输入、时点和 Windows 修复。下方保留历史运行证据，新增按确切提交记录的当前检查表。
+
+## Installed distributions and portfolio entry points · 2026-10-13
+
+本轮改善首次访问与安装后的使用验证。没有把新增 CI 当作新增预测能力，也没有更换公开实验的数据、分母或模型结论。
+
+| Merged change | What now gets checked | Evidence |
+| :--- | :--- | :--- |
+| [CreditVintage #12](https://github.com/dev-belly/CreditVintage/pull/12) | 由源码包构建 wheel，安装到全新虚拟环境，工作目录位于两个源码树之外。核心包先在没有 PITBridge 的环境运行：风险报告、早期监控、SQL 分组与 48 笔复核工作区；相同请求重放不追加事件，竞争者的旧版本请求被拒绝，完成率与标签分离检查通过。再安装固定版本的 PITBridge wheel，重放源记录与模型。 | 本机 Python 3.12：118 tests + 28 subtests；Ruff、格式与严格 mypy 通过。[PR CI](https://github.com/dev-belly/CreditVintage/actions/runs/38336627833)的三项完整测试和三项安装包检查共 6 个任务全部成功，覆盖 Linux 3.12/3.13 和 Windows 3.12；[公开站点构建](https://github.com/dev-belly/CreditVintage/actions/runs/38336627880)成功后合并到 `9332fd7`。[合并后 main CI](https://github.com/dev-belly/CreditVintage/actions/runs/38336912568)六项检查及[站点发布](https://github.com/dev-belly/CreditVintage/actions/runs/38336912571)也全部成功。 |
+| [PITBridge #13](https://github.com/dev-belly/PITBridge/pull/13) | 由源码包构建 wheel；无包索引安装至全新环境，确认导入来源，再用已安装的命令生成并完整核验快照与滚动报告。补齐 README、源码/报告/issue 链接，并将原有 MIT 声明改成 SPDX 表达式，许可文件继续进入发行包。 | 本机 91 tests 全部通过，最终 wheel 的两份报告均由独立路径重放。[PR CI](https://github.com/dev-belly/PITBridge/actions/runs/38336599774)的 9 个任务全部成功：既有核心、pandas 和 Windows 快速开始检查继续保留，新增 Linux 3.11/3.12 与 Windows 3.12 安装包验证。合并到 `3d3c65b` 后，[main CI](https://github.com/dev-belly/PITBridge/actions/runs/38336776434)和 [Pages](https://github.com/dev-belly/PITBridge/actions/runs/38336776441)也成功。 |
+
+安装验证还做了一个故障对照：从临时 CreditVintage wheel 删去 `business_groups.sql` 后，安装仍能完成，但新脚本在源码目录之外的 `analyze` 命令准确失败，指出已安装包缺少 SQL 文件。这个临时不完整的包没有提交或发布；正常 wheel 通过完整流程。这样核验的是安装包实际使用路径，而不是检查源码里恰好存在同名文件。
+
+主页正文将历次变更移入 [CHANGELOG.md](CHANGELOG.md)，保留全部历史证据链接。首屏改成业务问题 → 在线结果 → 具体实现的入口；三个旗舰面板和所有金融项目仍可访问。公开简介采用已经公开的专业全称；置顶顺序为 CreditVintage、PITBridge、StatementTrace、StressAtlas、AlphaForge、TradeForge，优先展示金融数据与风控方向。
+
+本机主页检查通过：5 张确定性 SVG、3 个正确链接的旗舰面板、7 份文档和本地导航。主页中的 12 个公开演示入口均返回 HTTP 200，页面标题与项目一致。这只证明入口可访问，数值与数据契约仍由每个项目的语义重放验证。
+
+## Current main checks · 2026-10-13
+
+Checked the ten financial project revisions during this review. The two changed projects were checked again after merge; the table names the exact validated commits rather than treating a green badge as evidence for another revision.
+
+| Project | Main commit | Validation |
+| :--- | :--- | :--- |
+| PITBridge | `3d3c65b` | [Successful CI · 9 jobs](https://github.com/dev-belly/PITBridge/actions/runs/38336776434) |
+| CreditVintage | `9332fd7` | [Successful CI · 6 jobs](https://github.com/dev-belly/CreditVintage/actions/runs/38336912568) |
+| StressAtlas | `bc577bb` | [Successful CI](https://github.com/dev-belly/StressAtlas/actions/runs/38050961034) |
+| alphaforge | `d7153c9` | [Successful CI](https://github.com/dev-belly/alphaforge/actions/runs/38186528393) |
+| TradeForge | `0d9fba9` | [Successful CI](https://github.com/dev-belly/TradeForge/actions/runs/38261693172) |
+| AuditLens | `5f6e641` | [Successful CI](https://github.com/dev-belly/AuditLens/actions/runs/38111034368) |
+| ControlTrace | `58b03c1` | [Successful CI](https://github.com/dev-belly/ControlTrace/actions/runs/38260082969) |
+| StatementTrace | `ed5ee1c` | [Successful CI](https://github.com/dev-belly/StatementTrace/actions/runs/38042185670) |
+| NetworkClear | `27bb7c4` | [Successful CI](https://github.com/dev-belly/NetworkClear/actions/runs/38042229238) |
+| LedgerX | `6725092` | [Successful CI](https://github.com/dev-belly/LedgerX/actions/runs/38110250708) |
 
 ## Business workflow closure · 2026-10-12
 
