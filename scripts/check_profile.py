@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = (
     "README.md", "PROJECT_BRIEFS.md", "PROJECT_REVIEW.md", "PROFILE_REFERENCES.md",
     "INTERVIEW_PLAYBOOK.zh-CN.md", "PROJECT_ADOPTION.zh-CN.md", "CHANGELOG.md",
+    "面试速讲卡.zh-CN.md",
 )
 CARDS = {f"assets/{project[0]}.svg": project for project in PROJECTS}
 

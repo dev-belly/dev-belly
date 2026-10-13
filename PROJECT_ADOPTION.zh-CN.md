@@ -25,6 +25,18 @@ CreditVintage 增加了 [贡献指南](https://github.com/dev-belly/CreditVintag
 
 每次分享只围绕一个具体问题：用到的输入、输出、可运行入口、限制和希望获得的反馈。邀请读者试一种自己的脱敏输入；如果工具有用，可以收藏仓库。不要把交流变成只求 Star 的信息。
 
+## 继续分享：把一次失败讲清楚
+
+新的试用内容可以围绕三个反例：
+
+| 一个能引发讨论的问题 | 读者可以做的对照 | 入口 |
+| --- | --- | --- |
+| 批次最后一条失败，前面几条还能算成功吗？ | 导入合法前缀加透支事件，确认旧日志不变；然后重试成功批次，确认日志头不变 | [LedgerX 批次接入](https://github.com/dev-belly/LedgerX/blob/main/docs/BATCH_INGESTION.md) |
+| 输入行顺序应该决定供应商银行账户吗？ | 同 ID 放两条冲突记录，倒序后仍应拒绝；不把“保留第一条”当作主数据规则 | [AuditLens 主数据案例](https://github.com/dev-belly/AuditLens/blob/main/docs/MASTER_DATA_CASE.zh-CN.md) |
+| 包内文件摘要全对，就能证明原结论没改吗？ | 修改合法备注并更新包内清单，解释为何内部一致仍需外部检查点 | [CreditVintage 底稿交付](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_DELIVERY.md) |
+
+分享时附最小虚构输入、实际命令、修复前后输出和一个开放问题。例如邀请读者讨论“事件重试应该按 ID 还是按 ID 加内容判断”，比单独展示技术栈更容易获得有用反馈。传播效果以真实试用、复用和反馈判断。
+
 ## 判断是否在变好
 
 把第一次试用能否跑通、反馈是否能复现、是否有人带来新输入、是否有人复用代码作为早期指标。Star 和 Fork 是结果信号，不能替代这些事实。GitHub 流量可在有权限的仓库 Insights 中查看；记录一个稳定周期再比较，不把自己的测试访问当作自然用户增长。

@@ -1,5 +1,18 @@
 # Portfolio review · 2026-10-13
 
+## Business integrity and delivery · 2026-10-13
+
+本轮从实际失败输入补齐业务约束，保留正常演示口径。面试先用 [速讲卡](面试速讲卡.zh-CN.md)，每个案例都有源码、测试和中文运行入口。
+
+| 项目与已核对提交 | 业务改变 | 验证证据 |
+| --- | --- | --- |
+| CreditVintage [#14](https://github.com/dev-belly/CreditVintage/pull/14)、[#15](https://github.com/dev-belly/CreditVintage/pull/15)；最终 PR head `036e91c`、合并 `83bf42a` | 一个读取事务捕获无标签队列与复核事件，导出可脱离数据库重放的底稿；可选外部检查点识别整包重写。重复 JSON 键递归拒绝，更新文件摘要也不能绕过。 | 本机最终 **154 tests + 28 subtests**，Ruff/format/strict mypy 通过；实际 Windows CLI 核验 48 条案例、2 条事件、47 queued / 1 resolved、完成率 1/48。[#14 CI](https://github.com/dev-belly/CreditVintage/actions/runs/38373482559)和 [#15 CI](https://github.com/dev-belly/CreditVintage/actions/runs/38393666439)六项测试/安装包任务全成功，覆盖 Linux 3.12/3.13 与 Windows 3.12。独立复查确认重复键反例由接受转为拒绝。[交付案例](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_DELIVERY.md) |
+| LedgerX [#4](https://github.com/dev-belly/LedgerX/pull/4)；PR head `bd31186`、合并 `b2535f9` | 全批事件先在候选账本验证，后段失败不记入合法前缀；同 ID 同内容复用原记录，改价等内容冲突拒绝。严格 JSONL 接入只在保存成功后输出结果。 | 本机 **83 tests**、Ruff/format/mypy 通过；4 行合成输入首次 appended=3/reused=1，再次 appended=0/reused=4，日志头完全相同。失败替换保留旧文件且没有成功输出。[main CI](https://github.com/dev-belly/LedgerX/actions/runs/38393914907)在 Linux 3.11/3.12/3.13 和 Windows 3.12 全成功。[批次案例](https://github.com/dev-belly/LedgerX/blob/main/docs/BATCH_INGESTION.md) |
+| AuditLens [#5](https://github.com/dev-belly/AuditLens/pull/5)；PR head `c2f85f1`、合并 `2e5b3ab` | 同 ID 只合并全部源字段一致的主数据；冲突在日期有损转换前拒绝，提示来源行号与字段而不暴露账号值。四份清洗产物先暂存，受控发布失败恢复旧内容；回滚失败保留备份并给恢复路径。 | 本机 **500 passed / 1 Windows 无 make skip**；新增 36 项，清洗共 93 项。隔离全管线维持 30,128 clean rows、300 复核样本及既有 10 份报告内容（OS 行尾除外）。[PR CI](https://github.com/dev-belly/AuditLens/actions/runs/38375496803)与 [main CI](https://github.com/dev-belly/AuditLens/actions/runs/38393916521)三平台全成功，含 notebook 和报告复现。[主数据案例](https://github.com/dev-belly/AuditLens/blob/main/docs/MASTER_DATA_CASE.zh-CN.md) |
+| WeCom [#3](https://github.com/dev-belly/wecom-agent-platform/pull/3)；PR head `8c3263f`、合并 `5a20acd` | 新一代 BM25、向量与结构化行完整准备后一起发布，失败保留旧代。查询固定快照并返回它的 index_revision；旧向量等在途读者结束再清理，缩小语料不混入旧尾部。 | 安装 Chroma 后本机 **86 passed / 2 Windows/POSIX skips**；快照专项 13 项通过，包含真实 Chroma 1.5.9 持久化，无模型下载。Ruff、离线业务示例、wheel 构建与隔离导入通过。[PR CI](https://github.com/dev-belly/wecom-agent-platform/actions/runs/38394160119)三 job 全成功：Linux 87 passed / 1 optional skip，再运行真实 Chroma 1 passed；Windows 85 passed / 3 skips；前端两项测试、类型与构建通过。[索引案例](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/index-snapshots.md) |
+
+Git HTTPS 连接失败时使用 Git-data API 发布，并核对远端 tree 与本机测试提交完全一致；表中记录实际远端 head。这里验证小型本地账务、单进程审计清洗/索引和底稿内部一致性；没有把它们说成跨进程事务、真实客户部署、材料真实性认证或收益证明。
+
 9 月 30 日复查了六个原主项目的展示入口、方法说明、保存的结果文件与 `main` CI；10 月 1 日发布 PITBridge 和 StressAtlas，10 月 2 日新增时点滚动特征、组合尾部风险精度诊断及 PITBridge 到 CreditVintage 的源记录溯源案例。10 月 3–4 日合并数值边界、报告内容、复核文件快照和成交配置修复；10 月 6 日将联合案例依赖固定到 PITBridge 的数值修复版本。10 月 8 日补齐 TradeForge 的费用、执行窗口与在途订单撤销校验，发布 CreditVintage 的完整下载入口及旧页面兼容重放，并从实际线上 ZIP 核验源记录到模型预测。项目定位由可以运行和核验的内容支撑；合成数据上的分数仅用于展示实验流程。
 
 10 月 9 日核对原八个主项目的已发布版本与 CI，并补齐 TradeForge 的含费成本口径、真实 CLI 表格对照及主页证据。
