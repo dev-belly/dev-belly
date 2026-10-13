@@ -76,10 +76,13 @@ StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses
 Recent changes connect the demonstrations to concrete operational checks:
 
 - **Installed packages:** [CreditVintage #12](https://github.com/dev-belly/CreditVintage/pull/12) and [PITBridge #13](https://github.com/dev-belly/PITBridge/pull/13) replay built wheels in clean environments outside their source trees on Linux and Windows.
-- **Credit review:** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds case ownership, recorded reasons, version conflicts and retry protection.
+- **Credit review:** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds ownership, recorded reasons and retry protection; [#14](https://github.com/dev-belly/CreditVintage/pull/14) delivers evidence that replays without the database.
+- **Failure paths:** [LedgerX #4](https://github.com/dev-belly/LedgerX/pull/4) stages whole retriable batches; [AuditLens #5](https://github.com/dev-belly/AuditLens/pull/5) refuses conflicting master records; [WeCom #3](https://github.com/dev-belly/wecom-agent-platform/pull/3) keeps queries on one index generation.
 - **Evidence and report access:** [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) binds conclusions to evidence versions; [TradeForge #13](https://github.com/dev-belly/TradeForge/pull/13) confines report requests to the configured directory.
 
 [Build history](CHANGELOG.md) · [Validation evidence and exact commits](PROJECT_REVIEW.md) · [Business walkthrough and interview practice](INTERVIEW_PLAYBOOK.zh-CN.md)
+
+准备面试可先用 [60 秒讲解与五个追问](面试速讲卡.zh-CN.md)，再沿实际操作、失败场景和代码展开。
 
 <details>
 <summary><b>Experiments & earlier work</b></summary>
