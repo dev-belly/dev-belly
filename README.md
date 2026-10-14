@@ -61,19 +61,21 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | :--- | :--- | :--- |
 | [StatementTrace](https://github.com/dev-belly/StatementTrace) | Public filings → availability cutoff → exact fiscal periods → financial metrics | [Live report](https://dev-belly.github.io/StatementTrace/) · [SEC source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) |
 | [NetworkClear](https://github.com/dev-belly/NetworkClear) | Counterparty shocks, exact debt clearing and outside-loss reconciliation | [Live report](https://dev-belly.github.io/NetworkClear/) · [Clearing method](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) |
-| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor signals, walk-forward validation, portfolio constraints and costs | [Computed sample run](https://dev-belly.github.io/alphaforge/sample-run/) |
-| [TradeForge](https://github.com/dev-belly/TradeForge) | C++ execution events checked against an independent Python reference | [60-second tour](https://github.com/dev-belly/TradeForge#sixty-second-tour) |
+| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor signals, walk-forward validation, portfolio constraints and costs | [Real-price comparison](https://github.com/dev-belly/alphaforge/blob/main/docs/research-comparison.md) · [Synthetic sample run](https://dev-belly.github.io/alphaforge/sample-run/) |
+| [TradeForge](https://github.com/dev-belly/TradeForge) | C++ execution events checked against an independent Python reference | [Public-quote matching case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) · [Synthetic demo](https://github.com/dev-belly/TradeForge#sixty-second-tour) |
 | [ControlTrace](https://github.com/dev-belly/ControlTrace) | Audit conclusions tied to the current evidence version | [Case study](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) |
 | [AuditLens](https://github.com/dev-belly/AuditLens) | Anomaly detection → an explainable review item | [Workpapers](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) |
 | [LedgerX](https://github.com/dev-belly/LedgerX) | Trading fills, accounting entries and valuation reconciled exactly | [Valuation example](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) |
 
-StatementTrace uses a **curated public Apple filing excerpt**; NetworkClear uses **synthetic exposures**. Both have an offline CLI and inspectable CSV/JSON outputs.
+**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage, StressAtlas and NetworkClear demonstrations remain synthetic. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
 ## Research in public
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Observed data, explicitly bounded:** [AlphaForge #4](https://github.com/dev-belly/alphaforge/pull/4) retains all 22 historical-price comparison cases and independently rechecks reported returns; [TradeForge #14](https://github.com/dev-belly/TradeForge/pull/14) replays public quote packets offline into 18 hypothetical matching/fee/latency scenarios. Neither proves a tradable edge or actual order fills.
 
 - **Installed packages:** [CreditVintage #12](https://github.com/dev-belly/CreditVintage/pull/12) and [PITBridge #13](https://github.com/dev-belly/PITBridge/pull/13) replay built wheels in clean environments outside their source trees on Linux and Windows.
 - **Credit review:** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds ownership, recorded reasons and retry protection; [#14](https://github.com/dev-belly/CreditVintage/pull/14) delivers evidence that replays without the database.
