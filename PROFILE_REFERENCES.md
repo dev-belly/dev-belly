@@ -12,4 +12,4 @@ Reviewed on 2026-10-02. This page records the ideas behind the portfolio's new d
 
 The visual design is original: editorial typography, charcoal and ivory surfaces, a lime identity, and distinct method illustrations. The method illustrations are schematic. The public reports contain the computed results.
 
-The project's stated scope remains financial research with synthetic public examples. The source-to-prediction adapter connects PITBridge scalar features to CreditVintage; rolling cash-flow outputs and StressAtlas remain separate research workflows.
+The flagship credit and stress examples remain explicitly synthetic; StatementTrace uses curated public-filing excerpts, while AlphaForge's separately documented historical-price comparison and TradeForge's short public depth capture use observed market records. These records do not establish historical-universe completeness, real order fills or live trading performance. The source-to-prediction adapter connects PITBridge scalar features to CreditVintage; rolling cash-flow outputs and StressAtlas remain separate research workflows.
