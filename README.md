@@ -19,12 +19,12 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 | Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
-| Does a learned credit score beat a constant on public data? | [UCI credit comparison](https://dev-belly.github.io/CreditVintage/public-credit-comparison/) | [Five-split experiment](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md) |
+| How do credit models compare at the same review capacity? | [30,000 card accounts](https://dev-belly.github.io/CreditVintage/card-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | What could a decision know before a late correction arrived? | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
-**A useful result includes its limits.** CreditVintage now also compares models on [1,000 observed UCI credit records](https://dev-belly.github.io/CreditVintage/public-credit/), with a frozen 600/200/200 split and train-only preprocessing. Calibration worsened Brier score there too. This static good/bad task is separate from the synthetic timed-event experiment. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
+**A useful result includes its limits.** CreditVintage compares four fixed methods on [30,000 observed card records](https://dev-belly.github.io/CreditVintage/card-credit/), retaining five train/calibration/test splits and every model result. The separate German-credit experiment retains its negative calibration result. Native targets and random splits are kept distinct from the synthetic timed-event experiment. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
 
 ## Flagship projects
 
@@ -34,9 +34,9 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
 
-独立的公开数据实验在 1,000 行 UCI 信贷记录上比较三种固定模型，保留五组相同划分及全部测试分数。逻辑回归平均 AUC 约 0.767；树模型平均 AUC 约 0.771，逻辑回归的 Top-20 精确率略高。静态数据没有时点信息，与上面的合成时序验证分开解释。
+公开信用卡实验覆盖 30,000 条 UCI 记录、五次固定划分和四种方法，保留 12 万个模型分数、三档相同复核预算及无标签队列；全部来源、分数和下载包均可重新拟合核验。历史单一客群的随机切分与上面的合成时序验证分开解释，原德国信贷实验继续保留。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [Public calibration](https://dev-belly.github.io/CreditVintage/public-credit/) · [Five-split comparison](https://dev-belly.github.io/CreditVintage/public-credit-comparison/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [Use your own dates](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.0) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [Use your own dates](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
@@ -79,7 +79,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 </details>
 
-**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic. Its separate UCI static experiment uses native good/bad labels without decision dates. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
+**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's public depth capture powers hypothetical fills. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic. Its UCI card and German experiments retain their distinct native targets; random customer splits do not establish future-period performance. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 

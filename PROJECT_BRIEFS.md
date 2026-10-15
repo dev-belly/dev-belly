@@ -48,6 +48,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
+> 信用卡建模与验证侧表述：以 30,000 条公开信用卡记录构建五组固定训练/校准/测试划分，训练集内拟合 19 项金融历史特征的缩放与编码，比较常数、Logistic、独立校准和梯度提升树；保存 12 万个模型分数及 60 组同预算复核结果，以来源重拟合核验逐笔分数、无标签队列及下载包。树模型五次平均 AUC 为 0.781、Brier 为 0.135；交付经隔离安装验证的版本包。
+
+**Larger observed cohort:** [30,000-account report](https://dev-belly.github.io/CreditVintage/card-credit/) · [protocol and source conversion](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) · [model/refit code](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [v0.2.0 distributions](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.0). The five test sets overlap; 120,000 scores do not mean 120,000 independent borrowers. A single historical Taiwan cohort and its native subsequent-default target do not establish future-vintage, current-China or 180-day DPD performance.
+
 > 公开数据验证侧表述：基于 UCI 1,000 条历史德国信贷记录建立固定 600/200/200 分层随机切分，只用训练集拟合缩放与类别编码，独立校准并导出逐笔证据；200 条测试记录的 Logistic AUC 为 0.774，保留校准后 Brier 由 0.162 变为 0.169 的负结果；实现原始数据重拟合核验与自定义时间窗口接入。
 
 **Observed data:** [public credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [source, protocol and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [custom event inputs](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md). The UCI good/bad classification has no decision dates or 180-day DPD target. Its 200-record test sample and random split do not establish out-of-time performance; keep it separate from the synthetic evidence below.
