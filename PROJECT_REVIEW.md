@@ -1,5 +1,11 @@
 # Portfolio review · 2026-10-15
 
+## Numerical replay across environments · 2026-10-15
+
+[CreditVintage #19](https://github.com/dev-belly/CreditVintage/pull/19), head `26ac5373271b619a73fc5a3686d581c57b832fcf`, tree `a44f04b9c81000a64128480787887fff9d0a70e1`: fixes a downloaded report failing refit when newer scikit-learn changed the tree results. Version 0.2.1 pins NumPy 2.3.5, SciPy 1.17.0 and scikit-learn 1.8.0 for wheel installation and public builds. The verifier checks recorded numerical versions before fitting, reports matching requirements and retains existing score/metric tolerances.
+
+Twelve focused regressions, Ruff/format, strict mypy and source-to-wheel build pass locally. CI additionally transfers the same Linux/Python 3.12 card evidence and checked wheel to Linux/Python 3.13 and Windows/Python 3.12 for full source-based refitting. The first-run commands and profile links use the [v0.2.1 checked release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.1). Earlier releases and their original validation records remain available.
+
 ## Larger card cohort and checked release · 2026-10-15
 
 [CreditVintage #18](https://github.com/dev-belly/CreditVintage/pull/18), head
