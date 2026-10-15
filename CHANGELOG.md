@@ -1,6 +1,6 @@
 # Build history
 
-**2026-10-15 · Portable numerical replay.** [CreditVintage #19](https://github.com/dev-belly/CreditVintage/pull/19) fixes the observed cross-version replay failure by pinning NumPy, SciPy and scikit-learn in v0.2.1. CI transfers one Linux/Python 3.12 evidence ZIP and its checked wheel to Linux/Python 3.13 and Windows/Python 3.12 to refit the same model scores. Runtime mismatches report required versions before fitting; score tolerances are unchanged. The first-run guide now installs v0.2.1.
+**2026-10-15 · Portable numerical replay.** [CreditVintage #19](https://github.com/dev-belly/CreditVintage/pull/19) fixes the observed cross-version replay failure by pinning NumPy, SciPy and scikit-learn in v0.2.1. CI transfers one Linux/Python 3.12 evidence ZIP and its checked wheel to Linux/Python 3.13 and Windows/Python 3.12 to refit the same model scores. A fixed six-decimal input grid stabilizes isotonic calibration across platforms, while raw logistic scores and verification tolerances are unchanged. Runtime mismatches report required versions before fitting; older v1 evidence keeps its original protocol. The first-run guide now installs v0.2.1.
 
 These dated entries describe the revision checked at the time. Current validation and exact commits are in the [portfolio review](PROJECT_REVIEW.md).
 
