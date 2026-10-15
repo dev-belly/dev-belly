@@ -52,6 +52,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 **Observed data:** [public credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [source, protocol and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [custom event inputs](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md). The UCI good/bad classification has no decision dates or 180-day DPD target. Its 200-record test sample and random split do not establish out-of-time performance; keep it separate from the synthetic evidence below.
 
+> 公开数据对照侧表述：在 UCI 1,000 行历史信贷数据上，为常数基线、逻辑回归与梯度提升树建立五组相同的分层训练/测试划分，训练集内拟合标准化和类别编码，保存全部 15 组指标与 3,000 条测试分数；逻辑回归平均 AUC 约 0.767，并同时报告观察范围、Brier 和固定 Top-20 名额的结果。
+
+**Public-data evidence:** [在线比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/) · [协议与来源](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md) · [训练代码](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py)。这是独立的静态 good/bad-risk 分类，原始数据没有时间戳；五次测试有重叠，3,000 条预测不是 3,000 名独立客户。不得与下方合成 180 天逾期结果混用。
+
 > 业务分析侧表述：为信贷风险项目增加可复现的 SQL 分组分析，按放款批次与客群生成 21 个聚合组及 48 笔无未来标签的复核清单；以独立 Python 重算验证指标分母、分组覆盖和排序，在 480 笔合成成熟测试申请上展示风险分析与报告核验流程。
 
 **Business analysis:** [SQL cohort report](https://dev-belly.github.io/CreditVintage/analysis/) · [中文业务案例与面试追问](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md) · [executed cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql). 21 行覆盖四种分析视角，不能跨视角重复合计；48 笔复核清单不含未来标签。复核精确率为 25/48，事件捕获率为 25/107，不宣称减少实际损失。全体 10% 容量不等于每个客群各选 10%。

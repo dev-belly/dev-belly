@@ -2,6 +2,8 @@
 
 These dated entries describe the revision checked at the time. Current validation and exact commits are in the [portfolio review](PROJECT_REVIEW.md).
 
+**2026-10-15 · Public credit comparison and a scoped open-source roadmap.** CreditVintage adds a separate UCI historical-credit experiment: three fixed models, five stratified splits, all 15 results and all 3,000 test scores retained. The profile links the data, protocol and runnable source without conflating static labels with synthetic dated-event validation. [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) compares Qlib, scorecardpy and hftbacktest against concrete remaining evidence gaps.
+
 **2026-10-15 · [Observed credit data and reusable calendars](PROJECT_REVIEW.md#observed-credit-and-custom-calendars--2026-10-15).** [CreditVintage #16](https://github.com/dev-belly/CreditVintage/pull/16) adds an attributed offline UCI benchmark with frozen splits and model refitting, plus strict custom-calendar JSON and model-free input preflight. Local validation passes 178 tests and 28 subtests, installed-wheel replay and the complete public build. The static native good/bad target remains distinct from the synthetic timed-event target. [TradeForge #15](https://github.com/dev-belly/TradeForge/pull/15) is merged after six successful checks, clarifying the separate observed-quote matching case.
 
 **2026-10-14 · A first run from an empty directory.** [Start here](START_HERE.md) separates project trial from business/code review. The trial installs fixed GitHub source snapshots without Git or an editable checkout, generates local PITBridge or CreditVintage evidence and verifies it before inspection. The profile keeps its three flagship projects visible and folds the additional tools and detailed change log.
