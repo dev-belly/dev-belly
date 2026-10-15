@@ -3,6 +3,10 @@
 Choose one project to try, or follow a business question into its evidence and code.
 先选一个项目完成运行与核验；也可以直接审阅业务问题、结果和实现。
 
+想先看真实公开数据，可打开 [UCI 信贷比较](https://dev-belly.github.io/CreditVintage/public-credit/)
+或按其[源码实验说明](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md)复跑。
+它需要当前源码仓库里的数据与示例；下方固定快照的包安装路线仍运行原有合成演示。
+
 ## Try a project
 
 These commands work from a new directory, without Git or a source checkout.
@@ -114,6 +118,7 @@ Use synthetic inputs in public reports.
 
 | Role / question | Inspect a result | Follow the implementation | Ask about the limit |
 | :--- | :--- | :--- | :--- |
+| Public credit modeling: what does a learned score add? | [Five-split comparison](https://dev-belly.github.io/CreditVintage/public-credit/) | [Training and saved-score verification](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py) | Why does static good/bad classification not establish future-vintage performance? |
 | Credit / SQL analysis: which cohorts need attention? | [Cohort analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Executed SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) | Why is 25/48 review precision different from 25/107 event capture? |
 | Financial data engineering: what could a past decision know? | [Source-to-prediction explorer](https://dev-belly.github.io/CreditVintage/lineage/) | [PITBridge selection engine](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py) | Why must publication and ingestion both precede the decision? |
 | Portfolio risk: how stable is a tail estimate? | [Stress precision report](https://dev-belly.github.io/StressAtlas/precision/) | [Precision method](https://github.com/dev-belly/StressAtlas/blob/main/docs/PRECISION.md) | Which uncertainty is measured, and which PD/LGD assumptions remain unvalidated? |

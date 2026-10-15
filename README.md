@@ -19,6 +19,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 | Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
+| Does a learned credit score beat a constant on public data? | [UCI credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) | [Five-split experiment](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | What could a decision know before a late correction arrived? | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
@@ -33,7 +34,9 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) · [中文业务案例](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)
+独立的公开数据实验在 1,000 行 UCI 信贷记录上比较三种固定模型，保留五组相同划分及全部测试分数。逻辑回归平均 AUC 约 0.778；树模型在 Top-20 精确率等指标上略高。静态数据没有时点信息，与上面的合成时序验证分开解释。
+
+[Source](https://github.com/dev-belly/CreditVintage) · [Public-data comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) · [中文业务案例](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)
 
 <br />
 
@@ -55,7 +58,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 [Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Method](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md)
 
-<sub>Examples identify their public-filing or synthetic inputs. Synthetic scores and loss scenarios demonstrate methods; they do not establish real borrower risk or live investment performance.</sub>
+<sub>Examples identify their public-filing, public static-credit or synthetic inputs. Static and synthetic experiments do not establish future borrower risk or live investment performance.</sub>
 
 ## More financial systems
 
@@ -76,7 +79,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 </details>
 
-**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage, StressAtlas and NetworkClear demonstrations remain synthetic. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
+**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic; its separate UCI comparison uses historical static labels without timestamps. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
@@ -122,6 +125,6 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 
 ---
 
-[Start here](START_HERE.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+[Start here](START_HERE.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 
 <sub>Financial questions. Runnable code. Evidence you can inspect.</sub>

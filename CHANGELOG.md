@@ -2,6 +2,8 @@
 
 These dated entries describe the revision checked at the time. Current validation and exact commits are in the [portfolio review](PROJECT_REVIEW.md).
 
+**2026-10-15 · Public credit comparison and a scoped open-source roadmap.** CreditVintage adds a separate UCI historical-credit experiment: three fixed models, five stratified splits, all 15 results and all 3,000 test scores retained. The profile links the data, protocol and runnable source without conflating static labels with synthetic dated-event validation. [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) compares Qlib, scorecardpy and hftbacktest against concrete remaining evidence gaps.
+
 **2026-10-14 · A first run from an empty directory.** [Start here](START_HERE.md) separates project trial from business/code review. The trial installs fixed GitHub source snapshots without Git or an editable checkout, generates local PITBridge or CreditVintage evidence and verifies it before inspection. The profile keeps its three flagship projects visible and folds the additional tools and detailed change log.
 
 **2026-10-13 · [Business integrity and delivery](PROJECT_REVIEW.md#business-integrity-and-delivery--2026-10-13).** CreditVintage delivers replayable review evidence and rejects ambiguous JSON; LedgerX accepts whole retriable event batches; AuditLens refuses conflicting master records and restores prior cleaning outputs on handled publication failures; WeCom publishes one coherent index generation with reader-safe retirement. Each change has failure regressions and a Chinese runnable case. [Start with the 60-second interview card](面试速讲卡.zh-CN.md).
