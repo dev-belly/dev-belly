@@ -7,17 +7,17 @@ Choose one project to try, or follow a business question into its evidence and c
 
 These commands work from a new directory, without Git or a source checkout.
 Python 3.12+ is required for both paths below; PITBridge alone supports 3.11+.
-Installation needs internet access, then the synthetic examples run offline.
+Installation needs internet access; the synthetic and bundled public examples then run offline.
 Use your virtual environment's Python directly; activation is unnecessary.
 
 下面任选一条路径。使用新的空目录；重复试用时换一个目录名。
 如果某一步报错，先停止并保留错误信息。包内不包含仓库的全部示例文档，
 所以这里生成自己的报告，再核验生成的结果。
 
-| First task | Result to inspect | Source snapshot checked on 2026-10-14 |
+| First task | Result to inspect | Frozen source snapshot |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [83bf42a](https://github.com/dev-belly/CreditVintage/tree/83bf42aafa7fd14dfe4953e9055f2ac25c353eaf) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [0e33e89](https://github.com/dev-belly/CreditVintage/tree/0e33e89b69c5e9024c016cb2d05ce484b077c7c9) |
 
 The URLs below pin source commits, rather than a moving branch or a package-index
 release. Dependencies retain their declared version ranges; these commands do
@@ -67,7 +67,7 @@ and independently replays the selections.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/83bf42aafa7fd14dfe4953e9055f2ac25c353eaf"
+.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/0e33e89b69c5e9024c016cb2d05ce484b077c7c9"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli analyze evaluation --out analysis
@@ -80,7 +80,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/83bf42aafa7fd14dfe4953e9055f2ac25c353eaf"
+.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/0e33e89b69c5e9024c016cb2d05ce484b077c7c9"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
 .venv/bin/python -m creditvintage.cli analyze evaluation --out analysis
@@ -99,6 +99,36 @@ against independent Python counts and sums.
 与 [人工复核流程](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md)
 展开。这些计数来自原始评估；单独的 PITBridge 联合溯源案例使用不同样本。
 合成演示不能证明真实客户违约预测、业务降损或上线效果。
+
+### CreditVintage: observed public credit
+
+The installed CreditVintage snapshot above also includes the attributed UCI
+German credit table. From that same directory and environment, run:
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m creditvintage public-benchmark --out public-credit
+.\.venv\Scripts\python.exe -m creditvintage verify-public public-credit
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m creditvintage public-benchmark --out public-credit
+.venv/bin/python -m creditvintage verify-public public-credit
+```
+
+Open `public-credit/index.html`. It compares a constant reference, logistic
+regression and isotonic calibration on 200 held-out records from a fixed
+600/200/200 split. The package preserves the original UCI bytes and attribution;
+verification refits the frozen models offline. Native good/bad labels and a
+random split provide a different check from the synthetic dated-event pipeline.
+They cannot establish decision-time availability or future-period performance.
+[Protocol and retained negative calibration result](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md).
+
+For a suitable event dataset of your own, use the
+[custom calendar and preflight walkthrough](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
 
 ### If a step fails
 

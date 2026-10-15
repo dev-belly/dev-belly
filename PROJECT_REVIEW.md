@@ -1,4 +1,34 @@
-# Portfolio review · 2026-10-13
+# Portfolio review · 2026-10-15
+
+## Observed credit and custom calendars · 2026-10-15
+
+[CreditVintage #16](https://github.com/dev-belly/CreditVintage/pull/16), PR head
+`2cc7094c01f17911e1b43ad3facdf8bed575c8e4`, merged at
+`0e33e89b69c5e9024c016cb2d05ce484b077c7c9`, tree
+`971461c48154212e39b8711c551f6f1c691d3182`: the tested checkout and remote tree match.
+The separate [UCI comparison](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md)
+freezes observed original bytes and a 600/200/200 random split, learns transformations only on train,
+and refits from saved source during verification. Native good/bad labels have no decision dates
+or 180-day DPD target. Calibration worsened Brier from 0.162263 to 0.169376; the result is retained.
+
+The [custom-input path](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+accepts strict seven-date JSON in evaluation, comparison and monitoring; model-free `preflight`
+reports excluded applications and cohort counts. Tests shift complete event data four years earlier
+and reject ambiguous configuration and rehashed public evidence changes.
+
+Local validation: **178 tests + 28 subtests**, Ruff/format and strict mypy pass. A source archive
+builds its wheel; a clean environment outside both checkouts verifies custom calendars, preflight,
+the bundled public data, original report/review workflows and the pinned optional lineage.
+The complete site build verifies the UCI report from original bytes; HTML has eight table rows and
+all local result links resolve. Cross-platform results are recorded by
+[CI](https://github.com/dev-belly/CreditVintage/actions/runs/38669691059): three full-suite and
+three installed-distribution jobs succeeded on Linux 3.12/3.13 and Windows 3.12.
+[The PR public build](https://github.com/dev-belly/CreditVintage/actions/runs/38669690897) succeeded;
+its deployment is intentionally skipped for pull requests.
+
+[TradeForge #15](https://github.com/dev-belly/TradeForge/pull/15) is merged at `bdc1f09` after its
+six checks succeed. Documentation distinguishes the default synthetic experiment from observed
+quote packets with hypothetical fees, latency and matching.
 
 ## Business integrity and delivery · 2026-10-13
 
