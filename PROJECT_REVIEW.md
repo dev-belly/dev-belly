@@ -1,5 +1,31 @@
 # Portfolio review · 2026-10-15
 
+## Larger card cohort and checked release · 2026-10-15
+
+[CreditVintage #18](https://github.com/dev-belly/CreditVintage/pull/18), head
+`2f6bc84741f2c5a11895b98de805a7bc56588ca1`, tree `9c1e1af0d3cfa5da997f1ca3af5cf7df84061eb1`:
+the tested checkout and remote tree match. The package includes the attributed UCI 350
+table, converted from original verified ZIP/Excel bytes without changing integer values,
+row order or target. Five fixed 18,000/6,000/6,000 splits compare four methods and three
+review capacities. All 120,000 model scores and 60 policy rows remain available.
+This single historical cohort's random splits do not establish future-period availability
+or the separate event pipeline's 180-day DPD target.
+
+Local **200 tests + 28 subtests**, Ruff/format and strict mypy pass. The full suite uses
+the pinned PITBridge integration. A fresh virtual environment outside the repositories
+installs the source-built wheel and refits every card model, then verifies original
+report/review and optional lineage paths. The complete public build and original-source
+conversion also pass. Eleven new regressions cover transformation isolation, native labels,
+equal review counts, changed scores/queues/ZIPs and release integrity.
+
+The v0.2.0 release flow retains the exact CI-tested distributions, their installed-check
+result, version/commit manifest and SHA-256 list. Publication accepts only successful
+push-to-main CI in this repository; it downloads that exact run's artifact and rechecks it
+before creating a new release. Existing tags are preserved. The first-run guide installs
+that checked wheel and adds the offline card benchmark and refit commands.
+See [CI and installation checks](https://github.com/dev-belly/CreditVintage/pull/18/checks)
+and [release artifacts](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.0).
+
 ## Observed credit and custom calendars · 2026-10-15
 
 [CreditVintage #16](https://github.com/dev-belly/CreditVintage/pull/16), PR head

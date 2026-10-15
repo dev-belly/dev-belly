@@ -6,7 +6,7 @@ Choose one project to try, or follow a business question into its evidence and c
 想先看真实公开数据，可打开 [UCI 信贷比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/)
 或按其[源码实验说明](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md)复跑。
 五次比较需要从当前源码仓库运行示例，数据与加载器复用包内实现。
-下方固定快照安装路线可运行单次公开校准实验和合成事件 SQL 演示，分别解释两者口径。
+下方固定版本安装路线可运行 3 万条信用卡对照、单次公开校准实验和合成事件 SQL 演示，分别解释三者口径。
 
 ## Try a project
 
@@ -19,15 +19,16 @@ Use your virtual environment's Python directly; activation is unnecessary.
 如果某一步报错，先停止并保留错误信息。包内不包含仓库的全部示例文档，
 所以这里生成自己的报告，再核验生成的结果。
 
-| First task | Result to inspect | Frozen source snapshot |
+| First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [0e33e89](https://github.com/dev-belly/CreditVintage/tree/0e33e89b69c5e9024c016cb2d05ce484b077c7c9) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.2.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.0) |
 
-The URLs below pin source commits, rather than a moving branch or a package-index
-release. Dependencies retain their declared version ranges; these commands do
-not promise byte-identical floating-point output across environments. Follow
-each project's README for current development, optional adapters and full tests.
+The URLs pin a PITBridge source commit and the checked CreditVintage v0.2.0
+wheel. That wheel is the artifact verified by main CI, with commit/version and
+SHA-256 evidence attached to its release. Dependencies retain declared version
+ranges; these commands do not promise identical floating-point output across
+environments. Follow each project's README for adapters and full tests.
 
 ### PITBridge: historical feature selection
 
@@ -72,7 +73,7 @@ and independently replays the selections.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/0e33e89b69c5e9024c016cb2d05ce484b077c7c9"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.2.0/creditvintage_research-0.2.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli analyze evaluation --out analysis
@@ -85,7 +86,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/CreditVintage/zip/0e33e89b69c5e9024c016cb2d05ce484b077c7c9"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.2.0/creditvintage_research-0.2.0-py3-none-any.whl"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
 .venv/bin/python -m creditvintage.cli analyze evaluation --out analysis
@@ -134,6 +135,37 @@ They cannot establish decision-time availability or future-period performance.
 
 For a suitable event dataset of your own, use the
 [custom calendar and preflight walkthrough](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
+
+### CreditVintage: 30,000 card accounts and complete model replay
+
+The same v0.2.0 environment includes the larger UCI credit-card cohort.
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m creditvintage card-benchmark --out card-credit
+.\.venv\Scripts\python.exe -m creditvintage verify-card card-credit
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m creditvintage card-benchmark --out card-credit
+.venv/bin/python -m creditvintage verify-card card-credit
+```
+
+Open `card-credit/index.html`. The five fixed splits each contain 18,000 train,
+6,000 calibration and 6,000 test records. Four methods share the same test
+cohorts and review capacities; all 120,000 scores and 60 budget comparisons are
+retained. Refitting checks the original table, assignments, scores, queues,
+metrics, page and downloadable evidence ZIP. The package includes its source
+notice and a reproducible integer conversion; no network or Excel parser is
+needed for this workflow. [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md).
+
+These are overlapping random partitions of one historical Taiwan cohort.
+Native subsequent-default labels differ from German good/bad classification
+and the synthetic 180-day DPD experiment; none of these random splits proves
+future-vintage performance.
 
 ### If a step fails
 
