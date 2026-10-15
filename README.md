@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
-  <a href="#flagship-projects"><b>PROJECTS</b></a> &nbsp; / &nbsp;
+  <a href="START_HERE.md"><b>TRY A PROJECT</b></a> &nbsp; / &nbsp;
   <a href="https://dev-belly.github.io/CreditVintage/analysis/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
@@ -12,6 +12,8 @@
 I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central University of Finance and Economics**. I build tools for credit risk, financial data analysis and quantitative research.
 
 把金融问题拆成能运行、能检验、能追溯的系统：从 SQL 客群分析和人工复核，到决策时点的数据、财报指标与组合风险。
+
+**New here?** [Run and verify a project from an empty directory](START_HERE.md#try-a-project), or [review a business decision and its code](START_HERE.md#review-the-work). 新访客可先完成一次试用；招聘与面试审阅可沿业务问题、结果和代码查看。
 
 ## Start with a business question
 
@@ -57,6 +59,11 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 ## More financial systems
 
+<details>
+<summary><b>Explore financial statements, execution, accounting and audit tools</b></summary>
+
+<br />
+
 | Project | What to inspect | Result / walkthrough |
 | :--- | :--- | :--- |
 | [StatementTrace](https://github.com/dev-belly/StatementTrace) | Public filings → availability cutoff → exact fiscal periods → financial metrics | [Live report](https://dev-belly.github.io/StatementTrace/) · [SEC source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) |
@@ -67,11 +74,18 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | [AuditLens](https://github.com/dev-belly/AuditLens) | Anomaly detection → an explainable review item | [Workpapers](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports) |
 | [LedgerX](https://github.com/dev-belly/LedgerX) | Trading fills, accounting entries and valuation reconciled exactly | [Valuation example](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) |
 
+</details>
+
 **Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage, StressAtlas and NetworkClear demonstrations remain synthetic. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
 ## Research in public
+
+<details>
+<summary><b>Inspect recent changes and their validation</b></summary>
+
+<br />
 
 Recent changes connect the demonstrations to concrete operational checks:
 
@@ -83,6 +97,8 @@ Recent changes connect the demonstrations to concrete operational checks:
 - **Evidence and report access:** [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) binds conclusions to evidence versions; [TradeForge #13](https://github.com/dev-belly/TradeForge/pull/13) confines report requests to the configured directory.
 
 [Build history](CHANGELOG.md) · [Validation evidence and exact commits](PROJECT_REVIEW.md) · [Business walkthrough and interview practice](INTERVIEW_PLAYBOOK.zh-CN.md)
+
+</details>
 
 准备面试可先用 [60 秒讲解与五个追问](面试速讲卡.zh-CN.md)，再沿实际操作、失败场景和代码展开。
 
@@ -106,6 +122,6 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 
 ---
 
-[Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+[Start here](START_HERE.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 
 <sub>Financial questions. Runnable code. Evidence you can inspect.</sub>

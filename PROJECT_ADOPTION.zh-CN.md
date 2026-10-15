@@ -1,5 +1,7 @@
 # 让现有项目值得被试用和收藏
 
+第一次试用可从 [空目录安装、生成并核验报告](START_HERE.md#try-a-project) 开始；下文说明适合邀请哪些读者、收集什么反馈。
+
 目标读者是做金融数据、信贷分析与审计工具的人。当前最有辨识度的入口是 CreditVintage × PITBridge：**一笔申请如何追到决策时点的数据，再进入有限容量的人工复核。** 用同一条业务链解释几个组件，比同时推十几个仓库更容易让人记住。
 
 GitHub 的 [README 指南](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)强调项目用途、使用方法和帮助入口；[Topics 指南](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)说明相关主题可以帮助别人发现项目。这些入口降低试用门槛，不保证 Star 增长。
