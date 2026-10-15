@@ -1,6 +1,6 @@
 # Project evidence and interview notes
 
-These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify their linked public-filing excerpt, public static-credit dataset or synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
+These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify public-filing excerpts, the separate observed static credit sample, or a synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
 
 ## Public financial statement analysis
 
@@ -48,9 +48,13 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
-> 公开数据对照侧表述：在 UCI 1,000 行历史信贷数据上，为常数基线、逻辑回归与梯度提升树建立五组相同的分层训练/测试划分，训练集内拟合标准化和类别编码，保存全部 15 组指标与 3,000 条测试分数；逻辑回归平均 AUC 约 0.778，并同时报告观察范围、Brier 和固定 Top-20 名额的结果。
+> 公开数据验证侧表述：基于 UCI 1,000 条历史德国信贷记录建立固定 600/200/200 分层随机切分，只用训练集拟合缩放与类别编码，独立校准并导出逐笔证据；200 条测试记录的 Logistic AUC 为 0.774，保留校准后 Brier 由 0.162 变为 0.169 的负结果；实现原始数据重拟合核验与自定义时间窗口接入。
 
-**Public-data evidence:** [在线比较](https://dev-belly.github.io/CreditVintage/public-credit/) · [协议与来源](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [训练代码](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py)。这是独立的静态 good/bad-risk 分类，原始数据没有时间戳；五次测试有重叠，3,000 条预测不是 3,000 名独立客户。不得与下方合成 180 天逾期结果混用。
+**Observed data:** [public credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [source, protocol and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [custom event inputs](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md). The UCI good/bad classification has no decision dates or 180-day DPD target. Its 200-record test sample and random split do not establish out-of-time performance; keep it separate from the synthetic evidence below.
+
+> 公开数据对照侧表述：在 UCI 1,000 行历史信贷数据上，为常数基线、逻辑回归与梯度提升树建立五组相同的分层训练/测试划分，训练集内拟合标准化和类别编码，保存全部 15 组指标与 3,000 条测试分数；逻辑回归平均 AUC 约 0.767，并同时报告观察范围、Brier 和固定 Top-20 名额的结果。
+
+**Public-data evidence:** [在线比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/) · [协议与来源](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md) · [训练代码](https://github.com/dev-belly/CreditVintage/blob/main/examples/german_credit.py)。这是独立的静态 good/bad-risk 分类，原始数据没有时间戳；五次测试有重叠，3,000 条预测不是 3,000 名独立客户。不得与下方合成 180 天逾期结果混用。
 
 > 业务分析侧表述：为信贷风险项目增加可复现的 SQL 分组分析，按放款批次与客群生成 21 个聚合组及 48 笔无未来标签的复核清单；以独立 Python 重算验证指标分母、分组覆盖和排序，在 480 笔合成成熟测试申请上展示风险分析与报告核验流程。
 

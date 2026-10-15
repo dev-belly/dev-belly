@@ -38,12 +38,12 @@ CI、测试数量和摘要核验帮助定位工程错误；真实数据验证、
    提供从空目录安装、生成报告和核验的入口。
 2. 合并 PITBridge [#15](https://github.com/dev-belly/PITBridge/pull/15)：说明旧
    release 与 main 的功能差异；三决策示例另行断言固定业务结果。
-3. CreditVintage 增加 [公开信贷比较](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md)：
-   冻结并署名 UCI 源数据；三种固定模型共享五组分层划分；保存全部预测、
+3. 合并 CreditVintage [#16](https://github.com/dev-belly/CreditVintage/pull/16)，接通包内公开数据实验与自定义时间窗口；在其同一份数据、加载器和 17 个建模属性上增加 [五次公开信贷比较](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md)：
+   复用已冻结并署名的 UCI 源数据；三种固定模型共享五组分层划分；保存全部预测、
    分组结果、参数、环境和划分归属；自动复核输出。
 
-公开比较中，逻辑回归五次平均 AUC 约 0.778，梯度提升树约 0.774；树模型
-在 Top-20 精确率等指标上略高。报告保留全部结果，没有因此宣布普遍赢家。
+公开比较中，逻辑回归五次平均 AUC 约 0.767，梯度提升树约 0.771；树模型
+在平均 AUC、AP 和 Brier 上略优；逻辑回归的 Top-20 精确率略高。报告保留全部结果，没有因此宣布普遍赢家。
 UCI 数据没有时点信息，这一新增实验仍未完成真实信贷的时间外验证。
 
 ## 接下来的工作顺序
