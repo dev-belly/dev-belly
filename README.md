@@ -23,7 +23,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | What could a decision know before a late correction arrived? | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
-**A useful result includes its limits.** In CreditVintage's synthetic test, calibration worsened Brier score. The result stays in the report. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
+**A useful result includes its limits.** CreditVintage now also compares models on [1,000 observed UCI credit records](https://dev-belly.github.io/CreditVintage/public-credit/), with a frozen 600/200/200 split and train-only preprocessing. Calibration worsened Brier score there too. This static good/bad task is separate from the synthetic timed-event experiment. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
 
 ## Flagship projects
 
@@ -33,7 +33,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Risk report](https://dev-belly.github.io/CreditVintage/demo/) · [Lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) · [中文业务案例](https://github.com/dev-belly/CreditVintage/blob/main/docs/BUSINESS_CASE.md)
+[Source](https://github.com/dev-belly/CreditVintage) · [Observed credit data](https://dev-belly.github.io/CreditVintage/public-credit/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage explorer](https://dev-belly.github.io/CreditVintage/lineage/) · [Use your own dates](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
@@ -55,7 +55,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 [Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Method](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md)
 
-<sub>Examples identify their public-filing or synthetic inputs. Synthetic scores and loss scenarios demonstrate methods; they do not establish real borrower risk or live investment performance.</sub>
+<sub>Examples identify public-filing excerpts, observed static credit data or synthetic inputs. Synthetic scores and loss scenarios demonstrate methods; they do not establish real borrower risk or live investment performance.</sub>
 
 ## More financial systems
 
@@ -76,7 +76,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 </details>
 
-**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage, StressAtlas and NetworkClear demonstrations remain synthetic. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
+**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's 40-second public depth capture powers *hypothetical* aggressive fills under assumed fees and latency. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic. Its separate UCI static experiment uses native good/bad labels without decision dates. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 

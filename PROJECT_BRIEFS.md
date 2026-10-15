@@ -1,6 +1,6 @@
 # Project evidence and interview notes
 
-These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify their linked public-filing excerpt or synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
+These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify public-filing excerpts, the separate observed static credit sample, or a synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
 
 ## Public financial statement analysis
 
@@ -47,6 +47,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 ## Bank credit / model validation
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
+
+> 公开数据验证侧表述：基于 UCI 1,000 条历史德国信贷记录建立固定 600/200/200 分层随机切分，只用训练集拟合缩放与类别编码，独立校准并导出逐笔证据；200 条测试记录的 Logistic AUC 为 0.774，保留校准后 Brier 由 0.162 变为 0.169 的负结果；实现原始数据重拟合核验与自定义时间窗口接入。
+
+**Observed data:** [public credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [source, protocol and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [custom event inputs](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md). The UCI good/bad classification has no decision dates or 180-day DPD target. Its 200-record test sample and random split do not establish out-of-time performance; keep it separate from the synthetic evidence below.
 
 > 业务分析侧表述：为信贷风险项目增加可复现的 SQL 分组分析，按放款批次与客群生成 21 个聚合组及 48 笔无未来标签的复核清单；以独立 Python 重算验证指标分母、分组覆盖和排序，在 480 笔合成成熟测试申请上展示风险分析与报告核验流程。
 
