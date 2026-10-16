@@ -1,4 +1,10 @@
-# Portfolio review · 2026-10-15
+# Portfolio review · 2026-10-16
+
+## Editable CSV workflow and input diagnostics · 2026-10-16
+
+[CreditVintage #20](https://github.com/dev-belly/CreditVintage/pull/20), head `3c3b37c7ff80037a4cc942947027bb1f06e86be6`, tree `203cbb13b0520b1fe95d3385eeea8093f38ebded`: the remote tree matches the checked local source. New `init-inputs` writes 480 explicitly synthetic applications, 1,584 feature events, 2,880 performance rows and a complete calendar. `check-inputs` collects row/type/encoding errors, then checks relationships, decision-time features and all three mature cohorts with the actual record and snapshot contracts. It reports blocked checks explicitly, preserves input bytes and fits no model.
+
+Local **224 tests + 28 subtests** pass. Twenty-two new input regressions cover guards against fitting classifiers/calibrators, input preservation, future-only feature revisions, missing non-event reports across all cohorts, UTF-8/BOM failures, bounded output and physical locations for multi-line CSV records. Ruff/format and strict mypy pass. A clean installed wheel generates and diagnoses the files, runs the supplied-CSV evaluation, verifies 120 holdout applications and locates an intentionally invalid principal at applications.csv line 2. [Checked v0.3.0 assets](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.0) retain that installed-check result and commit-bound checksums. This is functional reuse evidence, not independent adoption or bank-data validation.
 
 ## Numerical replay across environments · 2026-10-15
 
