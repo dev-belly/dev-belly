@@ -22,9 +22,9 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.2.1 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.2.1) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.3.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.0) |
 
-The URLs pin a PITBridge source commit and the checked CreditVintage v0.2.1
+The URLs pin a PITBridge source commit and the checked CreditVintage v0.3.0
 wheel. That wheel is the artifact verified by main CI, with commit/version and
 SHA-256 evidence attached to its release. Dependencies retain declared version
 ranges; these commands do not promise identical floating-point output across
@@ -73,7 +73,7 @@ and independently replays the selections.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.2.1/creditvintage_research-0.2.1-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.0/creditvintage_research-0.3.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli analyze evaluation --out analysis
@@ -86,7 +86,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.2.1/creditvintage_research-0.2.1-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.0/creditvintage_research-0.3.0-py3-none-any.whl"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
 .venv/bin/python -m creditvintage.cli analyze evaluation --out analysis
@@ -105,6 +105,41 @@ against independent Python counts and sums.
 与 [人工复核流程](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md)
 展开。这些计数来自原始评估；单独的 PITBridge 联合溯源案例使用不同样本。
 合成演示不能证明真实客户违约预测、业务降损或上线效果。
+
+### CreditVintage: editable CSVs and input diagnostics
+
+The same installed v0.3.0 package can create complete input files before you
+replace them with compatible data of your own.
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m creditvintage init-inputs --out inputs/example
+.\.venv\Scripts\python.exe -m creditvintage check-inputs inputs/example
+.\.venv\Scripts\python.exe -m creditvintage run --applications inputs/example/applications.csv --features inputs/example/features.csv --performance inputs/example/performance.csv --config inputs/example/cohorts.json --out csv-evaluation
+.\.venv\Scripts\python.exe -m creditvintage verify csv-evaluation
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m creditvintage init-inputs --out inputs/example
+.venv/bin/python -m creditvintage check-inputs inputs/example
+.venv/bin/python -m creditvintage run --applications inputs/example/applications.csv --features inputs/example/features.csv --performance inputs/example/performance.csv --config inputs/example/cohorts.json --out csv-evaluation
+.venv/bin/python -m creditvintage verify csv-evaluation
+```
+
+This smaller editable case has **480 total synthetic applications**, split
+240/120/120, and verification reports **120 held-out applications**. Its
+`case.json` identifies its generated origin. The earlier built-in demonstration
+uses a different sample size. Input diagnostics collect file/physical-line
+errors and return JSON plus exit code 2 for invalid data, without fitting or
+rewriting files. Fix row errors first; blocked relationship or cohort checks
+are explicitly identified. Readiness checks the documented event contract and
+mature evaluation windows, not source authenticity or predictive quality.
+
+Replace all three CSVs and edit the complete calendar for your own compatible
+records. [Input contract and diagnostic output](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
 
 ### CreditVintage: observed public credit
 
@@ -138,7 +173,7 @@ For a suitable event dataset of your own, use the
 
 ### CreditVintage: 30,000 card accounts and complete model replay
 
-The same v0.2.1 environment includes the larger UCI credit-card cohort.
+The same v0.3.0 environment includes the larger UCI credit-card cohort.
 
 **Windows PowerShell**
 

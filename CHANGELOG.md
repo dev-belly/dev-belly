@@ -1,5 +1,7 @@
 # Build history
 
+**2026-10-16 · Editable CSVs and actionable input diagnostics.** [CreditVintage #20](https://github.com/dev-belly/CreditVintage/pull/20) adds `init-inputs` and `check-inputs`: a complete 480-application synthetic event case, file/line input errors, explicit blocked check stages and explicit failure status without fitting or changing inputs. Clean installed-package replay runs the actual supplied CSV paths through evaluation and 120-record holdout verification, then checks a deliberately invalid principal at line 2. The profile and first-run guide use the v0.3.0 checked release.
+
 **2026-10-15 · Portable numerical replay.** [CreditVintage #19](https://github.com/dev-belly/CreditVintage/pull/19) fixes the observed cross-version replay failure by pinning NumPy, SciPy and scikit-learn in v0.2.1. CI transfers one Linux/Python 3.12 evidence ZIP and its checked wheel to Linux/Python 3.13 and Windows/Python 3.12 to refit the same model scores. High-precision Newton-Cholesky logistic fitting and a fixed six-decimal isotonic input grid stabilize cross-platform replay, while raw logistic probabilities are retained without rounding and verification tolerances are unchanged. Runtime mismatches report required versions before fitting; older v1 evidence keeps its original protocol. The first-run guide now installs v0.2.1.
 
 These dated entries describe the revision checked at the time. Current validation and exact commits are in the [portfolio review](PROJECT_REVIEW.md).
