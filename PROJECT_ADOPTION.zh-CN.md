@@ -1,6 +1,6 @@
 # 让现有项目值得被试用和收藏
 
-第一次试用可从 [空目录安装、生成并核验报告](START_HERE.md#try-a-project) 开始；下文说明适合邀请哪些读者、收集什么反馈。
+第一次试用可先在 [浏览器案例](START_HERE.md#try-in-your-browser) 修改一个时间并核对结果，或从 [空目录安装、生成并核验报告](START_HERE.md#try-a-project) 开始；下文说明适合邀请哪些读者、收集什么反馈。
 
 目标读者是做金融数据、信贷分析与审计工具的人。当前最有辨识度的入口是 CreditVintage × PITBridge：**一笔申请如何追到决策时点的数据，再进入有限容量的人工复核。** 用同一条业务链解释几个组件，比同时推十几个仓库更容易让人记住。
 
@@ -11,11 +11,11 @@ GitHub 的 [README 指南](https://docs.github.com/en/repositories/managing-your
 | 读者 | 一次能做完的任务 | 可带走的结果 |
 | --- | --- | --- |
 | 金融数据分析学习者 | 在 CreditVintage 原报告上运行 `analyze` | 客群/批次 SQL、组指标、无未来标签复核 CSV |
-| 数据工程师 | 在 PITBridge 三决策案例中修改一条入库时间 | 当时可得值和源记录成员的变化 |
+| 数据工程师 | 在 [PITBridge 浏览器案例](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) 中修改一条入库时间 | 选中的发票修订、数值与缺失状态 |
 | 风控工具开发者 | 在 CreditVintage 工作区认领、结案、重试同一请求 | 持久化复核事件、当前状态、完成率 |
 | IT 审计学习者 | 复核 ControlTrace 的一条发现，再更正其源证据 | 原结论历史与当前证据是否匹配 |
 
-CreditVintage 增加了 [贡献指南](https://github.com/dev-belly/CreditVintage/blob/main/CONTRIBUTING.md)和[试用反馈入口](https://github.com/dev-belly/CreditVintage/issues/new?template=trial_feedback.yml)：反馈应带运行命令、预期/实际差异和脱敏样例。PITBridge 已有 [三决策案例](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)与[试用模板](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md)。
+CreditVintage 增加了 [贡献指南](https://github.com/dev-belly/CreditVintage/blob/main/CONTRIBUTING.md)和[试用反馈入口](https://github.com/dev-belly/CreditVintage/issues/new?template=trial_feedback.yml)：反馈应带运行命令、预期/实际差异和脱敏样例。PITBridge 已有 [浏览器试用](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb)、[本地发票与 CSV 案例](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)及[试用模板](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md)。
 
 ## 适合分享的内容
 
