@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
-  <a href="START_HERE.md"><b>TRY A PROJECT</b></a> &nbsp; / &nbsp;
+  <a href="https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb"><b>RUN IN BROWSER</b></a> &nbsp; / &nbsp;
   <a href="https://dev-belly.github.io/CreditVintage/analysis/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
@@ -13,7 +13,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 把金融问题拆成能运行、能检验、能追溯的系统：从 SQL 客群分析和人工复核，到决策时点的数据、财报指标与组合风险。
 
-**New here?** [Run and verify a project from an empty directory](START_HERE.md#try-a-project), or [review a business decision and its code](START_HERE.md#review-the-work). 新访客可先完成一次试用；招聘与面试审阅可沿业务问题、结果和代码查看。
+**New here?** [Change one invoice timestamp in your browser](START_HERE.md#try-in-your-browser), [install a project from an empty directory](START_HERE.md#try-a-project), or [review a business decision and its code](START_HERE.md#review-the-work). 新访客可先在浏览器核对三次固定决策，再改一个时间；招聘与面试审阅可沿业务问题、结果和代码查看。
 
 ## Start with a business question
 
@@ -21,7 +21,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | :--- | :--- | :--- |
 | How do credit models compare at the same review capacity? | [30,000 card accounts](https://dev-belly.github.io/CreditVintage/card-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
-| What could a decision know before a late correction arrived? | [Source → prediction](https://dev-belly.github.io/CreditVintage/lineage/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
+| What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
 **A useful result includes its limits.** CreditVintage compares four fixed methods on [30,000 observed card records](https://dev-belly.github.io/CreditVintage/card-credit/), retaining five train/calibration/test splits and every model result. The separate German-credit experiment retains its negative calibration result. Native targets and random splits are kept distinct from the synthetic timed-event experiment. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
@@ -48,7 +48,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值保留源记录成员，SQLite 结果与独立 Python 实现逐项核对。先试一张发票，再接 CSV 或可选的 pandas。
 
-[Source](https://github.com/dev-belly/PITBridge) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
+[Source](https://github.com/dev-belly/PITBridge) · [Run in browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
 
 <br />
 

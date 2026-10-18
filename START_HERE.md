@@ -1,14 +1,43 @@
 # Start here / 从这里开始
 
-Choose one project to try, or follow a business question into its evidence and code.
-先选一个项目完成运行与核验；也可以直接审阅业务问题、结果和实现。
+Try the invoice case in your browser, install a project locally, or follow a
+business question into its evidence and code.
+先在浏览器改一个时间并核对结果，也可以本地运行项目，或直接审阅业务问题、结果和实现。
+
+## Try in your browser
+
+**Why can't a February decision use an invoice correction that arrived in April?**
+The [PITBridge notebook](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb)
+uses one synthetic invoice to make that boundary visible. No local Python,
+Git checkout, GPU or paid dataset is needed.
+
+1. Open the notebook in Colab, sign in if prompted, and start a Python runtime.
+2. Run all cells. The first code cell downloads and installs a pinned source snapshot
+   of **dev-belly/PITBridge**; the remaining cells check SQL against an independent
+   Python implementation and the three expected decisions below.
+3. Edit `decision_at` or `correction_ingested_at` in the final code cell and rerun
+   that cell. Explain why the selected revision changed or stayed the same.
+
+| Default decision | Expected selection |
+| :--- | :--- |
+| February 1 | Missing: neither version was available yet |
+| February 15 | Original invoice, 100,000 CNY |
+| April 15 | Corrected invoice, 135,000 CNY |
+
+浏览器案例先运行固定的三次决策，再修改最后一个代码单元的时间参数。
+金额和日期都是合成输入，用于解释规则，不代表真实客户或回测收益。
+Colab 需要联网安装源码并按平台要求启动运行时。
+
+[Preview the notebook on GitHub](https://github.com/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) ·
+[Report a trial result or a blocked step](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md).
+For local reports or CSV inputs, continue with the installation paths below.
+
+## Try a project
 
 想先看真实公开数据，可打开 [UCI 信贷比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/)
 或按其[源码实验说明](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md)复跑。
 五次比较需要从当前源码仓库运行示例，数据与加载器复用包内实现。
 下方固定版本安装路线可运行 3 万条信用卡对照、单次公开校准实验和合成事件 SQL 演示，分别解释三者口径。
-
-## Try a project
 
 These commands work from a new directory, without Git or a source checkout.
 Python 3.12+ is required for both paths below; PITBridge alone supports 3.11+.
