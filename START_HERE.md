@@ -51,13 +51,16 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.3.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.0) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.3.1 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.1) |
 
-The URLs pin a PITBridge source commit and the checked CreditVintage v0.3.0
+The URLs pin a PITBridge source commit and the checked CreditVintage v0.3.1
 wheel. That wheel is the artifact verified by main CI, with commit/version and
-SHA-256 evidence attached to its release. Dependencies retain declared version
-ranges; these commands do not promise identical floating-point output across
-environments. Follow each project's README for adapters and full tests.
+SHA-256 evidence attached to its release. The version check below prints `0.3.1`;
+the [patch notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.1)
+describe its CSV-header fix and code/data license notices. PITBridge has no
+third-party runtime dependencies; CreditVintage pins its numerical dependencies.
+These commands do not promise identical floating-point output across environments.
+Follow each project's README for adapters and full tests.
 
 ### PITBridge: historical feature selection
 
@@ -102,7 +105,8 @@ and independently replays the selections.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.0/creditvintage_research-0.3.0-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.1/creditvintage_research-0.3.1-py3-none-any.whl"
+.\.venv\Scripts\python.exe -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli analyze evaluation --out analysis
@@ -115,7 +119,8 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.0/creditvintage_research-0.3.0-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.1/creditvintage_research-0.3.1-py3-none-any.whl"
+.venv/bin/python -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
 .venv/bin/python -m creditvintage.cli analyze evaluation --out analysis
@@ -137,7 +142,7 @@ against independent Python counts and sums.
 
 ### CreditVintage: editable CSVs and input diagnostics
 
-The same installed v0.3.0 package can create complete input files before you
+The same installed v0.3.1 package can create complete input files before you
 replace them with compatible data of your own.
 
 **Windows PowerShell**
@@ -202,7 +207,7 @@ For a suitable event dataset of your own, use the
 
 ### CreditVintage: 30,000 card accounts and complete model replay
 
-The same v0.3.0 environment includes the larger UCI credit-card cohort.
+The same v0.3.1 environment includes the larger UCI credit-card cohort.
 
 **Windows PowerShell**
 

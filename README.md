@@ -38,7 +38,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 新增可编辑 CSV 输入样例与训练前诊断：按文件、行号定位多处错误，检查重复修订、决策时可用特征与成熟标签；诊断过程不修改输入、不训练模型。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.0) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.3.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.1) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
