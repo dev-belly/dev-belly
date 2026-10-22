@@ -38,7 +38,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 新增可编辑 CSV 输入样例与训练前诊断：按文件、行号定位多处错误，检查重复修订、决策时可用特征与成熟标签；诊断过程不修改输入、不训练模型。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.3.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.1) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.3.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
@@ -94,7 +94,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
-- **Consistent calendar inputs:** [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26) applies the same `YYYY-MM-DD` contract to CSV diagnostics, monitoring cutoffs and saved report evidence. [Validation and compatibility](PROJECT_REVIEW.md#strict-calendar-inputs-and-saved-evidence--2026-10-22) distinguish the source patch from the published v0.3.1 wheel.
+- **Consistent calendar inputs:** [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26) applies the same `YYYY-MM-DD` contract to CSV diagnostics, monitoring cutoffs and saved report evidence. The fix is included in the [checked v0.3.2 release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2); [validation and upgrade notes](PROJECT_REVIEW.md#checked-calendar-patch-release--2026-10-22) connect installation to its evidence.
 
 - **Observed data, explicitly bounded:** [AlphaForge #4](https://github.com/dev-belly/alphaforge/pull/4) retains all 22 historical-price comparison cases and independently rechecks reported returns; [TradeForge #14](https://github.com/dev-belly/TradeForge/pull/14) replays public quote packets offline into 18 hypothetical matching/fee/latency scenarios. Neither proves a tradable edge or actual order fills.
 

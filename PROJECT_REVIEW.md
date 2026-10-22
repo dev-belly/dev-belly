@@ -1,5 +1,27 @@
 # Portfolio review · 2026-10-22
 
+## Checked calendar patch release · 2026-10-22
+
+[CreditVintage #27](https://github.com/dev-belly/CreditVintage/pull/27) delivers
+the calendar fix as the [v0.3.2 checked release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2).
+The runtime implementation is unchanged from #26 below. The version bump and
+upgrade notes make strict CSV/cutoff parsing available to installed-package
+users; the profile, first-run commands and project brief now point to that version.
+Earlier release tags and their original assets remain available.
+
+The release contains the wheel, source archive, installed-check evidence,
+commit/version manifest and SHA-256 list retained from successful main CI.
+[The PR checks](https://github.com/dev-belly/CreditVintage/pull/27/checks) cover
+Linux Python 3.12/3.13, Windows Python 3.12 and refitting of the same saved card
+evidence on another OS/runtime. Local validation additionally passes 60 focused
+release/input tests and clean 0.3.2 wheel replay outside both source trees,
+including rejection of alternate dates and complete optional lineage verification.
+
+The [upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.3.2.md)
+explain the stricter format: commands, field names, dependency pins and model
+protocol are unchanged; existing generated canonical-date reports still verify.
+This packaging step adds no new prediction or real-world deployment claim.
+
 ## Strict calendar inputs and saved evidence · 2026-10-22
 
 [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26), head
