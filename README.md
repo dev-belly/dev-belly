@@ -94,6 +94,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
+- **Consistent calendar inputs:** [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26) applies the same `YYYY-MM-DD` contract to CSV diagnostics, monitoring cutoffs and saved report evidence. [Validation and compatibility](PROJECT_REVIEW.md#strict-calendar-inputs-and-saved-evidence--2026-10-22) distinguish the source patch from the published v0.3.1 wheel.
+
 - **Observed data, explicitly bounded:** [AlphaForge #4](https://github.com/dev-belly/alphaforge/pull/4) retains all 22 historical-price comparison cases and independently rechecks reported returns; [TradeForge #14](https://github.com/dev-belly/TradeForge/pull/14) replays public quote packets offline into 18 hypothetical matching/fee/latency scenarios. Neither proves a tradable edge or actual order fills.
 
 - **Installed packages:** [CreditVintage #12](https://github.com/dev-belly/CreditVintage/pull/12) and [PITBridge #13](https://github.com/dev-belly/PITBridge/pull/13) replay built wheels in clean environments outside their source trees on Linux and Windows.
