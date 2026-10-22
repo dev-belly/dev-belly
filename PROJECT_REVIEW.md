@@ -1,4 +1,29 @@
-# Portfolio review · 2026-10-16
+# Portfolio review · 2026-10-22
+
+## Strict calendar inputs and saved evidence · 2026-10-22
+
+[CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26), head
+`1925bb959d7c27528b79dee8405ed2819b04ff4c`, tree
+`72b21b482c20db8425a764073e3fd721afba2db1`: the remote tree matches the locally
+checked source. CSV diagnostics and monitoring previously accepted compact dates
+such as `20220101` and ISO week dates while cohort JSON required `YYYY-MM-DD`.
+One strict parser now covers all event CSV dates, cohort configuration, the
+monitoring cutoff and saved evaluation/monitor/benchmark evidence. Diagnostics
+identify the file, physical line and column; invalid dates do not create reports.
+
+Local **253 tests + 28 subtests** pass, including 26 new workflow regressions.
+Ruff lint/format, strict mypy and patch whitespace checks pass. A source-built
+wheel runs in a clean environment outside both repositories: it rejects an
+alternate CSV date and an ISO week cutoff, refits the 30,000-record card
+experiment across five splits, verifies the report/review workflows and replays
+the pinned PITBridge integration. Existing published canonical-date reports still
+verify. [Cross-platform checks](https://github.com/dev-belly/CreditVintage/pull/26/checks)
+retain the remote results for the exact change.
+
+This is a source change after the [v0.3.1 release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.1),
+whose existing wheel retains its original CSV/cutoff parsing. The compatibility
+notes distinguish those paths. Input-format checks do not establish source
+authenticity, future-period model quality or independent adoption.
 
 ## Editable CSV workflow and input diagnostics · 2026-10-16
 
