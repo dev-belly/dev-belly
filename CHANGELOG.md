@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-22 · An installable calendar-validation patch.**
+[CreditVintage #27](https://github.com/dev-belly/CreditVintage/pull/27) delivers
+the preceding source fix in [v0.3.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2).
+The first-run guide, wheel URLs and current project entries point to the new
+checked package. Upgrade notes explain which alternate date forms now fail and
+why existing generated reports remain compatible; older releases are retained.
+[Release and validation evidence](PROJECT_REVIEW.md#checked-calendar-patch-release--2026-10-22).
+
 **2026-10-22 · Consistent calendar dates from input to saved evidence.**
 [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26) rejects
 compact and ISO week dates consistently across CSV diagnostics, event commands,
