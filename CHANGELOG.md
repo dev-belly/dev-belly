@@ -1,5 +1,14 @@
 # Build history
 
+**2026-10-23 · Check label-free monitoring before fitting.**
+[CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28) adds optional
+`preflight --as-of` and v0.4.0 checked distribution notes. Historical fitting
+populations retain mature-label gates; the current cohort needs visible features
+and enough applications, with no current outcomes. The preflight reports future
+applications separately and shares the actual monitor's cohort logic. Local
+validation passes 273 tests and 28 subtests plus complete installed-wheel replay.
+[Source, boundaries and validation](PROJECT_REVIEW.md#monitoring-input-readiness--2026-10-23).
+
 **2026-10-22 · An installable calendar-validation patch.**
 [CreditVintage #27](https://github.com/dev-belly/CreditVintage/pull/27) delivers
 the preceding source fix in [v0.3.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2).

@@ -51,13 +51,13 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.3.2 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.4.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0) |
 
-The URLs pin a PITBridge source commit and the checked CreditVintage v0.3.2
+The URLs pin a PITBridge source commit and the checked CreditVintage v0.4.0
 wheel. That wheel is the artifact verified by main CI, with commit/version and
-SHA-256 evidence attached to its release. The version check below prints `0.3.2`;
-the [patch notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2)
-describe strict calendar validation and compatibility with earlier inputs. PITBridge has no
+SHA-256 evidence attached to its release. The version check below prints `0.4.0`;
+the [patch notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0)
+describe model-free monitoring preflight and compatibility with earlier inputs. PITBridge has no
 third-party runtime dependencies; CreditVintage pins its numerical dependencies.
 These commands do not promise identical floating-point output across environments.
 Follow each project's README for adapters and full tests.
@@ -105,7 +105,7 @@ and independently replays the selections.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.2/creditvintage_research-0.3.2-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.4.0/creditvintage_research-0.4.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
@@ -119,7 +119,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.3.2/creditvintage_research-0.3.2-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.4.0/creditvintage_research-0.4.0-py3-none-any.whl"
 .venv/bin/python -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
@@ -142,7 +142,7 @@ against independent Python counts and sums.
 
 ### CreditVintage: editable CSVs and input diagnostics
 
-The same installed v0.3.2 package can create complete input files before you
+The same installed v0.4.0 package can create complete input files before you
 replace them with compatible data of your own.
 
 **Windows PowerShell**
@@ -172,15 +172,45 @@ rewriting files. Fix row errors first; blocked relationship or cohort checks
 are explicitly identified. Readiness checks the documented event contract and
 mature evaluation windows, not source authenticity or predictive quality.
 
-Version 0.3.2 requires dates such as `2024-10-01` throughout the CSVs, cohort
+Version 0.4.0 requires dates such as `2024-10-01` throughout the CSVs, cohort
 configuration and `monitor --as-of`. Compact dates (`20241001`), ISO week dates
 (`2024-W40-2`), timestamps and surrounding spaces are rejected. The checker
 identifies the file, physical line and column without rewriting inputs. Reports
 already generated with canonical dates remain verifiable; see the
-[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.3.2.md).
+[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.4.0.md).
 
 Replace all three CSVs and edit the complete calendar for your own compatible
 records. [Input contract and diagnostic output](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
+
+### CreditVintage: check early monitoring before training
+
+The installed v0.4.0 package can check monitoring inputs before fitting:
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m creditvintage preflight --as-of 2024-10-01
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m creditvintage preflight --as-of 2024-10-01
+```
+
+This built-in synthetic check prints JSON and writes no files. It returns
+`ready_for_monitoring`, `model_fitted: false`, 960 training applications,
+480 calibration applications and 320 visible current applications. Another
+160 current applications are not yet visible. Historical labels must be mature;
+current labels are neither required nor counted.
+
+For your own compatible CSVs, add all three input paths and `--config` as shown
+in the [monitoring-input walkthrough](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
+The smaller editable case above has 80 visible and 40 not-yet-visible current
+applications at this cutoff. Omitting `--as-of` retains mature evaluation
+preflight. Readiness produces no scores or PSI and does not establish numerical
+fitting success or predictive quality. The actual `monitor` command follows the
+same population gates and performs the scoring checks.
 
 ### CreditVintage: observed public credit
 
@@ -214,7 +244,7 @@ For a suitable event dataset of your own, use the
 
 ### CreditVintage: 30,000 card accounts and complete model replay
 
-The same v0.3.2 environment includes the larger UCI credit-card cohort.
+The same v0.4.0 environment includes the larger UCI credit-card cohort.
 
 **Windows PowerShell**
 
