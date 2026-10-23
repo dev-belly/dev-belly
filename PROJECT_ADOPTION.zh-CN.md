@@ -44,3 +44,12 @@ CreditVintage 增加了 [贡献指南](https://github.com/dev-belly/CreditVintag
 把第一次试用能否跑通、反馈是否能复现、是否有人带来新输入、是否有人复用代码作为早期指标。Star 和 Fork 是结果信号，不能替代这些事实。GitHub 流量可在有权限的仓库 Insights 中查看；记录一个稳定周期再比较，不把自己的测试访问当作自然用户增长。
 
 维护时，每个反馈先变成一个可复现案例，再修代码、补验证和更新使用入口。项目的持续可信度来自这种可见的处理过程。当前文件提供试用和分享路径，没有声称已经有外部用户、客户部署或新增 Star。
+
+## 已能核查的账号协作
+
+[PITBridge #8](https://github.com/dev-belly/PITBridge/pull/8) 由
+[GreedyC](https://github.com/GreedyC) 提交，已于 2026-10-09 合并，包含可选
+pandas/CSV 示例及验证说明。这是可核查的非 `dev-belly` 账号贡献；业务采纳
+和独立首次试用仍需相应运行、复用及反馈记录支持。后续
+[#19](https://github.com/dev-belly/PITBridge/pull/19) 将标准库 CSV 导入接入了
+安装后的 CLI，可让读者直接准备三张表并生成可复算证据。
