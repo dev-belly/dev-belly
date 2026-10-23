@@ -38,7 +38,9 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 新增可编辑 CSV 输入样例与训练前诊断：按文件、行号定位多处错误，检查重复修订、决策时可用特征与成熟标签；诊断过程不修改输入、不训练模型。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.3.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+早期监控可先用 `preflight --as-of` 检查历史成熟样本与当前可见申请，当前客群不需要违约标签；预检不训练模型，也不计算 PSI。
+
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.4.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
@@ -93,6 +95,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Check early monitoring before training:** [CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28) adds model-free `preflight --as-of`: mature historical populations, a visible label-free current cohort and explicit future-application counts. [Exact source and validation](PROJECT_REVIEW.md#monitoring-input-readiness--2026-10-23) retain the 273-test result and installed-wheel replay.
 
 - **Consistent calendar inputs:** [CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26) applies the same `YYYY-MM-DD` contract to CSV diagnostics, monitoring cutoffs and saved report evidence. The fix is included in the [checked v0.3.2 release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2); [validation and upgrade notes](PROJECT_REVIEW.md#checked-calendar-patch-release--2026-10-22) connect installation to its evidence.
 

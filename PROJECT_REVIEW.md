@@ -1,4 +1,39 @@
-# Portfolio review · 2026-10-22
+# Portfolio review · 2026-10-23
+
+## Monitoring input readiness · 2026-10-23
+
+[CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28), head
+`2970378df99a10e0f18e507db07fcb6988f72c01`, tree
+`393c9a014954cb1058628b87f113a37d213537ea`: remote and locally checked source trees
+match. `preflight --as-of YYYY-MM-DD` checks mature train/calibration populations
+and the visible current cohort without fitting or writing. Current outcome labels
+are neither required nor counted. Not-yet-visible current applications and inputs
+outside configured windows are reported separately.
+
+Preflight and monitoring share cutoff, current-population and label-scope gates;
+the fitting path and preflight share the actual historical cohort selection.
+Historical populations still require 20 records and both mature outcomes; current
+monitoring needs 20 visible applications and their decision-time features. An
+undersized current population fails before fitting. Default evaluation preflight
+retains its mature test-label requirement.
+
+Local **273 tests + 28 subtests**, Ruff lint/format, strict mypy and whitespace
+checks pass. Twenty new regressions cover guards against fitting, ignored current
+outcomes, missing historical labels/classes, the 19/20-application boundary,
+missing visible features, future inputs, custom calendars and real CLI workflows.
+Clean 0.4.0 wheel replay outside both source trees removes every current outcome:
+preflight returns 240 training, 120 calibration, 80 visible current and 40 future
+current applications; actual monitoring verifies the same 80. Default evaluation
+rejects the missing test outcomes. Public-data refitting and optional lineage also
+pass. [Cross-platform checks](https://github.com/dev-belly/CreditVintage/pull/28/checks)
+and [v0.4.0 release evidence](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0)
+retain the remote validation and checked distributions.
+
+This checks input/cohort readiness, with no scores or PSI. It cannot guarantee
+numerical fitting, useful score variation, source authenticity or predictive
+quality. Existing input fields, model protocol and report verification tolerances
+remain compatible; the [upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.4.0.md)
+describe the optional CLI argument and unchanged evaluation behavior.
 
 ## Checked calendar patch release · 2026-10-22
 
