@@ -50,7 +50,7 @@ Use your virtual environment's Python directly; activation is unnecessary.
 
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
-| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [4ba8bde](https://github.com/dev-belly/PITBridge/tree/4ba8bde70161bd8b95cb22b5141d3768353690e6) |
+| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [9949a82](https://github.com/dev-belly/PITBridge/tree/9949a822c360794cc9c22db3e76a8fb1cafe8aa1) |
 | **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.4.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0) |
 
 The URLs pin a PITBridge source commit and the checked CreditVintage v0.4.0
@@ -70,7 +70,7 @@ Follow each project's README for adapters and full tests.
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/4ba8bde70161bd8b95cb22b5141d3768353690e6"
+.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/9949a822c360794cc9c22db3e76a8fb1cafe8aa1"
 .\.venv\Scripts\python.exe -m pitbridge demo --out report
 .\.venv\Scripts\python.exe -m pitbridge verify --out report
 ```
@@ -81,7 +81,7 @@ python -m venv .venv
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/4ba8bde70161bd8b95cb22b5141d3768353690e6"
+.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/9949a822c360794cc9c22db3e76a8fb1cafe8aa1"
 .venv/bin/python -m pitbridge demo --out report
 .venv/bin/python -m pitbridge verify --out report
 ```
@@ -96,6 +96,14 @@ and independently replays the selections.
 查看 `report/snapshots.csv` 的来源与可用时间，再与 `report/comparison.csv` 对照。
 接下来可试 [一张发票、三次决策](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)，
 或阅读 [输入规则](https://github.com/dev-belly/PITBridge/blob/main/docs/DATA_CONTRACT.md)。
+
+The pinned PITBridge snapshot also accepts your own three CSV tables without
+pandas. Prepare `observations.csv`, `decisions.csv` and `specs.csv` using the
+[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/9949a822c360794cc9c22db3e76a8fb1cafe8aa1/docs/CSV_INPUTS.md),
+then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
+`python -m pitbridge verify --out my-report` with the environment's Python above.
+Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.
+Invalid rows fail before output creation; source JSON retains the original IDs.
 
 ### CreditVintage: SQL analysis and a review queue
 

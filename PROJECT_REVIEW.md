@@ -1,5 +1,38 @@
 # Portfolio review · 2026-10-23
 
+## Installed CSV intake and exact report identities · 2026-10-23
+
+Five merged PRs extend existing projects: PITBridge [#19](https://github.com/dev-belly/PITBridge/pull/19)
+and [#20](https://github.com/dev-belly/PITBridge/pull/20), StressAtlas
+[#6](https://github.com/dev-belly/StressAtlas/pull/6), StatementTrace
+[#5](https://github.com/dev-belly/StatementTrace/pull/5) and NetworkClear
+[#5](https://github.com/dev-belly/NetworkClear/pull/5).
+
+PITBridge's installed CLI now reads exact-schema scalar/rolling CSV tables with
+no pandas dependency. Intake preserves leading-zero/NA-like IDs and int64
+revisions, names file/physical-line errors and validates before report writes.
+The installed-wheel checker runs both JSON and CSV paths outside the checkout,
+fully replays four bundles and compares feature/lineage tables byte for byte.
+
+All four projects now preserve unusual names in review CSVs and browser
+selectors. Visible `text: ` markers protect formula-shaped labels; CR/LF/CRLF
+remain quoted cell content. ASCII JSON selector keys prevent CR/LF/NUL and
+whitespace identities from collapsing in HTML. Original JSON and financial
+numeric values retain their meaning. Only saved HTML and its hash were refreshed;
+source and numerical evidence files were checked byte for byte. The contracts
+explain regeneration from saved JSON for earlier affected report formats.
+
+| Repository | Main commit | Local suite | Actual Chrome selections | Main checks |
+| --- | --- | ---: | ---: | --- |
+| PITBridge | `9949a82` | 126 | 4 | [CI](https://github.com/dev-belly/PITBridge/actions/runs/39931482482) · [Pages](https://github.com/dev-belly/PITBridge/actions/runs/39931482576) |
+| StressAtlas | `01e9843` | 80 | 10 | [CI](https://github.com/dev-belly/StressAtlas/actions/runs/39931491066) · [Pages](https://github.com/dev-belly/StressAtlas/actions/runs/39931491140) |
+| StatementTrace | `bb2ac7c` | 39 | 4 | [CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/39931468275) |
+| NetworkClear | `1784cc3` | 42 | 5 | [CI and deployment](https://github.com/dev-belly/NetworkClear/actions/runs/39931475585) |
+
+All listed main workflows passed. The 287 local tests and 23 real-Chrome
+selections validate these implementation paths; they do not establish source
+authenticity, production adoption or predictive quality.
+
 ## Monitoring input readiness · 2026-10-23
 
 [CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28), head

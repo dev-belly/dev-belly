@@ -6,43 +6,51 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [StatementTrace](https://github.com/dev-belly/StatementTrace)
 
-> 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 30 项自动化测试。
+> 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 39 项自动化测试。
 
-- **Evidence:** [live report](https://dev-belly.github.io/StatementTrace/), [source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md), [selected facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/selected_facts.csv), [metric lineage](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/lineage.csv), [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/37864981547).
+- **Evidence:** [live report](https://dev-belly.github.io/StatementTrace/), [source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md), [selected facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/selected_facts.csv), [metric lineage](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/lineage.csv), [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/39931468275).
 - **Discuss:** Why filing `fy` cannot replace start/end; why filing date and acceptance timestamp differ; why missing is not zero; why reported annual growth is not week-normalized; why rehashed output corruption still fails replay.
 - **Boundary:** Eleven configured US-GAAP USD concepts, date-granularity availability and a manually curated CompanyFacts-shaped excerpt. No raw-API-download, actual-restatement, universal-XBRL, credit-rating or investment-performance claim.
+
+- **Report maintenance:** [#5](https://github.com/dev-belly/StatementTrace/pull/5) protects CSV labels and uses explicit browser identity keys. Main CI includes four real-Chrome selections; saved financial/source tables retain their original bytes.
 
 ## Counterparty network risk
 
 ### [NetworkClear](https://github.com/dev-belly/NetworkClear)
 
-> 实现精确有理数债务清算与交易对手传染分析，在八家合成机构的 15 组压力情景中区分直接与连锁违约、内部未偿债务与外部债权人短缺；建立固定点证书和全网络资金勾稽，以独立违约集合穷举复核全部情景及 100 个随机小网络，覆盖 33 项自动化测试。
+> 实现精确有理数债务清算与交易对手传染分析，在八家合成机构的 15 组压力情景中区分直接与连锁违约、内部未偿债务与外部债权人短缺；建立固定点证书和全网络资金勾稽，以独立违约集合穷举复核全部情景及 100 个随机小网络，覆盖 42 项自动化测试。
 
-- **Evidence:** [live report](https://dev-belly.github.io/NetworkClear/), [method and schema](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md), [payments](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/payments.csv), [individual debt flows](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/flows.csv), [main CI and deployment](https://github.com/dev-belly/NetworkClear/actions/runs/37864984853).
+- **Evidence:** [live report](https://dev-belly.github.io/NetworkClear/), [method and schema](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md), [payments](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/payments.csv), [individual debt flows](https://github.com/dev-belly/NetworkClear/blob/main/examples/demo/flows.csv), [main CI and deployment](https://github.com/dev-belly/NetworkClear/actions/runs/39931475585).
 - **Discuss:** Debtor rows versus creditor columns; why outside debt ensures the implemented regularity contract; why rounds are not elapsed time; why fractional cents are a continuous-model output; why gross internal unpaid debt is not outside social loss.
 - **Boundary:** Synthetic exposures, pro-rata one-period clearing and a stronger sufficient uniqueness condition. Exhaustive oracle limited to eight nodes; no collateral, seniority, fire sales, global-optimal capital allocation or real-bank risk estimate.
+
+- **Report maintenance:** [#5](https://github.com/dev-belly/NetworkClear/pull/5) preserves exact scenario identities in CSV and browser selectors. Main CI includes five real-Chrome selections and refreshed report replay; numerical/source files are unchanged.
 
 ## Financial data engineering
 
 ### [PITBridge](https://github.com/dev-belly/PITBridge)
 
-> 构建金融多源数据的时点特征引擎，区分观测、发布与入库时间，以 SQLite 选择当时可见的修订并处理删除、新鲜度与滚动窗口；实现 sum/mean/count 和逐源记录成员表，通过独立 Python 枚举、60 组随机历史与手算案例核验，覆盖 75 项自动化测试。
+> 构建金融多源数据的时点特征引擎，区分观测、发布与入库时间，以 SQLite 选择当时可见的修订并处理删除、新鲜度与滚动窗口；实现 sum/mean/count 和逐源记录成员表，通过独立 Python 枚举、60 组随机历史与手算案例核验，覆盖 126 项自动化测试。
 
 - **Evidence:** [snapshot report](https://dev-belly.github.io/PITBridge/), [rolling report](https://dev-belly.github.io/PITBridge/rolling/), [rolling members](https://github.com/dev-belly/PITBridge/blob/main/demo/rolling/members.csv), [hand-calculated case](https://github.com/dev-belly/PITBridge/blob/main/docs/ROLLING.md), [counterexample comparison](https://github.com/dev-belly/PITBridge/blob/main/demo/comparison.csv), [CI](https://github.com/dev-belly/PITBridge/actions/workflows/ci.yml).
 - **Numeric validation:** Merged [PR #3](https://github.com/dev-belly/PITBridge/pull/3) brings the suite to 75 tests. Discuss SQLite's signed-integer boundary, binary64 rounding above 2⁵³, and why two values of 10³⁰⁸ have a finite mean even when their sum overflows. Original example artifacts replay unchanged.
 - **Discuss:** Why availability must include publication and ingestion; why eligibility comes before revision ranking; why a tombstone must not revive an earlier revision; why the same 30-day inflow is 1,500 on February 10 and 4,300 on February 11; why member count does not establish business-data completeness; why zero differs from no history.
 - **Boundary:** Scalar and rolling observations with source-supplied timestamps and revisions. A logical event is entity/source/feature/event time, so independent transactions sharing that identity need upstream aggregation or distinct features. The optional [CreditVintage adapter](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md) consumes scalar credit features under an explicit UTC day-end contract; rolling cash-flow outputs remain a separate example. No production ingestion or distributed-scale benchmark is claimed. The original 11 leakage counterexamples are fixture counts, not a population rate.
 
+- **Installed table intake:** [#19](https://github.com/dev-belly/PITBridge/pull/19) adds `build --csv-dir` and `aggregate --csv-dir` without pandas, with exact revisions, explicit null/boolean rules and pre-write validation. [#20](https://github.com/dev-belly/PITBridge/pull/20) preserves CSV/browser identities. The current suite has 126 tests; [main CI](https://github.com/dev-belly/PITBridge/actions/runs/39931482482) also verifies four installed JSON/CSV paths and four real-Chrome selections. [CSV contract](https://github.com/dev-belly/PITBridge/blob/main/docs/CSV_INPUTS.md).
+
 ## Credit portfolio risk
 
 ### [StressAtlas](https://github.com/dev-belly/StressAtlas)
 
-> 实现含全局与行业因子的信用组合压力模拟，同一借款人的多笔贷款共享违约事件，以共同随机驱动比较情景；对 160 笔合成贷款、80 个借款人运行 5 组各 20,000 条路径，计算离散尾部 ES 与行业贡献；新增 300 次完整路径配对 bootstrap，诊断 VaR/ES 和情景变化的抽样精度，支持全量重放，覆盖 70 项自动化测试。
+> 实现含全局与行业因子的信用组合压力模拟，同一借款人的多笔贷款共享违约事件，以共同随机驱动比较情景；对 160 笔合成贷款、80 个借款人运行 5 组各 20,000 条路径，计算离散尾部 ES 与行业贡献；新增 300 次完整路径配对 bootstrap，诊断 VaR/ES 和情景变化的抽样精度，支持全量重放，覆盖 80 项自动化测试。
 
 - **Evidence:** [scenario report](https://dev-belly.github.io/StressAtlas/), [tail precision report](https://dev-belly.github.io/StressAtlas/precision/), [all bootstrap estimates](https://github.com/dev-belly/StressAtlas/blob/main/demo/precision/resamples.csv), [precision method and case](https://github.com/dev-belly/StressAtlas/blob/main/docs/PRECISION.md), [sector attribution](https://github.com/dev-belly/StressAtlas/blob/main/demo/sector_es.csv), [CI](https://github.com/dev-belly/StressAtlas/actions/workflows/ci.yml).
 - **Numeric validation:** Merged [PR #3](https://github.com/dev-belly/StressAtlas/pull/3) brings the suite to 70 tests. Integer-ratio rank calculation keeps discrete VaR/ES independent of a caller's Decimal precision and traps; low-precision and extreme-confidence regressions preserve the published simulation and bootstrap artifacts.
 - **Discuss:** Why splitting a loan must not create extra independent defaults; why averaging all losses at or above VaR can mismeasure ES; why resampling whole paths preserves within-path borrower/factor dependence; why every scenario shares bootstrap indices; why a difference of two ES estimates is not ES of their pathwise loss difference; why a narrow interval cannot validate PD/LGD assumptions.
 - **Boundary:** Synthetic parameters, one-period Gaussian factors and deterministic scenario LGD/EAD. Percentile intervals approximate Monte Carlo sampling uncertainty under fixed assumptions; discrete/sparse tails and unseen rare losses limit coverage. No calibration-error estimate, real borrower forecast or regulatory capital is claimed. Original path CSVs retain 200 inspection rows; full 20,000-path and 300-resample replay comes from saved inputs and seeds.
+
+- **Report maintenance:** [#6](https://github.com/dev-belly/StressAtlas/pull/6) preserves CSV and browser identities. [Main CI](https://github.com/dev-belly/StressAtlas/actions/runs/39931491066) includes ten real-Chrome selections across the scenario and precision reports. The suite has 80 tests; all simulated losses, source inputs and bootstrap evidence retain their original bytes.
 
 ## Bank credit / model validation
 
