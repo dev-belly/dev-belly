@@ -21,6 +21,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | :--- | :--- | :--- |
 | How do credit models compare at the same review capacity? | [30,000 card accounts](https://dev-belly.github.io/CreditVintage/card-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
+| Which decision-time inputs changed before outcomes matured? | [Model-free input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) | [Event replay and distances](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_monitoring.py) · [Method](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_MONITORING.md) |
 | What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
@@ -40,7 +41,9 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 早期监控可先用 `preflight --as-of` 检查历史成熟样本与当前可见申请，当前客群不需要违约标签；预检不训练模型，也不计算 PSI。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.4.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
+输入分布检查进一步比较三项决策时特征、申请金额和客群构成；只读申请与特征事件，不需要历史或当前结果标签。保存所选快照、累计计数和原始事件，能重建核验每项距离及页面；小样本月份明确留空，不把分布变化当成模型失效。
+
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.5.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.5.0) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/) · [CSV inputs and diagnostics](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md)
 
 <br />
 
@@ -95,6 +98,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Explain input changes before fitting:** [CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32) adds two-table feature monitoring without any outcome file: four numeric KS distances, segment total variation, monthly sample gates and replay from retained decision-time events. [Run it](START_HERE.md#creditvintage-inspect-input-distributions-without-labels) · [Validation and scope](PROJECT_REVIEW.md#input-distribution-monitoring--2026-10-24).
 
 - **Check early monitoring before training:** [CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28) adds model-free `preflight --as-of`: mature historical populations, a visible label-free current cohort and explicit future-application counts. [Exact source and validation](PROJECT_REVIEW.md#monitoring-input-readiness--2026-10-23) retain the 273-test result and installed-wheel replay.
 

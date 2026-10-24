@@ -1,5 +1,51 @@
 # Portfolio review · 2026-10-24
 
+## Input-distribution monitoring · 2026-10-24
+
+[CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32) adds
+`monitor-features` and `verify-feature-monitor` in the checked v0.5.0 distribution.
+Two application/feature CSVs produce a report for four numeric inputs and segment
+composition. The command does not read an outcome file or fit a model. It reuses
+the decision-time snapshot contract and retains input events, chosen snapshots,
+cumulative/category counts, monthly counts and the rendered report for replay.
+
+Local validation passed **310 tests and 28 subtests**, including 31 new cases,
+Ruff lint/format and strict mypy. Exact hand calculations and three generated
+cases agree with SciPy's independent KS implementation. Checks cover both
+directions of a constant-population shift, integer principal distinctions above
+`2^53`, late revisions, future applications, small months and rehashed false
+evidence. A clean non-editable wheel outside both source trees verifies the
+two-CSV route with the performance file absent; its 120 reference / 80 current
+application counts and five monitored inputs replay, and a rehashed false
+distance is rejected. The full local public-site build/refitting also passes.
+
+Merged source: [`bc650c2`](https://github.com/dev-belly/CreditVintage/commit/bc650c2491525c892cb76b82106969362f745d65).
+All [eight final PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40103834623)
+passed across Linux/Windows and Python 3.12/3.13. The
+[Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40103834553)
+also passed; its real-Chrome 1440×1600 desktop and 390×2400 mobile screenshots
+were reviewed, including a correction to keep distance values visible on phones.
+
+The [default public report](https://dev-belly.github.io/CreditVintage/feature-monitor/)
+uses a different, larger synthetic fixture: 480 reference / 320 visible current
+applications, with 160 future current applications. Fixed marginal distances
+do not establish significance, default risk, model deterioration or causality.
+Missing-feature rates, arbitrary schemas, real out-of-time validation and
+independent adoption remain separate gaps.
+
+[Run the checked package](START_HERE.md#creditvintage-inspect-input-distributions-without-labels) ·
+[Method and evidence inventory](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_MONITORING.md) ·
+[Comparison with established tools](https://github.com/dev-belly/CreditVintage/blob/main/docs/COMPARISON.zh-CN.md).
+
+PITBridge [#24](https://github.com/dev-belly/PITBridge/pull/24) also follows up on
+the [review in #7](https://github.com/dev-belly/PITBridge/issues/7#issuecomment-6061916414):
+the optional example rejects malformed numeric text before conversion and keeps
+zero-padded int64 revision handling independent of Python's integer-string digit
+limit. All 137 local tests and ten PR CI jobs passed. The optional example is
+source-level material; the installed v0.2.0 native importer already has the
+corresponding strict syntax. This is feedback and maintenance evidence, not proof
+of production adoption.
+
 ## Checked release and audit evidence integrity · 2026-10-24
 
 PITBridge [#21](https://github.com/dev-belly/PITBridge/pull/21) publishes the

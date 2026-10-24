@@ -66,6 +66,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 **Before early monitoring:** [Model-free monitoring preflight](https://github.com/dev-belly/CreditVintage/pull/28) checks mature historical cohorts and visible current applications without requiring current outcomes. The installed editable case verifies 80 visible and 40 not-yet-visible current applications, then the actual monitor verifies the same 80. This checks input readiness, with no fitting, scores or PSI; it does not establish model quality. [Run the check](START_HERE.md#creditvintage-check-early-monitoring-before-training).
 
+**Which inputs changed?** [v0.5.0 feature monitoring](https://github.com/dev-belly/CreditVintage/pull/32) requires neither historical nor current outcomes. It compares four numeric decision-time inputs and segment composition, marks small monthly samples as insufficient, and rebuilds its evidence from retained events. [Report](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [Run it](START_HERE.md#creditvintage-inspect-input-distributions-without-labels).
+
+> 输入监控侧表述：为信贷分析工具增加无需标签和模型拟合的五项决策时输入分布检查，保留原始事件、所选快照、累计计数与逐月样本口径；以手算及 SciPy 独立实现核对描述性距离，并在隔离安装包中验证两表接入和修改结果后重新计算哈希的失败路径。分布变化不等于预测失效，合成案例不证明业务效果。
+
 > 公开数据验证侧表述：基于 UCI 1,000 条历史德国信贷记录建立固定 600/200/200 分层随机切分，只用训练集拟合缩放与类别编码，独立校准并导出逐笔证据；200 条测试记录的 Logistic AUC 为 0.774，保留校准后 Brier 由 0.162 变为 0.169 的负结果；实现原始数据重拟合核验与自定义时间窗口接入。
 
 **Observed data:** [public credit comparison](https://dev-belly.github.io/CreditVintage/public-credit/) · [source, protocol and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT.md) · [custom event inputs](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md). The UCI good/bad classification has no decision dates or 180-day DPD target. Its 200-record test sample and random split do not establish out-of-time performance; keep it separate from the synthetic evidence below.
