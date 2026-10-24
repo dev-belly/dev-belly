@@ -50,12 +50,14 @@ Use your virtual environment's Python directly; activation is unnecessary.
 
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
-| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [9949a82](https://github.com/dev-belly/PITBridge/tree/9949a822c360794cc9c22db3e76a8fb1cafe8aa1) |
+| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.0 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0) |
 | **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.4.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0) |
 
-The URLs pin a PITBridge source commit and the checked CreditVintage v0.4.0
-wheel. That wheel is the artifact verified by main CI, with commit/version and
-SHA-256 evidence attached to its release. The version check below prints `0.4.0`;
+The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.4.0 wheels.
+Each is the artifact verified by main CI, with commit/version and SHA-256
+evidence attached to its release. PITBridge's source is fixed at
+[`c04c533`](https://github.com/dev-belly/PITBridge/commit/c04c533274e2e96e768d73ab78e99ab4ea9edd46).
+The CreditVintage version check below prints `0.4.0`;
 the [patch notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0)
 describe model-free monitoring preflight and compatibility with earlier inputs. PITBridge has no
 third-party runtime dependencies; CreditVintage pins its numerical dependencies.
@@ -70,7 +72,7 @@ Follow each project's README for adapters and full tests.
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/9949a822c360794cc9c22db3e76a8fb1cafe8aa1"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.0/pitbridge-0.2.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m pitbridge demo --out report
 .\.venv\Scripts\python.exe -m pitbridge verify --out report
 ```
@@ -81,7 +83,7 @@ python -m venv .venv
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://codeload.github.com/dev-belly/PITBridge/zip/9949a822c360794cc9c22db3e76a8fb1cafe8aa1"
+.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.0/pitbridge-0.2.0-py3-none-any.whl"
 .venv/bin/python -m pitbridge demo --out report
 .venv/bin/python -m pitbridge verify --out report
 ```
@@ -97,9 +99,9 @@ and independently replays the selections.
 接下来可试 [一张发票、三次决策](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)，
 或阅读 [输入规则](https://github.com/dev-belly/PITBridge/blob/main/docs/DATA_CONTRACT.md)。
 
-The pinned PITBridge snapshot also accepts your own three CSV tables without
+The checked PITBridge wheel also accepts your own three CSV tables without
 pandas. Prepare `observations.csv`, `decisions.csv` and `specs.csv` using the
-[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/9949a822c360794cc9c22db3e76a8fb1cafe8aa1/docs/CSV_INPUTS.md),
+[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/360ac96a024b0625c0bf6e171cbd82c9b6ad8b65/docs/CSV_INPUTS.md),
 then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
 `python -m pitbridge verify --out my-report` with the environment's Python above.
 Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.
