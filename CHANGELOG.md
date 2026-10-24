@@ -1,5 +1,16 @@
 # Build history
 
+**2026-10-24 · Checked installation and audit evidence integrity.**
+PITBridge publishes a checked v0.2.0 wheel with source/commit/digest evidence;
+the first-run guide installs the public artifact. StatementTrace prevents
+calendar gaps from entering annual revenue growth. AuditLens retains full
+priority precision in source fingerprints, protects review CSV identities and
+completes the conflicting-evidence/nonfinite-input cleaning draft. ControlTrace
+versions CSV/timeline replay, orders current evidence by UTC and retains actual
+old synthetic archives without inheriting their review conclusions. Full local
+suites total 808 tests across the four core repositories.
+[Changes, replay boundaries and validation](PROJECT_REVIEW.md#checked-release-and-audit-evidence-integrity--2026-10-24).
+
 **2026-10-23 · Check label-free monitoring before fitting.**
 [CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28) adds optional
 `preflight --as-of` and v0.4.0 checked distribution notes. Historical fitting

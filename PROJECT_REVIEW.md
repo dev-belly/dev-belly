@@ -1,4 +1,75 @@
-# Portfolio review · 2026-10-23
+# Portfolio review · 2026-10-24
+
+## Checked release and audit evidence integrity · 2026-10-24
+
+PITBridge [#21](https://github.com/dev-belly/PITBridge/pull/21) publishes the
+[v0.2.0 checked wheel and source archive](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0).
+The successful main CI at `c04c533274e2e96e768d73ab78e99ab4ea9edd46` retained the
+actual installed/replayed distributions, installed-check evidence, exact-commit
+manifest and checksums. All five public assets were downloaded again and verified;
+the public wheel then passed clean installation, four scalar/rolling JSON/CSV
+replays and two small benchmark trials outside the checkout. This closes the
+gap between main-only CSV/benchmark features and the old v0.1.0 release.
+[Start here](START_HERE.md#pitbridge-historical-feature-selection) installs that wheel directly.
+
+The work also addresses selection and review integrity in existing projects:
+
+- **StatementTrace [#6](https://github.com/dev-belly/StatementTrace/pull/6):**
+  reported revenue growth requires adjacent configured fiscal periods. A skipped
+  year or date gap cannot become a valid-looking annual growth figure. Current
+  facts and other ratios remain available; all nine saved demo files retain
+  their bytes. The 53/52-week calendar remains supported.
+- **AuditLens [#7](https://github.com/dev-belly/AuditLens/pull/7) and
+  [#8](https://github.com/dev-belly/AuditLens/pull/8):** two scores/amounts one
+  binary64 step apart could change the selected voucher while retaining the same
+  12-digit source fingerprint. `selection-v2` retains 17 significant digits,
+  quotes source fields and identifies its format. The review queue and high-risk
+  extract now also preserve CR/LF/CRLF and fullwidth formula-like identities;
+  a completed-workpaper regression checks the actual handoff.
+- **AuditLens [#6](https://github.com/dev-belly/AuditLens/pull/6):** the existing
+  cleaning draft is completed against current main. All normalized source
+  columns participate in exact-duplicate detection, so conflicting currency,
+  FX, invoice or approval evidence is retained for validation. Nonfinite amounts
+  and overflowing FX products follow explicit missing/fallback rules. The full
+  30,128-voucher pipeline leaves every report byte unchanged relative to the
+  same-environment pre-cleaning baseline.
+- **ControlTrace [#7](https://github.com/dev-belly/ControlTrace/pull/7) and
+  [#6](https://github.com/dev-belly/ControlTrace/pull/6):** CSV policy and timeline
+  interpretation have explicit replay versions. Current version 0.2.10 / format
+  5 orders evidence by actual UTC instants while retaining source timestamps.
+  Old formats 2–4 reconstruct their original timeline and report the legacy
+  order, rather than reinterpreting an old review fingerprint. Actual 0.2.8 and
+  0.2.9 synthetic exports are retained as regression fixtures. Re-running the
+  0.2.9 test database correctly returns its old-order review to pending; all
+  28 source JSON/CSV files and the dataset fingerprint remain byte-identical.
+
+Local full suites pass **134 PITBridge + 42 StatementTrace + 519 AuditLens +
+113 ControlTrace = 808 tests**. These counts cover implementation contracts,
+not independent clients, real fraud/default outcomes or source authenticity.
+The ordinary synthetic reports and numerical evidence are unchanged, apart from
+the explicitly versioned AuditLens source-fingerprint record.
+
+| Project | Main revision | Local suite | Exact main run |
+| --- | --- | ---: | --- |
+| PITBridge | `3715813` | 134 | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40067075342) · [Pages](https://github.com/dev-belly/PITBridge/actions/runs/40067075363) |
+| StatementTrace | `6804c4a` | 42 | [CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/40066128539) |
+| AuditLens | `cbc9365` | 519 | [Pipeline, tests and reproducibility](https://github.com/dev-belly/AuditLens/actions/runs/40068027568) |
+| ControlTrace | `4428ea9` | 113 | [Linux and Windows CI](https://github.com/dev-belly/ControlTrace/actions/runs/40068060419) |
+
+Two delivery problems were also resolved transparently. A CSV documentation
+upload in PITBridge was truncated; [#22](https://github.com/dev-belly/PITBridge/pull/22)
+restores the complete contract. Uploaded blobs are now compared with local Git
+blob hashes. A later main Chrome run timed out during the initial 15-second
+session creation before executing report assertions;
+[#23](https://github.com/dev-belly/PITBridge/pull/23) gives only cold startup
+60 seconds, preserves driver logs and keeps ordinary commands/assertions strict.
+[The subsequent main CI](https://github.com/dev-belly/PITBridge/actions/runs/40067075342)
+passes all ten jobs; the existing release is retained without replacement.
+
+The remaining portfolio evidence gaps still require suitable real chronological
+data and independently observed use. Additional code or test counts cannot
+substitute for those. Keep public static credit data, curated filing excerpts
+and synthetic event/audit cases separate when discussing results.
 
 ## Installed CSV intake and exact report identities · 2026-10-23
 
