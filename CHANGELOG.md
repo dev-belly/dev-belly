@@ -1,5 +1,15 @@
 # Build history
 
+**2026-10-24 · Inspect input distributions before labels or model fitting.**
+[CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32) adds a
+two-table input monitor with five scoped comparisons, monthly sample gates,
+decision-time snapshots and event-level replay. The first-run guide installs
+checked v0.5.0; project evidence distinguishes model-free distributions from
+the existing historically fitted score monitor. Local checks pass 310 tests
+and 28 subtests plus clean installed-wheel replay. PITBridge #24 closes two
+additional conversion boundaries after external-account review feedback.
+[Validation and remaining gaps](PROJECT_REVIEW.md#input-distribution-monitoring--2026-10-24).
+
 **2026-10-24 · Checked installation and audit evidence integrity.**
 PITBridge publishes a checked v0.2.0 wheel with source/commit/digest evidence;
 the first-run guide installs the public artifact. StatementTrace prevents
