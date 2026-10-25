@@ -21,7 +21,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | :--- | :--- | :--- |
 | How do credit models compare at the same review capacity? | [30,000 card accounts](https://dev-belly.github.io/CreditVintage/card-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
-| Were the inputs available, and did their distributions change? | [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) · [Distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) | [Availability logic](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_quality.py) · [Method](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md) |
+| Do the inputs meet explicit coverage rules? | [Policy check](https://dev-belly.github.io/CreditVintage/feature-check/) · [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) | [Rules and replay](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_policy.py) · [Contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) |
 | What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
@@ -41,9 +41,9 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 早期监控可先用 `preflight --as-of` 检查历史成熟样本与当前可见申请，当前客群不需要违约标签；预检不训练模型，也不计算 PSI。
 
-输入检查先诊断三项必需特征的时点覆盖率、逐月缺口与可见迟到，再比较五项输入分布。两条路径只读申请和特征事件，无需标签或模型拟合；保留事件、快照、计数与报告，能从来源重建核验。
+输入检查先诊断三项特征的时点覆盖与可见迟到，再按显式规则检查整体/月份的最低覆盖及样本数，并可比较五项输入分布。无需标签或拟合；保留事件、规则与逐项判定。失败策略仍能核验，宽松规则通过也不等于评分就绪。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.6.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.6.0) · [Coverage and timing](https://dev-belly.github.io/CreditVintage/feature-quality/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/)
+[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.7.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0) · [Coverage policy](https://dev-belly.github.io/CreditVintage/feature-check/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/)
 
 <br />
 
@@ -98,6 +98,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Check explicit coverage rules:** [CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) checks retained diagnostics with exact overall/monthly counts, preserves failed/insufficient rules and separates policy outcome from evidence replay. An independently saved digest can pin approved rules. [Run it](START_HERE.md#creditvintage-check-explicit-coverage-conditions) · [Validation](PROJECT_REVIEW.md#explicit-coverage-acceptance--2026-10-25).
 
 - **Diagnose unavailable inputs:** [CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) keeps every expected feature slot and separates visible late arrivals, post-decision observations and still-unseen events. Its evidence replays without outcomes or fitting, while strict scoring/distribution gates retain their missing-feature failures. [Run it](START_HERE.md#creditvintage-diagnose-missing-decision-time-features) · [Validation](PROJECT_REVIEW.md#decision-time-feature-coverage--2026-10-25).
 

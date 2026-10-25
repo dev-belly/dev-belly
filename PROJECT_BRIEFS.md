@@ -70,6 +70,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 **What was unavailable at the decision?** [v0.6.0 feature coverage](https://github.com/dev-belly/CreditVintage/pull/33) keeps all expected application-feature slots, including incomplete cases. It separates known late arrivals, post-decision observations and no event visible by the report cutoff; future events cannot explain earlier gaps. The synthetic case retains 320 current applications, 316 complete and four incomplete, with 160 future applications excluded. No outcomes or fitted model are needed. A verified diagnostic can still report incomplete coverage; scoring and distribution checks continue to reject missing inputs. [Report](https://dev-belly.github.io/CreditVintage/feature-quality/) · [Method](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md) · [Run it](START_HERE.md#creditvintage-diagnose-missing-decision-time-features).
 
+**Do the inputs meet explicit conditions?** [v0.7.0 coverage policies](https://github.com/dev-belly/CreditVintage/pull/34) check overall or named-month coverage and minimum sample counts using exact fractions. Every failed/insufficient rule is retained with the complete source diagnostic. A trusted policy digest can pin approved rules; a verified failed bundle is not a policy pass, and tolerant coverage does not permit incomplete scoring. [Report](https://dev-belly.github.io/CreditVintage/feature-check/) · [Run it](START_HERE.md#creditvintage-check-explicit-coverage-conditions).
+
+> 规则验收侧表述：在时点特征覆盖诊断上增加显式规则检查，按整体或月份约束最低覆盖和申请数；用整数计数避免显示比例舍入误判，保留失败及证据不足结果、规则与来源台账。通过外部策略摘要核对批准规则，区分规则通过、证据一致和评分就绪；合成案例的三个规则失败全部保留，不把它当作实际业务效果。
+
 > 数据质量侧表述：为信贷事件数据实现决策时点特征覆盖诊断，保留完整申请分母及逐月计数，区分迟到、决策后观测与截止日仍不可见的记录，并以首次可见到达计算迟延；保存逐申请特征台账和可重建报告，核验重新计算哈希后的虚假完整人数。合成示例包含 320 笔当前申请，其中 4 笔输入不完整；不把报告核验通过当作评分准备就绪。
 
 > 输入监控侧表述：为信贷分析工具增加无需标签和模型拟合的五项决策时输入分布检查，保留原始事件、所选快照、累计计数与逐月样本口径；以手算及 SciPy 独立实现核对描述性距离，并在隔离安装包中验证两表接入和修改结果后重新计算哈希的失败路径。分布变化不等于预测失效，合成案例不证明业务效果。
