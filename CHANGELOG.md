@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-25 · Check explicit coverage rules and retain failed evidence.**
+[CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) adds
+exact-count overall/monthly policy checks, minimum-sample conditions, separate
+policy/integrity results and an externally pinnable rule digest. Source events
+and all failed/insufficient results remain inspectable. The first-run guide
+moves to v0.7.0; 376 tests and 28 subtests plus clean installed replay pass.
+[Evidence and limits](PROJECT_REVIEW.md#explicit-coverage-acceptance--2026-10-25).
+
 **2026-10-25 · Keep unavailable features in the denominator.**
 [CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) adds
 decision-time feature coverage, visible late-arrival diagnosis, monthly counts

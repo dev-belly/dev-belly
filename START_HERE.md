@@ -51,15 +51,15 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.0 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.6.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.6.0) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.7.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0) |
 
-The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.6.0 wheels.
+The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.7.0 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256
 evidence attached to its release. PITBridge's source is fixed at
 [`c04c533`](https://github.com/dev-belly/PITBridge/commit/c04c533274e2e96e768d73ab78e99ab4ea9edd46).
-The CreditVintage version check below prints `0.6.0`;
-the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.6.0)
-describe decision-time coverage diagnostics; input distributions and monitoring preflight remain available. PITBridge has no
+The CreditVintage version check below prints `0.7.0`;
+the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0)
+describe explicit coverage rules; diagnostics, input distributions and monitoring preflight remain available. PITBridge has no
 third-party runtime dependencies; CreditVintage pins its numerical dependencies.
 These commands do not promise identical floating-point output across environments.
 Follow each project's README for adapters and full tests.
@@ -115,7 +115,7 @@ Invalid rows fail before output creation; source JSON retains the original IDs.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.6.0/creditvintage_research-0.6.0-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.7.0/creditvintage_research-0.7.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
@@ -129,7 +129,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.6.0/creditvintage_research-0.6.0-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.7.0/creditvintage_research-0.7.0-py3-none-any.whl"
 .venv/bin/python -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
@@ -152,7 +152,7 @@ against independent Python counts and sums.
 
 ### CreditVintage: editable CSVs and input diagnostics
 
-The same installed v0.6.0 package can create complete input files before you
+The same installed v0.7.0 package can create complete input files before you
 replace them with compatible data of your own.
 
 **Windows PowerShell**
@@ -182,19 +182,19 @@ rewriting files. Fix row errors first; blocked relationship or cohort checks
 are explicitly identified. Readiness checks the documented event contract and
 mature evaluation windows, not source authenticity or predictive quality.
 
-Version 0.6.0 requires dates such as `2024-10-01` throughout the CSVs, cohort
+Version 0.7.0 requires dates such as `2024-10-01` throughout the CSVs, cohort
 configuration and `monitor --as-of`. Compact dates (`20241001`), ISO week dates
 (`2024-W40-2`), timestamps and surrounding spaces are rejected. The checker
 identifies the file, physical line and column without rewriting inputs. Reports
 already generated with canonical dates remain verifiable; see the
-[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.6.0.md).
+[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.7.0.md).
 
 Replace all three CSVs and edit the complete calendar for your own compatible
 records. [Input contract and diagnostic output](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
 
 ### CreditVintage: check early monitoring before training
 
-The installed v0.6.0 package can check monitoring inputs before fitting:
+The installed v0.7.0 package can check monitoring inputs before fitting:
 
 **Windows PowerShell**
 
@@ -224,7 +224,7 @@ same population gates and performs the scoring checks.
 
 ### CreditVintage: diagnose missing decision-time features
 
-The v0.6.0 diagnostic keeps every expected input slot and reports coverage
+The v0.7.0 diagnostic keeps every expected input slot and reports coverage
 before strict distribution/scoring checks can succeed.
 
 **Windows PowerShell**
@@ -255,9 +255,49 @@ visible event are reported separately, using only records visible by the cutoff.
 Explain why the feature denominator is 320 while the complete-application count
 is 316, and why an event dated after the report cutoff cannot explain an earlier gap.
 
+### CreditVintage: check explicit coverage conditions
+
+With the installed v0.7.0 environment, generate a diagnostic and an editable
+policy. Review its conditions before applying it to your data. The example
+requires at least 20 current applications and full coverage for each input.
+
+**The check deliberately exits 3** because this synthetic case has three failed
+feature rules. Keep the report and run verification separately; verification
+returns 0 with `policy_status: fail`. Do not treat verification as a passed gate.
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m creditvintage monitor-feature-quality --as-of 2024-10-01 --out quality-policy
+.\.venv\Scripts\python.exe -m creditvintage init-feature-policy --out coverage-policy.json
+.\.venv\Scripts\python.exe -m creditvintage check-feature-quality quality-policy --policy coverage-policy.json --out feature-check
+.\.venv\Scripts\python.exe -m creditvintage verify-feature-check feature-check
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m creditvintage monitor-feature-quality --as-of 2024-10-01 --out quality-policy
+.venv/bin/python -m creditvintage init-feature-policy --out coverage-policy.json
+.venv/bin/python -m creditvintage check-feature-quality quality-policy --policy coverage-policy.json --out feature-check
+.venv/bin/python -m creditvintage verify-feature-check feature-check
+```
+
+Open `feature-check/index.html`. The current feature counts are 318/320, 319/320
+and 319/320: three failed rules, while four applications are incomplete. Edit
+population, month, input, minimum applications and decimal-string coverage in the
+policy. Empty/small groups are insufficient. Exact counts decide the condition;
+rounded display rates do not.
+
+检查退出码 0 表示所列规则全部通过；3 表示失败或证据不足，但保留完整结果；2
+表示输入、证据或输出错误。宽松或部分规则通过，仍不允许原评分流程使用缺失输入。
+独立保存的策略摘要可用于核验批准过的规则；它不认证源数据真假。
+[Policy schema, exit codes and trusted digest](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) ·
+[Published failed example](https://dev-belly.github.io/CreditVintage/feature-check/).
+
 ### CreditVintage: inspect input distributions without labels
 
-The v0.6.0 wheel also compares decision-time inputs without fitting a model or
+The v0.7.0 wheel also compares decision-time inputs without fitting a model or
 loading an outcome file, including historical outcomes.
 
 **Windows PowerShell**
@@ -322,7 +362,7 @@ For a suitable event dataset of your own, use the
 
 ### CreditVintage: 30,000 card accounts and complete model replay
 
-The same v0.6.0 environment includes the larger UCI credit-card cohort.
+The same v0.7.0 environment includes the larger UCI credit-card cohort.
 
 **Windows PowerShell**
 

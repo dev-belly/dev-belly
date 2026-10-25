@@ -1,5 +1,42 @@
 # Portfolio review · 2026-10-25
 
+## Explicit coverage acceptance · 2026-10-25
+
+[CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) adds
+user-defined overall/monthly coverage and minimum-sample rules in v0.7.0.
+`check-feature-quality` validates the source diagnostic, retains every rule and
+returns 0 only for all-pass, 3 for failed/insufficient policy, or 2 for invalid
+inputs/evidence. Independent verification can succeed with `policy_status: fail`.
+A partial/tolerant policy pass never relaxes scoring/distribution completeness.
+
+**376 tests and 28 subtests pass**, including 39 new policy cases. Hand counts
+check that 2/3 fails a required decimal 0.66666667 despite its displayed rounding;
+78/80 passes 0.975 but fails 0.975000000000000001. Tests retain empty, small,
+future and mixed groups, enforce strict policy parsing, preserve source files
+and replay a self-contained bundle after its original report is removed.
+An independently retained policy digest rejects a fully regenerated replacement
+using different rules; it does not authenticate events under those rules.
+
+Ruff lint/format, strict mypy and 85 local documentation links pass. Wheel and
+source archives include the new module/template and old v0.5.0 compatibility
+fixture; existing quality/distribution bytes retain their contracts. Full site
+refitting/replay passes. Clean installed wheels outside the source trees exercise
+healthy, missing-input and insufficient policies with the performance file absent,
+enforce the external pin and reject a rehashed false pass. The installed gap
+case retains two passed rules and one failed rule, distinct from its one
+incomplete current application.
+
+The [public synthetic check](https://dev-belly.github.io/CreditVintage/feature-check/)
+requires full coverage for all three current inputs and deliberately retains three
+failures: 318/320, 319/320 and 319/320. Its four incomplete applications remain
+in the denominators. These are illustrative conditions, not calibrated business
+limits or evidence of real-world failure rates.
+
+[Run the rules](START_HERE.md#creditvintage-check-explicit-coverage-conditions) ·
+[Policy contract and trust limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) ·
+[Official-tool comparison](OPEN_SOURCE_ROADMAP.zh-CN.md).
+
+
 ## Decision-time feature coverage · 2026-10-25
 
 [CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) adds
