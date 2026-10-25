@@ -1,6 +1,7 @@
 # 开源项目对照与演进路线
 
-功能与官方资料核查日期：**2026-10-24**。本页比较相近方向的公开能力与当前可检查证据。
+数据质量方向官方资料核查日期：**2026-10-25**；Qlib、scorecardpy 和 Feast
+沿用 2026-10-24 的核查。本页比较相近方向的公开能力与当前可检查证据。
 本轮关注能落实的功能和使用路径，不用 Star 比值换算技术差距，
 也不把自己的测试运行当作外部采用。
 
@@ -8,7 +9,9 @@
 
 | 参考项目 | 可借鉴的具体能力 | 本项目组合的对应入口 | 仍有的差距 |
 | --- | --- | --- | --- |
-| [Evidently](https://docs.evidentlyai.com/metrics/explainer_drift) | 按列比较输入分布，缺失率另做质量检查，可组合指标与测试 | CreditVintage v0.5.0 增加五项固定输入的模型外分布检查，保留逐月样本及事件重建 | 没有缺失/延迟趋势、任意模式或监控服务；描述性距离不等于 Evidently 的显著性判断 |
+| [Evidently](https://docs.evidentlyai.com/metrics/preset_data_summary) · [Tests](https://docs.evidentlyai.com/docs/library/tests) | 按列汇总数据质量和分布，可配置测试与参考条件 | CreditVintage 保留五项输入的分布检查，v0.6.0 另按决策时点和报告截止日诊断三项特征的覆盖与可见延迟 | 仍是固定事件模式，没有通用指标/阈值组合或监控服务；描述性距离不等于显著性判断 |
+| [Great Expectations](https://docs.greatexpectations.io/docs/reference/learn/data_quality_use_cases/missingness/) | 列非空、非空比例和可容忍缺失范围等 Expectations | 保留完整申请分母及逐特征台账，区分晚到、决策后观测及截止日不可见记录 | 事件槽位缺失不同于 CSV 空值；没有任意列 Expectations、检查点及完整质量规则体系 |
+| [TensorFlow Data Validation](https://www.tensorflow.org/tfx/data_validation/get_started) · [validate_statistics](https://www.tensorflow.org/tfx/data_validation/api_docs/python/tfdv/validate_statistics) | 模式、特征存在率和异常检查；结合前期/服务统计检查 drift 与 skew | 按整体和月份保留特征覆盖计数，空人群率为 null；从源事件重建时间口径和报告 | 没有模式推断、TFX 流水线或通用 drift/skew 验证器；三项固定特征诊断不能替代这些能力 |
 | [Qlib](https://qlib.readthedocs.io/en/stable/component/workflow.html) | 配置化研究工作流、训练/评价产物与实验管理 | AlphaForge 真实价格对照，CreditVintage 五组切分与完整逐笔模型结果 | 历史成分与财务可得时间不完整；缺少同范围的大规模实验管理 |
 | [scorecardpy](https://github.com/ShichenXie/scorecardpy) | 分箱、WOE、评分卡缩放与性能评价的可调用组件 | CreditVintage 的 WOE 对照、同复核容量比较和独立 UCI 实验 | 仍是固定特征和客群的研究案例，不能作为通用评分卡工具使用 |
 | [Feast](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) | 历史特征、TTL、存储与服务接入；可选创建时间过滤 | PITBridge 的多时间字段、修订/删除规则与独立回放，支持原生 CSV | 缺少在线服务、多存储适配、部署和真实复用证据；不能声称其他工具不支持知识时间 |
@@ -22,7 +25,7 @@
 | 维度 | 已有证据 | 仍缺少的证据 | 可以验收的下一步 |
 | --- | --- | --- | --- |
 | 真实数据有效性 | AlphaForge 历史价格对照、TradeForge 短段公开盘口；CreditVintage 已有 1,000 行德国信贷及 30,000 行信用卡观察的固定对照 | 真实信贷中的决策时点、特征可用时间、成熟标签及时间外表现；更长且跨情景的行情 | 数据来源与时间口径可核查；固定基线、时间外划分和失败结果一起保留 |
-| 独立复用 | PITBridge v0.2.0 CSV 接入、CreditVintage v0.5.0 两表分布检查、干净环境 wheel 重放、逐行诊断和首次运行入口 | 独立使用者用自己的数据完成任务，以及由此暴露的适配问题 | 一名外部读者完成一次有记录的试用，保留输入契约、命令和预期/实际结果 |
+| 独立复用 | PITBridge v0.2.0 CSV 接入、CreditVintage v0.6.0 两表覆盖/延迟诊断与已有分布检查、干净环境 wheel 重放、逐行诊断和首次运行入口 | 独立使用者用自己的数据完成任务，以及由此暴露的适配问题 | 一名外部读者完成一次有记录的试用，保留输入契约、命令和预期/实际结果 |
 | 功能深度 | 时间边界、SQL 对照、来源追溯、人工复核重试等路径已有实现和回归 | 广泛数据模式、生产数据规模及业务系统集成；TradeForge 尚不能代替成熟排队/延迟框架 | 围绕一个真实任务补适配与对照，先明确输入和输出，再扩展支持范围 |
 | 社区证据 | PITBridge #8 有 GreedyC 账号贡献；#7 有 ylc22 的校验建议，#24 落实后续边界修复 | 账号关系、独立试用与生产采用仍未由这些记录证明 | 继续保存可复现反馈、实际修复和试用结果，分别解释贡献、使用与部署 |
 | 展示聚焦 | 主页保留三个主推项目，其他项目和详细历史折叠；新增首次运行路线 | 用户能否迅速理解“选哪个、解决什么问题、如何开始”的实际反馈 | 让首次读者只选一个任务并完成一次运行；据反馈精简入口 |
@@ -32,6 +35,17 @@ CI、测试数量和摘要核验帮助定位工程错误；真实数据验证、
 条件，应继续保留其用途，同时补充真实数据实验。
 
 ## 本轮已经补上的内容
+
+- **2026-10-25 · [CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33)：**
+  不依赖结果文件和模型，诊断三项决策时特征的覆盖、可见迟到及逐月计数。
+  合成案例保留 320 笔当前申请，316 笔完整、4 笔不完整，另排除 160 笔未来申请。
+  337 项测试和 28 个子测试通过；旧版六个报告文件与单独安装的公开 v0.5.0
+  逐字节一致。缺失特征仍阻止评分/分布检查，诊断核验成功不等于数据完整。
+  [在线案例](https://dev-belly.github.io/CreditVintage/feature-quality/) ·
+  [首次运行](START_HERE.md#creditvintage-diagnose-missing-decision-time-features) ·
+  [方法和范围](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md)。
+
+以下为 2026-10-24 完成记录：
 
 - [CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32)：
   只读申请和特征事件，比较五项决策时输入；保存可重建的快照、累计计数和页面。

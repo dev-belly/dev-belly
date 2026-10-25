@@ -1,5 +1,14 @@
 # Build history
 
+**2026-10-25 · Keep unavailable features in the denominator.**
+[CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) adds
+decision-time feature coverage, visible late-arrival diagnosis, monthly counts
+and event-level replay. The original scoring/distribution paths remain strict.
+The first-run guide uses v0.6.0 and separates diagnostic completion from data
+readiness. Local validation passes 337 tests and 28 subtests; old v0.5.0 feature
+artifact bytes match the public-wheel compatibility fixture.
+[Method, installed replay and limits](PROJECT_REVIEW.md#decision-time-feature-coverage--2026-10-25).
+
 **2026-10-24 · Inspect input distributions before labels or model fitting.**
 [CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32) adds a
 two-table input monitor with five scoped comparisons, monthly sample gates,
