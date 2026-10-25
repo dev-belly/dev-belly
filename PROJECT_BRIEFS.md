@@ -68,6 +68,10 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 **Which inputs changed?** [v0.5.0 feature monitoring](https://github.com/dev-belly/CreditVintage/pull/32) requires neither historical nor current outcomes. It compares four numeric decision-time inputs and segment composition, marks small monthly samples as insufficient, and rebuilds its evidence from retained events. [Report](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [Run it](START_HERE.md#creditvintage-inspect-input-distributions-without-labels).
 
+**What was unavailable at the decision?** [v0.6.0 feature coverage](https://github.com/dev-belly/CreditVintage/pull/33) keeps all expected application-feature slots, including incomplete cases. It separates known late arrivals, post-decision observations and no event visible by the report cutoff; future events cannot explain earlier gaps. The synthetic case retains 320 current applications, 316 complete and four incomplete, with 160 future applications excluded. No outcomes or fitted model are needed. A verified diagnostic can still report incomplete coverage; scoring and distribution checks continue to reject missing inputs. [Report](https://dev-belly.github.io/CreditVintage/feature-quality/) · [Method](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md) · [Run it](START_HERE.md#creditvintage-diagnose-missing-decision-time-features).
+
+> 数据质量侧表述：为信贷事件数据实现决策时点特征覆盖诊断，保留完整申请分母及逐月计数，区分迟到、决策后观测与截止日仍不可见的记录，并以首次可见到达计算迟延；保存逐申请特征台账和可重建报告，核验重新计算哈希后的虚假完整人数。合成示例包含 320 笔当前申请，其中 4 笔输入不完整；不把报告核验通过当作评分准备就绪。
+
 > 输入监控侧表述：为信贷分析工具增加无需标签和模型拟合的五项决策时输入分布检查，保留原始事件、所选快照、累计计数与逐月样本口径；以手算及 SciPy 独立实现核对描述性距离，并在隔离安装包中验证两表接入和修改结果后重新计算哈希的失败路径。分布变化不等于预测失效，合成案例不证明业务效果。
 
 > 公开数据验证侧表述：基于 UCI 1,000 条历史德国信贷记录建立固定 600/200/200 分层随机切分，只用训练集拟合缩放与类别编码，独立校准并导出逐笔证据；200 条测试记录的 Logistic AUC 为 0.774，保留校准后 Brier 由 0.162 变为 0.169 的负结果；实现原始数据重拟合核验与自定义时间窗口接入。

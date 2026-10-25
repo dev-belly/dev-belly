@@ -1,4 +1,45 @@
-# Portfolio review · 2026-10-24
+# Portfolio review · 2026-10-25
+
+## Decision-time feature coverage · 2026-10-25
+
+[CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) adds
+`monitor-feature-quality` and event-level diagnostic replay in v0.6.0. Every
+visible application contributes three expected feature slots. The report
+separates on-time availability, known late arrival, post-decision observation
+and no event visible by the report cutoff; it retains small monthly counts and
+null rates for empty populations. A diagnostic can verify while reporting gaps;
+strict scoring/distribution paths continue to reject missing inputs.
+
+Local validation passes **337 tests and 28 subtests**, including 27 new
+quality/compatibility cases, Ruff lint/format and strict mypy. Hand examples
+check exact population denominators, unique incomplete-application counts,
+first-arrival delay, future exclusion and empty/small cohorts. A fixture generated
+by a separately installed public v0.5.0 wheel pins all six old feature-report
+file hashes; current code reproduces them exactly. The source archive includes
+this compatibility fixture.
+
+All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40167747736)
+pass across Ubuntu/Python 3.12 and 3.13 and Windows/Python 3.12, including installed
+distributions and cross-runtime replay. The [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40167747732)
+passes; its real-Chrome desktop and mobile previews were visually reviewed.
+The merged source is [`a6f6558`](https://github.com/dev-belly/CreditVintage/commit/a6f6558539b21e1d9fd614f882f8eae4e557b668).
+
+Clean installed wheels outside both source trees replay healthy and incomplete
+two-CSV diagnostics while the performance file is absent. The incomplete case
+retains 80 visible current applications / 79 complete / one incomplete; the
+same input still fails the strict distribution gate, and rehashed false coverage
+is rejected. The complete local public-site rebuild/refitting also passes.
+
+The [public synthetic quality case](https://dev-belly.github.io/CreditVintage/feature-quality/)
+uses 480 reference / 320 visible current applications, with 316 complete current
+and 160 future current applications. Its four unavailable slots are deliberately
+injected. These are event-coverage diagnostics, not raw CSV null rates,
+generic quality rules, credit-risk conclusions or production failure rates.
+
+[Run the diagnostic](START_HERE.md#creditvintage-diagnose-missing-decision-time-features) ·
+[Method and input contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md) ·
+[Evidently / GX / TFDV comparison](https://github.com/dev-belly/CreditVintage/blob/main/docs/COMPARISON.zh-CN.md).
+
 
 ## Input-distribution monitoring · 2026-10-24
 
