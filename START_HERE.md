@@ -34,7 +34,8 @@ For local reports or CSV inputs, continue with the installation paths below.
 
 ## Try a project
 
-想先看真实公开数据，可打开 [UCI 信贷比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/)
+想先看真实日期跨期研究，可打开 [SBA 35,000 笔贷款](https://dev-belly.github.io/CreditVintage/sba-credit/)；
+原有静态公开数据仍可打开 [UCI 信贷比较](https://dev-belly.github.io/CreditVintage/public-credit-comparison/)
 或按其[源码实验说明](https://github.com/dev-belly/CreditVintage/blob/main/docs/PUBLIC_CREDIT_COMPARISON.md)复跑。
 五次比较需要从当前源码仓库运行示例，数据与加载器复用包内实现。
 下方固定版本安装路线可运行 3 万条信用卡对照、单次公开校准实验和合成事件 SQL 演示，分别解释三者口径。
@@ -51,15 +52,15 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.0 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.7.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0) |
+| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.8.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0) |
 
-The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.7.0 wheels.
+The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.8.0 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256
 evidence attached to its release. PITBridge's source is fixed at
 [`c04c533`](https://github.com/dev-belly/PITBridge/commit/c04c533274e2e96e768d73ab78e99ab4ea9edd46).
-The CreditVintage version check below prints `0.7.0`;
-the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0)
-describe explicit coverage rules; diagnostics, input distributions and monitoring preflight remain available. PITBridge has no
+The CreditVintage version check below prints `0.8.0`;
+the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0)
+describe observed SBA funding-cohort validation; coverage rules, diagnostics, input distributions and monitoring preflight remain available. PITBridge has no
 third-party runtime dependencies; CreditVintage pins its numerical dependencies.
 These commands do not promise identical floating-point output across environments.
 Follow each project's README for adapters and full tests.
@@ -107,6 +108,50 @@ then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
 Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.
 Invalid rows fail before output creation; source JSON retains the original IDs.
 
+### CreditVintage: validate observed loans across time
+
+The checked wheel includes 35,000 observed SBA loans, the protocol and conversion
+audit. The target is recorded charge-off within 24 calendar months. No Git,
+PITBridge, GPU or raw 574 MB download is needed to run and refit it.
+
+**Windows PowerShell**
+
+```powershell
+mkdir creditvintage-sba-run
+cd creditvintage-sba-run
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.8.0/creditvintage_research-0.8.0-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m creditvintage sba-benchmark --out report
+.\.venv\Scripts\python.exe -m creditvintage verify-sba report
+```
+
+**Linux / macOS**
+
+```bash
+mkdir creditvintage-sba-run
+cd creditvintage-sba-run
+python3 -m venv .venv
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.8.0/creditvintage_research-0.8.0-py3-none-any.whl"
+.venv/bin/python -m creditvintage sba-benchmark --out report
+.venv/bin/python -m creditvintage verify-sba report
+```
+
+Open `report/index.html`. Verification should report `status: verified`,
+`refitted: true`, 35,000 source / 10,000 test loans and **89 recorded test events**.
+All three methods share the same test loans. Logistic AUC is **0.6723**;
+isotonic calibration improves Brier from **0.009011** to **0.008819** while
+reducing AUC to **0.6584**. Retain both results. Review 1,000 loans to inspect
+26/89 events for logistic: this does not estimate prevented losses.
+
+训练/校准/测试分别为 2006–2010、2013、2016–2017 的真实放款队列，前一阶段
+的 24 月表现期在下一阶段开始前成熟。最终快照没有历史首次发布或特征修订
+记录，因此明确作为回溯放款研究；它与合成 180 天逾期和 UCI 静态目标分开。
+全部预测、逐年结果、无标签队列和 300 次成对月份重采样均在下载包内。
+
+[Full protocol and original-source reconstruction](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) ·
+[Report an actual independent run](https://github.com/dev-belly/CreditVintage/issues/new?template=sba_reproduction.yml).
+Use a new output folder on repeat; preserve the exact error if a step fails.
+
 ### CreditVintage: SQL analysis and a review queue
 
 **Windows PowerShell**
@@ -115,7 +160,7 @@ Invalid rows fail before output creation; source JSON retains the original IDs.
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.7.0/creditvintage_research-0.7.0-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.8.0/creditvintage_research-0.8.0-py3-none-any.whl"
 .\.venv\Scripts\python.exe -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .\.venv\Scripts\python.exe -m creditvintage.cli run --out evaluation
 .\.venv\Scripts\python.exe -m creditvintage.cli verify evaluation
@@ -129,7 +174,7 @@ python -m venv .venv
 mkdir creditvintage-first-run
 cd creditvintage-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.7.0/creditvintage_research-0.7.0-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/CreditVintage/releases/download/v0.8.0/creditvintage_research-0.8.0-py3-none-any.whl"
 .venv/bin/python -c "from importlib.metadata import version; print(version('creditvintage-research'))"
 .venv/bin/python -m creditvintage.cli run --out evaluation
 .venv/bin/python -m creditvintage.cli verify evaluation
@@ -152,7 +197,7 @@ against independent Python counts and sums.
 
 ### CreditVintage: editable CSVs and input diagnostics
 
-The same installed v0.7.0 package can create complete input files before you
+The same installed v0.8.0 package can create complete input files before you
 replace them with compatible data of your own.
 
 **Windows PowerShell**
@@ -182,19 +227,19 @@ rewriting files. Fix row errors first; blocked relationship or cohort checks
 are explicitly identified. Readiness checks the documented event contract and
 mature evaluation windows, not source authenticity or predictive quality.
 
-Version 0.7.0 requires dates such as `2024-10-01` throughout the CSVs, cohort
+Version 0.8.0 requires dates such as `2024-10-01` throughout the CSVs, cohort
 configuration and `monitor --as-of`. Compact dates (`20241001`), ISO week dates
 (`2024-W40-2`), timestamps and surrounding spaces are rejected. The checker
 identifies the file, physical line and column without rewriting inputs. Reports
 already generated with canonical dates remain verifiable; see the
-[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.7.0.md).
+[upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.8.0.md).
 
 Replace all three CSVs and edit the complete calendar for your own compatible
 records. [Input contract and diagnostic output](https://github.com/dev-belly/CreditVintage/blob/main/docs/CUSTOM_INPUTS.md).
 
 ### CreditVintage: check early monitoring before training
 
-The installed v0.7.0 package can check monitoring inputs before fitting:
+The installed v0.8.0 package can check monitoring inputs before fitting:
 
 **Windows PowerShell**
 
@@ -224,7 +269,7 @@ same population gates and performs the scoring checks.
 
 ### CreditVintage: diagnose missing decision-time features
 
-The v0.7.0 diagnostic keeps every expected input slot and reports coverage
+The v0.8.0 diagnostic keeps every expected input slot and reports coverage
 before strict distribution/scoring checks can succeed.
 
 **Windows PowerShell**
@@ -257,7 +302,7 @@ is 316, and why an event dated after the report cutoff cannot explain an earlier
 
 ### CreditVintage: check explicit coverage conditions
 
-With the installed v0.7.0 environment, generate a diagnostic and an editable
+With the installed v0.8.0 environment, generate a diagnostic and an editable
 policy. Review its conditions before applying it to your data. The example
 requires at least 20 current applications and full coverage for each input.
 
@@ -297,7 +342,7 @@ rounded display rates do not.
 
 ### CreditVintage: inspect input distributions without labels
 
-The v0.7.0 wheel also compares decision-time inputs without fitting a model or
+The v0.8.0 wheel also compares decision-time inputs without fitting a model or
 loading an outcome file, including historical outcomes.
 
 **Windows PowerShell**
@@ -362,7 +407,7 @@ For a suitable event dataset of your own, use the
 
 ### CreditVintage: 30,000 card accounts and complete model replay
 
-The same v0.7.0 environment includes the larger UCI credit-card cohort.
+The same v0.8.0 environment includes the larger UCI credit-card cohort.
 
 **Windows PowerShell**
 

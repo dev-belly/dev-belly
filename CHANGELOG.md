@@ -1,5 +1,16 @@
 # Build history
 
+**2026-10-26 · Validate observed loans across funding periods.**
+[CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) adds a
+35,000-loan SBA study, mature calendar gaps, training-only preprocessing and
+separate calibration. Complete official originals reconstruct the frozen
+sample; installed evidence refits offline and rejects rehashed false metrics.
+All methods, both test years, 89 held-out events and 300 paired month-bootstrap
+replicates remain visible. The first-run guide uses checked v0.8.0; native
+24-month recorded charge-off stays distinct from synthetic/UCI targets.
+[Evidence and historical-availability limits](PROJECT_REVIEW.md#observed-sba-funding-cohorts--2026-10-26).
+
+
 **2026-10-25 · Check explicit coverage rules and retain failed evidence.**
 [CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) adds
 exact-count overall/monthly policy checks, minimum-sample conditions, separate

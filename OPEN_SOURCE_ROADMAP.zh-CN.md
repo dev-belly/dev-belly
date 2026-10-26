@@ -1,6 +1,6 @@
 # 开源项目对照与演进路线
 
-数据质量方向官方资料核查日期：**2026-10-25**；Qlib、scorecardpy 和 Feast
+SBA 与 scikit-learn 官方资料核查日期：**2026-10-26**；数据质量方向沿用 2026-10-25；Qlib、scorecardpy 和 Feast
 沿用 2026-10-24 的核查。本页比较相近方向的公开能力与当前可检查证据。
 本轮关注能落实的功能和使用路径，不用 Star 比值换算技术差距，
 也不把自己的测试运行当作外部采用。
@@ -9,6 +9,7 @@
 
 | 参考项目 | 可借鉴的具体能力 | 本项目组合的对应入口 | 仍有的差距 |
 | --- | --- | --- | --- |
+| [scikit-learn](https://scikit-learn.org/1.8/common_pitfalls.html#data-leakage) · [TimeSeriesSplit](https://scikit-learn.org/1.8/modules/generated/sklearn.model_selection.TimeSeriesSplit.html) | 先切分再拟合预处理、时间顺序与样本 gap | SBA 真实放款日期、24 日历月成熟间隔、训练集独占填补/缩放/编码、独立校准 | 固定协议的回溯研究；没有历史首次发布与特征修订记录；不等同通用实验平台 |
 | [Evidently](https://docs.evidentlyai.com/metrics/preset_data_summary) · [Tests](https://docs.evidentlyai.com/docs/library/tests) | 按列汇总数据质量和分布，可配置测试与参考条件 | CreditVintage 保留输入分布/时点覆盖诊断，v0.7.0 增加三特征整体/月度覆盖与最小样本规则 | 仍是固定事件模式，没有通用指标/阈值组合或监控服务；描述性距离不等于显著性判断 |
 | [Great Expectations](https://docs.greatexpectations.io/docs/reference/learn/data_quality_use_cases/missingness/) | 列非空、非空比例和可容忍缺失范围等 Expectations | 保留完整申请分母及逐特征台账，区分晚到、决策后观测及截止日不可见记录 | 事件槽位缺失不同于 CSV 空值；已有显式覆盖检查，仍没有任意列 Expectations、Checkpoint/Action 体系或完整质量规则 |
 | [TensorFlow Data Validation](https://www.tensorflow.org/tfx/data_validation/get_started) · [validate_statistics](https://www.tensorflow.org/tfx/data_validation/api_docs/python/tfdv/validate_statistics) | 模式、特征存在率和异常检查；结合前期/服务统计检查 drift 与 skew | 按整体和月份保留特征覆盖计数，空人群率为 null；从源事件重建时间口径和报告 | 没有模式推断、TFX 流水线或通用 drift/skew 验证器；三项固定特征诊断不能替代这些能力 |
@@ -18,14 +19,14 @@
 
 这些工具解决的问题与维护范围不同。本轮没有运行同数据、同协议的跨框架
 性能比较，也没有把功能表当作性能排名。代码和数值正确性可以自动核查，
-业务适配、真实跨期表现和独立使用仍需单独证据。
+SBA 已补真实放款跨期结果；业务适配、历史信息可得性和独立使用仍需各自的证据。
 
 ## 当前最需要补什么
 
 | 维度 | 已有证据 | 仍缺少的证据 | 可以验收的下一步 |
 | --- | --- | --- | --- |
-| 真实数据有效性 | AlphaForge 历史价格对照、TradeForge 短段公开盘口；CreditVintage 已有 1,000 行德国信贷及 30,000 行信用卡观察的固定对照 | 真实信贷中的决策时点、特征可用时间、成熟标签及时间外表现；更长且跨情景的行情 | 数据来源与时间口径可核查；固定基线、时间外划分和失败结果一起保留 |
-| 独立复用 | PITBridge v0.2.0 CSV 接入、CreditVintage v0.7.0 两表诊断、显式覆盖规则与分布检查、干净环境 wheel 重放、逐行诊断和首次运行入口 | 独立使用者用自己的数据完成任务，以及由此暴露的适配问题 | 一名外部读者完成一次有记录的试用，保留输入契约、命令和预期/实际结果 |
+| 真实数据有效性 | 新增 SBA 35,000 条真实放款分期、原生 24 月记录内核销、成熟间隔和较差结果；原有 UCI 与其他市场实验分开保留 | SBA 历史首次公开时间/特征修订及独立业务验证；更长且跨情景的行情 | 放款跨期验证已交付；若要验证历史可得信息，须另取得实际修订/发布记录，不能补造时间 |
+| 独立复用 | PITBridge v0.2.0 CSV 接入、CreditVintage v0.8.0 SBA 原始 CSV 专用适配、实际运行反馈表、两表诊断、显式覆盖规则与分布检查、干净环境 wheel 重放、逐行诊断和首次运行入口 | 独立使用者用自己的数据完成任务，以及由此暴露的适配问题 | 一名外部读者完成一次有记录的试用，保留输入契约、命令和预期/实际结果 |
 | 功能深度 | 时间边界、SQL 对照、来源追溯、人工复核重试等路径已有实现和回归 | 广泛数据模式、生产数据规模及业务系统集成；TradeForge 尚不能代替成熟排队/延迟框架 | 围绕一个真实任务补适配与对照，先明确输入和输出，再扩展支持范围 |
 | 社区证据 | PITBridge #8 有 GreedyC 账号贡献；#7 有 ylc22 的校验建议，#24 落实后续边界修复 | 账号关系、独立试用与生产采用仍未由这些记录证明 | 继续保存可复现反馈、实际修复和试用结果，分别解释贡献、使用与部署 |
 | 展示聚焦 | 主页保留三个主推项目，其他项目和详细历史折叠；新增首次运行路线 | 用户能否迅速理解“选哪个、解决什么问题、如何开始”的实际反馈 | 让首次读者只选一个任务并完成一次运行；据反馈精简入口 |
@@ -35,6 +36,17 @@ CI、测试数量和摘要核验帮助定位工程错误；真实数据验证、
 条件，应继续保留其用途，同时补充真实数据实验。
 
 ## 本轮已经补上的内容
+
+- **2026-10-26 · [CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35)：**
+  完成此前缺少的真实放款日期跨期研究：官方 1,236,084 行 → 冻结 35,000 条，
+  20,000/5,000/10,000 三阶段与完整表现期间隔；训练独占预处理、独立校准、
+  89 个测试事件、全部方法/年份结果和 300 次配对月份重采样。
+  原始 CSV 可完整重建，安装包离线重拟合并拒绝重新哈希的虚假指标。
+  [在线结果](https://dev-belly.github.io/CreditVintage/sba-credit/) ·
+  [Windows/Linux 首次运行](START_HERE.md#creditvintage-validate-observed-loans-across-time) ·
+  [协议与数据许可](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md)。
+  实际运行反馈入口已备好，自己的 CI 不算外部采用；最终快照不能证明历史公开可得性。
+
 
 - **2026-10-25 · [CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34)：**
   在已核验诊断上增加明确的人群、月份、特征、最低覆盖和最小样本规则。
@@ -83,7 +95,7 @@ CI、测试数量和摘要核验帮助定位工程错误；真实数据验证、
 
 公开比较中，逻辑回归五次平均 AUC 约 0.767，梯度提升树约 0.771；树模型
 在平均 AUC、AP 和 Brier 上略优；逻辑回归的 Top-20 精确率略高。报告保留全部结果，没有因此宣布普遍赢家。
-UCI 数据没有时点信息，这一新增实验仍未完成真实信贷的时间外验证。
+上述 UCI 实验仍无时点信息；2026-10-26 新增的 SBA 放款跨期研究单独补足此项，不改变 UCI 实验的原有边界。
 
 **2026-10-16：** [CreditVintage #20](https://github.com/dev-belly/CreditVintage/pull/20) 增加 `init-inputs` 和 `check-inputs`，把手工构造三份 CSV 的门槛变为可编辑的完整样例，并在训练前按文件和行号收集错误。检查真实记录类型、时点特征与成熟标签，后续被阻断的检查会明确标注；隔离安装会从生成文件跑到实际评估与错误行定位。这里新增的是复用能力，仍不计为外部采用。
 
@@ -93,7 +105,8 @@ UCI 数据没有时点信息，这一新增实验仍未完成真实信贷的时�
 评分与 SQL 分析 → 有限名额复核 → 可交付证据。每增加一个功能，先说明
 哪类使用者在什么输入下需要它，以及怎样验证它解决了问题。
 
-当前适合优先收集一次独立试用反馈，并寻找时间口径可靠的公开或合法脱敏
-数据；复用反馈和真实时间外评估不能通过继续美化 README 来替代。
+SBA 真实放款跨期验证及原始数据适配已交付。接下来沿实际运行反馈修复阻碍，
+若新增历史可得性研究，必须使用真实发布/修订记录。独立试用需要真实使用者
+完成任务的记录，不能用自己的 CI 或虚构 issue 代替。
 保留 [首次运行](START_HERE.md) 和 [业务讲解](INTERVIEW_PLAYBOOK.zh-CN.md)
 两条入口，让使用、审阅和面试练习都能回到实际产物。

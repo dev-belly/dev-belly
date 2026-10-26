@@ -1,4 +1,48 @@
-# Portfolio review · 2026-10-25
+# Portfolio review · 2026-10-26
+
+## Observed SBA funding cohorts · 2026-10-26
+
+[CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) adds
+observed, retrospective funding-cohort validation in v0.8.0. Both complete
+hash-pinned official CSVs contain 1,236,084 logical records. The converter
+counts exclusions, retains one earliest eligible recorded borrower group,
+and samples by outcome-independent row hashes into 20,000 train / 5,000
+calibration / 10,000 test loans. Source bytes, frozen protocol and audit were
+reconstructed exactly from both originals.
+
+Four approval inputs use training-only imputation, missing indicators, scaling
+and categories. Each earlier 24-calendar-month outcome horizon matures before
+the next funding stage starts. The test has **89 recorded events**. Logistic
+AUC is **0.672341** (month-bootstrap 95% interval **0.6246–0.7175**), AP 0.018470,
+Brier 0.009011. Isotonic lowers Brier to **0.008819** while lowering AUC to
+**0.658399**. At the same 1,000 review slots the methods capture 26/89 and 24/89
+events, respectively. Neither capture nor calibrated probability estimates
+prevented loss. All methods, both test years and all 900 bootstrap rows remain.
+
+Local source and installed-wheel checks refit from the frozen bytes, recompute
+all metrics and queues, and reject rehashed false AUC and nonfinite scores.
+Malformed manifest inventories have controlled CLI errors. Tests independently
+check AUC with Mann–Whitney ranks, plain Brier arithmetic, calendar boundaries,
+held-out outcome/feature isolation, paired resampling and one-class replicates.
+Ruff lint/format and strict mypy pass. Source/wheel archives include data,
+protocol, audit, license notices, converter and the actual-run issue form.
+A complete site rebuild/refitting passes; CI retains desktop/mobile Chrome
+previews and replays the same Linux-built SBA ZIP on Windows and Python 3.13.
+
+The final snapshot lacks historical first-publication times and feature
+revisions. It is **retrospective funding-cohort validation**, not a claim of
+historical public availability or a replacement for the synthetic event-time
+contract. Recorded 24-month SBA charge-off is distinct from 180-day delinquency
+and UCI targets. The initial rate is missing for 15,250 training loans; this
+shift is retained. Group keys are an imperfect, linkable recorded-identity
+heuristic, not verified firms or anonymous identities. US SBA results do not
+establish current Chinese lending performance, fairness, deployment or adoption.
+
+[Run on Windows/Linux](START_HERE.md#creditvintage-validate-observed-loans-across-time) ·
+[Public report](https://dev-belly.github.io/CreditVintage/sba-credit/) ·
+[Source and method](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) ·
+[Actual-run feedback form](https://github.com/dev-belly/CreditVintage/issues/new?template=sba_reproduction.yml).
+
 
 ## Explicit coverage acceptance · 2026-10-25
 
