@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 项目试用入口 / Start here
+    url: https://github.com/dev-belly/dev-belly/blob/main/START_HERE.md
+    about: 先选择项目和复现路线；实现问题到对应项目仓库报告。
+  - name: 安全反馈 / Security reporting
+    url: https://github.com/dev-belly/dev-belly/blob/main/SECURITY.md
+    about: 请先阅读报告路径，不要在公开问题中发布敏感细节。

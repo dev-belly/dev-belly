@@ -1,5 +1,15 @@
 # Build history
 
+**2026-10-26 · Make the public portfolio easier to explore and maintain.**
+The [project directory](CATALOG.md) groups all 19 public projects by purpose and
+connects their README, methods, demonstrations and data boundaries. Its
+`portfolio.json` source and deterministic generator are checked by profile CI.
+The profile now offers role-based entry points, contribution guidance and issue
+forms. Project maintenance updates add reporting/support routes and monthly,
+grouped GitHub Actions updates while retaining scientific dependency pins and
+project-specific feedback templates. These documentation checks do not rerun or
+certify the numerical studies.
+
 **2026-10-26 · Validate observed loans across funding periods.**
 [CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) adds a
 35,000-loan SBA study, mature calendar gaps, training-only preprocessing and

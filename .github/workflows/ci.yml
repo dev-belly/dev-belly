@@ -19,6 +19,8 @@ jobs:
           python-version: '3.12'
       - name: Check graphics, project cards and local navigation
         run: python scripts/check_profile.py
+      - name: Check project catalog and its source manifest
+        run: python scripts/build_project_catalog.py --check
       - name: Rebuild graphics and check for uncommitted outputs
         run: |
           python scripts/build_profile_assets.py

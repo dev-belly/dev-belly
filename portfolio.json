@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "owner": "dev-belly",
+  "projects": [
+    {
+      "repo": "CreditVintage",
+      "group": "flagship",
+      "summary": "跨期信贷验证、客群 SQL 分析与人工复核",
+      "stack": "Python · SQL · scikit-learn",
+      "boundary": "SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。",
+      "demo": "https://dev-belly.github.io/CreditVintage/sba-credit/",
+      "evidence": "docs/SBA_CREDIT.md"
+    },
+    {
+      "repo": "PITBridge",
+      "group": "flagship",
+      "summary": "按事件与获知时间重建历史快照和滚动特征",
+      "stack": "Python · SQLite",
+      "boundary": "合成发票与事件示例；演示数据可用性规则。",
+      "demo": "https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb",
+      "evidence": "examples/README.md"
+    },
+    {
+      "repo": "StressAtlas",
+      "group": "flagship",
+      "summary": "相关违约、组合尾部损失和估计精度",
+      "stack": "Python · NumPy",
+      "boundary": "合成贷款组合；压力情景和重采样不代表真实损失预测。",
+      "demo": "https://dev-belly.github.io/StressAtlas/",
+      "evidence": "docs/METHODOLOGY.md"
+    },
+    {
+      "repo": "StatementTrace",
+      "group": "financial",
+      "summary": "从公开财报到可追溯的财务指标",
+      "stack": "Python · SQL",
+      "boundary": "精选公开财报摘录；保留期间、来源与可用时间。",
+      "demo": "https://dev-belly.github.io/StatementTrace/",
+      "evidence": "docs/SOURCES.md"
+    },
+    {
+      "repo": "NetworkClear",
+      "group": "financial",
+      "summary": "交易对手冲击、债务清偿与外部损失勾稽",
+      "stack": "Python",
+      "boundary": "合成金融网络；模型假设见清偿方法。",
+      "demo": "https://dev-belly.github.io/NetworkClear/",
+      "evidence": "docs/METHODOLOGY.md"
+    },
+    {
+      "repo": "ControlTrace",
+      "group": "financial",
+      "summary": "把内控结论绑定到当前证据版本",
+      "stack": "Python",
+      "boundary": "审计工作流案例；不等于真实审计意见。",
+      "evidence": "docs/CASE_STUDY.md"
+    },
+    {
+      "repo": "AuditLens",
+      "group": "financial",
+      "summary": "总账异常、可解释风险排序与审计底稿",
+      "stack": "Python · SQL · Streamlit",
+      "boundary": "合成总账和规则实验；结果用于人工审阅。",
+      "evidence": "outputs/reports/"
+    },
+    {
+      "repo": "LedgerX",
+      "group": "financial",
+      "summary": "成交、复式记账与估值的精确勾稽",
+      "stack": "Python",
+      "boundary": "示例交易与会计规则；许可证以仓库声明为准。",
+      "evidence": "examples/valuation.json"
+    },
+    {
+      "repo": "alphaforge",
+      "group": "research",
+      "summary": "因子、逐步前推验证、组合约束与交易成本",
+      "stack": "Python · NumPy",
+      "boundary": "合成演示与独立历史价格比较分开；成分及发布历史不完整。",
+      "demo": "https://dev-belly.github.io/alphaforge/sample-run/",
+      "evidence": "docs/research-comparison.md"
+    },
+    {
+      "repo": "TradeForge",
+      "group": "research",
+      "summary": "C++ 订单簿、执行事件与 Python 独立核验",
+      "stack": "C++20 · Python",
+      "boundary": "公开报价只支持假设成交；不代表真实委托或可交易收益。",
+      "evidence": "docs/PUBLIC_MARKET_CASE.md"
+    },
+    {
+      "repo": "investor-network-gnn",
+      "group": "research",
+      "summary": "投资者网络、图模型消融与多种子预测",
+      "stack": "Python · PyTorch",
+      "boundary": "合成数据；保留 GCN 未显示稳定优势的结果。",
+      "evidence": "experiments/2026-09-17/"
+    },
+    {
+      "repo": "highdim-causal-allocation-lab",
+      "group": "research",
+      "summary": "高维因果估计、Monte Carlo 与稳健配置",
+      "stack": "Python · React",
+      "boundary": "模拟因果与配置实验；不建立现实因果结论。",
+      "demo": "https://dev-belly.github.io/highdim-causal-allocation-lab/"
+    },
+    {
+      "repo": "interval-financial-risk",
+      "group": "research",
+      "summary": "区间和分布特征的风险识别实验",
+      "stack": "Python",
+      "boundary": "合成实验中的负结果：区间特征未改善 AUC。",
+      "demo": "https://dev-belly.github.io/interval-financial-risk/"
+    },
+    {
+      "repo": "ashare-multifactor-research",
+      "group": "research",
+      "summary": "A 股因子研究、purged 验证与数据接入",
+      "stack": "Python · SQL",
+      "boundary": "默认合成数据；真实 A 股结果须按对应数据路径单独验证。",
+      "evidence": "README.zh-CN.md"
+    },
+    {
+      "repo": "wecom-agent-platform",
+      "group": "applications",
+      "summary": "合同全量筛选、持仓汇总与企业微信 Agent 原型",
+      "stack": "Python · FastAPI · React",
+      "boundary": "静态界面和离线业务试验；模型、企微回复及部署有独立边界。",
+      "evidence": "docs/business-workflow.md"
+    },
+    {
+      "repo": "personal-ai-chat",
+      "group": "applications",
+      "summary": "本地聊天模拟与单独配置的私有模型连接",
+      "stack": "Next.js · Cloudflare Workers",
+      "boundary": "默认固定本地模拟；真实服务需要独立配置与访问口令。"
+    },
+    {
+      "repo": "digital-craftsman",
+      "group": "applications",
+      "summary": "学生能力档案、企业评价与作品集小程序",
+      "stack": "微信小程序 · 云函数",
+      "boundary": "小程序及云环境需单独部署验收；不上线状态承诺。",
+      "evidence": "项目设计文档.md"
+    },
+    {
+      "repo": "ranxin-mini-program",
+      "group": "applications",
+      "summary": "MBTI、纹样收集与 DIY 创作比赛原型",
+      "stack": "微信小程序 · JavaScript",
+      "boundary": "默认本地 Mock；云函数和真实数据库需单独验收。",
+      "evidence": "ONBOARDING.md"
+    },
+    {
+      "repo": "goose-leg-auntie-site",
+      "group": "applications",
+      "summary": "校园传播案例的信息组织与页面呈现",
+      "stack": "HTML · CSS",
+      "boundary": "公开报道与分析推断分开；不是独立经营审计。",
+      "demo": "https://dev-belly.github.io/goose-leg-auntie-site/"
+    }
+  ]
+}

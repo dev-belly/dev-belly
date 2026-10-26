@@ -1,0 +1,41 @@
+name: 项目选择或试用反馈 / Project question
+description: 询问项目入口、提交脱敏试用反馈，或建议改善展示。
+title: "[Question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先查看 START_HERE.md。具体代码缺陷请到对应项目仓库；这里处理导航、选择和展示问题。
+        Start with START_HERE.md. Do not post confidential data or credentials.
+  - type: input
+    id: project
+    attributes:
+      label: 相关项目 / Project or page
+      description: 填写仓库链接、项目名，或“个人主页”。
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 你希望完成什么 / What are you trying to do?
+      description: 描述业务问题、学习目标或需要改善的访问体验。
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: 已尝试的步骤 / What have you tried?
+      description: 提供相关文档链接、执行步骤和卡住的位置；尚未运行可直接说明。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议或脱敏反馈（可选） / Suggestion or redacted feedback
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 发布前检查 / Before publishing
+      options:
+        - label: 我已移除凭据、个人数据和保密材料。 / I removed sensitive or confidential material.
+          required: true

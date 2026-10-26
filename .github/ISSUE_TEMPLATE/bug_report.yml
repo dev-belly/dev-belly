@@ -1,0 +1,43 @@
+name: 文档或导航问题 / Documentation bug
+description: 报告主页、链接、复现步骤或证据说明的问题。
+title: "[Docs] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        项目运行错误请优先到对应项目仓库报告。请勿公开密钥、个人数据或漏洞细节；安全问题先查看 SECURITY.md。
+        Use the source project's issue tracker for runtime bugs. Redact sensitive information.
+  - type: input
+    id: page
+    attributes:
+      label: 相关页面 / Page URL or file
+      description: 提供可定位的链接、文件名或段落标题。
+      placeholder: https://github.com/dev-belly/dev-belly/blob/main/START_HERE.md
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: 遇到了什么 / What happened?
+      description: 描述实际结果和你期望的结果；涉及声明时指出不一致的证据。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤 / Steps to reproduce
+      description: 提供点击或执行顺序、相关版本；报错日志仅保留脱敏后的必要部分。
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 环境（如适用） / Environment, if relevant
+      placeholder: OS / browser / Python version / project commit
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 发布前检查 / Before publishing
+      options:
+        - label: 我已移除凭据、个人数据和可直接利用的漏洞细节。 / I removed sensitive information.
+          required: true

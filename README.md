@@ -4,6 +4,7 @@
   <a href="https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb"><b>RUN IN BROWSER</b></a> &nbsp; / &nbsp;
   <a href="https://dev-belly.github.io/CreditVintage/sba-credit/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
+  <a href="CATALOG.md"><b>ALL PROJECTS</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
 </div>
 
@@ -16,6 +17,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 **New here?** [Change one invoice timestamp in your browser](START_HERE.md#try-in-your-browser), [install a project from an empty directory](START_HERE.md#try-a-project), or [review a business decision and its code](START_HERE.md#review-the-work). 新访客可先在浏览器核对三次固定决策，再改一个时间；招聘与面试审阅可沿业务问题、结果和代码查看。
 
 ## Start with a business question
+
+**Pick a route:** credit & data → **CreditVintage / PITBridge**; quantitative research → **AlphaForge / TradeForge / StressAtlas**; accounting & audit → **AuditLens / ControlTrace / LedgerX**. The [complete project directory](CATALOG.md) connects all public projects to their README, methods, demos and data boundaries.
 
 | Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
@@ -151,6 +154,8 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 
 ---
 
-[Start here](START_HERE.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
+想试用或参与：先选[项目目录](CATALOG.md)，运行问题到对应仓库反馈；主页导航、文字或证据链接问题可用[主页问题表单](https://github.com/dev-belly/dev-belly/issues/new/choose)。[贡献说明](CONTRIBUTING.md) · [安全报告说明](SECURITY.md)。
+
+[Start here](START_HERE.md) · [All projects](CATALOG.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 
 <sub>Financial questions. Runnable code. Evidence you can inspect.</sub>
