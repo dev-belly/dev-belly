@@ -29,23 +29,28 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 ## Flagship projects
 
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — chronological credit evaluation with separate training, calibration and holdout cohorts, plus source-record lineage." /></a>
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — 35,000 observed SBA loans across separate funding cohorts and mature 24-month charge-off horizons; retrospective validation." /></a>
 
-**01 · CreditVintage — Credit analysis that reaches a review decision.**
+**01 · CreditVintage — Credit analysis with evidence you can refit.**
 
-训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
+**35,000 笔 SBA 真实放款跨期研究**：2 万训练、5 千校准、1 万测试，阶段间等待完整 24 月记录内核销表现期。四项批准时输入只在训练集拟合预处理；测试 AUC 0.6723，同 1,000 个复核名额找到 26/89 个事件。保留校准后排名下降、逐年结果和 300 次配对月份重采样；原始官方 CSV 可完整重建，安装包可离线重拟合。
 
-新增 **35,000 笔 SBA 真实放款分期研究**：2 万训练、5 千校准、1 万跨期测试，阶段间等待完整 24 个月记录内核销表现期；同一归一化借款人键只留一笔。四项批准时输入只在训练集拟合预处理。测试 89 个事件，1,000 个复核名额找到 26 个；保留校准后排名下降、逐年结果和 300 次配对月份重采样。官方原始 CSV 可完整重建冻结样本，安装包可离线重拟合；缺失的历史首次发布/修订记录不补造。
+最终快照没有历史首次发布或特征修订记录，因此作为回溯放款研究；原合成时点控制实验和静态 UCI 目标分开解释。核验成功不代表生产部署或避免损失。
 
-公开信用卡实验覆盖 30,000 条 UCI 记录、五次固定划分和四种方法，保留 12 万个模型分数、三档相同复核预算及无标签队列；全部来源、分数和下载包均可重新拟合核验。历史单一客群的随机切分与上面的合成时序验证分开解释，原德国信贷实验继续保留。
+[Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0)
 
-新增可编辑 CSV 输入样例与训练前诊断：按文件、行号定位多处错误，检查重复修订、决策时可用特征与成熟标签；诊断过程不修改输入、不训练模型。
+<details>
+<summary>More experiments: static credit, input quality and human review</summary>
 
-早期监控可先用 `preflight --as-of` 检查历史成熟样本与当前可见申请，当前客群不需要违约标签；预检不训练模型，也不计算 PSI。
+公开信用卡实验覆盖 30,000 条 UCI 记录、五次固定划分和四种方法，保留 12 万个模型分数、三档相同复核预算及无标签队列；历史单一客群的随机切分与 SBA 放款分期研究及合成时序验证分开解释。
 
-输入检查先诊断三项特征的时点覆盖与可见迟到，再按显式规则检查整体/月份的最低覆盖及样本数，并可比较五项输入分布。无需标签或拟合；保留事件、规则与逐项判定。失败策略仍能核验，宽松规则通过也不等于评分就绪。
+合成事件流程用 SQL 按放款月份和客群对照预测与成熟事件；固定容量队列不含未来标签。SQLite 复核记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Dated-loan study](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Checked release v0.8.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0) · [Coverage policy](https://dev-belly.github.io/CreditVintage/feature-check/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/)
+可编辑 CSV 样例在训练前按文件、行号诊断；早期预检无需当前结果标签。两表输入诊断覆盖、迟到和分布，显式整体/月度规则保留失败与证据不足；宽松规则通过仍不等于评分就绪。
+
+[30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Coverage policy](https://dev-belly.github.io/CreditVintage/feature-check/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Synthetic lineage](https://dev-belly.github.io/CreditVintage/lineage/)
+
+</details>
 
 <br />
 

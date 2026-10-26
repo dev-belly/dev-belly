@@ -52,7 +52,7 @@ Use your virtual environment's Python directly; activation is unnecessary.
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
 | **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.0 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0) |
-| **CreditVintage:** turn a credit evaluation into SQL cohort analysis and a review queue | An offline analysis report, group tables and a label-free queue | [v0.8.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0) |
+| **CreditVintage:** validate observed loans on later funding cohorts | A dated-loan report, all three model results and a label-free queue | [v0.8.0 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0) |
 
 The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.8.0 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256

@@ -19,6 +19,15 @@ Brier 0.009011. Isotonic lowers Brier to **0.008819** while lowering AUC to
 events, respectively. Neither capture nor calibrated probability estimates
 prevented loss. All methods, both test years and all 900 bootstrap rows remain.
 
+The final PR passes **428 tests and 28 subtests**, including **52 new cases**.
+All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40272342645)
+pass, including clean installed distributions and same-ZIP refitting across
+Ubuntu/Windows and Python 3.12/3.13. The [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40272342687)
+passes; four final Chrome desktop/mobile captures were visually inspected.
+The mobile check confirms all nine metric cells fit and the page has no
+horizontal overflow. Core merge [`55ad624`](https://github.com/dev-belly/CreditVintage/commit/55ad6249fbee7754a2b1fc687fbff6a1143c3bad)
+retains exactly the tested source tree.
+
 Local source and installed-wheel checks refit from the frozen bytes, recompute
 all metrics and queues, and reject rehashed false AUC and nonfinite scores.
 Malformed manifest inventories have controlled CLI errors. Tests independently
