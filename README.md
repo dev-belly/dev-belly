@@ -2,7 +2,7 @@
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
   <a href="https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb"><b>RUN IN BROWSER</b></a> &nbsp; / &nbsp;
-  <a href="https://dev-belly.github.io/CreditVintage/analysis/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
+  <a href="https://dev-belly.github.io/CreditVintage/sba-credit/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
 </div>
@@ -19,31 +19,38 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 | Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
-| How do credit models compare at the same review capacity? | [30,000 card accounts](https://dev-belly.github.io/CreditVintage/card-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/card_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/CARD_CREDIT.md) |
+| Does a model hold up on later funding cohorts? | [35,000 observed SBA loans](https://dev-belly.github.io/CreditVintage/sba-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | Do the inputs meet explicit coverage rules? | [Policy check](https://dev-belly.github.io/CreditVintage/feature-check/) · [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) | [Rules and replay](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_policy.py) · [Contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) |
 | What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
-**A useful result includes its limits.** CreditVintage compares four fixed methods on [30,000 observed card records](https://dev-belly.github.io/CreditVintage/card-credit/), retaining five train/calibration/test splits and every model result. The separate German-credit experiment retains its negative calibration result. Native targets and random splits are kept distinct from the synthetic timed-event experiment. [Project evidence](PROJECT_BRIEFS.md) connects each claim to its inputs, implementation and validation.
+**A useful result includes its limits.** The [SBA study](https://dev-belly.github.io/CreditVintage/sba-credit/) uses real funding dates and a native 24-month recorded charge-off target. Logistic AUC is 0.6723 on 10,000 later loans; calibration improves Brier while reducing ranking performance. The final snapshot cannot establish historical first-publication times. Separate UCI static and synthetic event experiments retain their own targets. [Project evidence](PROJECT_BRIEFS.md) connects each claim to inputs, code and validation.
 
 ## Flagship projects
 
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — chronological credit evaluation with separate training, calibration and holdout cohorts, plus source-record lineage." /></a>
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — 35,000 observed SBA loans across separate funding cohorts and mature 24-month charge-off horizons; retrospective validation." /></a>
 
-**01 · CreditVintage — Credit analysis that reaches a review decision.**
+**01 · CreditVintage — Credit analysis with evidence you can refit.**
 
-训练、校准、测试分期隔离；标签等待完整表现期。SQL 按放款月份和客群对照风险事件与预测偏差；固定容量清单不含未来标签。SQLite 复核工作区记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
+**35,000 笔 SBA 真实放款跨期研究**：2 万训练、5 千校准、1 万测试，阶段间等待完整 24 月记录内核销表现期。四项批准时输入只在训练集拟合预处理；测试 AUC 0.6723，同 1,000 个复核名额找到 26/89 个事件。保留校准后排名下降、逐年结果和 300 次配对月份重采样；原始官方 CSV 可完整重建，安装包可离线重拟合。
 
-公开信用卡实验覆盖 30,000 条 UCI 记录、五次固定划分和四种方法，保留 12 万个模型分数、三档相同复核预算及无标签队列；全部来源、分数和下载包均可重新拟合核验。历史单一客群的随机切分与上面的合成时序验证分开解释，原德国信贷实验继续保留。
+最终快照没有历史首次发布或特征修订记录，因此作为回溯放款研究；原合成时点控制实验和静态 UCI 目标分开解释。核验成功不代表生产部署或避免损失。
 
-新增可编辑 CSV 输入样例与训练前诊断：按文件、行号定位多处错误，检查重复修订、决策时可用特征与成熟标签；诊断过程不修改输入、不训练模型。
+[Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0)
 
-早期监控可先用 `preflight --as-of` 检查历史成熟样本与当前可见申请，当前客群不需要违约标签；预检不训练模型，也不计算 PSI。
+<details>
+<summary>More experiments: static credit, input quality and human review</summary>
 
-输入检查先诊断三项特征的时点覆盖与可见迟到，再按显式规则检查整体/月份的最低覆盖及样本数，并可比较五项输入分布。无需标签或拟合；保留事件、规则与逐项判定。失败策略仍能核验，宽松规则通过也不等于评分就绪。
+公开信用卡实验覆盖 30,000 条 UCI 记录、五次固定划分和四种方法，保留 12 万个模型分数、三档相同复核预算及无标签队列；历史单一客群的随机切分与 SBA 放款分期研究及合成时序验证分开解释。
 
-[Source](https://github.com/dev-belly/CreditVintage) · [30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Checked release v0.7.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.7.0) · [Coverage policy](https://dev-belly.github.io/CreditVintage/feature-check/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Lineage](https://dev-belly.github.io/CreditVintage/lineage/)
+合成事件流程用 SQL 按放款月份和客群对照预测与成熟事件；固定容量队列不含未来标签。SQLite 复核记录认领、结案、理由和材料引用，并处理并发版本冲突与重复请求。
+
+可编辑 CSV 样例在训练前按文件、行号诊断；早期预检无需当前结果标签。两表输入诊断覆盖、迟到和分布，显式整体/月度规则保留失败与证据不足；宽松规则通过仍不等于评分就绪。
+
+[30,000-account comparison](https://dev-belly.github.io/CreditVintage/card-credit/) · [Coverage policy](https://dev-belly.github.io/CreditVintage/feature-check/) · [Input distributions](https://dev-belly.github.io/CreditVintage/feature-monitor/) · [SQL analysis](https://dev-belly.github.io/CreditVintage/analysis/) · [Synthetic lineage](https://dev-belly.github.io/CreditVintage/lineage/)
+
+</details>
 
 <br />
 
@@ -86,7 +93,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 </details>
 
-**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's public depth capture powers hypothetical fills. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic. Its UCI card and German experiments retain their distinct native targets; random customer splits do not establish future-period performance. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
+**Know the data boundary:** StatementTrace uses curated public-filing excerpts; AlphaForge's separate comparison uses historical mirrored equity prices but incomplete membership/publication histories; TradeForge's public depth capture powers hypothetical fills. CreditVintage's dated-event demonstrations, StressAtlas and NetworkClear remain synthetic. Its SBA study is retrospective funding-cohort validation with absent historical publication/revision records. UCI card and German experiments retain their distinct native targets; random customer splits do not establish future-period performance. [Read the matching assumptions](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) before quoting a market cost.
 
 <img src="assets/stack-v3.svg" width="100%" alt="Core tools: Python, SQL, C++20, scikit-learn, LightGBM and NumPy." />
 
@@ -98,6 +105,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Observed loans across time:** [CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) reconstructs 35,000 loans from two complete official SBA CSVs, retains mature calendar gaps and separate calibration, and refits its full portable evidence. All methods, both test years and weaker calibrated ranking remain visible. [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Method and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md).
 
 - **Check explicit coverage rules:** [CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) checks retained diagnostics with exact overall/monthly counts, preserves failed/insufficient rules and separates policy outcome from evidence replay. An independently saved digest can pin approved rules. [Run it](START_HERE.md#creditvintage-check-explicit-coverage-conditions) · [Validation](PROJECT_REVIEW.md#explicit-coverage-acceptance--2026-10-25).
 

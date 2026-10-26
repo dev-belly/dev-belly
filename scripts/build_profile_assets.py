@@ -41,8 +41,8 @@ def hero():
 
 PROJECTS = [
     ('creditvintage-v3', '01', 'CreditVintage', 'CREDIT MODEL VALIDATION', LIME,
-     'When does a credit score deserve trust?', 'Chronological cohorts. Mature outcomes. Source lineage.',
-     'PITBRIDGE → FEATURES → PROSPECTIVE EVALUATION', 'Python / scikit-learn / reproducible reports'),
+     'Does the score hold up on later loans?', 'Observed SBA loans. Mature calendar gaps.',
+     '35,000 LOANS / 24-MONTH RECORDED CHARGE-OFF', 'Python / scikit-learn / offline model refitting'),
     ('pitbridge-v3', '02', 'PITBridge', 'TEMPORAL DATA ENGINEERING', '#365ad9',
      'Know what was known.', 'Publication, ingestion, revisions and rolling windows.',
      'SQL SNAPSHOTS = INDEPENDENT PYTHON REPLAY', 'Python / SQLite / record-level provenance'),
@@ -61,10 +61,10 @@ def card(project):
          f'<path d="M38 242H771M814 32V308" stroke="{border}"/>',
          text(38, 272, proof, 16, accent, 600, MONO), text(38, 309, technology, 17, muted)]
     if index == '01':
-        for y, label, dates in [(67, 'TRAIN', '2022'), (131, 'CALIBRATE', '2023 H2'), (195, 'HOLD OUT', '2024 H2')]:
+        for y, label, dates in [(67, 'TRAIN', '2006–2010'), (131, 'CALIBRATE', '2013'), (195, 'HOLD OUT', '2016–2017')]:
             p += [f'<rect x="851" y="{y}" width="345" height="47" rx="4" fill="#222b20" stroke="#4f6337"/>',
                   text(866, y+29, label, 15, LIME, 600, MONO), text(1092, y+29, dates, 15, family=MONO)]
-        p.append(text(853, 293, 'SEPARATE TIME. SAVE THE PROOF.', 13, muted, 500, MONO))
+        p.append(text(853, 293, 'RETROSPECTIVE FUNDING COHORTS', 13, muted, 500, MONO))
     elif index == '02':
         p += ['<path d="M853 191H1230" stroke="#8d98ba" stroke-width="2"/>',
               '<path d="M1105 79V248" stroke="#365ad9" stroke-width="2" stroke-dasharray="5 6"/>',

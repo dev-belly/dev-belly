@@ -1,6 +1,6 @@
 # Project evidence and interview notes
 
-These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify public-filing excerpts, the separate observed static credit sample, or a synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
+These are **candidate resume bullets**, not claims about live customers or realized investment returns. Quoted results identify public-filing excerpts, observed dated/static credit samples, or a synthetic run. Choose two projects that fit the role and rehearse the assumptions and code path before using the wording in an interview.
 
 ## Public financial statement analysis
 
@@ -57,6 +57,12 @@ These are **candidate resume bullets**, not claims about live customers or reali
 ## Bank credit / model validation
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
+
+> 真实放款跨期验证侧表述：从两份共 1,236,084 条的官方 SBA 贷款 CSV 构建可重建的 35,000 条冻结样本，按真实放款期分成 20,000/5,000/10,000 训练、校准与测试记录，阶段间保留完整 24 月表现期；四项批准时输入只在训练集拟合填补、缩放和类别编码。测试 AUC 0.6723，同 1,000 个复核名额捕获 26/89 个记录内核销事件；保留校准后排名下降、逐年结果及 300 次成对月份重采样，以来源重拟合核验逐笔分数和完整证据 ZIP。
+
+**Observed dates:** [SBA report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [source, native target and protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) · [fit/refit implementation](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py) · [checked v0.8.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0) · [first run](START_HERE.md#creditvintage-validate-observed-loans-across-time).
+
+**Explain before using the wording:** Why calendar maturity differs from a row-count gap; why 15,250 missing training interest rates remain visible; why calibration improves Brier but can hurt AUC and queue capture; why 89 events imply substantial uncertainty; why recorded charge-off is not 180-day DPD. Hash-based sampling is outcome-independent and borrower groups are an imperfect recorded-identity heuristic. The final snapshot lacks historical first-publication and feature-revision records: retrospective validation does not establish historical availability, savings, deployment or independent adoption. These notes do not establish that the author has already rehearsed the code.
 
 > 信用卡建模与验证侧表述：以 30,000 条公开信用卡记录构建五组固定训练/校准/测试划分，训练集内拟合 19 项金融历史特征的缩放与编码，比较常数、Logistic、独立校准和梯度提升树；保存 12 万个模型分数及 60 组同预算复核结果，以来源重拟合核验逐笔分数、无标签队列及下载包。树模型五次平均 AUC 为 0.781、Brier 为 0.135；交付经隔离安装验证的版本包。
 
