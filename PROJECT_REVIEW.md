@@ -18,8 +18,16 @@ business-performance results.
 | [ControlTrace #8](https://github.com/dev-belly/ControlTrace/pull/8) | A timely emergency approval with a whitespace-only person ID suppressed the missing-approver item. It now remains available for manual review, with the original ID retained in evidence and replayable workpapers. | [Linux / Windows](https://github.com/dev-belly/ControlTrace/actions/runs/40501167525) |
 | [TradeForge #21](https://github.com/dev-belly/TradeForge/pull/21) | A rejected fill previously entered the journal and consumed its ID. Order validation now precedes journal, identifier and inventory updates. | [Python / native / distribution](https://github.com/dev-belly/TradeForge/actions/runs/40501172993) |
 
-Local AlphaForge regression groups pass **87 / 85 / 49 cases** for split,
-metrics and covariance behavior. AuditLens runs its ten-stage pipeline and
+All six PR workflows pass and the fixes are merged. AlphaForge's final
+combined merge is [`8f58e7f`](https://github.com/dev-belly/alphaforge/commit/8f58e7f2481b0082ed7cdd996d5f974940a25617),
+with tree `c69e5e8662eca9e8ef3a414db9ddba55ead3a3b7` exactly matching the
+locally exercised combination of all three fixes. That combined version
+passes **1,357 full-suite tests**, Ruff lint/format and mypy over **65 source
+files**. Individual local split, metrics and covariance groups additionally
+pass **87 / 85 / 49 cases**. These are test executions on overlapping suites,
+not counts to sum into an inflated unique total.
+
+AuditLens runs its ten-stage pipeline and
 passes **530 tests**; its three PR matrix jobs also pass. ControlTrace's first
 local full run passes 117 tests and hits a three-second Streamlit test timeout
 in one UI case; that case passes when rerun in isolation. Its rule/source
@@ -31,6 +39,14 @@ tests, sanitizers and deterministic replay. The local broader unit attempt
 initially lacked the declared Typer dependency; it was installed before the
 180-case focused rerun, rather than treating an incomplete environment as a
 source-code regression.
+
+Other merged checkpoints are [AuditLens `594f0d4`](https://github.com/dev-belly/AuditLens/commit/594f0d42e1eaf98a3c5dee6c0bac598f39cff0ab),
+[ControlTrace `279cb5b`](https://github.com/dev-belly/ControlTrace/commit/279cb5b41dbc31955b9a4c1d66b2cb55cd38953e)
+and [TradeForge `f71d10f`](https://github.com/dev-belly/TradeForge/commit/f71d10fcd627a2be8f12638ac68b0ca30885cd37).
+Their post-merge main workflows pass. AlphaForge's final post-merge workflow
+was still running at this checkpoint; its combined three-fix content matches
+the completed local test tree, alongside each successful
+PR workflow above. No default-branch completion is inferred from a PR result.
 
 **Archived performance remains archived.** AlphaForge's old synthetic sample
 and historical-price comparison have not been refitted under the corrected
