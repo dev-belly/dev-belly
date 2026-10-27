@@ -8,9 +8,9 @@ and [profile main checks](https://github.com/dev-belly/dev-belly/actions/runs/40
 pass. This continuation covers reproducible Action source references,
 three application failure paths and the remaining dated-source review.
 
-All **21 pre-existing pull requests** in this continuation are merged; the
-additional AuditLens pin update is also merged. This profile synchronization
-is recorded separately. All 17 workflow-update PRs completed their workflows
+All **21 pre-existing pull requests** in this continuation are merged. The
+AuditLens pin update and newly generated Ranxin dependency PR are also merged.
+This profile synchronization is recorded separately. All 18 workflow-update PRs completed their workflows
 successfully. Each workflow-update merge tree matches its checked head exactly.
 
 ### Application and source repairs
@@ -35,9 +35,10 @@ The **73 floating references in those proposals** were resolved from official
 upstream refs and pinned to their commit objects. The annotated setup-uv v7
 tag was followed to its commit, rather than treating the tag object's SHA as
 the Action source. AuditLens [#10](https://github.com/dev-belly/AuditLens/pull/10)
-and the profile add four more fixed references: **115 references across
-18 repositories** in this pass. Interpreter versions, dependency declarations
-and scientific study source retain each repository's existing contracts.
+and the profile add four more fixed references; Ranxin [#55](https://github.com/dev-belly/ranxin-mini-program/pull/55)
+adds two: **117 references across 19 repositories** in this pass. Project
+Python/Node versions, dependency declarations and scientific study source
+retain each repository's existing contracts.
 
 Every refreshed workflow PR starts from its current main source; AlphaForge,
 TradeForge, ControlTrace and Digital Craftsman include the preceding code
@@ -64,6 +65,7 @@ records. Direct workflow links and merge checkpoints are retained:
 | [NetworkClear #6](https://github.com/dev-belly/NetworkClear/pull/6) | `6f4f697` | [c2b8ec2](https://github.com/dev-belly/NetworkClear/commit/c2b8ec23ad58a2080c73e4d12a47698e685f61c2) | [run 1](https://github.com/dev-belly/NetworkClear/actions/runs/40517634281) |
 | [ashare-multifactor-research #3](https://github.com/dev-belly/ashare-multifactor-research/pull/3) | `c422165` | [edf60a9](https://github.com/dev-belly/ashare-multifactor-research/commit/edf60a9b88b03179f6d9882aac6e7f32c0c2fa1d) | [run 1](https://github.com/dev-belly/ashare-multifactor-research/actions/runs/40517643869) |
 | [AuditLens #10](https://github.com/dev-belly/AuditLens/pull/10) | `c6a83bc` | [11cebee](https://github.com/dev-belly/AuditLens/commit/11cebee024019be805014e36550dc0657cead834) | [run 1](https://github.com/dev-belly/AuditLens/actions/runs/40519513548) |
+| [ranxin-mini-program #55](https://github.com/dev-belly/ranxin-mini-program/pull/55) | `291f1c4` | [67b73be](https://github.com/dev-belly/ranxin-mini-program/commit/67b73be826bf0f01d0d3181e315dc5902d968316) | [run 1](https://github.com/dev-belly/ranxin-mini-program/actions/runs/40523783414) |
 
 
 The profile's two fixed Action refs accompany this record. Local checks pass
