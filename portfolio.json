@@ -76,7 +76,7 @@
       "group": "research",
       "summary": "因子、逐步前推验证、组合约束与交易成本",
       "stack": "Python · NumPy",
-      "boundary": "合成演示与独立历史价格比较分开；成分及发布历史不完整。",
+      "boundary": "旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。",
       "demo": "https://dev-belly.github.io/alphaforge/sample-run/",
       "evidence": "docs/research-comparison.md"
     },
