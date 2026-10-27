@@ -1,5 +1,79 @@
 # Portfolio review · 2026-10-27
 
+## Repository maintenance and application repairs · 2026-10-27
+
+The earlier financial repair checkpoint is now complete: all final
+[AlphaForge main checks](https://github.com/dev-belly/alphaforge/actions/runs/40504965215)
+and [profile main checks](https://github.com/dev-belly/dev-belly/actions/runs/40505482743)
+pass. This continuation covers reproducible Action source references,
+three application failure paths and the remaining dated-source review.
+
+All **21 pre-existing pull requests** in this continuation are merged. The
+AuditLens pin update and newly generated Ranxin dependency PR are also merged.
+This profile synchronization is recorded separately. All 18 workflow-update PRs completed their workflows
+successfully. Each workflow-update merge tree matches its checked head exactly.
+
+### Application and source repairs
+
+| Change | Evidence and scope |
+| --- | --- |
+| [Digital Craftsman #5](https://github.com/dev-belly/digital-craftsman/pull/5) | Invalid expiration dates become an expired value. The 14 actual protected cloud-function entry points pass 196 offline SDK scenarios, and all 13 local release-readiness checks pass. |
+| [Ranxin #52](https://github.com/dev-belly/ranxin-mini-program/pull/52) | Partial seed initialization resumes after failure; fixed seed document IDs converge under concurrent initial loads. Four independently deployed helper copies are exercised. Existing curated records and legacy IDs are retained. |
+| [Ranxin #53](https://github.com/dev-belly/ranxin-mini-program/pull/53) | Mock and cloud pagination validate the same safe integers and bounds before records are read. Valid pages stay within the caller's records. Combined with #52 and [maintenance #54](https://github.com/dev-belly/ranxin-mini-program/pull/54), all 30 Node tests and JavaScript syntax checks pass. |
+| [Goose-leg case #1](https://github.com/dev-belly/goose-leg-auntie-site/pull/1) | All four dated reports were reopened on 2026-10-27. The HTML and Markdown retain conflicting interview dates, distinguish displayed participation counts from transactions, and scope the regulator notice to its publication date. Four source URLs, 14 matched topics, unique IDs and internal anchors pass one-off structural checks. No CI workflow is configured for this content repository. |
+
+These checks use offline application fixtures and the cited historical reports.
+They do not supply new WeChat cloud deployment or real-device acceptance evidence.
+The combined Ranxin main tree is `82a1d00fde41333dc09a6f37a98fac13ae4e830a`,
+exactly matching its locally tested three-PR combination.
+
+### Workflow source references
+
+Sixteen pre-existing dependency PRs cover **111 Action references**. Their
+changed lines were checked to contain only Action version/source replacements.
+The **73 floating references in those proposals** were resolved from official
+upstream refs and pinned to their commit objects. The annotated setup-uv v7
+tag was followed to its commit, rather than treating the tag object's SHA as
+the Action source. AuditLens [#10](https://github.com/dev-belly/AuditLens/pull/10)
+and the profile add four more fixed references; Ranxin [#55](https://github.com/dev-belly/ranxin-mini-program/pull/55)
+adds two: **117 references across 19 repositories** in this pass. Project
+Python/Node versions, dependency declarations and scientific study source
+retain each repository's existing contracts.
+
+Every refreshed workflow PR starts from its current main source; AlphaForge,
+TradeForge, ControlTrace and Digital Craftsman include the preceding code
+repairs. Completion below uses the successful workflow records for the exact
+head commits; four job-check summaries lagged behind their completed run
+records. Direct workflow links and merge checkpoints are retained:
+
+| Change | Checked head | Merged checkpoint | Workflow evidence |
+| --- | --- | --- | --- |
+| [alphaforge #8](https://github.com/dev-belly/alphaforge/pull/8) | `0bc74ee` | [8145379](https://github.com/dev-belly/alphaforge/commit/814537951ce394cdea546feff43ab184b55980ec) | [run 1](https://github.com/dev-belly/alphaforge/actions/runs/40517476021) · [run 2](https://github.com/dev-belly/alphaforge/actions/runs/40517476250) |
+| [CreditVintage #36](https://github.com/dev-belly/CreditVintage/pull/36) | `69d0393` | [152bd74](https://github.com/dev-belly/CreditVintage/commit/152bd74fb1397c29e42399aeed7c7271da3a38cc) | [run 1](https://github.com/dev-belly/CreditVintage/actions/runs/40517483050) · [run 2](https://github.com/dev-belly/CreditVintage/actions/runs/40517477319) · [run 3](https://github.com/dev-belly/CreditVintage/actions/runs/40517482989) |
+| [PITBridge #25](https://github.com/dev-belly/PITBridge/pull/25) | `2fd3699` | [a8efe14](https://github.com/dev-belly/PITBridge/commit/a8efe14d47c8d766f6b0748f224e0445cc5502f2) | [run 1](https://github.com/dev-belly/PITBridge/actions/runs/40517492027) · [run 2](https://github.com/dev-belly/PITBridge/actions/runs/40517483901) |
+| [TradeForge #22](https://github.com/dev-belly/TradeForge/pull/22) | `13340a5` | [cff14bc](https://github.com/dev-belly/TradeForge/commit/cff14bce85e25051da2deb095dd2abd428fe074f) | [run 1](https://github.com/dev-belly/TradeForge/actions/runs/40517503940) |
+| [ControlTrace #9](https://github.com/dev-belly/ControlTrace/pull/9) | `2ec8374` | [dce30df](https://github.com/dev-belly/ControlTrace/commit/dce30df262e109020830c3a32d8bdb20d263188c) | [run 1](https://github.com/dev-belly/ControlTrace/actions/runs/40517512520) · [run 2](https://github.com/dev-belly/ControlTrace/actions/runs/40517505419) |
+| [StressAtlas #7](https://github.com/dev-belly/StressAtlas/pull/7) | `7420fc5` | [bc82217](https://github.com/dev-belly/StressAtlas/commit/bc822179ac5e8f6663e62783c44d35c9e4666def) | [run 1](https://github.com/dev-belly/StressAtlas/actions/runs/40517563839) · [run 2](https://github.com/dev-belly/StressAtlas/actions/runs/40517558427) |
+| [StatementTrace #7](https://github.com/dev-belly/StatementTrace/pull/7) | `2a8c5d8` | [727353b](https://github.com/dev-belly/StatementTrace/commit/727353b27ccdd67c7ac9958c80630a5f2aa52049) | [run 1](https://github.com/dev-belly/StatementTrace/actions/runs/40517574152) |
+| [highdim-causal-allocation-lab #3](https://github.com/dev-belly/highdim-causal-allocation-lab/pull/3) | `8014db5` | [66d0553](https://github.com/dev-belly/highdim-causal-allocation-lab/commit/66d05534cc98cbe6d04d6f30ef4deeabb94d68cf) | [run 1](https://github.com/dev-belly/highdim-causal-allocation-lab/actions/runs/40517580839) |
+| [LedgerX #6](https://github.com/dev-belly/LedgerX/pull/6) | `148a6df` | [5bd843f](https://github.com/dev-belly/LedgerX/commit/5bd843f16c9292bd857f0f4ae2d0afd00648af1e) | [run 1](https://github.com/dev-belly/LedgerX/actions/runs/40517589835) · [run 2](https://github.com/dev-belly/LedgerX/actions/runs/40517583432) |
+| [interval-financial-risk #3](https://github.com/dev-belly/interval-financial-risk/pull/3) | `880eadb` | [86e3496](https://github.com/dev-belly/interval-financial-risk/commit/86e3496ed059bbb89ce5e3b07ccce63cf3bd81a5) | [run 1](https://github.com/dev-belly/interval-financial-risk/actions/runs/40517598788) |
+| [wecom-agent-platform #6](https://github.com/dev-belly/wecom-agent-platform/pull/6) | `b46c287` | [7fac4f2](https://github.com/dev-belly/wecom-agent-platform/commit/7fac4f2eaced785f7b3afa91d531a23d43345ed1) | [run 1](https://github.com/dev-belly/wecom-agent-platform/actions/runs/40517607014) |
+| [digital-craftsman #6](https://github.com/dev-belly/digital-craftsman/pull/6) | `61c065f` | [b0ce3de](https://github.com/dev-belly/digital-craftsman/commit/b0ce3decce372ec7722c375b11f41627ebf26887) | [run 1](https://github.com/dev-belly/digital-craftsman/actions/runs/40518976997) |
+| [personal-ai-chat #3](https://github.com/dev-belly/personal-ai-chat/pull/3) | `9e8fbce` | [802328c](https://github.com/dev-belly/personal-ai-chat/commit/802328c2469e736ea08003cbbd28c77c9ce9c7c8) | [run 1](https://github.com/dev-belly/personal-ai-chat/actions/runs/40517615910) |
+| [investor-network-gnn #3](https://github.com/dev-belly/investor-network-gnn/pull/3) | `2249c3f` | [c9a3731](https://github.com/dev-belly/investor-network-gnn/commit/c9a37316a5aee35709b9a060375c15db6f8633df) | [run 1](https://github.com/dev-belly/investor-network-gnn/actions/runs/40517626403) |
+| [NetworkClear #6](https://github.com/dev-belly/NetworkClear/pull/6) | `6f4f697` | [c2b8ec2](https://github.com/dev-belly/NetworkClear/commit/c2b8ec23ad58a2080c73e4d12a47698e685f61c2) | [run 1](https://github.com/dev-belly/NetworkClear/actions/runs/40517634281) |
+| [ashare-multifactor-research #3](https://github.com/dev-belly/ashare-multifactor-research/pull/3) | `c422165` | [edf60a9](https://github.com/dev-belly/ashare-multifactor-research/commit/edf60a9b88b03179f6d9882aac6e7f32c0c2fa1d) | [run 1](https://github.com/dev-belly/ashare-multifactor-research/actions/runs/40517643869) |
+| [AuditLens #10](https://github.com/dev-belly/AuditLens/pull/10) | `c6a83bc` | [11cebee](https://github.com/dev-belly/AuditLens/commit/11cebee024019be805014e36550dc0657cead834) | [run 1](https://github.com/dev-belly/AuditLens/actions/runs/40519513548) |
+| [ranxin-mini-program #55](https://github.com/dev-belly/ranxin-mini-program/pull/55) | `291f1c4` | [67b73be](https://github.com/dev-belly/ranxin-mini-program/commit/67b73be826bf0f01d0d3181e315dc5902d968316) | [run 1](https://github.com/dev-belly/ranxin-mini-program/actions/runs/40523783414) |
+
+
+The profile's two fixed Action refs accompany this record. Local checks pass
+for five deterministic SVGs, three flagship panels, 13 documents and 113
+local references; the generated catalog covers 19 public projects. The
+profile synchronization has its own PR CI. Push workflows on new merge
+commits run separately from the completed PR workflows listed above.
+
 ## Financial correctness repairs · 2026-10-27
 
 This pass completes six previously drafted fixes in four financial projects.

@@ -109,6 +109,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
+- **Maintenance and application repairs · 2026-10-27:** [validation record](PROJECT_REVIEW.md#repository-maintenance-and-application-repairs--2026-10-27) connects fixed Action source commits with invalid-session rejection, recoverable initialization, consistent pagination and a dated-source review.
+
 - **Financial correctness · 2026-10-27:** close six concrete failures across [AlphaForge #5–7](https://github.com/dev-belly/alphaforge/pull/5), [AuditLens #9](https://github.com/dev-belly/AuditLens/pull/9), [ControlTrace #8](https://github.com/dev-belly/ControlTrace/pull/8) and [TradeForge #21](https://github.com/dev-belly/TradeForge/pull/21): trading-session separation, complete rolling windows, rectangular factor exposures, decimal digit boundaries, missing approval identities and rejected-fill rollback. [Changes and checks](PROJECT_REVIEW.md#financial-correctness-repairs--2026-10-27) · [Practice the counterexamples](INTERVIEW_PLAYBOOK.zh-CN.md#用四个修复练习追问).
 
 - **Observed loans across time:** [CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) reconstructs 35,000 loans from two complete official SBA CSVs, retains mature calendar gaps and separate calibration, and refits its full portable evidence. All methods, both test years and weaker calibrated ranking remain visible. [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Method and limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md).

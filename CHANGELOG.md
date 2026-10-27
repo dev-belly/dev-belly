@@ -1,5 +1,12 @@
 # Build history
 
+**2026-10-27 · Complete workflow maintenance and application repairs.**
+Resolve official Action refs to source commits across the portfolio, retain
+the latest financial fixes in refreshed CI branches, and complete invalid
+session-expiry, partial-initialization and pagination repairs. Recheck the
+historical case-study sources and retain their contradictory statements and
+dated scope. [Changes and evidence](PROJECT_REVIEW.md#repository-maintenance-and-application-repairs--2026-10-27).
+
 **2026-10-27 · Complete six financial correctness repairs.**
 Review and finish AlphaForge's trading-session separation, rolling-return and
 factor-covariance fixes; AuditLens's decimal digit boundaries; ControlTrace's
