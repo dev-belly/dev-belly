@@ -37,7 +37,7 @@
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
-| [**alphaforge**](https://github.com/dev-belly/alphaforge) · [README](https://github.com/dev-belly/alphaforge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/alphaforge/sample-run/) · [证据 / 方法](https://github.com/dev-belly/alphaforge/blob/main/docs/research-comparison.md) | 因子、逐步前推验证、组合约束与交易成本<br />Python · NumPy | 合成演示与独立历史价格比较分开；成分及发布历史不完整。 |
+| [**alphaforge**](https://github.com/dev-belly/alphaforge) · [README](https://github.com/dev-belly/alphaforge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/alphaforge/sample-run/) · [证据 / 方法](https://github.com/dev-belly/alphaforge/blob/main/docs/research-comparison.md) | 因子、逐步前推验证、组合约束与交易成本<br />Python · NumPy | 旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。 |
 | [**TradeForge**](https://github.com/dev-belly/TradeForge) · [README](https://github.com/dev-belly/TradeForge/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) | C++ 订单簿、执行事件与 Python 独立核验<br />C++20 · Python | 公开报价只支持假设成交；不代表真实委托或可交易收益。 |
 | [**investor-network-gnn**](https://github.com/dev-belly/investor-network-gnn) · [README](https://github.com/dev-belly/investor-network-gnn/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17/) | 投资者网络、图模型消融与多种子预测<br />Python · PyTorch | 合成数据；保留 GCN 未显示稳定优势的结果。 |
 | [**highdim-causal-allocation-lab**](https://github.com/dev-belly/highdim-causal-allocation-lab) · [README](https://github.com/dev-belly/highdim-causal-allocation-lab/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/highdim-causal-allocation-lab/) | 高维因果估计、Monte Carlo 与稳健配置<br />Python · React | 模拟因果与配置实验；不建立现实因果结论。 |

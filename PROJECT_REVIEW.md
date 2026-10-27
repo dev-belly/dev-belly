@@ -1,4 +1,64 @@
-# Portfolio review · 2026-10-26
+# Portfolio review · 2026-10-27
+
+## Financial correctness repairs · 2026-10-27
+
+This pass completes six previously drafted fixes in four financial projects.
+Each branch was reviewed and brought onto its latest maintenance baseline.
+Two AlphaForge regression files needed formatting to unblock CI; AuditLens
+needed its README badge and per-file counts reconciled with actual collection.
+The changes address calculation and state invariants, without inventing new
+business-performance results.
+
+| Project / repair | Concrete failure and resulting behavior | PR workflow |
+| --- | --- | --- |
+| [AlphaForge #5](https://github.com/dev-belly/alphaforge/pull/5) | A label spanning trading sessions could cross the test boundary despite a calendar-day purge. Purge and embargo now count the supplied sessions, including closure gaps. | [Python / integration](https://github.com/dev-belly/alphaforge/actions/runs/40501138926) |
+| [AlphaForge #6](https://github.com/dev-belly/alphaforge/pull/6) | Differencing post-return NAV omitted the first complete rolling window. Returns now compound exactly the requested observations, including window=1. | [Python / integration](https://github.com/dev-belly/alphaforge/actions/runs/40501145366) |
+| [AlphaForge #7](https://github.com/dev-belly/alphaforge/pull/7) | Rectangular asset/factor exposure matrices failed, and covariance-table reordering changed an asset's variance. Residuals are reconstructed in asset space and both factor axes align by label. | [Python / integration](https://github.com/dev-belly/alphaforge/actions/runs/40501151214) |
+| [AuditLens #9](https://github.com/dev-belly/AuditLens/pull/9) | An epsilon moved 9,999,999.99 into the 1/10 digit buckets. Decimal text preserves 9/99, exact powers, adjacent floats and reconciled statistical counts. | [Linux / Windows](https://github.com/dev-belly/AuditLens/actions/runs/40501160494) |
+| [ControlTrace #8](https://github.com/dev-belly/ControlTrace/pull/8) | A timely emergency approval with a whitespace-only person ID suppressed the missing-approver item. It now remains available for manual review, with the original ID retained in evidence and replayable workpapers. | [Linux / Windows](https://github.com/dev-belly/ControlTrace/actions/runs/40501167525) |
+| [TradeForge #21](https://github.com/dev-belly/TradeForge/pull/21) | A rejected fill previously entered the journal and consumed its ID. Order validation now precedes journal, identifier and inventory updates. | [Python / native / distribution](https://github.com/dev-belly/TradeForge/actions/runs/40501172993) |
+
+All six PR workflows pass and the fixes are merged. AlphaForge's final
+combined merge is [`8f58e7f`](https://github.com/dev-belly/alphaforge/commit/8f58e7f2481b0082ed7cdd996d5f974940a25617),
+with tree `c69e5e8662eca9e8ef3a414db9ddba55ead3a3b7` exactly matching the
+locally exercised combination of all three fixes. That combined version
+passes **1,357 full-suite tests**, Ruff lint/format and mypy over **65 source
+files**. Individual local split, metrics and covariance groups additionally
+pass **87 / 85 / 49 cases**. These are test executions on overlapping suites,
+not counts to sum into an inflated unique total.
+
+AuditLens runs its ten-stage pipeline and
+passes **530 tests**; its three PR matrix jobs also pass. ControlTrace's first
+local full run passes 117 tests and hits a three-second Streamlit test timeout
+in one UI case; that case passes when rerun in isolation. Its rule/source
+change is checked separately from this runner timing issue; both current PR
+matrix runs pass. TradeForge passes **180 local OMS, domain, order-book,
+matching, queue and documented-command tests**, followed by all eight PR CI
+jobs: Python 3.11–3.13, Linux/Windows installed wheels, native differential
+tests, sanitizers and deterministic replay. The local broader unit attempt
+initially lacked the declared Typer dependency; it was installed before the
+180-case focused rerun, rather than treating an incomplete environment as a
+source-code regression.
+
+Other merged checkpoints are [AuditLens `594f0d4`](https://github.com/dev-belly/AuditLens/commit/594f0d42e1eaf98a3c5dee6c0bac598f39cff0ab),
+[ControlTrace `279cb5b`](https://github.com/dev-belly/ControlTrace/commit/279cb5b41dbc31955b9a4c1d66b2cb55cd38953e)
+and [TradeForge `f71d10f`](https://github.com/dev-belly/TradeForge/commit/f71d10fcd627a2be8f12638ac68b0ca30885cd37).
+Their post-merge main workflows pass. AlphaForge's final post-merge workflow
+was still running at this checkpoint; its combined three-fix content matches
+the completed local test tree, alongside each successful
+PR workflow above. No default-branch completion is inferred from a PR result.
+
+**Archived performance remains archived.** AlphaForge's old synthetic sample
+and historical-price comparison have not been refitted under the corrected
+trading-session split. Their original figures are retained as historical
+artifacts and do not establish leakage-free out-of-sample performance. The
+profile, project directory and project briefs now expose that limitation;
+return-arithmetic replay cannot certify a model's original split protocol.
+
+The [interview counterexamples](INTERVIEW_PLAYBOOK.zh-CN.md#用四个修复练习追问)
+connect these changes to time units, matrix dimensions, digit buckets and
+transactional rejection. Author understanding, external use and production
+benefit still require their own evidence.
 
 ## Observed SBA funding cohorts · 2026-10-26
 

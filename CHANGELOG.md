@@ -1,5 +1,14 @@
 # Build history
 
+**2026-10-27 · Complete six financial correctness repairs.**
+Review and finish AlphaForge's trading-session separation, rolling-return and
+factor-covariance fixes; AuditLens's decimal digit boundaries; ControlTrace's
+blank approver handling; and TradeForge's rejected-fill rollback. Refresh the
+drafts against current maintenance guidance, repair blocked checks, and expose
+the archived AlphaForge split-protocol limitation throughout the portfolio.
+The interview guide now includes concrete counterexamples.
+[Repairs, validation and limits](PROJECT_REVIEW.md#financial-correctness-repairs--2026-10-27).
+
 **2026-10-26 · Make the public portfolio easier to explore and maintain.**
 The [project directory](CATALOG.md) groups all 19 public projects by purpose and
 connects their README, methods, demonstrations and data boundaries. Its

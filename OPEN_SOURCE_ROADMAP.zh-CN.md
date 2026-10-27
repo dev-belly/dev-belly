@@ -5,6 +5,8 @@ SBA 与 scikit-learn 官方资料核查日期：**2026-10-26**；数据质量方
 本轮关注能落实的功能和使用路径，不用 Star 比值换算技术差距，
 也不把自己的测试运行当作外部采用。
 
+**2026-10-27 维护进展：** 六项既有修复完成代码与检查收尾，见[验证记录](PROJECT_REVIEW.md#financial-correctness-repairs--2026-10-27)。AlphaForge 的切分缓冲现按交易日计数；旧合成回测与历史价格比较尚未按修正协议重拟合，不能用旧数值证明无泄漏的样本外效果。
+
 ## 对照哪些项目
 
 | 参考项目 | 可借鉴的具体能力 | 本项目组合的对应入口 | 仍有的差距 |
@@ -13,7 +15,7 @@ SBA 与 scikit-learn 官方资料核查日期：**2026-10-26**；数据质量方
 | [Evidently](https://docs.evidentlyai.com/metrics/preset_data_summary) · [Tests](https://docs.evidentlyai.com/docs/library/tests) | 按列汇总数据质量和分布，可配置测试与参考条件 | CreditVintage 保留输入分布/时点覆盖诊断，v0.7.0 增加三特征整体/月度覆盖与最小样本规则 | 仍是固定事件模式，没有通用指标/阈值组合或监控服务；描述性距离不等于显著性判断 |
 | [Great Expectations](https://docs.greatexpectations.io/docs/reference/learn/data_quality_use_cases/missingness/) | 列非空、非空比例和可容忍缺失范围等 Expectations | 保留完整申请分母及逐特征台账，区分晚到、决策后观测及截止日不可见记录 | 事件槽位缺失不同于 CSV 空值；已有显式覆盖检查，仍没有任意列 Expectations、Checkpoint/Action 体系或完整质量规则 |
 | [TensorFlow Data Validation](https://www.tensorflow.org/tfx/data_validation/get_started) · [validate_statistics](https://www.tensorflow.org/tfx/data_validation/api_docs/python/tfdv/validate_statistics) | 模式、特征存在率和异常检查；结合前期/服务统计检查 drift 与 skew | 按整体和月份保留特征覆盖计数，空人群率为 null；从源事件重建时间口径和报告 | 没有模式推断、TFX 流水线或通用 drift/skew 验证器；三项固定特征诊断不能替代这些能力 |
-| [Qlib](https://qlib.readthedocs.io/en/stable/component/workflow.html) | 配置化研究工作流、训练/评价产物与实验管理 | AlphaForge 真实价格对照，CreditVintage 五组切分与完整逐笔模型结果 | 历史成分与财务可得时间不完整；缺少同范围的大规模实验管理 |
+| [Qlib](https://qlib.readthedocs.io/en/stable/component/workflow.html) | 配置化研究工作流、训练/评价产物与实验管理 | AlphaForge 历史价格存档与切分修正；CreditVintage 五组切分与完整逐笔模型结果 | AlphaForge 旧实验待按修正协议重跑；历史成分与财务可得时间不完整；缺少同范围的大规模实验管理 |
 | [scorecardpy](https://github.com/ShichenXie/scorecardpy) | 分箱、WOE、评分卡缩放与性能评价的可调用组件 | CreditVintage 的 WOE 对照、同复核容量比较和独立 UCI 实验 | 仍是固定特征和客群的研究案例，不能作为通用评分卡工具使用 |
 | [Feast](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) | 历史特征、TTL、存储与服务接入；可选创建时间过滤 | PITBridge 的多时间字段、修订/删除规则与独立回放，支持原生 CSV | 缺少在线服务、多存储适配、部署和真实复用证据；不能声称其他工具不支持知识时间 |
 
