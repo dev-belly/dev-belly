@@ -12,7 +12,14 @@ then carries the timestamp repair into the credit integration and browser lesson
 | [PITBridge #26](https://github.com/dev-belly/PITBridge/pull/26) | A source arriving at `00:00:00.0000009Z` could normalize to `00:00:00Z` and appear known. Excess fractional digits, fractions on shortened clock forms and fractional-second offsets now fail before normalization or output. Supported microsecond equality remains inclusive. | `39a3177` / `219e58a` | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40629046214) |
 | [CreditVintage #37](https://github.com/dev-belly/CreditVintage/pull/37) | Unsupported integer cents could pass readiness and overflow later; enormous integer features/config fractions could raise raw conversion errors. Positive int64 cents are checked before fitting, and numeric overflow becomes a contract error. Supported integer cents remain exact above `2^53`. | `ec067ef` / `a9ca40f` | [CI](https://github.com/dev-belly/CreditVintage/actions/runs/40629093374) · [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40629093447) |
 | [PITBridge #27](https://github.com/dev-belly/PITBridge/pull/27) | The browser notebook installed an older snapshot. It now pins the repaired source and includes a runnable seventh-digit rejection alongside the original invoice decisions. | `851471e` / `80fe336` | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40629643922) |
-| [CreditVintage #38](https://github.com/dev-belly/CreditVintage/pull/38) | The integration retained an old importer. README setup, three CI/Pages source checkouts and new summaries now reference the repaired upstream merge. Previously published synthetic evidence keeps its original reference and complete replay requirements. | `b98824f` / pending | [CI](https://github.com/dev-belly/CreditVintage/actions/runs/40629769949) · [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40629769966) |
+| [CreditVintage #38](https://github.com/dev-belly/CreditVintage/pull/38) | The integration retained an old importer. README setup, three CI/Pages source checkouts and new summaries now reference the repaired upstream merge. Previously published synthetic evidence keeps its original reference and complete replay requirements. | `b98824f` / `ba28585` | [CI](https://github.com/dev-belly/CreditVintage/actions/runs/40629769949) · [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40629769966) |
+
+All four project pull requests are merged after their workflows complete
+successfully. Each merge retains exactly the checked head tree. PITBridge's
+final [main CI](https://github.com/dev-belly/PITBridge/actions/runs/40629977240)
+and [Pages build](https://github.com/dev-belly/PITBridge/actions/runs/40629977393)
+also pass. CreditVintage's push workflows on the new integration merge run
+separately from its completed PR checks.
 
 PITBridge passes **145 local tests**, including eight new precision methods
 with subcases across JSON, native CSV, optional pandas, scalar and rolling
@@ -41,6 +48,11 @@ predictions. Only the dependency-reference summary, its root manifest and the
 derived ZIP differ. Prediction SHA-256 is
 `4ae53321c22a41f5bc075feac5c63b433ccad712231b946aa0d025edf40c12a5`.
 An unknown declared reference is rejected even after its summary is rehashed.
+
+The profile synchronization passes local checks for five deterministic SVGs,
+three flagship panels, 13 documents and 116 local references. The generated
+catalog still covers 19 public projects, and rebuilding the graphics changes
+no asset. Its PR workflow is checked separately from the project workflows.
 
 The existing PITBridge v0.2.0 and CreditVintage v0.8.0 release assets predate
 these repairs and remain unchanged. Use the updated notebook or current source
