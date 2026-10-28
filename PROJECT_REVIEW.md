@@ -1,5 +1,45 @@
 # Portfolio review · 2026-10-28
 
+## Streaming portfolio drivers and fixed reduction order · 2026-10-28
+
+[StressAtlas #8](https://github.com/dev-belly/StressAtlas/pull/8) adds optional
+`--driver-mode stream` to all five commands. It hashes the original seeded
+streams in bounded blocks, then regenerates the same drivers per scenario.
+Default memory mode remains available, and either mode verifies the other's
+reports. Shared borrower defaults, common random numbers and the financial
+protocol retain their scope. The earlier v0.1.0 release is unchanged; use
+current source for this option.
+
+The comparison also exposed an existing one-row reduction difference. At
+503 paths / seed 7, the severe scenario had 90 total losses differing between
+chunks of 1 and 4,096, by at most `7.450580596923828e-09` CNY. Fixed sorted-obligor
+accumulation now removes this dependence. Older custom evidence with a single-row
+final block may require its original source; the verifier keeps exact comparisons.
+Both committed 20,000-path and 300-resample reports replay without changing
+their eleven evidence files.
+
+All **87 local tests** pass, including independent full-array draws at three
+seeds, multiple block sizes, complete scenario/precision artifact equality and
+measured driver-allocation limits. A regular wheel installed outside the source
+checkout passes all CLI routes, cross-mode verification and complete artifact
+comparisons. The four [PR checks](https://github.com/dev-belly/StressAtlas/actions/runs/40723417492)
+pass: Linux Python 3.11/3.12, Windows Python 3.12 and real Chrome.
+Merge [`b7e1759`](https://github.com/dev-belly/StressAtlas/commit/b7e17593e3507fb747009cec6b25f3e2263e26a0)
+retains tested tree `d4ea2ab46e10e91f87288c102751f54a4136fc8f` exactly.
+[Main CI](https://github.com/dev-belly/StressAtlas/actions/runs/40723839106) and
+[Pages](https://github.com/dev-belly/StressAtlas/actions/runs/40723839148)
+run separately from those completed PR checks.
+
+A separate fresh-process synthetic trial uses 50,000 paths, 400 obligors,
+four sectors and three scenarios. Peak process RSS changes from **352.207 to
+139.750 MiB**, traced allocations from 307.172 to 82.922 MiB, and elapsed time
+from **4.5773 to 5.4441 seconds**. Both modes produce the same six-artifact digest.
+The [benchmark script and method](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md#driver-memory-and-streaming)
+explain the fixture and measurement scope. Full loss/sector paths and bootstrap
+statistics still occupy memory; one local trial establishes neither production
+capacity nor empirical PD/LGD calibration. The profile and practice notes keep
+this benchmark separate from the original 160-loan / 80-obligor risk report.
+
 ## Two-minute observed-credit study · 2026-10-28
 
 [CreditVintage #40](https://github.com/dev-belly/CreditVintage/pull/40) adds a

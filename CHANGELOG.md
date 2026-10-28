@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-28 · Stream portfolio drivers without changing saved evidence.**
+[StressAtlas #8](https://github.com/dev-belly/StressAtlas/pull/8) adds optional
+streaming to all five commands, with identical fingerprints and report bytes
+on the checked build. It also fixes a one-row reduction-order difference.
+A 50,000-path synthetic comparison reports both memory savings and extra CPU
+time. The profile, first-run guide and interview notes link the reproduction;
+the suite has 87 tests and the existing eleven evidence files remain unchanged.
+
 
 **2026-10-28 · Compare credit review budgets in the browser.**
 [CreditVintage #40](https://github.com/dev-belly/CreditVintage/pull/40) adds a

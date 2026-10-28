@@ -76,6 +76,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 用借款人层面的相关违约路径比较基准与压力情景；计算离散尾部 ES 和行业贡献，再用成对重采样检查估计精度。相同借款人的多笔贷款共享一次违约事件；不把平均损失的标准误当作 VaR 的置信区间。
 
+可选流式驱动保留相同随机指纹和报告字节。本地 50,000 路径、400 个借款人、3 个合成情景的进程峰值内存从约 352 MiB 降至 140 MiB，用时从 4.58 秒增至 5.44 秒；完整损失路径仍占内存。[运行与复现](START_HERE.md#stressatlas-replay-with-less-driver-memory)。
+
 [Source](https://github.com/dev-belly/StressAtlas) · [Stress report](https://dev-belly.github.io/StressAtlas/) · [Tail precision](https://dev-belly.github.io/StressAtlas/precision/) · [Method](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md)
 
 <sub>Examples identify their public-filing, public static-credit or synthetic inputs. Static and synthetic experiments do not establish future borrower risk or live investment performance.</sub>

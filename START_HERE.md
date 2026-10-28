@@ -466,6 +466,51 @@ Native subsequent-default labels differ from German good/bad classification
 and the synthetic 180-day DPD experiment; none of these random splits proves
 future-vintage performance.
 
+### StressAtlas: replay with less driver memory
+
+Use Python 3.11+ and current source; the earlier v0.1.0 release predates the
+streaming option. Install the pinned numerical stack before the package.
+
+**Linux / macOS**, from an empty working directory:
+
+```bash
+git clone https://github.com/dev-belly/StressAtlas.git
+cd StressAtlas
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-replay.txt
+.venv/bin/python -m pip install .
+.venv/bin/python -m stressatlas demo --driver-mode stream --out outputs-stream
+.venv/bin/python -m stressatlas verify --out outputs-stream
+.venv/bin/python scripts/benchmark_driver_modes.py --paths 50000 --obligors 400 --sectors 4
+```
+
+**Windows PowerShell**, also from an empty working directory:
+
+```powershell
+git clone https://github.com/dev-belly/StressAtlas.git
+cd StressAtlas
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-replay.txt
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\python.exe -m stressatlas demo --driver-mode stream --out outputs-stream
+.\.venv\Scripts\python.exe -m stressatlas verify --out outputs-stream
+.\.venv\Scripts\python.exe scripts/benchmark_driver_modes.py --paths 50000 --obligors 400 --sectors 4
+```
+
+Open `outputs-stream/report.html`. Verification deliberately uses the default
+memory mode to check the streamed report against the other execution route.
+For a larger run, add `--driver-mode stream` to verification as well. All five
+commands support the option, including `precision` and `verify-precision`.
+
+The benchmark runs each mode in a fresh process and rejects differing report
+digests. The local 352.207 → 139.750 MiB peak RSS comparison uses its 50,000-path,
+400-obligor, four-sector, three-scenario synthetic fixture; it is separate from
+the report's default 160 loans / 80 obligors / 20,000 paths / five scenarios.
+Streaming trades extra random-number generation for less retained driver memory.
+Full losses, sector paths and bootstrap statistics remain in memory. Windows
+generates and verifies its own bundle; the saved Linux fingerprint need not
+match another numerical build. [Method and measurements](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md#driver-memory-and-streaming).
+
 ### If a step fails
 
 Check that Python satisfies the required version and that installation finished
