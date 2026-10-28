@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-28 · Install the current credit validation fixes.**
+[CreditVintage #39](https://github.com/dev-belly/CreditVintage/pull/39) delivers
+[v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1): oversized
+SBA numeric claims and malformed compressed evidence return the documented
+error code; the wheel also includes the merged input bounds and timestamp-safe
+optional integration. Current installation links move to the patch release.
+The observed SBA protocol and results retain their original scope.
+
 **2026-10-28 · Two first tasks: review a candidate or try a tool.**
 Add a [one-page internship overview](FOR_RECRUITERS.md), surface it in the
 profile navigation, and connect the first-run guide and catalog to the new
