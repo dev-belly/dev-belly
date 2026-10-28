@@ -1,5 +1,38 @@
 # Portfolio review · 2026-10-28
 
+## Timestamp-safe PITBridge release · 2026-10-28
+
+[PITBridge #29](https://github.com/dev-belly/PITBridge/pull/29) publishes
+[v0.2.1](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1), carrying
+the previously merged precision fix into the installable wheel. A reproduction
+using the public v0.2.0 wheel set a decision at `00:00:00Z` and ingestion at
+`00:00:00.0000009Z`; truncation made the later record equal to the cutoff and
+selected it. The repaired source rejects that input before selection.
+
+The new wheel's isolated installation verifies scalar and rolling results at the
+exact cutoff and one microsecond after it. Four CLI cases cover JSON/CSV for both
+commands; a seventh fractional digit returns exit 2 without a report. The
+release gate requires the installed precision checks as well as independent
+replay and the benchmark. Supported previous scalar and rolling demo bundles
+replay under the new source. Existing normalized evidence cannot recover digits
+already discarded; revisit original timestamps and upstream conversion rules.
+The interview guide now identifies the current and historical integration pins
+and uses the shared-parser counterexample as a practice question.
+
+The local suite passes **146 tests**; the prior public wheel reproduced the
+counterexample and a clean new wheel passed all boundary and replay checks.
+All ten [PR CI jobs](https://github.com/dev-belly/PITBridge/actions/runs/40653383137)
+pass, including Linux/Windows installations, optional pandas and Chrome. Merge
+[`7a6aee2`](https://github.com/dev-belly/PITBridge/commit/7a6aee228887038e0b2aae7cd40720c5f1ab998f)
+retains the tested tree `af1709cce1175d77f2eda0f4faf56898756f53ed` exactly.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/40653497143),
+[Pages deployment](https://github.com/dev-belly/PITBridge/actions/runs/40653497155)
+and the [checked release](https://github.com/dev-belly/PITBridge/actions/runs/40653580180)
+all pass. All five public release assets were downloaded and verified against
+the merge commit and SHA-256 digests. The published wheel, installed into a
+separate environment, rejects the old counterexample, keeps the one-microsecond
+late record unavailable, and verifies both committed demo bundles.
+
 
 ## Checked credit patch · 2026-10-28
 
@@ -7,9 +40,8 @@
 [v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1), so a
 new installation includes the credit-number bounds and timestamp-safe optional
 integration previously available only in current source. The first-run guide,
-project brief and profile now use this checked patch wheel. The separate
-PITBridge v0.2.0 wheel retains its older precision behavior; its current-source
-and notebook routes remain explicit.
+project brief and profile now use this checked patch wheel. At that checkpoint,
+the separate PITBridge v0.2.0 wheel retained its older precision behavior. The subsequent v0.2.1 release is described above.
 
 Two malformed SBA cases reproduced an unhandled exception: a rehashed AUC
 claim of `10**400` and a reserved DEFLATE block in the downloaded evidence ZIP.
@@ -35,10 +67,12 @@ rehashed false/oversized SBA metrics and broken DEFLATE with exit 2.
 All eight PR CI jobs and the report build pass. Merge
 [`8a285c4`](https://github.com/dev-belly/CreditVintage/commit/8a285c424f30a2d6b1c27c2a2d9a1867b6587cc2)
 retains the checked tree `93d40c750698c6adf028ff4a2e188c24a32b9b71` exactly.
-The [main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40640906678)
-and [main report deployment](https://github.com/dev-belly/CreditVintage/actions/runs/40640906631)
-run independently; the checked-release workflow publishes the exact main CI
-artifacts only after all of its tests, installation and replay jobs succeed.
+The [main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40640906678),
+[main report deployment](https://github.com/dev-belly/CreditVintage/actions/runs/40640906631)
+and [checked release](https://github.com/dev-belly/CreditVintage/actions/runs/40641509614)
+all pass. All five public assets were downloaded and checked against the merge
+commit and SHA-256 values; the public wheel also replays the original SBA case
+and cleanly rejects the oversized and damaged-evidence cases in a separate environment.
 
 
 The SBA source pins, model protocol, targets and numerical results are unchanged.

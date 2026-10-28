@@ -76,13 +76,17 @@
 | [CreditVintage `src/creditvintage/business_groups.sql`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) | 条件聚合、`NULLIF`、`LAG`，同一申请为何进入不同分析视角 |
 | [CreditVintage `src/creditvintage/business.py`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business.py)及[回归](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_business.py) | 不执行 SQL 的重算、输入冻结、零分母、重哈希后篡改为什么失败 |
 
-联合案例固定依赖 PITBridge 提交 `ed19dc698534f45a2b646fb4976ff6b01966b0cc`；解释其重放时以[该版本](https://github.com/dev-belly/PITBridge/blob/ed19dc698534f45a2b646fb4976ff6b01966b0cc/src/pitbridge/core.py)为准。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
+当前新生成的联合案例固定依赖 PITBridge 提交 [`219e58a`](https://github.com/dev-belly/PITBridge/blob/219e58a7c2acc4a3fcd4f7ffdb68ba8eef0564f0/src/pitbridge/core.py)，它包含时间精度修复。旧证据包可能声明 `ed19dc6`；核验仍完整重放该历史格式，不能据此恢复过去已截断的时间。独立安装 PITBridge v0.2.1 和 CreditVintage 联合案例的固定依赖是两条不同安装路径。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
 
 ### 高频追问：回答要带理由
 
 **“为什么发布时间和入库时间都要考虑？”**
 
 > 发布说明外部已提供，入库说明本系统已获得。中午发布、次日零点入库的更正，在当天 UTC 日终决策时仍不可得。只看事件日期会把未来更正倒灌回历史；只看发布时间又忽略实际采集延迟。
+
+**“SQL 与独立 Python 结果一样，为什么还可能出错？”**
+
+> 两者可能共享同一个有损的时间解析步骤。旧版把晚于决策 0.9 微秒的入库时间截成决策时刻，SQL 和 Python 就可能一起选到本不该可见的记录。现在在进入选择前拒绝超过六位小数秒的时间；刚好在截止时刻可用，晚一个受支持的微秒不可用。上游若有更高精度，转换规则需要单独确定，旧证据里被丢掉的数字也无法恢复。[时间边界测试](https://github.com/dev-belly/PITBridge/blob/main/tests/test_timestamp_precision.py)。
 
 **“为什么先筛选可得记录，再找最新版本？”**
 
@@ -102,7 +106,7 @@
 
 **“校准不是一定改善吗？”**
 
-> 不是。独立校准样本有限，跨期分布也可能改变；这里 isotonic 的 Brier 在测试上变差。保留它是为了如实展示比较。没有额外诊断时，不能把原因说成已经证实；也不能反复用测试集调校准器再把它叫未触碰测试。
+> 不一定。这个合成事件案例中，isotonic 的测试 Brier 从 0.154954 变为 0.157742；另一项 SBA 真实放款研究中则从约 0.009011 降到 0.008819，但排名表现下降。两项实验的数据和目标不同，先说清当前讨论哪一项。校准样本有限或分布变化可能有影响，但没有额外诊断不能说原因已经证实，也不能反复用测试集调校准器。
 
 **“PSI 上升说明坏账变多了吗？”**
 
