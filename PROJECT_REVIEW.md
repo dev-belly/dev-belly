@@ -32,6 +32,14 @@ cases and the optional 480-application / 1,440-feature lineage. It also rejects
 rehashed false/oversized SBA metrics and broken DEFLATE with exit 2.
 [PR CI and portable replay](https://github.com/dev-belly/CreditVintage/actions/runs/40640295261) ·
 [PR public-report build](https://github.com/dev-belly/CreditVintage/actions/runs/40640295246).
+All eight PR CI jobs and the report build pass. Merge
+[`8a285c4`](https://github.com/dev-belly/CreditVintage/commit/8a285c424f30a2d6b1c27c2a2d9a1867b6587cc2)
+retains the checked tree `93d40c750698c6adf028ff4a2e188c24a32b9b71` exactly.
+The [main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40640906678)
+and [main report deployment](https://github.com/dev-belly/CreditVintage/actions/runs/40640906631)
+run independently; the checked-release workflow publishes the exact main CI
+artifacts only after all of its tests, installation and replay jobs succeed.
+
 
 The SBA source pins, model protocol, targets and numerical results are unchanged.
 This remains retrospective funding-cohort research; historical publication and
