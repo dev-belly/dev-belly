@@ -1,6 +1,5 @@
 # Portfolio review · 2026-10-28
 
-
 ## Timestamp-safe PITBridge release · 2026-10-28
 
 [PITBridge #29](https://github.com/dev-belly/PITBridge/pull/29) publishes
@@ -24,9 +23,13 @@ All ten [PR CI jobs](https://github.com/dev-belly/PITBridge/actions/runs/4065338
 pass, including Linux/Windows installations, optional pandas and Chrome. Merge
 [`7a6aee2`](https://github.com/dev-belly/PITBridge/commit/7a6aee228887038e0b2aae7cd40720c5f1ab998f)
 retains the tested tree `af1709cce1175d77f2eda0f4faf56898756f53ed` exactly.
-[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/40653497143)
-gates the checked release; [Pages deployment](https://github.com/dev-belly/PITBridge/actions/runs/40653497155)
-runs separately.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/40653497143),
+[Pages deployment](https://github.com/dev-belly/PITBridge/actions/runs/40653497155)
+and the [checked release](https://github.com/dev-belly/PITBridge/actions/runs/40653580180)
+all pass. All five public release assets were downloaded and verified against
+the merge commit and SHA-256 digests. The published wheel, installed into a
+separate environment, rejects the old counterexample, keeps the one-microsecond
+late record unavailable, and verifies both committed demo bundles.
 
 
 ## Checked credit patch · 2026-10-28
@@ -36,8 +39,7 @@ runs separately.
 new installation includes the credit-number bounds and timestamp-safe optional
 integration previously available only in current source. The first-run guide,
 project brief and profile now use this checked patch wheel. At that checkpoint,
-the separate PITBridge v0.2.0 wheel retained its older
-precision behavior. The subsequent v0.2.1 release is described above.
+the separate PITBridge v0.2.0 wheel retained its older precision behavior. The subsequent v0.2.1 release is described above.
 
 Two malformed SBA cases reproduced an unhandled exception: a rehashed AUC
 claim of `10**400` and a reserved DEFLATE block in the downloaded evidence ZIP.
