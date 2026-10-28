@@ -1,6 +1,14 @@
 # Build history
 
 
+**2026-10-28 · Compare credit review budgets in the browser.**
+[CreditVintage #40](https://github.com/dev-belly/CreditVintage/pull/40) adds a
+[two-minute Chinese SBA study](https://dev-belly.github.io/CreditVintage/sba-brief/)
+with fixed 500 / 1,000 / 2,000 review slots, three retained methods and links
+back to predictions and protocol. The profile, recruiter overview and first-run
+guide surface it alongside the full report. Results remain retrospective.
+
+
 **2026-10-28 · Ship timestamp-safe historical selection.**
 [PITBridge #29](https://github.com/dev-belly/PITBridge/pull/29) publishes
 [v0.2.1](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1) with

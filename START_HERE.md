@@ -38,6 +38,19 @@ sign-in and network access; the direct lesson above avoids that setup.
 [Report a trial result or a blocked step](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md).
 For local reports or CSV inputs, continue with the installation paths below.
 
+### Compare credit review budgets
+
+Open the [two-minute SBA credit study](https://dev-belly.github.io/CreditVintage/sba-brief/)
+in a browser. Select the same 500, 1,000 or 2,000 review slots for each method;
+compare the events found, the precision and the share of all events captured.
+At 1,000 slots, raw Logistic finds **26 of 89** recorded events: precision is
+**26/1,000**, while event capture is **26/89**. Those denominators answer
+different questions. The full report, code, source and saved predictions are
+linked from the study.
+
+这是 35,000 笔真实放款记录中的 10,000 笔后期测试样本；历史最终快照缺少
+首次发布和修订记录。这里展示回溯结果，不推断避免了多少坏账。
+
 ## Try a project
 
 想先看真实日期跨期研究，可打开 [SBA 35,000 笔贷款](https://dev-belly.github.io/CreditVintage/sba-credit/)；
