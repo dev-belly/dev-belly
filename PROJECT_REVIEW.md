@@ -20,7 +20,7 @@ of independent business adoption.
 
 Three focused tests independently sort all 10,000 held-out predictions and
 check every fixed-capacity comparison, evidence digests and rejection of altered
-or pre-existing inputs. Together with the other local tests, **467 tests and
+evidence or an existing destination. Together with the other local tests, **467 tests and
 28 subtests** pass. Ruff, formatting, strict mypy and a full local site rebuild
 pass. Real Chrome checks cover **18 card selections** at 1,440px and 390px,
 keyboard use, deep links, clipboard fallback, stale-copy completion and no-script
@@ -31,8 +31,10 @@ Merge [`b06b70f`](https://github.com/dev-belly/CreditVintage/commit/b06b70f42738
 retains checked tree `780929f9b0f34cc412dbad49047682ef4f469fc9`. The
 [main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40655582663)
 and [Pages workflow](https://github.com/dev-belly/CreditVintage/actions/runs/40655582664)
-run separately. The profile, recruiter overview, project brief and first-run
-guide point visitors to the shorter entry and the complete report.
+run separately. The public page and downloads respond successfully; the live
+brief's four source digests match the deployed evidence, and all nine comparisons
+recompute from the published predictions. The profile, recruiter overview,
+project brief and first-run guide link the shorter entry and complete report.
 
 ## Timestamp-safe PITBridge release · 2026-10-28
 
