@@ -57,13 +57,13 @@ Use your virtual environment's Python directly; activation is unnecessary.
 
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
-| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.0 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0) |
+| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.1 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1) |
 | **CreditVintage:** validate observed loans on later funding cohorts | A dated-loan report, all three model results and a label-free queue | [v0.8.1 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1) |
 
-The URLs select the checked PITBridge v0.2.0 and CreditVintage v0.8.1 wheels.
+The URLs select the checked PITBridge v0.2.1 and CreditVintage v0.8.1 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256
 evidence attached to its release. PITBridge's source is fixed at
-[`c04c533`](https://github.com/dev-belly/PITBridge/commit/c04c533274e2e96e768d73ab78e99ab4ea9edd46).
+[`7a6aee2`](https://github.com/dev-belly/PITBridge/commit/7a6aee228887038e0b2aae7cd40720c5f1ab998f).
 The CreditVintage version check below prints `0.8.1`;
 the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
 describe evidence-verification and input-boundary repairs. Observed SBA funding-cohort
@@ -76,12 +76,11 @@ Follow each project's README for adapters and full tests.
 **Validation updates · 2026-10-28:** CreditVintage v0.8.1 includes the
 [credit-number boundaries and repaired optional integration](PROJECT_REVIEW.md#temporal-precision-and-credit-input-boundaries--2026-10-28),
 plus [controlled errors for malformed evidence](https://github.com/dev-belly/CreditVintage/pull/39).
-Its SBA models and source protocol are unchanged; valid older SBA reports still verify.
-The standalone **PITBridge v0.2.0 wheel** below predates the timestamp-precision
-repair. For its new guard, use the current
-[browser notebook](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb),
-which pins the repaired source and runs a seventh-digit rejection example,
-or follow [PITBridge's current-source setup](https://github.com/dev-belly/PITBridge#run-in-one-minute).
+PITBridge v0.2.1 rejects timestamps finer than a microsecond before selection;
+it also checks the exact cutoff and a one-microsecond-late record when the
+wheel is installed. The older v0.2.0 wheel can truncate excess digits; saved
+normalized records cannot restore digits already discarded. See the
+[timestamp contract](https://github.com/dev-belly/PITBridge/blob/v0.2.1/docs/DATA_CONTRACT.md).
 
 ### PITBridge: historical feature selection
 
@@ -91,7 +90,7 @@ or follow [PITBridge's current-source setup](https://github.com/dev-belly/PITBri
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.0/pitbridge-0.2.0-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.1/pitbridge-0.2.1-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m pitbridge demo --out report
 .\.venv\Scripts\python.exe -m pitbridge verify --out report
 ```
@@ -102,7 +101,7 @@ python -m venv .venv
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.0/pitbridge-0.2.0-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.1/pitbridge-0.2.1-py3-none-any.whl"
 .venv/bin/python -m pitbridge demo --out report
 .venv/bin/python -m pitbridge verify --out report
 ```
@@ -120,7 +119,7 @@ and independently replays the selections.
 
 The checked PITBridge wheel also accepts your own three CSV tables without
 pandas. Prepare `observations.csv`, `decisions.csv` and `specs.csv` using the
-[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/360ac96a024b0625c0bf6e171cbd82c9b6ad8b65/docs/CSV_INPUTS.md),
+[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.1/docs/CSV_INPUTS.md),
 then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
 `python -m pitbridge verify --out my-report` with the environment's Python above.
 Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.

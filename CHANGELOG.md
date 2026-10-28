@@ -1,5 +1,14 @@
 # Build history
 
+
+**2026-10-28 · Ship timestamp-safe historical selection.**
+[PITBridge #29](https://github.com/dev-belly/PITBridge/pull/29) publishes
+[v0.2.1](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1) with
+installed checks for the exact cutoff, a one-microsecond-late arrival and four
+JSON/CSV rejection routes. The first-run guide now points to the repaired wheel;
+the previous wheel remains available for historical reproducibility.
+[Counterexample and verification](PROJECT_REVIEW.md#timestamp-safe-pitbridge-release--2026-10-28).
+
 **2026-10-28 · Install the current credit validation fixes.**
 [CreditVintage #39](https://github.com/dev-belly/CreditVintage/pull/39) delivers
 [v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1): oversized
