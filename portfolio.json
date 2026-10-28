@@ -17,7 +17,7 @@
       "summary": "按事件与获知时间重建历史快照和滚动特征",
       "stack": "Python · SQLite",
       "boundary": "合成发票与事件示例；演示数据可用性规则。",
-      "demo": "https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb",
+      "demo": "https://dev-belly.github.io/PITBridge/try/",
       "evidence": "examples/README.md"
     },
     {

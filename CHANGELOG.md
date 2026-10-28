@@ -1,5 +1,15 @@
 # Build history
 
+**2026-10-28 · Two first tasks: review a candidate or try a tool.**
+Add a [one-page internship overview](FOR_RECRUITERS.md), surface it in the
+profile navigation, and connect the first-run guide and catalog to the new
+[no-install invoice lesson](https://dev-belly.github.io/PITBridge/try/).
+Refresh the interview card around observed SBA validation and explicitly
+archive the unrefitted AlphaForge returns. The live lesson includes visible
+source records, shareable scenarios and project/author links; public controls,
+exact microseconds and actual desktop/mobile viewports are checked.
+[Implementation and public acceptance](PROJECT_REVIEW.md#hiring-and-a-public-first-trial--2026-10-28).
+
 **2026-10-28 · Validate precision before deciding what was known.**
 [PITBridge #26](https://github.com/dev-belly/PITBridge/pull/26) rejects timestamp
 forms that can silently change an instant; [CreditVintage #37](https://github.com/dev-belly/CreditVintage/pull/37)

@@ -7,16 +7,14 @@ business question into its evidence and code.
 ## Try in your browser
 
 **Why can't a February decision use an invoice correction that arrived in April?**
-The [PITBridge notebook](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb)
-uses one synthetic invoice to make that boundary visible. No local Python,
-Git checkout, GPU or paid dataset is needed.
+Open the [no-install invoice lesson](https://dev-belly.github.io/PITBridge/try/).
+It runs immediately in your browser without an account, Python or a dataset.
 
-1. Open the notebook in Colab, sign in if prompted, and start a Python runtime.
-2. Run all cells. The first code cell downloads and installs a pinned source snapshot
-   of **dev-belly/PITBridge**; the remaining cells check SQL against an independent
-   Python implementation and the three expected decisions below.
-3. Edit `decision_at` or `correction_ingested_at` in the final code cell and rerun
-   that cell. Explain why the selected revision changed or stayed the same.
+1. Choose the three presets and check the expected selections below.
+2. Change the correction's ingestion time or the decision time; compare the
+   availability-aware value with the deliberately wrong event-date join.
+3. Use **Copy this scenario** to keep a link to the exact two timestamps.
+   The inputs stay in the browser; the link stores them in its URL fragment.
 
 | Default decision | Expected selection |
 | :--- | :--- |
@@ -24,9 +22,17 @@ Git checkout, GPU or paid dataset is needed.
 | February 15 | Original invoice, 100,000 CNY |
 | April 15 | Corrected invoice, 135,000 CNY |
 
-浏览器案例先运行固定的三次决策，再修改最后一个代码单元的时间参数。
+浏览器案例先选择固定的三次决策，再修改入库或决策时点。
 金额和日期都是合成输入，用于解释规则，不代表真实客户或回测收益。
-Colab 需要联网安装源码并按平台要求启动运行时。
+这是固定两版本案例的教学镜像；CI 将 71 个场景与 SQLite、独立 Python 实现核对。
+
+### Run the Python API in a notebook
+
+The [Colab notebook](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb)
+runs the actual package: choose **Run all** in a fresh Python runtime. Its first
+cell installs an exact source snapshot, followed by the original selections,
+an editable scenario and a precision-rejection example. Colab may require
+sign-in and network access; the direct lesson above avoids that setup.
 
 [Preview the notebook on GitHub](https://github.com/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) ·
 [Report a trial result or a blocked step](https://github.com/dev-belly/PITBridge/issues/new?template=trial_feedback.md).

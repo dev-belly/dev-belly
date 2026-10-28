@@ -20,7 +20,7 @@
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
 | [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-credit/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与人工复核<br />Python · SQL · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
-| [**PITBridge**](https://github.com/dev-belly/PITBridge) · [README](https://github.com/dev-belly/PITBridge/blob/main/README.md) · [试用 / 报告](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) · [证据 / 方法](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | 按事件与获知时间重建历史快照和滚动特征<br />Python · SQLite | 合成发票与事件示例；演示数据可用性规则。 |
+| [**PITBridge**](https://github.com/dev-belly/PITBridge) · [README](https://github.com/dev-belly/PITBridge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/PITBridge/try/) · [证据 / 方法](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | 按事件与获知时间重建历史快照和滚动特征<br />Python · SQLite | 合成发票与事件示例；演示数据可用性规则。 |
 | [**StressAtlas**](https://github.com/dev-belly/StressAtlas) · [README](https://github.com/dev-belly/StressAtlas/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StressAtlas/) · [证据 / 方法](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) | 相关违约、组合尾部损失和估计精度<br />Python · NumPy | 合成贷款组合；压力情景和重采样不代表真实损失预测。 |
 
 ## 财务、审计与清偿 / Financial systems
