@@ -1,5 +1,39 @@
 # Portfolio review · 2026-10-28
 
+## Two-minute observed-credit study · 2026-10-28
+
+[CreditVintage #40](https://github.com/dev-belly/CreditVintage/pull/40) adds a
+[Chinese browser brief](https://dev-belly.github.io/CreditVintage/sba-brief/)
+for the existing SBA funding-cohort study. Visitors can compare three methods
+at the fixed 500, 1,000 and 2,000 review slots without installation. At 1,000,
+raw Logistic captures 26 of 89 recorded events: **26/1,000 = 2.60% precision**
+and **26/89 = 29.21% event capture**. The brief also shows the 63 events outside
+that queue; both denominators link back to the same verified test predictions.
+
+The site rebuilds and refits the frozen evidence before emitting the brief.
+The interactive cards, downloadable aggregate JSON and nine-row no-script table
+share those verified values; source, protocol, model code and full report remain
+linked. The browser does not train a model or accept borrower data. The final
+public snapshot still lacks historical first-publication and revision records;
+this is retrospective research, not an estimate of prevented losses or proof
+of independent business adoption.
+
+Three focused tests independently sort all 10,000 held-out predictions and
+check every fixed-capacity comparison, evidence digests and rejection of altered
+or pre-existing inputs. Together with the other local tests, **467 tests and
+28 subtests** pass. Ruff, formatting, strict mypy and a full local site rebuild
+pass. Real Chrome checks cover **18 card selections** at 1,440px and 390px,
+keyboard use, deep links, clipboard fallback, stale-copy completion and no-script
+reading. [PR CI](https://github.com/dev-belly/CreditVintage/actions/runs/40654691551) ·
+[PR site and browser checks](https://github.com/dev-belly/CreditVintage/actions/runs/40654691620).
+
+Merge [`b06b70f`](https://github.com/dev-belly/CreditVintage/commit/b06b70f42738472eecf5b8beb85e215fe07b1cf9)
+retains checked tree `780929f9b0f34cc412dbad49047682ef4f469fc9`. The
+[main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40655582663)
+and [Pages workflow](https://github.com/dev-belly/CreditVintage/actions/runs/40655582664)
+run separately. The profile, recruiter overview, project brief and first-run
+guide point visitors to the shorter entry and the complete report.
+
 ## Timestamp-safe PITBridge release · 2026-10-28
 
 [PITBridge #29](https://github.com/dev-belly/PITBridge/pull/29) publishes
