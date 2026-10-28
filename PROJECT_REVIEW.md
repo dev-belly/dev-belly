@@ -1,4 +1,53 @@
-# Portfolio review · 2026-10-27
+# Portfolio review · 2026-10-28
+
+## Temporal precision and credit input boundaries · 2026-10-28
+
+The previous round's remaining [AlphaForge main CI](https://github.com/dev-belly/alphaforge/actions/runs/40522081304)
+and [profile main checks](https://github.com/dev-belly/dev-belly/actions/runs/40524956625)
+are complete and successful. This pass fixes two reproducible input failures,
+then carries the timestamp repair into the credit integration and browser lesson.
+
+| Change | Failure and resulting behavior | Checked head / merge | PR workflow |
+| --- | --- | --- | --- |
+| [PITBridge #26](https://github.com/dev-belly/PITBridge/pull/26) | A source arriving at `00:00:00.0000009Z` could normalize to `00:00:00Z` and appear known. Excess fractional digits, fractions on shortened clock forms and fractional-second offsets now fail before normalization or output. Supported microsecond equality remains inclusive. | `39a3177` / `219e58a` | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40629046214) |
+| [CreditVintage #37](https://github.com/dev-belly/CreditVintage/pull/37) | Unsupported integer cents could pass readiness and overflow later; enormous integer features/config fractions could raise raw conversion errors. Positive int64 cents are checked before fitting, and numeric overflow becomes a contract error. Supported integer cents remain exact above `2^53`. | `ec067ef` / `a9ca40f` | [CI](https://github.com/dev-belly/CreditVintage/actions/runs/40629093374) · [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40629093447) |
+| [PITBridge #27](https://github.com/dev-belly/PITBridge/pull/27) | The browser notebook installed an older snapshot. It now pins the repaired source and includes a runnable seventh-digit rejection alongside the original invoice decisions. | `851471e` / `80fe336` | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40629643922) |
+| [CreditVintage #38](https://github.com/dev-belly/CreditVintage/pull/38) | The integration retained an old importer. README setup, three CI/Pages source checkouts and new summaries now reference the repaired upstream merge. Previously published synthetic evidence keeps its original reference and complete replay requirements. | `b98824f` / pending | [CI](https://github.com/dev-belly/CreditVintage/actions/runs/40629769949) · [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40629769966) |
+
+PITBridge passes **145 local tests**, including eight new precision methods
+with subcases across JSON, native CSV, optional pandas, scalar and rolling
+commands. Both committed evidence bundles verify without regeneration. A
+source archive and its wheel build successfully; the wheel installs into a
+clean environment and passes the existing scalar/rolling JSON/CSV replay and
+small benchmark checks. The notebook separately runs its real pinned source
+download/install in a fresh environment without PITBridge: all **five code
+cells** finish and the imported package is inside that environment. This is
+local notebook execution, not a hosted Colab UI acceptance record.
+
+CreditVintage's numeric pass has **26 new cases**: the prior source fails 19
+and passes seven supported-input cases. Its full suite passes 454 tests and
+28 subtests. After three integration regressions, the final combination passes
+**457 tests and 28 subtests**, Ruff lint/format and strict mypy over **24 source
+files**. These are overlapping runs, not quantities to add. A source revision
+arriving after the last supported microsecond fails under the new dependency;
+the same regression fails against the old dependency because it accepts the
+truncated instant.
+
+Before upgrading, the original dependency generates a complete **480-application,
+1,440-feature** synthetic lineage bundle. The new engine verifies that saved
+bundle without rewriting it. A new-reference bundle also generates and verifies:
+**17 of 20 files are byte-identical**, including source features, lineage and
+predictions. Only the dependency-reference summary, its root manifest and the
+derived ZIP differ. Prediction SHA-256 is
+`4ae53321c22a41f5bc075feac5c63b433ccad712231b946aa0d025edf40c12a5`.
+An unknown declared reference is rejected even after its summary is rehashed.
+
+The existing PITBridge v0.2.0 and CreditVintage v0.8.0 release assets predate
+these repairs and remain unchanged. Use the updated notebook or current source
+installation for the new validation. Original digits already discarded before
+an old bundle was saved cannot be recovered from normalized evidence. The
+financial study protocols, frozen numerical claims and absence of independent
+production/adoption evidence retain their prior scope.
 
 ## Repository maintenance and application repairs · 2026-10-27
 
