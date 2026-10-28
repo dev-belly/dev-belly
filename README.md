@@ -43,7 +43,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 最终快照没有历史首次发布或特征修订记录，因此作为回溯放款研究；原合成时点控制实验和静态 UCI 目标分开解释。核验成功不代表生产部署或避免损失。
 
-[Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.0](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.0)
+[Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
 
 <details>
 <summary>More experiments: static credit, input quality and human review</summary>

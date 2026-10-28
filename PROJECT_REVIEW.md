@@ -1,5 +1,43 @@
 # Portfolio review · 2026-10-28
 
+
+## Checked credit patch · 2026-10-28
+
+[CreditVintage #39](https://github.com/dev-belly/CreditVintage/pull/39) delivers
+[v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1), so a
+new installation includes the credit-number bounds and timestamp-safe optional
+integration previously available only in current source. The first-run guide,
+project brief and profile now use this checked patch wheel. The separate
+PITBridge v0.2.0 wheel retains its older precision behavior; its current-source
+and notebook routes remain explicit.
+
+Two malformed SBA cases reproduced an unhandled exception: a rehashed AUC
+claim of `10**400` and a reserved DEFLATE block in the downloaded evidence ZIP.
+Both now return exit 2 and a diagnostic. Card ZIP checks also handle compressed
+stream/runtime errors and check member sizes before reading. Seven new CLI
+cases cover positive/negative oversized claims, broken compressed streams,
+unsupported compression and a card member-size mismatch. Failed verification
+leaves the input files intact.
+
+The complete local suite passes **464 tests and 28 subtests**: 66 SBA/card cases
+and 398 remaining cases, with no overlap between those two runs. Ruff lint,
+formatting and strict mypy over 24 source files pass. A pre-change SBA bundle
+still refits successfully. Its complete ZIP is byte-identical to the new
+installed wheel's output, with SHA-256
+`30f4a36268438248f444d42f533530a6f607b01c867fff8307fbca29c3d709ac`.
+
+A clean wheel installation outside both repositories replays public credit,
+SBA, score/feature monitoring, coverage/policy checks, SQL analysis, 48 review
+cases and the optional 480-application / 1,440-feature lineage. It also rejects
+rehashed false/oversized SBA metrics and broken DEFLATE with exit 2.
+[PR CI and portable replay](https://github.com/dev-belly/CreditVintage/actions/runs/40640295261) ·
+[PR public-report build](https://github.com/dev-belly/CreditVintage/actions/runs/40640295246).
+
+The SBA source pins, model protocol, targets and numerical results are unchanged.
+This remains retrospective funding-cohort research; historical publication and
+revision records, independent use and production lending results are not
+established by this repair.
+
 ## Hiring and a public first trial · 2026-10-28
 
 The next pass targets two concrete reader tasks: a recruiter finding relevant
