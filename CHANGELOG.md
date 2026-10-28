@@ -1,5 +1,15 @@
 # Build history
 
+**2026-10-28 · Validate precision before deciding what was known.**
+[PITBridge #26](https://github.com/dev-belly/PITBridge/pull/26) rejects timestamp
+forms that can silently change an instant; [CreditVintage #37](https://github.com/dev-belly/CreditVintage/pull/37)
+checks supported cents and numeric conversion before readiness/fitting.
+The repaired source reaches the [browser notebook](https://github.com/dev-belly/PITBridge/pull/27)
+and [credit integration](https://github.com/dev-belly/CreditVintage/pull/38), with
+full replay of the previously generated synthetic bundle and byte-identical
+predictions. Existing release assets remain unchanged.
+[Counterexamples, checks and source boundaries](PROJECT_REVIEW.md#temporal-precision-and-credit-input-boundaries--2026-10-28).
+
 **2026-10-27 · Complete workflow maintenance and application repairs.**
 Resolve official Action refs to source commits across the portfolio, retain
 the latest financial fixes in refreshed CI branches, and complete invalid

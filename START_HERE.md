@@ -65,6 +65,16 @@ third-party runtime dependencies; CreditVintage pins its numerical dependencies.
 These commands do not promise identical floating-point output across environments.
 Follow each project's README for adapters and full tests.
 
+**Current source validation · 2026-10-28:** the fixed wheels above predate the
+[timestamp-precision and credit-number repairs](PROJECT_REVIEW.md#temporal-precision-and-credit-input-boundaries--2026-10-28).
+The current [browser notebook](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb)
+pins the repaired PITBridge source and runs a seventh-digit rejection example.
+For the new guards locally, use the current source installation in
+[PITBridge's README](https://github.com/dev-belly/PITBridge#run-in-one-minute)
+or [CreditVintage's README](https://github.com/dev-belly/CreditVintage#run-and-verify),
+including its updated optional integration pin. The release-wheel routes below
+continue to reproduce the previously published cases.
+
 ### PITBridge: historical feature selection
 
 **Windows PowerShell**
