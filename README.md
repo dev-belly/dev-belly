@@ -1,16 +1,19 @@
 <div align="center">
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
-  <a href="https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb"><b>RUN IN BROWSER</b></a> &nbsp; / &nbsp;
+  <a href="https://dev-belly.github.io/PITBridge/try/"><b>TRY LIVE</b></a> &nbsp; / &nbsp;
   <a href="https://dev-belly.github.io/CreditVintage/sba-credit/"><b>LIVE DEMO</b></a> &nbsp; / &nbsp;
+  <a href="FOR_RECRUITERS.md"><b>FOR RECRUITERS</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
-  <a href="CATALOG.md"><b>ALL PROJECTS</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
 </div>
 
 <br />
 
 I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central University of Finance and Economics**. I build tools for credit risk, financial data analysis and quantitative research.
+
+**Open to internships in data analysis, credit risk and financial data engineering.**
+[招聘速览：按岗位查看项目、结果与代码](FOR_RECRUITERS.md) · [Try one invoice without sign-in](https://dev-belly.github.io/PITBridge/try/).
 
 把金融问题拆成能运行、能检验、能追溯的系统：从 SQL 客群分析和人工复核，到决策时点的数据、财报指标与组合风险。
 
@@ -25,7 +28,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | Does a model hold up on later funding cohorts? | [35,000 observed SBA loans](https://dev-belly.github.io/CreditVintage/sba-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | Do the inputs meet explicit coverage rules? | [Policy check](https://dev-belly.github.io/CreditVintage/feature-check/) · [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) | [Rules and replay](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_policy.py) · [Contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) |
-| What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
+| What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://dev-belly.github.io/PITBridge/try/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
 **A useful result includes its limits.** The [SBA study](https://dev-belly.github.io/CreditVintage/sba-credit/) uses real funding dates and a native 24-month recorded charge-off target. Logistic AUC is 0.6723 on 10,000 later loans; calibration improves Brier while reducing ranking performance. The final snapshot cannot establish historical first-publication times. Separate UCI static and synthetic event experiments retain their own targets. [Project evidence](PROJECT_BRIEFS.md) connects each claim to inputs, code and validation.
@@ -63,7 +66,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值保留源记录成员，SQLite 结果与独立 Python 实现逐项核对。先试一张发票，再接 CSV 或可选的 pandas。
 
-[Source](https://github.com/dev-belly/PITBridge) · [Run in browser](https://colab.research.google.com/github/dev-belly/PITBridge/blob/main/examples/decision_time.ipynb) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
+[Source](https://github.com/dev-belly/PITBridge) · [Run in browser](https://dev-belly.github.io/PITBridge/try/) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
 
 <br />
 
@@ -161,6 +164,9 @@ Earlier builds: [Digital Craftsman](https://github.com/dev-belly/digital-craftsm
 ---
 
 想试用或参与：先选[项目目录](CATALOG.md)，运行问题到对应仓库反馈；主页导航、文字或证据链接问题可用[主页问题表单](https://github.com/dev-belly/dev-belly/issues/new/choose)。[贡献说明](CONTRIBUTING.md) · [安全报告说明](SECURITY.md)。
+
+Follow **@dev-belly** for runnable financial-data tools and small studies with inspectable evidence.
+If a tool is useful to you, star its repository to keep it handy; a concrete trial report helps shape the next improvement.
 
 [Start here](START_HERE.md) · [All projects](CATALOG.md) · [Project evidence](PROJECT_BRIEFS.md) · [Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) · [Open-source roadmap](OPEN_SOURCE_ROADMAP.zh-CN.md) · [Portfolio review](PROJECT_REVIEW.md) · [Project adoption](PROJECT_ADOPTION.zh-CN.md) · [Design references](PROFILE_REFERENCES.md) · [Profile CI](https://github.com/dev-belly/dev-belly/actions/workflows/ci.yml)
 

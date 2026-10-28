@@ -1,5 +1,49 @@
 # Portfolio review · 2026-10-28
 
+## Hiring and a public first trial · 2026-10-28
+
+The next pass targets two concrete reader tasks: a recruiter finding relevant
+work quickly, and a developer trying a useful timing rule before installing a
+package. The profile now has a short [role-to-project overview](FOR_RECRUITERS.md),
+an explicit internship focus, and direct paths to the live example and source.
+The interview card separates the observed SBA study from the synthetic workflow
+and removes an unqualified archived AlphaForge return claim.
+
+[PITBridge #28](https://github.com/dev-belly/PITBridge/pull/28) adds the
+[no-sign-in invoice lesson](https://dev-belly.github.io/PITBridge/try/).
+The two timestamps calculate locally; a URL fragment preserves a shareable
+scenario. Three presets, a deliberately unsafe comparator, a visible freshness
+rule and the source records make the first task inspectable. The fixed browser
+mirror uses integer microseconds. It rejects unsupported precision before
+showing or sharing a result; the full importer remains in Python.
+
+The exact shipped inline script agrees with SQLite and the independent Python
+enumerator over **71 fixed/seeded cases**. All ten final PR CI jobs pass at
+`31f67f8`, including the [real-Chrome job](https://github.com/dev-belly/PITBridge/actions/runs/40632291976):
+observed viewport widths are **1280 and 390**, with 18 report/lesson selections
+across the existing selector case and both new views. The merge is
+[`4a6905b`](https://github.com/dev-belly/PITBridge/commit/4a6905bb2d4b67534154dffbe853dc9259bfcf1a),
+with tree `2e8189fce98be1b38ecffef4c163ad4497d89238` exactly matching the checked
+head. Both committed evidence bundles verify without regeneration. There is
+no new package runtime dependency or analytics script.
+
+The new [main CI](https://github.com/dev-belly/PITBridge/actions/runs/40632456760)
+and [Pages deployment](https://github.com/dev-belly/PITBridge/actions/runs/40632456567)
+also pass. The public page was opened and visually inspected: the three presets
+produce missing / invoice-v1 / invoice-v2; a seventh fractional digit hides the
+old output and disables sharing; restoring a preset recovers the comparison;
+the copy button confirms the scenario link. The [captured public result](assets/try-preview-20261028.jpg)
+shows source availability and the project/author links.
+
+GitHub's visible profile bio now states the internship directions. Pins cover
+CreditVintage, PITBridge, StatementTrace, StressAtlas, TradeForge and
+ControlTrace. CreditVintage's About text now identifies the 35,000 observed
+SBA loans, and its topics include financial-data. These presentation changes
+also give PITBridge a direct trial homepage and the relevant data-leakage topic.
+These changes
+are separate from new stars, followers, independent trials or hiring outcomes;
+none of those outcomes is inferred from our own checks.
+
 ## Temporal precision and credit input boundaries · 2026-10-28
 
 The previous round's remaining [AlphaForge main CI](https://github.com/dev-belly/alphaforge/actions/runs/40522081304)
