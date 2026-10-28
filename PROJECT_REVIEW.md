@@ -16,6 +16,8 @@ release gate requires the installed precision checks as well as independent
 replay and the benchmark. Supported previous scalar and rolling demo bundles
 replay under the new source. Existing normalized evidence cannot recover digits
 already discarded; revisit original timestamps and upstream conversion rules.
+The interview guide now identifies the current and historical integration pins
+and uses the shared-parser counterexample as a practice question.
 
 The local suite passes **146 tests**; the prior public wheel reproduced the
 counterexample and a clean new wheel passed all boundary and replay checks.
