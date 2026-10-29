@@ -2,7 +2,7 @@
   <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Finance. Data. Evidence. CUFE data science student building inspectable financial systems." />
   <br /><br />
   <a href="https://dev-belly.github.io/PITBridge/try/"><b>TRY LIVE</b></a> &nbsp; / &nbsp;
-  <a href="https://dev-belly.github.io/CreditVintage/sba-brief/"><b>CREDIT STUDY</b></a> &nbsp; / &nbsp;
+  <a href="https://dev-belly.github.io/CreditVintage/sba-brief/en/"><b>CREDIT STUDY</b></a> &nbsp; / &nbsp;
   <a href="FOR_RECRUITERS.md"><b>FOR RECRUITERS</b></a> &nbsp; / &nbsp;
   <a href="PROJECT_BRIEFS.md"><b>RESULTS &amp; CODE</b></a> &nbsp; / &nbsp;
   <a href="#research-in-public"><b>RECENT WORK</b></a>
@@ -25,7 +25,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 | Question | Open the result | Follow the code |
 | :--- | :--- | :--- |
-| Does a model hold up on later funding cohorts? | [Interactive SBA comparison](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Full report](https://dev-belly.github.io/CreditVintage/sba-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) |
+| Does a model hold up on later funding cohorts? | [Interactive SBA comparison](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [Full report](https://dev-belly.github.io/CreditVintage/sba-credit/) | [Training and refitting](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py) · [Protocol](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) |
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | Do the inputs meet explicit coverage rules? | [Policy check](https://dev-belly.github.io/CreditVintage/feature-check/) · [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) | [Rules and replay](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_policy.py) · [Contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) |
 | What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://dev-belly.github.io/PITBridge/try/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
@@ -43,7 +43,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 最终快照没有历史首次发布或特征修订记录，因此作为回溯放款研究；原合成时点控制实验和静态 UCI 目标分开解释。核验成功不代表生产部署或避免损失。
 
-[Two-minute credit study](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
+[Try in English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [中文交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
 
 <details>
 <summary>More experiments: static credit, input quality and human review</summary>
@@ -113,6 +113,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Bilingual credit study · 2026-10-29:** [English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) and [中文](https://dev-belly.github.io/CreditVintage/sba-brief/) share verified results and preserve the chosen review capacity when changing language. [Checks and source identity](PROJECT_REVIEW.md#english-and-chinese-credit-study-entry--2026-10-29).
 
 - **Input boundaries · 2026-10-28:** [precision and numeric validation](PROJECT_REVIEW.md#temporal-precision-and-credit-input-boundaries--2026-10-28) rejects timestamp truncation into a decision cutoff and unsupported credit numbers, connects the fixed source to the integration and notebook, and preserves replay of the published synthetic evidence.
 

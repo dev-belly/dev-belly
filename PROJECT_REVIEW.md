@@ -1,4 +1,51 @@
-# Portfolio review · 2026-10-28
+# Portfolio review · 2026-10-29
+
+## English and Chinese credit-study entry · 2026-10-29
+
+[CreditVintage #41](https://github.com/dev-belly/CreditVintage/pull/41) adds a
+complete [English brief](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
+beside the [original Chinese route](https://dev-belly.github.io/CreditVintage/sba-brief/).
+The pages share verified aggregate data, interaction logic and styles. Language
+links retain the selected fixed capacity, and copied URLs retain language and
+capacity. Each static version keeps all nine comparisons and the research limits
+without JavaScript. Both routes lead to the same predictions and frozen protocol.
+
+All **469 local tests and 28 subtests** pass, together with Ruff, formatting,
+strict mypy across 26 files, shared-script syntax and a full site rebuild.
+On the same frozen evidence, aggregate JSON is byte-identical to the previous
+builder: SHA256 `289f80f16e6066459c7f3640bfc5ce83a7a7aa654e16ac5fc3c1b2678332093b`.
+Independent tests check both embedded datasets, evidence links and rejection of
+an incomplete second template before output creation.
+
+All eight [cross-platform PR jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40831573352)
+pass. The [final real-Chrome checks](https://github.com/dev-belly/CreditVintage/actions/runs/40831573319)
+pass **36 card selections** across the two languages at observed 1,440px and
+390px widths. They also cover real HTTP language navigation in both directions,
+keyboard selection, deep links, clipboard success/fallback/stale completion,
+and both nine-row no-script tables, with no JavaScript errors. Desktop and
+mobile previews were visually reviewed, including readable Chinese glyphs.
+
+Merge [`8227028`](https://github.com/dev-belly/CreditVintage/commit/822702824ee7fe38a72cda57c4d9d4ecf03df883)
+retains checked tree `f7d42d0da1abd6d39370c479a7d0aa863073fa51` exactly.
+[Main CI](https://github.com/dev-belly/CreditVintage/actions/runs/40832399190) and
+[Pages](https://github.com/dev-belly/CreditVintage/actions/runs/40832399197) also
+pass. The source/model protocol, package
+runtime dependencies and existing release assets are unchanged. A translated
+entry does not establish additional users, stars, followers or hiring outcomes.
+
+The deployed public page was then exercised directly: 500 slots show 14 raw
+and 17 calibrated events; language navigation in both directions retains that
+capacity and those counts. Returning to 1,000 shows 26 and 24, and the English
+copy control confirms the scenario link. The [Pages deployment](https://github.com/dev-belly/CreditVintage/actions/runs/40832399197)
+is successful. The profile's English trial links and Chinese recruiter route
+now point readers to the appropriate view.
+
+<details>
+<summary>Public English first-run view · 2026-10-29</summary>
+
+![The deployed English brief at 1,000 review slots: 7 constant-baseline, 26 raw Logistic and 24 independently calibrated events.](assets/credit-study-en-20261029.jpg)
+
+</details>
 
 ## Streaming portfolio drivers and fixed reduction order · 2026-10-28
 

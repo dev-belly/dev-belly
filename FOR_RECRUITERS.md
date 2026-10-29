@@ -26,3 +26,6 @@ PITBridge 与人工复核演示使用合成输入；StatementTrace 使用精选�
 希望进一步了解时，可以直接选一段输入、一个失败场景和对应测试来讨论。
 更详细的[项目结果与代码](PROJECT_BRIEFS.md)、[面试速讲卡](面试速讲卡.zh-CN.md)、
 [运行入口](START_HERE.md)和[GitHub 主页](https://github.com/dev-belly)均可继续查阅。
+
+[English interactive credit case](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
+uses the same verified data and keeps the selected review capacity when switching languages.

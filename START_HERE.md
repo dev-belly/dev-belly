@@ -40,13 +40,18 @@ For local reports or CSV inputs, continue with the installation paths below.
 
 ### Compare credit review budgets
 
-Open the [two-minute SBA credit study](https://dev-belly.github.io/CreditVintage/sba-brief/)
+Open the [English SBA credit study](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
 in a browser. Select the same 500, 1,000 or 2,000 review slots for each method;
 compare the events found, the precision and the share of all events captured.
 At 1,000 slots, raw Logistic finds **26 of 89** recorded events: precision is
 **26/1,000**, while event capture is **26/89**. Those denominators answer
 different questions. The full report, code, source and saved predictions are
 linked from the study.
+
+Use the visible **中文 / English** link to change language without losing the
+selected capacity. **Copy this comparison link** retains both language and
+capacity; the static table remains readable when JavaScript is disabled.
+中文版可直接打开[同一份交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/)。
 
 这是 35,000 笔真实放款记录中的 10,000 笔后期测试样本；历史最终快照缺少
 首次发布和修订记录。这里展示回溯结果，不推断避免了多少坏账。

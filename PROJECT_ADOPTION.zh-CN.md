@@ -4,6 +4,11 @@
 
 目标读者是做金融数据、信贷分析与审计工具的人。当前最有辨识度的入口是 CreditVintage × PITBridge：**一笔申请如何追到决策时点的数据，再进入有限容量的人工复核。** 用同一条业务链解释几个组件，比同时推十几个仓库更容易让人记住。
 
+信贷研究可直接选择 [English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) 或
+[中文](https://dev-belly.github.io/CreditVintage/sba-brief/)：切换相同复核名额，区分精确率
+与事件捕获率，再沿链接核查原始预测。切换语言保留当前容量，复制链接可保留
+同一比较场景；这降低阅读与分享门槛，效果仍需真实试用和反馈确认。
+
 GitHub 的 [README 指南](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)强调项目用途、使用方法和帮助入口；[Topics 指南](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)说明相关主题可以帮助别人发现项目。这些入口降低试用门槛，不保证 Star 增长。
 
 <details>
