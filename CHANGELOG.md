@@ -1,5 +1,12 @@
 # Build history
 
+**2026-10-29 · Make the credit study usable in English and Chinese.**
+Add a complete [English study entry](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
+beside the original Chinese view. Both read the same verified aggregate data,
+share behavior and styles, retain the chosen capacity when changing language,
+and keep all nine comparisons readable without JavaScript. The profile and
+first-run guide offer both routes; the retrospective research scope is unchanged.
+
 **2026-10-28 · Stream portfolio drivers without changing saved evidence.**
 [StressAtlas #8](https://github.com/dev-belly/StressAtlas/pull/8) adds optional
 streaming to all five commands, with identical fingerprints and report bytes
