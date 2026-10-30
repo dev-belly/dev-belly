@@ -75,13 +75,13 @@ Use your virtual environment's Python directly; activation is unnecessary.
 
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
-| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.1 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1) |
+| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.2 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2) |
 | **CreditVintage:** validate observed loans on later funding cohorts | A dated-loan report, all three model results and a label-free queue | [v0.8.1 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1) |
 
-The URLs select the checked PITBridge v0.2.1 and CreditVintage v0.8.1 wheels.
+The URLs select the checked PITBridge v0.2.2 and CreditVintage v0.8.1 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256
 evidence attached to its release. PITBridge's source is fixed at
-[`7a6aee2`](https://github.com/dev-belly/PITBridge/commit/7a6aee228887038e0b2aae7cd40720c5f1ab998f).
+[`6b1e25c`](https://github.com/dev-belly/PITBridge/commit/6b1e25cdbb1728465dd189a8564afd647d9bb45f).
 The CreditVintage version check below prints `0.8.1`;
 the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
 describe evidence-verification and input-boundary repairs. Observed SBA funding-cohort
@@ -108,7 +108,7 @@ normalized records cannot restore digits already discarded. See the
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.1/pitbridge-0.2.1-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.2/pitbridge-0.2.2-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m pitbridge demo --out report
 .\.venv\Scripts\python.exe -m pitbridge verify --out report
 ```
@@ -119,7 +119,7 @@ python -m venv .venv
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.1/pitbridge-0.2.1-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.2/pitbridge-0.2.2-py3-none-any.whl"
 .venv/bin/python -m pitbridge demo --out report
 .venv/bin/python -m pitbridge verify --out report
 ```
@@ -137,11 +137,48 @@ and independently replays the selections.
 
 The checked PITBridge wheel also accepts your own three CSV tables without
 pandas. Prepare `observations.csv`, `decisions.csv` and `specs.csv` using the
-[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.1/docs/CSV_INPUTS.md),
+[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.2/docs/CSV_INPUTS.md),
 then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
 `python -m pitbridge verify --out my-report` with the environment's Python above.
 Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.
 Invalid rows fail before output creation; source JSON retains the original IDs.
+
+### PITBridge: create editable CSV inputs
+
+After the [v0.2.2 installation above](#pitbridge-historical-feature-selection),
+generate a complete case without Git or a dataset download. Use new input and
+report directories; `init-csv` refuses existing paths.
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m pitbridge init-csv --out inputs/scalar
+.\.venv\Scripts\python.exe -m pitbridge build --csv-dir inputs/scalar --out csv-report
+.\.venv\Scripts\python.exe -m pitbridge verify --out csv-report
+```
+
+**Linux / macOS**
+
+```bash
+.venv/bin/python -m pitbridge init-csv --out inputs/scalar
+.venv/bin/python -m pitbridge build --csv-dir inputs/scalar --out csv-report
+.venv/bin/python -m pitbridge verify --out csv-report
+```
+
+The folder contains three CSVs and a README: 11 synthetic observations, 15
+decisions and three feature rules. Edit `tax-a-v2`'s `ingested_at` in
+`inputs/scalar/observations.csv` to `2026-04-03T00:00:00Z`, then build and verify
+a new report. The `SME-A-4` invoice selection changes from revision 2 / 180,000
+to revision 1 / 100,000. Inspect the selected source and availability time.
+
+For a separate rolling case, use `init-csv --rolling --out inputs/rolling`, then
+`aggregate --csv-dir inputs/rolling` and `verify-rolling` with a new output.
+The [complete rolling commands and CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.2/docs/CSV_INPUTS.md)
+explain the ten observations, four decisions and three rules. The three SME-A
+30-day sums are 1,500 / 4,300 / 6,300, with source membership in `members.csv`.
+
+模板均为合成教学数据。CSV 报告的 `user_supplied` 表示接入方式，不证明数据真实、
+完整或已被银行使用。安装后，生成、编辑、构建和独立核验可离线完成。
 
 ### CreditVintage: validate observed loans across time
 
