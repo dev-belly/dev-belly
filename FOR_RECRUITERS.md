@@ -8,7 +8,7 @@
 | 岗位方向 | 先看这个结果 | 可以继续检查的能力 |
 | --- | --- | --- |
 | 风控分析 / 模型验证 | [CreditVintage：两分钟看复核名额与事件捕获](https://dev-belly.github.io/CreditVintage/sba-brief/) · [完整 SBA 研究](https://dev-belly.github.io/CreditVintage/sba-credit/) | 按真实放款期划分、等待 24 月表现成熟、训练独占预处理、独立校准、逐笔预测重拟合。见[建模实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py)。 |
-| 金融数据工程 | [PITBridge：直接修改一笔入库时间](https://dev-belly.github.io/PITBridge/try/) | 发布/入库/决策时点、修订选择、微秒边界、SQL 与独立 Python 核验。见[时间连接代码](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)。 |
+| 金融数据工程 | [PITBridge：直接修改一笔入库时间](https://dev-belly.github.io/PITBridge/try/) · [安装包生成可编辑三表](START_HERE.md#pitbridge-create-editable-csv-inputs) | 发布/入库/决策时点、修订选择、微秒边界、离线 CSV 接入、SQL 与独立 Python 核验。见[时间连接代码](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)。 |
 | 财务 / 业务数据分析 | [StatementTrace：公开年报到财务指标](https://dev-belly.github.io/StatementTrace/) | 财年与单位合同、53 周财年、申报截止日快照、指标公式和源记录追溯。见[公开来源台账](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md)。 |
 
 ## 三个可以当场展开的问题

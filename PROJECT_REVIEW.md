@@ -1,4 +1,47 @@
-# Portfolio review · 2026-10-29
+# Portfolio review · 2026-10-30
+
+## Editable CSV first runs from the wheel · 2026-10-30
+
+An installed PITBridge user previously needed a source checkout or manually
+prepared tables to try CSV intake. [#30](https://github.com/dev-belly/PITBridge/pull/30)
+adds `init-csv` to [v0.2.2](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2),
+published on October 29. The wheel generates three editable CSVs and a README
+for either scalar or rolling inputs, validates them before publishing the
+directory, and refuses existing files, directories and symlinks. The fixtures
+remain synthetic; the importer label `user_supplied` describes the input route.
+
+The scalar case has 11 observations, 15 decisions and three rules. Moving
+`tax-a-v2`'s ingestion to `2026-04-03T00:00:00Z` changes the `SME-A-4` invoice
+from revision 2 / 180,000 to revision 1 / 100,000. The rolling case has ten
+observations, four decisions and three rules, with hand-checked SME-A 30-day
+sums of 1,500 / 4,300 / 6,300. Both commands retain source records for independent
+replay. Clean installed checks also compare the generated cases' result CSVs
+with the demos and prove that repeat initialization preserves the input bytes.
+
+The local suite runs **152 tests**, with 16 optional pandas tests skipped in
+the stdlib environment. The Linux Python 3.12 / pandas 3 CI job runs all 152
+without skips. All ten [PR jobs](https://github.com/dev-belly/PITBridge/actions/runs/40860781718)
+pass, covering Windows, pandas, real Chrome and three clean installed builds.
+Merge [`6b1e25c`](https://github.com/dev-belly/PITBridge/commit/6b1e25cdbb1728465dd189a8564afd647d9bb45f)
+retains checked tree `b9a36ab077185858db7042098f7bb1df776147da` exactly.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/40861312296),
+[Pages](https://github.com/dev-belly/PITBridge/actions/runs/40861312289) and the
+[checked release publisher](https://github.com/dev-belly/PITBridge/actions/runs/40861441368)
+all pass. Core selection, saved evidence formats and the CreditVintage
+integration pin are unchanged.
+
+On October 30, all five public release assets were downloaded and checked
+against GitHub's asset sizes/digests, the checksum list and exact-commit
+manifest. The public wheel's SHA-256 is
+`06c98bd5617473ee82d90a19ca59ef3c346c4d806b42b6337b020f7b2f104a03`.
+That downloaded wheel passes the full installed-distribution checker in a fresh
+environment outside the checkout, including both starters, the edited arrival,
+no-overwrite checks, independent replay and timestamp-precision rejection.
+
+The [first-run guide](START_HERE.md#pitbridge-create-editable-csv-inputs),
+[recruiter overview](FOR_RECRUITERS.md) and [project brief](PROJECT_BRIEFS.md)
+connect the installed workflow to its engineering evidence. This work does not
+measure adoption, star growth or hiring outcomes.
 
 ## English and Chinese credit-study entry · 2026-10-29
 

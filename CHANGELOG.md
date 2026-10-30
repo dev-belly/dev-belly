@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-30 · Complete the editable first-run route for the installed data tool.**
+[PITBridge #30](https://github.com/dev-belly/PITBridge/pull/30) adds `init-csv`
+to the checked [v0.2.2 wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2).
+Generate scalar or rolling tables, edit an arrival, build and independently
+verify without a checkout. Existing input paths are refused. The first-run
+guide, recruiter overview and project evidence connect to this complete route.
+The generated records remain synthetic and the saved report formats remain unchanged.
+
 **2026-10-29 · Make the credit study usable in English and Chinese.**
 Add a complete [English study entry](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
 beside the original Chinese view. Both read the same verified aggregate data,

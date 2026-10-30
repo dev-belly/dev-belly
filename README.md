@@ -66,7 +66,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值保留源记录成员，SQLite 结果与独立 Python 实现逐项核对。先试一张发票，再接 CSV 或可选的 pandas。
 
-[Source](https://github.com/dev-belly/PITBridge) · [Checked v0.2.1](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1) · [Run in browser](https://dev-belly.github.io/PITBridge/try/) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
+[Source](https://github.com/dev-belly/PITBridge) · [Checked v0.2.2](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2) · [Editable CSV first run](START_HERE.md#pitbridge-create-editable-csv-inputs) · [Run in browser](https://dev-belly.github.io/PITBridge/try/) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
 
 <br />
 
@@ -113,6 +113,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Editable installed inputs · 2026-10-30:** [generate three CSV tables, edit an arrival and replay the result](START_HERE.md#pitbridge-create-editable-csv-inputs) with the checked v0.2.2 wheel. [Validation and source identity](PROJECT_REVIEW.md#editable-csv-first-runs-from-the-wheel--2026-10-30).
 
 - **Bilingual credit study · 2026-10-29:** [English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) and [中文](https://dev-belly.github.io/CreditVintage/sba-brief/) share verified results and preserve the chosen review capacity when changing language. [Checks and source identity](PROJECT_REVIEW.md#english-and-chinese-credit-study-entry--2026-10-29).
 
