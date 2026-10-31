@@ -15,6 +15,8 @@ It runs immediately in your browser without an account, Python or a dataset.
    availability-aware value with the deliberately wrong event-date join.
 3. Use **Copy this scenario** to keep a link to the exact two timestamps.
    The inputs stay in the browser; the link stores them in its URL fragment.
+4. Choose **Download this case · JSON** to keep those exact inputs and
+   [replay the scenario locally](#download-and-replay-your-browser-scenario).
 
 | Default decision | Expected selection |
 | :--- | :--- |
@@ -25,6 +27,33 @@ It runs immediately in your browser without an account, Python or a dataset.
 浏览器案例先选择固定的三次决策，再修改入库或决策时点。
 金额和日期都是合成输入，用于解释规则，不代表真实客户或回测收益。
 这是固定两版本案例的教学镜像；CI 将 71 个场景与 SQLite、独立 Python 实现核对。
+
+### Download and replay your browser scenario
+
+The download contains two synthetic invoice revisions, your current decision
+and the 90-day rule. Invalid timestamps remove the download; valid edits retain
+their exact microseconds. It is an input file, not an already-verified report.
+
+After the [checked-wheel installation](#pitbridge-historical-feature-selection),
+move `pitbridge-scenario.json` into your first-run folder beside `.venv`.
+Use a new report directory for each trial. Linux / macOS:
+
+```bash
+.venv/bin/python -m pitbridge build --inputs pitbridge-scenario.json --out scenario-report
+.venv/bin/python -m pitbridge verify --out scenario-report
+```
+
+Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\python.exe -m pitbridge build --inputs pitbridge-scenario.json --out scenario-report
+.\.venv\Scripts\python.exe -m pitbridge verify --out scenario-report
+```
+
+At decision `2026-04-03T00:00:00Z`, an ingestion one microsecond later selects
+`invoice-v1` / 100,000; exact equality selects `invoice-v2` / 135,000. Inspect
+`snapshots.csv` beside the browser value. The public v0.2.2 wheel accepts this
+JSON contract. [Source example and scope](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md#replay-a-downloaded-browser-scenario).
 
 ### Run the Python API in a notebook
 

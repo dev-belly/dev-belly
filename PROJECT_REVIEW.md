@@ -1,4 +1,39 @@
-# Portfolio review · 2026-10-30
+# Portfolio review · 2026-10-31
+
+## Portable browser scenarios · 2026-10-31
+
+[PITBridge #31](https://github.com/dev-belly/PITBridge/pull/31) lets a visitor
+download the exact synthetic invoice scenario edited in the
+[no-install lesson](https://dev-belly.github.io/PITBridge/try/). The JSON keeps
+both original records, the chosen decision, freshness rule and exact timestamp
+text. Edits update the download without submitting; invalid inputs remove it.
+The input file is separate from the verified report later built by Python.
+
+The shipped browser script matches SQLite and the independent Python engine
+across **71 scenarios**; all **68 valid exported cases** build and independently
+replay. Real [Chrome CI](https://github.com/dev-belly/PITBridge/actions/runs/41176282543)
+passes at 1,280px and 390px: **26 selections/checks** across five page visits,
+including two actual named downloads. Their saved bytes match the current
+scenario and independently replay. The checks cover immediate input edits,
+cutoff equality, a one-microsecond late arrival and invalid-precision rejection.
+
+All ten PR jobs pass. Merge
+[`d0b1bc4`](https://github.com/dev-belly/PITBridge/commit/d0b1bc451d663bc1e4a8bf13328f3d19992469f5)
+retains checked tree `6116dc52d95c7e6cffe44adfaa8f97b90fe71da7` exactly.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/41176399912),
+[Pages](https://github.com/dev-belly/PITBridge/actions/runs/41176399931) and the
+[release guard](https://github.com/dev-belly/PITBridge/actions/runs/41176467686)
+also pass. The public lesson responds with HTTP 200 and its complete HTML is
+byte-identical to the checked source (18,260 bytes).
+
+All **152 local unit tests** run successfully, with 16 optional pandas tests
+skipped in the stdlib environment. Five generated cases also build and verify
+using the actual public v0.2.2 wheel in a clean environment outside the checkout.
+They cover not-yet-available, original, equality, late-arrival and stale results.
+Core algorithms, report formats and existing release assets are unchanged.
+The [first-run guide](START_HERE.md#download-and-replay-your-browser-scenario)
+and [recruiter overview](FOR_RECRUITERS.md) connect this reproducible trial;
+the catalog's direct-browser route no longer sends visitors to Colab.
 
 ## Editable CSV first runs from the wheel · 2026-10-30
 
