@@ -114,6 +114,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
+- **Browser-to-Python replay · 2026-10-31:** [download the invoice scenario you just edited](START_HERE.md#download-and-replay-your-browser-scenario), then build and independently verify it with the checked wheel. [Download checks and scope](PROJECT_REVIEW.md#portable-browser-scenarios--2026-10-31).
+
 - **Editable installed inputs · 2026-10-30:** [generate three CSV tables, edit an arrival and replay the result](START_HERE.md#pitbridge-create-editable-csv-inputs) with the checked v0.2.2 wheel. [Validation and source identity](PROJECT_REVIEW.md#editable-csv-first-runs-from-the-wheel--2026-10-30).
 
 - **Bilingual credit study · 2026-10-29:** [English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) and [中文](https://dev-belly.github.io/CreditVintage/sba-brief/) share verified results and preserve the chosen review capacity when changing language. [Checks and source identity](PROJECT_REVIEW.md#english-and-chinese-credit-study-entry--2026-10-29).

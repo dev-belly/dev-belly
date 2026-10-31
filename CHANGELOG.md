@@ -1,5 +1,13 @@
 # Build history
 
+**2026-10-31 · Take the browser scenario into Python.**
+[PITBridge #31](https://github.com/dev-belly/PITBridge/pull/31) adds a JSON
+download of the currently edited synthetic invoice case, preserving exact
+timestamps and removing the download for invalid inputs. The existing v0.2.2
+wheel builds and independently verifies it. Connect the route to the first-run
+guide and recruiter overview; fix the catalog's no-install route to open the
+direct lesson rather than Colab.
+
 **2026-10-30 · Complete the editable first-run route for the installed data tool.**
 [PITBridge #30](https://github.com/dev-belly/PITBridge/pull/30) adds `init-csv`
 to the checked [v0.2.2 wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2).
