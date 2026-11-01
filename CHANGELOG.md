@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-01 · Ship recoverable CSV initialization in the checked wheel.**
+[CreditVintage #43](https://github.com/dev-belly/CreditVintage/pull/43) publishes
+[v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2), carrying
+the #42 input-recovery fix into installation. The release gate checks seven
+interrupted stages, clean CLI retries, unchanged successful input bytes and
+existing-destination preservation. The first-run guide, recruiter route and
+project brief use the new checked version; dated v0.8.1 validation history stays
+separate. Synthetic event examples and the observed SBA study retain their scopes.
+
 **2026-10-31 · Take the browser scenario into Python.**
 [PITBridge #31](https://github.com/dev-belly/PITBridge/pull/31) adds a JSON
 download of the currently edited synthetic invoice case, preserving exact

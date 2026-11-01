@@ -1,4 +1,54 @@
-# Portfolio review · 2026-10-31
+# Portfolio review · 2026-11-01
+
+## Checked CSV recovery release · 2026-11-01
+
+[CreditVintage #42](https://github.com/dev-belly/CreditVintage/pull/42) repairs
+an interrupted initializer that left an incomplete destination and blocked a
+direct retry. [#43](https://github.com/dev-belly/CreditVintage/pull/43) carries
+that fix into [v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2)
+and makes installed recovery evidence a release requirement.
+
+The installed checker uses the clean wheel's Python with `-I` outside both
+source trees, before installing optional PITBridge. It interrupts each of five
+file writes, hashing and directory publication. All seven failures must return
+exit 2 without success JSON or a partial case; direct CLI retries must be ready
+for evaluation with byte-identical successful files. A destination appearing
+during preparation must retain its sentinel. Both release preparation and
+verification require the exact installed version and these recovery fields;
+new regressions rehash the edited evidence and still reject false claims.
+
+All **486 local tests and 28 subtests** pass, including 48 input/release tests,
+together with Ruff, formatting across 55 files, strict mypy and 50 changed-document
+local targets. A regular wheel built from its source archive passes the same
+seven-stage probe in a fresh environment outside the checkout without PITBridge.
+The initializer does not fit a model. Core model/source protocols, numerical
+dependencies and saved runtime report formats retain their contracts.
+
+All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/41322807702)
+and the [report rebuild](https://github.com/dev-belly/CreditVintage/actions/runs/41322807553)
+pass. Merge
+[`009ea62`](https://github.com/dev-belly/CreditVintage/commit/009ea623a5c0a6fe7da5425464e7607ecea07c44)
+retains checked tree `eb162a7698e038c010d819df89a099667ee14c1b` exactly.
+[Main CI](https://github.com/dev-belly/CreditVintage/actions/runs/41323356955),
+[report publication](https://github.com/dev-belly/CreditVintage/actions/runs/41323356947)
+and the [checked release publisher](https://github.com/dev-belly/CreditVintage/actions/runs/41323936636)
+also pass. The release points to that exact merge commit.
+
+All five public release assets were downloaded and checked against GitHub's
+asset sizes/digests, the checksum list and exact-commit manifest. The public
+wheel's SHA-256 is
+`f1315ace19ed25382060c2eab489f2cff73a6b27f3eca55302c1cd6b4ede249b`.
+That downloaded wheel passes the seven-stage recovery probe in a fresh
+environment outside both checkouts, with PITBridge absent. Actual `init-inputs`
+and `check-inputs` commands report 480 synthetic applications,
+`ready_for_evaluation` and `model_fitted: false`. All five v0.8.1 asset digests
+remain unchanged after this new release.
+
+The [first-run guide](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics),
+[recruiter overview](FOR_RECRUITERS.md) and [project brief](PROJECT_BRIEFS.md)
+connect the new installed path. The small event case remains synthetic and is
+separate from the observed SBA funding-cohort study; recovery checks do not
+establish source authenticity, independent adoption or hiring outcomes.
 
 ## Portable browser scenarios · 2026-10-31
 
