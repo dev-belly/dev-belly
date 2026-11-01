@@ -43,7 +43,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 最终快照没有历史首次发布或特征修订记录，因此作为回溯放款研究；原合成时点控制实验和静态 UCI 目标分开解释。核验成功不代表生产部署或避免损失。
 
-[Try in English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [中文交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.1](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.1)
+[Try in English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [中文交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2)
 
 <details>
 <summary>More experiments: static credit, input quality and human review</summary>
@@ -113,6 +113,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Checked recovery release · 2026-11-01:** [CreditVintage v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2) brings recoverable input initialization into the wheel. [Create, diagnose and evaluate a CSV case](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics) · [Installed checks and release evidence](PROJECT_REVIEW.md#checked-csv-recovery-release--2026-11-01).
 
 - **Browser-to-Python replay · 2026-10-31:** [download the invoice scenario you just edited](START_HERE.md#download-and-replay-your-browser-scenario), then build and independently verify it with the checked wheel. [Download checks and scope](PROJECT_REVIEW.md#portable-browser-scenarios--2026-10-31).
 
