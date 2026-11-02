@@ -1,4 +1,38 @@
-# Portfolio review · 2026-11-01
+# Portfolio review · 2026-11-02
+
+## Scenario-specific copy confirmations · 2026-11-02
+
+[PITBridge #32](https://github.com/dev-belly/PITBridge/pull/32) fixes a delayed
+clipboard write that could announce success beneath a different invoice scenario.
+The UI captures the clicked URL, permits one pending write across input edits,
+and confirms success/fallback only while that exact URL remains a valid visible
+scenario. Completion restores the button according to current input validity;
+a blocked clipboard still offers address-bar copying and a retry.
+
+Real [Chrome PR checks](https://github.com/dev-belly/PITBridge/actions/runs/41389098831)
+pass **38 interaction checks across seven page visits**, including controlled
+clipboard completions at 1,280px and 390px. They cover changed-scenario success,
+duplicate clicks, obsolete failure after invalid input, current failure/fallback
+and successful retry, without writing to a runner's real clipboard. Both actual
+JSON downloads still independently replay. The browser core retains **71**
+SQL/reference comparisons and **68** valid exported-case replays.
+
+The local suite runs **152 tests**, with 16 optional pandas cases skipped in
+the stdlib environment, and reports no failures or errors. Ruff, UI/check-script
+syntax and whitespace checks pass. The fixed lesson remains a synthetic teaching
+case; package runtime, release assets, timing selection and input contracts keep
+their scope. This change does not measure adoption, stars or hiring outcomes.
+
+All ten [PR jobs](https://github.com/dev-belly/PITBridge/actions/runs/41389098831)
+pass. Merge
+[`40152e3`](https://github.com/dev-belly/PITBridge/commit/40152e323081ff209995df3219b64ff0f7f399c7)
+retains checked tree `ecf1da2b0f134d152dc2a91293f5157166fbd2b3` exactly.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/41389249865),
+[Pages](https://github.com/dev-belly/PITBridge/actions/runs/41389249972) and the
+[release guard](https://github.com/dev-belly/PITBridge/actions/runs/41389349900)
+also pass. The public lesson responds with HTTP 200 and its complete 18,657-byte
+HTML is byte-identical to the checked source: SHA-256
+`c45f76d6ff49e7750688d5e82aa583ded6b788428959a09108b863fe1fb3258b`.
 
 ## Checked CSV recovery release · 2026-11-01
 
