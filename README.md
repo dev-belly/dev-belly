@@ -114,6 +114,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
+- **Reliable scenario sharing · 2026-11-02:** [PITBridge's invoice lesson](https://dev-belly.github.io/PITBridge/try/) keeps clipboard confirmations tied to the current valid scenario, including slow or blocked copies. [Browser checks and source](PROJECT_REVIEW.md#scenario-specific-copy-confirmations--2026-11-02).
+
 - **Checked recovery release · 2026-11-01:** [CreditVintage v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2) brings recoverable input initialization into the wheel. [Create, diagnose and evaluate a CSV case](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics) · [Installed checks and release evidence](PROJECT_REVIEW.md#checked-csv-recovery-release--2026-11-01).
 
 - **Browser-to-Python replay · 2026-10-31:** [download the invoice scenario you just edited](START_HERE.md#download-and-replay-your-browser-scenario), then build and independently verify it with the checked wheel. [Download checks and scope](PROJECT_REVIEW.md#portable-browser-scenarios--2026-10-31).

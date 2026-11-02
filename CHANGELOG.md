@@ -1,5 +1,12 @@
 # Build history
 
+**2026-11-02 · Keep shared invoice links tied to the visible scenario.**
+[PITBridge #32](https://github.com/dev-belly/PITBridge/pull/32) prevents a slow
+clipboard completion from confirming a changed or invalid scenario. Pending
+writes are serialized, current failures retain a fallback and retry, and real
+Chrome checks exercise both desktop and narrow-screen interactions alongside
+the existing downloadable-case replay.
+
 **2026-11-01 · Ship recoverable CSV initialization in the checked wheel.**
 [CreditVintage #43](https://github.com/dev-belly/CreditVintage/pull/43) publishes
 [v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2), carrying
