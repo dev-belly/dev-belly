@@ -24,8 +24,18 @@ hashes. A rehashed policy modification with a rebuilt ZIP must fail before SQL.
 The actual public SBA ZIP also fully refits and matches all nine policy rows
 and 3,000 queue rows, using both the checkout runtime and the genuinely installed
 public v0.8.2 wheel. Their JSON results are identical and all 13 input files
-remain byte-identical. Public ZIP SHA-256:
+remain byte-identical. Prepublication ZIP SHA-256:
 `984b94483933597c00356f71841971f979005fd97fab33688b9e7ac59301412a`.
+
+After main report publication, the newly downloaded ZIP fully refits again
+using the public v0.8.2 wheel, with the identical SQL replay JSON and unchanged
+input files. Its SHA-256 is
+`30f4a36268438248f444d42f533530a6f607b01c867fff8307fbca29c3d709ac`.
+Only `summary.json` fit coefficients/intercept and their manifest hash differ
+between the two snapshots; the maximum parameter difference is below
+`1.3e-12`. Source, protocol, predictions, policy metrics and all queue rows
+remain byte-identical. A full refit has numerical tolerances and does not
+promise universally identical archive bytes.
 
 The full local suite passes **497 tests and 28 subtests**, together with Ruff,
 formatting, strict mypy over 24 source files and all ten local targets/heading
