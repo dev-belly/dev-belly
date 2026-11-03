@@ -7,7 +7,7 @@
 
 | 岗位方向 | 先看这个结果 | 可以继续检查的能力 |
 | --- | --- | --- |
-| 风控分析 / 模型验证 | [CreditVintage：两分钟看复核名额与事件捕获](https://dev-belly.github.io/CreditVintage/sba-brief/) · [完整 SBA 研究](https://dev-belly.github.io/CreditVintage/sba-credit/) · [合成 CSV 接入检查](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics) | 按真实放款期划分、等待 24 月表现成熟、训练独占预处理、独立校准、逐笔预测重拟合。见[建模实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py)。 |
+| 风控分析 / 模型验证 | [CreditVintage：两分钟看复核名额与事件捕获](https://dev-belly.github.io/CreditVintage/sba-brief/) · [完整 SBA 研究](https://dev-belly.github.io/CreditVintage/sba-credit/) · [从源码做 SQLite 复算](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) · [合成 CSV 接入检查](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics) | 按真实放款期划分、24 月表现成熟、训练独占预处理、独立校准、逐笔预测重拟合；SQL 排名和分母核对。见[建模实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py)。 |
 | 金融数据工程 | [PITBridge：修改入库时间](https://dev-belly.github.io/PITBridge/try/) · [下载情景并独立复现](START_HERE.md#download-and-replay-your-browser-scenario) · [安装包生成可编辑三表](START_HERE.md#pitbridge-create-editable-csv-inputs) | 发布/入库/决策时点、修订选择、微秒边界、离线 CSV 接入、SQL 与独立 Python 核验。见[时间连接代码](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)。 |
 | 财务 / 业务数据分析 | [StatementTrace：公开年报到财务指标](https://dev-belly.github.io/StatementTrace/) | 财年与单位合同、53 周财年、申报截止日快照、指标公式和源记录追溯。见[公开来源台账](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md)。 |
 
@@ -15,7 +15,7 @@
 
 - **校准为什么会让结果变差？** SBA 固定测试中，Logistic AUC 为 0.6723；独立保序校准改善 Brier，却降低排序和相同复核容量下的事件捕获。保留原结果，分别解释概率误差与排名。
 - **两个实现一致，为什么仍可能有错？** SQL 与 Python 可能共用一个有损时间解析器。把晚到 0.9 微秒的输入截断后，两者会一起错；应先校验源精度，再做算法对照。
-- **同一份名单，为什么出现不同“完成率”？** 合成 SQL 业务案例区分 25/48 的精确率、25/107 的事件捕获率和人工复核状态；处理完成不等于避免坏账。
+- **26/1,000 和 26/89 有什么区别？** 前者是 SBA 固定名单的精确率，后者是测试事件捕获率；63 个事件未进入名单。可从保存的预测用 SQLite 复算，标签不参与排名。合成工作流另有人工处理完成率，不能把任何一个说成避免坏账。
 
 ## 结果的适用范围
 
