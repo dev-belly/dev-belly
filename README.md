@@ -29,6 +29,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 | Which credit cohorts need attention? | [SQL credit analysis](https://dev-belly.github.io/CreditVintage/analysis/) | [Cohort SQL](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) · [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md) |
 | Do the inputs meet explicit coverage rules? | [Policy check](https://dev-belly.github.io/CreditVintage/feature-check/) · [Coverage and delays](https://dev-belly.github.io/CreditVintage/feature-quality/) | [Rules and replay](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/feature_policy.py) · [Contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) |
 | What could a decision know before a late correction arrived? | [Run three decisions in your browser](https://dev-belly.github.io/PITBridge/try/) | [Three-decision example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) |
+| Was this annual figure filed by the cutoff? | [FY2024 before filing](https://dev-belly.github.io/StatementTrace/#as_of=2024-10-31&period=2024) → [after filing](https://dev-belly.github.io/StatementTrace/#as_of=2024-11-01&period=2024) | [Selection and exact ratios](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/engine.py) · [Source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) |
 | How does clustered default change portfolio losses? | [Stress report](https://dev-belly.github.io/StressAtlas/) | [Tail math and uncertainty](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) |
 
 **A useful result includes its limits.** The [SBA study](https://dev-belly.github.io/CreditVintage/sba-credit/) uses real funding dates and a native 24-month recorded charge-off target. Logistic AUC is 0.6723 on 10,000 later loans; calibration improves Brier while reducing ranking performance. The final snapshot cannot establish historical first-publication times. Separate UCI static and synthetic event experiments retain their own targets. [Project evidence](PROJECT_BRIEFS.md) connects each claim to inputs, code and validation.
@@ -115,6 +116,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Share a financial view · 2026-11-03:** [Compare one filing cutoff](START_HERE.md#inspect-a-filing-cutoff), then send the exact fiscal year and date in a link. StatementTrace restores shared views and browser history, retaining formulas and SEC sources. [Checks and scope](PROJECT_REVIEW.md#shareable-financial-views--2026-11-03).
 
 - **SQL practice on observed loans · 2026-11-03:** [Recalculate SBA review budgets in SQLite](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md), with label-free ranking, explicit ties and all saved queue members checked. [Practice the explanation](INTERVIEW_PLAYBOOK.zh-CN.md#先练真实-sba用-sql-把两个分母讲清楚).
 

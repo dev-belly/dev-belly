@@ -1,5 +1,47 @@
 # Portfolio review · 2026-11-03
 
+## Shareable financial views · 2026-11-03
+
+[StatementTrace #8](https://github.com/dev-belly/StatementTrace/pull/8) gives
+each report cutoff/year pair an exact link and browser-history entry. Opening
+the link, changing its fragment, Back and Forward restore the selected panel.
+Original whitespace, CR/LF, NUL and Unicode period identities remain distinct.
+Unknown, duplicate, extra or malformed parameters show a notice and the latest
+configured view; six saved panels remain readable with JavaScript disabled.
+
+The public first trial compares FY2024 at the October 31 and November 1, 2024
+SEC filed-date cutoffs. Missing inputs remain missing before filing; the later
+panel shows USD 108,807 million free cash flow and its source facts/formula.
+These are the existing 33 manually curated Apple filing records, not a raw API
+download, intraday availability proof or investment result. Header links connect
+the report to the method, GitHub project and author without analytics or uploads.
+
+All **42 local tests**, Ruff, formatting and rendered-script syntax pass. Exact
+committed report replay and preview verification pass. A clean wheel installed
+outside the checkout, invoked with isolated Python, builds/verifies all nine
+files byte-identically. Only HTML and its manifest hash change; facts, request,
+analysis and all four CSV exports retain their original bytes.
+
+Real [Chrome PR checks](https://github.com/dev-belly/StatementTrace/actions/runs/41640092729)
+pass across **eight visits at 1,280px/390px**: **48 selections and 432 metric rows**,
+filing links, eight shared-link round trips, 16 Back/Forward restorations and
+64 invalid links. Four report variants include ordinary labels, CR/LF,
+NUL/replacement-character pairs and Unicode/URL punctuation. All six no-JavaScript
+panels remain available. Pages now waits for this browser job as well as the
+Linux/Windows tests and installed-wheel replay.
+
+All five PR CI jobs pass on Linux Python 3.11–3.13, Windows Python 3.12 and Chrome.
+Merge
+[`f6cb49b`](https://github.com/dev-belly/StatementTrace/commit/f6cb49b2fffc7b0e2186a2bd455ac727ca314b53)
+retains checked tree `76da6c01f5a79020809a0f497a0e1f3df8336087` exactly.
+[Main validation and Pages publication](https://github.com/dev-belly/StatementTrace/actions/runs/41640284843)
+all pass on that same commit. The public report returns HTTP 200; its 30,631-byte
+HTML matches the tested source and clean-wheel output exactly, SHA-256
+`e40a8b859316a9ee4d17744ce15821ff4578fea11051422324a0b22b0bc60701`.
+The recruiter overview, first-run guide and project
+brief connect the before/after-filing trial. These checks do not measure
+independent adoption, star/follower growth or hiring outcomes.
+
 ## Observed-credit SQL practice · 2026-11-03
 
 [CreditVintage #44](https://github.com/dev-belly/CreditVintage/pull/44) adds a

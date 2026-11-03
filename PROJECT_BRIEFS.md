@@ -12,7 +12,7 @@ These are **candidate resume bullets**, not claims about live customers or reali
 - **Discuss:** Why filing `fy` cannot replace start/end; why filing date and acceptance timestamp differ; why missing is not zero; why reported annual growth is not week-normalized; why rehashed output corruption still fails replay.
 - **Boundary:** Eleven configured US-GAAP USD concepts, date-granularity availability and a manually curated CompanyFacts-shaped excerpt. No raw-API-download, actual-restatement, universal-XBRL, credit-rating or investment-performance claim.
 
-- **Report maintenance:** [#5](https://github.com/dev-belly/StatementTrace/pull/5) protects CSV labels and uses explicit browser identity keys. Main CI includes four real-Chrome selections; saved financial/source tables retain their original bytes.
+- **Report maintenance:** [#5](https://github.com/dev-belly/StatementTrace/pull/5) protects CSV labels and uses explicit browser identity keys. Its original browser check covered four selections; [#8](https://github.com/dev-belly/StatementTrace/pull/8) expands exact-view links and history restoration at desktop/narrow widths. The [first trial](START_HERE.md#inspect-a-filing-cutoff) compares FY2024 before/after filing; saved financial/source tables retain their original bytes.
 - **Fiscal-calendar check:** [#6](https://github.com/dev-belly/StatementTrace/pull/6) requires adjacent configured periods for reported revenue growth. A skipped year or calendar gap keeps the current-period facts and other ratios but omits the non-adjacent growth base. The 53/52-week demo retains all nine saved files byte for byte; [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/40066128539) pass.
 
 ## Counterparty network risk
