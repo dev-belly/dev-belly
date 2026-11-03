@@ -1,4 +1,53 @@
-# Portfolio review · 2026-11-02
+# Portfolio review · 2026-11-03
+
+## Observed-credit SQL practice · 2026-11-03
+
+[CreditVintage #44](https://github.com/dev-belly/CreditVintage/pull/44) adds a
+[repository SQLite exercise](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
+over saved SBA predictions. It privately captures a complete bundle, invokes
+the existing frozen-source/model refitter, then compares every one of the nine
+policy rows and 3,000 queue members. The original input directory is unchanged.
+Window ranking reads only scores; recorded outcomes join afterward. Event
+totals come from one row per loan rather than the three-method score table.
+
+The 10% raw Logistic row is 26 / 1,000 precision and 26 / 89 event capture,
+with 63 events outside the queue. Calibrated and constant methods retain their
+24 / 89 and 7 / 89 counts. Equal scores use explicit ID ordering, not random
+selection; odd population sizes round fixed capacities upward. The current
+source checkout supplies the Python/SQL files; the published v0.8.2 wheel
+supplies the unchanged benchmark/verifier and does not bundle this new example.
+
+All **11 focused tests** pass: hand-calculated 21-loan quotas, shuffled/reversed
+inputs, changed labels that cannot change selection, zero event denominators,
+invalid probabilities/IDs, actual frozen-study replay and unchanged input
+hashes. A rehashed policy modification with a rebuilt ZIP must fail before SQL.
+The actual public SBA ZIP also fully refits and matches all nine policy rows
+and 3,000 queue rows, using both the checkout runtime and the genuinely installed
+public v0.8.2 wheel. Their JSON results are identical and all 13 input files
+remain byte-identical. Public ZIP SHA-256:
+`984b94483933597c00356f71841971f979005fd97fab33688b9e7ac59301412a`.
+
+The full local suite passes **497 tests and 28 subtests**, together with Ruff,
+formatting, strict mypy over 24 source files and all ten local targets/heading
+anchors in the changed study guides. Model settings, source pins, numerical
+dependencies, runtime evidence formats and the published release version are
+unchanged.
+
+All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/41577485195)
+and the [report rebuild](https://github.com/dev-belly/CreditVintage/actions/runs/41577485231)
+pass. Merge
+[`1ac8217`](https://github.com/dev-belly/CreditVintage/commit/1ac8217a50f723c3851986e67a835415572a9882)
+retains checked tree `1a7001837371b6b5990885c7865168189452f4d4` exactly.
+Main checks: [CI](https://github.com/dev-belly/CreditVintage/actions/runs/41578157256)
+and [report publication](https://github.com/dev-belly/CreditVintage/actions/runs/41578157316).
+
+The recruiter overview, short card and full interview guide connect this
+exercise. The old guide's blanket synthetic-data statement is corrected:
+SBA is an observed retrospective 24-month recorded-charge-off study; the
+180-day event workflow is synthetic. Historical feature first-publication
+and revision timestamps remain absent, so this is not prevented loss or
+deployment evidence. Practice wording still requires understanding, actual
+participation and truthful attribution of assistance.
 
 ## Scenario-specific copy confirmations · 2026-11-02
 

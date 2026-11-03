@@ -45,6 +45,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 [Try in English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [中文交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2)
 
+[Practice the review-budget SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md): use the current source checkout to recalculate all nine policy rows and 3,000 queue rows after full evidence verification. Distinguish 26/1,000 precision from 26/89 event capture.
+
 <details>
 <summary>More experiments: static credit, input quality and human review</summary>
 
@@ -113,6 +115,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **SQL practice on observed loans · 2026-11-03:** [Recalculate SBA review budgets in SQLite](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md), with label-free ranking, explicit ties and all saved queue members checked. [Practice the explanation](INTERVIEW_PLAYBOOK.zh-CN.md#先练真实-sba用-sql-把两个分母讲清楚).
 
 - **Reliable scenario sharing · 2026-11-02:** [PITBridge's invoice lesson](https://dev-belly.github.io/PITBridge/try/) keeps clipboard confirmations tied to the current valid scenario, including slow or blocked copies. [Browser checks and source](PROJECT_REVIEW.md#scenario-specific-copy-confirmations--2026-11-02).
 

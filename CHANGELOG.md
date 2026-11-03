@@ -1,5 +1,15 @@
 # Build history
 
+**2026-11-03 · Practice SQL on the observed credit study.**
+[CreditVintage #44](https://github.com/dev-belly/CreditVintage/pull/44) adds a
+[SQLite exercise](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
+that fully verifies/refits saved SBA evidence before recomputing all nine review
+budgets and all 3,000 queue members. Ranking excludes outcomes, ties use record
+ID, and precision and capture retain separate denominators. Connect the source
+exercise to the recruiter overview, interview card and full practice guide;
+keep retrospective observed loans separate from synthetic workflow claims.
+It requires current repository files and is not a new published wheel command.
+
 **2026-11-02 · Keep shared invoice links tied to the visible scenario.**
 [PITBridge #32](https://github.com/dev-belly/PITBridge/pull/32) prevents a slow
 clipboard completion from confirming a changed or invalid scenario. Pending

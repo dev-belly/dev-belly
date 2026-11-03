@@ -8,19 +8,39 @@
 
 以下第一人称是**理解并亲自练习后可使用的表达模板**，不是对你的开发经历、实习或独立贡献的认定。把“我实现了”改成实际情况：我定义了什么、亲自修改了什么、复核了什么、哪些实现由 AI 协助。不能解释的部分先说明参与范围，再补练。
 
-依据：[项目证据](PROJECT_BRIEFS.md)、[验证记录](PROJECT_REVIEW.md)及下方链接的源码、方法与公开结果。核对日期：2026-10-13。公开演示均标明合成数据；这里不把代码演示说成实际银行上线、客户项目或已实现收益。
+依据：[项目证据](PROJECT_BRIEFS.md)、[验证记录](PROJECT_REVIEW.md)及下方链接的源码、方法与公开结果。原合成流程核对日期：2026-10-13；SBA SQL 练习核对日期：2026-11-03。真实 SBA 回溯研究与合成业务流程分别说明；这里不把研究或代码演示说成实际银行上线、客户项目或已实现收益。
 
 ## 1. 按岗位选择开场
 
 | 岗位 | 主讲问题 | 展示入口 | 展开方向 |
 | --- | --- | --- | --- |
-| 金融数据分析 / 银行数据 | 哪些放款批次和客群值得复核，人工名额覆盖了多少风险事件？ | [CreditVintage SQL 分析](https://dev-belly.github.io/CreditVintage/analysis/) | SQL、分母、跨月份口径、复核容量 |
-| 信贷风控 / 模型验证 | 评分是否用了未来信息，评估结果能否被独立复算？ | [CreditVintage 风险报告](https://dev-belly.github.io/CreditVintage/demo/) | 标签成熟、跨期切分、校准负结果 |
+| 金融数据分析 / 银行数据 | 相同复核名额覆盖了多少历史记录事件，分母怎么算？ | [SBA SQLite 练习](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 窗口排序、并列分数、向上取整、精确率与捕获率 |
+| 信贷风控 / 模型验证 | 跨放款期结果如何，最终快照还缺少什么历史信息？ | [SBA 真实放款研究](https://dev-belly.github.io/CreditVintage/sba-credit/) | 24 月标签成熟、训练独占预处理、独立校准、来源边界 |
 | 金融数据工程 | 给定一个历史决策，重建当时实际可得的输入 | [PITBridge × CreditVintage](https://dev-belly.github.io/CreditVintage/lineage/) | 修订、发布与入库时间、单位、血缘 |
 | IT 审计 / 内控 / 风险咨询 | 一条控制线索怎样成为可复核底稿？ | [ControlTrace 完整案例](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) | 控制目标、证据断链、人工结论 |
 | 财务审计数据分析 | 在有限复核预算内，兼顾高风险线索与剩余总体 | [AuditLens 复核工作底稿](https://github.com/dev-belly/AuditLens/blob/main/outputs/reports/review_plan.csv) | 规则解释、抽样框、异常与舞弊的区别 |
 
 选一条主线和一条补充线即可。所有项目都背一遍，会削弱你对一个具体问题的掌握。
+
+### 先练真实 SBA：用 SQL 把两个分母讲清楚
+
+从当前 CreditVintage 源码按 [SQLite 练习](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
+实际生成、重拟合验证并核对证据。仅安装 v0.8.2 wheel 不会创建该练习的 Python 和 SQL 文件。
+先解释原始 Logistic 的 10% 行：**26/1,000 是精确率，26/89 是事件捕获率，
+63/89 的事件未进入名单**；三个方法共用 10,000 笔测试贷款和 89 个事件。
+
+> 这项研究按真实放款期分开训练、校准和测试，等待 24 月表现成熟。我的 SQL 复现练习从保存的预测重算固定复核预算：先按分数与 ID 排名，再关联标签评价。相同的 1,000 个名额，原始 Logistic 覆盖 26/89 个记录事件；校准后为 24/89，虽然 Brier 改善。它是历史事件集中程度，不是避免了坏账。最终公开快照没有历史首次公开和修订时间，所以还不能证明输入在过去决策时确实可得。
+
+这段仍是理解和亲自运行后才能按实际参与范围使用的模板。继续追问时打开
+[SQL](https://github.com/dev-belly/CreditVintage/blob/main/examples/sba_review_budget.sql)：
+
+- 指出 `ROW_NUMBER() OVER (PARTITION BY method ORDER BY score DESC, record_id COLLATE BINARY)`；常数分数也按 ID 决定顺序，不是随机抽样。
+- 用 21 笔的小样本手算 5%、10%、20% 名额为 2、3、5，解释整数向上取整。
+- 说明总体事件分母来自每笔贷款一行的 `outcomes`，不能把三个方法的分数行重复累计。
+- 解释九行预算和 3,000 行名单如何与保存的证据比较；标签改变不应改变选择，重算哈希也不能绕过先行的模型重拟合。
+
+下面的 180 天逾期、480 笔测试和 PITBridge 血缘属于**另一项合成实验**。
+SBA 的目标是 24 个自然月内记录核销；两者的日期、样本、事件数与结果不能混用。
 
 ## 2. CreditVintage × PITBridge：让评分回到申请时点
 
@@ -76,7 +96,7 @@
 | [CreditVintage `src/creditvintage/business_groups.sql`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) | 条件聚合、`NULLIF`、`LAG`，同一申请为何进入不同分析视角 |
 | [CreditVintage `src/creditvintage/business.py`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business.py)及[回归](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_business.py) | 不执行 SQL 的重算、输入冻结、零分母、重哈希后篡改为什么失败 |
 
-当前新生成的联合案例固定依赖 PITBridge 提交 [`219e58a`](https://github.com/dev-belly/PITBridge/blob/219e58a7c2acc4a3fcd4f7ffdb68ba8eef0564f0/src/pitbridge/core.py)，它包含时间精度修复。旧证据包可能声明 `ed19dc6`；核验仍完整重放该历史格式，不能据此恢复过去已截断的时间。独立安装 PITBridge v0.2.1 和 CreditVintage 联合案例的固定依赖是两条不同安装路径。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
+当前新生成的联合案例固定依赖 PITBridge 提交 [`219e58a`](https://github.com/dev-belly/PITBridge/blob/219e58a7c2acc4a3fcd4f7ffdb68ba8eef0564f0/src/pitbridge/core.py)，它包含时间精度修复。旧证据包可能声明 `ed19dc6`；核验仍完整重放该历史格式，不能据此恢复过去已截断的时间。独立安装 PITBridge v0.2.2 和 CreditVintage 联合案例的固定依赖是两条不同安装路径。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
 
 ### 高频追问：回答要带理由
 
