@@ -85,6 +85,23 @@ capacity; the static table remains readable when JavaScript is disabled.
 这是 35,000 笔真实放款记录中的 10,000 笔后期测试样本；历史最终快照缺少
 首次发布和修订记录。这里展示回溯结果，不推断避免了多少坏账。
 
+### Inspect a filing cutoff
+
+Open [StatementTrace FY2024 before filing](https://dev-belly.github.io/StatementTrace/#as_of=2024-10-31&period=2024),
+then [the same year after filing](https://dev-belly.github.io/StatementTrace/#as_of=2024-11-01&period=2024).
+No account, installation or upload is needed.
+
+1. At the October 31 cutoff, identify the missing inputs; missing does not mean zero.
+2. At the November 1 cutoff, find free cash flow of **USD 108,807 million**,
+   inspect operating cash flow minus capex, then follow the selected facts to the SEC filing.
+3. Change a selector and open or copy **Link to this view**. The address keeps
+   the cutoff/year; reopening it or using Back/Forward restores that panel.
+
+这是从 Apple 2023/2024 年报手工整理的 33 条公开记录，不是原样 API 下载。
+截止日采用 SEC 申报日期，不推断盘中可得或投资收益；两个视图使用同一份数据。
+可继续看 [三分钟面试讲解](https://github.com/dev-belly/StatementTrace/blob/main/docs/INTERVIEW.md)
+与 [期间、单位和指标合同](https://github.com/dev-belly/StatementTrace/blob/main/docs/METHODOLOGY.md)。
+
 ## Try a project
 
 想先看真实日期跨期研究，可打开 [SBA 35,000 笔贷款](https://dev-belly.github.io/CreditVintage/sba-credit/)；

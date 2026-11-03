@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-03 · Share an exact financial statement view.**
+[StatementTrace #8](https://github.com/dev-belly/StatementTrace/pull/8) preserves
+the filing cutoff and fiscal year in report links and browser history. Direct
+before/after-filing links give financial-data visitors a one-minute first trial;
+project, method and author links support further review. Real Chrome checks
+sharing, unusual identities, malformed links and no-JavaScript reading, and
+now gates Pages deployment. Curated facts, analysis and numerical tables remain
+unchanged; the recruiter route and project brief connect the new entry.
+
 **2026-11-03 · Practice SQL on the observed credit study.**
 [CreditVintage #44](https://github.com/dev-belly/CreditVintage/pull/44) adds a
 [SQLite exercise](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
