@@ -6,7 +6,7 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [StatementTrace](https://github.com/dev-belly/StatementTrace)
 
-> 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 42 项自动化测试。
+> 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 45 项自动化测试。
 
 - **Evidence:** [live report](https://dev-belly.github.io/StatementTrace/), [source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md), [selected facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/selected_facts.csv), [metric lineage](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/lineage.csv), [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/39931468275).
 - **Discuss:** Why filing `fy` cannot replace start/end; why filing date and acceptance timestamp differ; why missing is not zero; why reported annual growth is not week-normalized; why rehashed output corruption still fails replay.
@@ -14,6 +14,7 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 - **Report maintenance:** [#5](https://github.com/dev-belly/StatementTrace/pull/5) protects CSV labels and uses explicit browser identity keys. Its original browser check covered four selections; [#8](https://github.com/dev-belly/StatementTrace/pull/8) expands exact-view links and history restoration at desktop/narrow widths. The [first trial](START_HERE.md#inspect-a-filing-cutoff) compares FY2024 before/after filing; saved financial/source tables retain their original bytes.
 - **Fiscal-calendar check:** [#6](https://github.com/dev-belly/StatementTrace/pull/6) requires adjacent configured periods for reported revenue growth. A skipped year or calendar gap keeps the current-period facts and other ratios but omits the non-adjacent growth base. The 53/52-week demo retains all nine saved files byte for byte; [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/40066128539) pass.
+- **Review export:** [#9](https://github.com/dev-belly/StatementTrace/pull/9) downloads exactly the selected panel's nine metric rows. It preserves formulas, exact fractions, units and missing-input statuses, uses the same text-label rules as the full CSV and works without JavaScript. Real Chrome saves the files and compares all columns with the corresponding full-export slice. [Try it with Excel import guidance](START_HERE.md#inspect-a-filing-cutoff).
 
 ## Counterparty network risk
 
