@@ -96,6 +96,11 @@ No account, installation or upload is needed.
    inspect operating cash flow minus capex, then follow the selected facts to the SEC filing.
 3. Change a selector and open or copy **Link to this view**. The address keeps
    the cutoff/year; reopening it or using Back/Forward restores that panel.
+4. Choose **Download these metrics · CSV** to keep just that panel's nine rows.
+   Compare the cutoff/year and missing statuses with the page. For Excel, import
+   UTF-8 and keep `as_of`, `period` and `exact` as text; the exact FCF value is
+   `108807000000/1` USD, while `display` is rounded. **All metrics CSV** retains
+   all 54 rows and the full report still provides source facts and lineage.
 
 这是从 Apple 2023/2024 年报手工整理的 33 条公开记录，不是原样 API 下载。
 截止日采用 SEC 申报日期，不推断盘中可得或投资收益；两个视图使用同一份数据。

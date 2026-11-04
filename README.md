@@ -117,6 +117,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 Recent changes connect the demonstrations to concrete operational checks:
 
+- **Take the financial view into CSV · 2026-11-04:** [Download the current nine-row panel](START_HERE.md#inspect-a-filing-cutoff) for review in Excel, retaining its cutoff/year, formulas, exact values and missing states. [Actual download checks and source scope](PROJECT_REVIEW.md#financial-view-csv-downloads--2026-11-04).
+
 - **Share a financial view · 2026-11-03:** [Compare one filing cutoff](START_HERE.md#inspect-a-filing-cutoff), then send the exact fiscal year and date in a link. StatementTrace restores shared views and browser history, retaining formulas and SEC sources. [Checks and scope](PROJECT_REVIEW.md#shareable-financial-views--2026-11-03).
 
 - **SQL practice on observed loans · 2026-11-03:** [Recalculate SBA review budgets in SQLite](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md), with label-free ranking, explicit ties and all saved queue members checked. [Practice the explanation](INTERVIEW_PLAYBOOK.zh-CN.md#先练真实-sba用-sql-把两个分母讲清楚).

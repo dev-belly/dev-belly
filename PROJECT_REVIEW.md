@@ -1,4 +1,49 @@
-# Portfolio review · 2026-11-03
+# Portfolio review · 2026-11-04
+
+## Financial-view CSV downloads · 2026-11-04
+
+[StatementTrace #9](https://github.com/dev-belly/StatementTrace/pull/9) adds a
+native CSV download to each cutoff/year panel. A reader can take just its nine
+metric rows into review, retaining the formula, unit, status, exact fraction,
+rounded display and missing-input names. Full `metrics.csv` still has 54 demo
+rows. Native links belong to their panels through sharing/history/fallback and
+remain available without JavaScript; the browser does not recalculate numbers.
+
+The before-filing FY2024 export keeps nine `missing_input` rows with empty values.
+The after-filing FCF is `108807000000/1` USD with its original formula. Excel
+guidance uses UTF-8 and text columns for dates, identities and exact fractions.
+Formula-shaped period labels retain the full CSV's text markers; original IDs
+remain in JSON. This is a review excerpt, with source facts, lineage and full
+semantic replay still supplied by the complete report. The demo remains 33
+manually curated public Apple filing records and SEC filed-date cutoffs.
+
+All **45 local tests**, Ruff, formatting, script syntax, nine-file report replay
+and preview verification pass. Three new tests compare every embedded download
+with its full-export slice and cover hand-calculated FCF/missingness, formula
+labels, CR/LF/NUL/Unicode, quoting and negative numbers. A fresh wheel invoked
+with isolated Python outside the source checkout builds/verifies all nine files
+byte-identically, including all six native CSV links. Seven input/financial
+files are unchanged; only committed HTML and its manifest hash refresh.
+
+All five [PR CI jobs](https://github.com/dev-belly/StatementTrace/actions/runs/41763188266)
+pass on Linux Python 3.11–3.13, Windows Python 3.12 and Chrome. Browser checks
+assert actual 1,280px and 390px viewport widths. Across ten visits and five label
+variants, **23 actual downloads / 207 downloaded metric rows** match the full
+CSV slices in every column, including missing, fallback and no-JavaScript views.
+The existing interactions also pass: 60 selections / 540 metric rows, ten link
+round trips, 20 history restorations, 80 invalid links and all six static panels.
+
+Merge
+[`2a20135`](https://github.com/dev-belly/StatementTrace/commit/2a2013563aa194bdc0dfed4b556d165321144f51)
+retains checked tree `3b9dbfa55a36cdc17abbd43729b8166e633a8643` exactly.
+[Main validation and Pages publication](https://github.com/dev-belly/StatementTrace/actions/runs/41763329036)
+all pass on that commit. The public HTML and full metrics CSV both return
+HTTP 200 and match the checked bytes. All six embedded native downloads parse
+to their exact nine-row full-export slices; the public HTML is 39,633 bytes,
+SHA-256 `ae1f9ec959ae1d4f339589d4024e70adcd4fa2646a0ba22feb26dbaa2797642b`.
+The first-run guide, recruiter route and project brief
+connect the download and Excel exercise. These checks do not establish source
+authenticity, independent adoption, star growth or hiring results.
 
 ## Shareable financial views · 2026-11-03
 

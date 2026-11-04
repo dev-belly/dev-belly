@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-04 · Download the selected financial view for review.**
+[StatementTrace #9](https://github.com/dev-belly/StatementTrace/pull/9) gives each
+cutoff/year panel a native nine-row metric CSV. Formulas, units, exact fractions,
+rounded displays and missing states retain the full export's contracts, including
+text markers for untrusted labels. Downloads also work without JavaScript.
+Actual Chrome downloads are parsed against full-export slices; the recruiter
+route and first trial add UTF-8/Excel import guidance. Facts, analysis and all
+four full CSV exports remain unchanged.
+
 **2026-11-03 · Share an exact financial statement view.**
 [StatementTrace #8](https://github.com/dev-belly/StatementTrace/pull/8) preserves
 the filing cutoff and fiscal year in report links and browser history. Direct
