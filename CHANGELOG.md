@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-04 · Preserve earlier report files in the checked package.**
+[PITBridge #33](https://github.com/dev-belly/PITBridge/pull/33) ships
+[v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3): repeated
+scalar/rolling commands reject nonempty report destinations, and exclusive
+member creation preserves later collisions. The release gate requires 18
+installed demo/JSON/CSV rejection cases with unchanged destination bytes.
+The first-run guide and current release links use the patch; dated v0.2.2
+history, saved report bytes and optional integration pins retain their scope.
+
 **2026-11-04 · Download the selected financial view for review.**
 [StatementTrace #9](https://github.com/dev-belly/StatementTrace/pull/9) gives each
 cutoff/year panel a native nine-row metric CSV. Formulas, units, exact fractions,

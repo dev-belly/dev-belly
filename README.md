@@ -69,7 +69,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 同时考虑事件、发布、入库时间与历史修订；构造决策时点快照和 7/30 天滚动特征。每个聚合值保留源记录成员，SQLite 结果与独立 Python 实现逐项核对。先试一张发票，再接 CSV 或可选的 pandas。
 
-[Source](https://github.com/dev-belly/PITBridge) · [Checked v0.2.2](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2) · [Editable CSV first run](START_HERE.md#pitbridge-create-editable-csv-inputs) · [Run in browser](https://dev-belly.github.io/PITBridge/try/) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
+[Source](https://github.com/dev-belly/PITBridge) · [Checked v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3) · [Editable CSV first run](START_HERE.md#pitbridge-create-editable-csv-inputs) · [Run in browser](https://dev-belly.github.io/PITBridge/try/) · [Invoice / CSV example](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) · [Snapshot report](https://dev-belly.github.io/PITBridge/) · [Rolling features](https://dev-belly.github.io/PITBridge/rolling/)
 
 <br />
 
@@ -116,6 +116,8 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Keep earlier reports intact · 2026-11-04:** [PITBridge v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3) refuses nonempty report destinations and preserves colliding files. [First run and output rules](START_HERE.md#pitbridge-historical-feature-selection) · [Regression and installed-wheel evidence](PROJECT_REVIEW.md#preserved-pitbridge-report-destinations--2026-11-04).
 
 - **Take the financial view into CSV · 2026-11-04:** [Download the current nine-row panel](START_HERE.md#inspect-a-filing-cutoff) for review in Excel, retaining its cutoff/year, formulas, exact values and missing states. [Actual download checks and source scope](PROJECT_REVIEW.md#financial-view-csv-downloads--2026-11-04).
 
