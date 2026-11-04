@@ -1,5 +1,54 @@
 # Portfolio review · 2026-11-04
 
+## Preserved PITBridge report destinations · 2026-11-04
+
+[PITBridge #33](https://github.com/dev-belly/PITBridge/pull/33) fixes report
+writers that silently replaced existing evidence at a repeated `--out` path.
+Scalar and rolling commands now require new/empty report directories, reject
+nonempty/file/link destinations before writing, and create members exclusively
+so a later same-name arrival survives. Existing empty directories remain valid.
+An interrupted new write can leave partial files; retry uses a fresh directory.
+
+The fix ships in [v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3).
+Both package metadata versions move together; legacy bundle engine IDs,
+temporal algorithms, source/input contracts and downstream integration pins
+retain their meanings. Locally generated scalar and rolling bundles match all
+**12 saved files** byte for byte and independently verify. Browser-core checks
+retain **71** SQL/reference comparisons and **68** exported-case replays.
+
+All **159 local tests** pass. Six new destination tests cover changed-input
+repeats, all six CLI routes, user files, destination/member symlinks and a member
+arriving after preflight. The release-gate regression rejects absent/false
+protection flags and incorrect counts, including a false flag after the asset,
+manifest hash and checksum list are rewritten. Targeted lint, whitespace,
+library and current-package notebook checks also pass.
+
+A wheel built from the source archive passes the complete installed check
+outside the checkout. It runs all six demo/JSON/CSV routes against an existing
+report, a directory with review notes and a regular file. All **18 rejections**
+return exit 2 without success JSON/tracebacks or changed destination bytes.
+Publication requires nine successful rejection checks and three preservation
+flags per mode, alongside the previous timestamp/starter/replay/benchmark evidence.
+
+All ten [PR CI jobs](https://github.com/dev-belly/PITBridge/actions/runs/41854793283)
+pass, including Windows, pandas 2/3 and actual Chrome. Merge
+[`790a1a6`](https://github.com/dev-belly/PITBridge/commit/790a1a6964bc9bf670df52dd1a63085656173a07)
+retains checked tree `b2258eb55584c2ed7f1fe83489b2799b15269e8a` exactly.
+[Main CI](https://github.com/dev-belly/PITBridge/actions/runs/41855195519),
+[Pages](https://github.com/dev-belly/PITBridge/actions/runs/41855195507) and the
+[checked release publisher](https://github.com/dev-belly/PITBridge/actions/runs/41855435525)
+all pass. The release and tag point to that exact merge commit.
+
+All five public assets were downloaded and checked against GitHub's sizes and
+SHA-256 digests, the checksum list and exact-commit manifest. The public wheel is
+33,646 bytes, SHA-256
+`6f12e9d95f82dd2abc2c64ebbc611b5fbcabe272cfdf817730893cd8c13ac29b`.
+That downloaded wheel passes the full clean-environment checker again, including
+all 18 preservation cases. The old v0.2.2 release target and all five asset
+sizes/digests remain unchanged. Current first-run links use v0.2.3; dated v0.2.2
+records remain historical. These checks do not measure independent adoption,
+star/follower growth, hiring results or authenticity of user-supplied inputs.
+
 ## Financial-view CSV downloads · 2026-11-04
 
 [StatementTrace #9](https://github.com/dev-belly/StatementTrace/pull/9) adds a

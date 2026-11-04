@@ -96,7 +96,7 @@ SBA 的目标是 24 个自然月内记录核销；两者的日期、样本、事
 | [CreditVintage `src/creditvintage/business_groups.sql`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business_groups.sql) | 条件聚合、`NULLIF`、`LAG`，同一申请为何进入不同分析视角 |
 | [CreditVintage `src/creditvintage/business.py`](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/business.py)及[回归](https://github.com/dev-belly/CreditVintage/blob/main/tests/test_business.py) | 不执行 SQL 的重算、输入冻结、零分母、重哈希后篡改为什么失败 |
 
-当前新生成的联合案例固定依赖 PITBridge 提交 [`219e58a`](https://github.com/dev-belly/PITBridge/blob/219e58a7c2acc4a3fcd4f7ffdb68ba8eef0564f0/src/pitbridge/core.py)，它包含时间精度修复。旧证据包可能声明 `ed19dc6`；核验仍完整重放该历史格式，不能据此恢复过去已截断的时间。独立安装 PITBridge v0.2.2 和 CreditVintage 联合案例的固定依赖是两条不同安装路径。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
+当前新生成的联合案例固定依赖 PITBridge 提交 [`219e58a`](https://github.com/dev-belly/PITBridge/blob/219e58a7c2acc4a3fcd4f7ffdb68ba8eef0564f0/src/pitbridge/core.py)，它包含时间精度修复。旧证据包可能声明 `ed19dc6`；核验仍完整重放该历史格式，不能据此恢复过去已截断的时间。独立安装 PITBridge v0.2.3 和 CreditVintage 联合案例的固定依赖是两条不同安装路径。[集成合同](https://github.com/dev-belly/CreditVintage/blob/main/docs/LINEAGE.md)给出身份、单位和数值比较边界。
 
 ### 高频追问：回答要带理由
 
@@ -139,6 +139,15 @@ SBA 的目标是 24 个自然月内记录核销；两者的日期、样本、事
 **“完整重放比哈希多证明了什么？”**
 
 > 哈希检查文件与清单相符；如果修改文件后同步更新清单，内部一致也可能成立。重放从输入重建特征、指标和预测，能发现违背计算合同的结果。二者仍不能证明外部数据真实、抽取完整或模型适用于真实借款人。
+
+**“重跑命令，为什么可能改掉上一份证据？”（2026-11-04 练习）**
+
+PITBridge 旧写入器允许在同一目录重新生成报告，输入变化时会直接替换原文件。
+[v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3) 先拒绝非空或文件/链接目的地，
+再用排他创建写每个成员，保留预检后才出现的同名文件。先预测重复命令的结果，再实际运行：
+第二次应返回退出码 2、无成功 JSON，第一份文件字节不变；换新目录才产生下一份结果。
+目录预检与单文件排他创建解决不同的碰撞时机；I/O 中断仍可能留下部分新文件，重试用新目录。
+代码与反例见 [报告目录回归](https://github.com/dev-belly/PITBridge/blob/main/tests/test_report_destinations.py)。
 
 ### 复核清单之后：谁来处理，以及怎样避免覆盖
 

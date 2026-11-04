@@ -52,7 +52,7 @@ Windows PowerShell:
 
 At decision `2026-04-03T00:00:00Z`, an ingestion one microsecond later selects
 `invoice-v1` / 100,000; exact equality selects `invoice-v2` / 135,000. Inspect
-`snapshots.csv` beside the browser value. The public v0.2.2 wheel accepts this
+`snapshots.csv` beside the browser value. The public v0.2.3 wheel accepts this
 JSON contract. [Source example and scope](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md#replay-a-downloaded-browser-scenario).
 
 ### Run the Python API in a notebook
@@ -126,13 +126,13 @@ Use your virtual environment's Python directly; activation is unnecessary.
 
 | First task | Result to inspect | Pinned source or checked release |
 | :--- | :--- | :--- |
-| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.2 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.2) |
+| **PITBridge:** see how late information changes historical feature selection | An offline report with source records, missingness reasons and an unsafe baseline | [v0.2.3 checked wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3) |
 | **CreditVintage:** validate observed loans on later funding cohorts | A dated-loan report, all three model results and a label-free queue | [v0.8.2 checked wheel](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2) |
 
-The URLs select the checked PITBridge v0.2.2 and CreditVintage v0.8.2 wheels.
+The URLs select the checked PITBridge v0.2.3 and CreditVintage v0.8.2 wheels.
 Each is the artifact verified by main CI, with commit/version and SHA-256
-evidence attached to its release. PITBridge's source is fixed at
-[`6b1e25c`](https://github.com/dev-belly/PITBridge/commit/6b1e25cdbb1728465dd189a8564afd647d9bb45f).
+evidence attached to its release. PITBridge's exact source commit is recorded in
+[its release manifest](https://github.com/dev-belly/PITBridge/releases/download/v0.2.3/release-manifest.json).
 The CreditVintage version check below prints `0.8.2`;
 the [release notes](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2)
 describe recoverable input initialization and its installed checks. Observed SBA funding-cohort
@@ -159,7 +159,7 @@ normalized records cannot restore digits already discarded. See the
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.2/pitbridge-0.2.2-py3-none-any.whl"
+.\.venv\Scripts\python.exe -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.3/pitbridge-0.2.3-py3-none-any.whl"
 .\.venv\Scripts\python.exe -m pitbridge demo --out report
 .\.venv\Scripts\python.exe -m pitbridge verify --out report
 ```
@@ -170,7 +170,7 @@ python -m venv .venv
 mkdir pitbridge-first-run
 cd pitbridge-first-run
 python3 -m venv .venv
-.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.2/pitbridge-0.2.2-py3-none-any.whl"
+.venv/bin/python -m pip install "https://github.com/dev-belly/PITBridge/releases/download/v0.2.3/pitbridge-0.2.3-py3-none-any.whl"
 .venv/bin/python -m pitbridge demo --out report
 .venv/bin/python -m pitbridge verify --out report
 ```
@@ -182,13 +182,19 @@ also accounting for freshness and tombstones. These are fixture counts, not a
 measured leakage rate in real financial data. The verifier checks file digests
 and independently replays the selections.
 
+v0.2.3 preserves previous reports: `demo`, `build`, `rolling-demo` and
+`aggregate` require a new or empty output directory. Reusing `--out report`
+returns exit 2 without changing its files. Keep the first result and use a
+different path, such as `report-next`, for another trial. After an I/O
+interruption, inspect partial files separately and retry in a fresh directory.
+
 查看 `report/snapshots.csv` 的来源与可用时间，再与 `report/comparison.csv` 对照。
 接下来可试 [一张发票、三次决策](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md)，
 或阅读 [输入规则](https://github.com/dev-belly/PITBridge/blob/main/docs/DATA_CONTRACT.md)。
 
 The checked PITBridge wheel also accepts your own three CSV tables without
 pandas. Prepare `observations.csv`, `decisions.csv` and `specs.csv` using the
-[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.2/docs/CSV_INPUTS.md),
+[exact CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.3/docs/CSV_INPUTS.md),
 then run `python -m pitbridge build --csv-dir my-tables --out my-report` and
 `python -m pitbridge verify --out my-report` with the environment's Python above.
 Use `aggregate --csv-dir` with `rolling_specs.csv` for rolling features.
@@ -196,7 +202,7 @@ Invalid rows fail before output creation; source JSON retains the original IDs.
 
 ### PITBridge: create editable CSV inputs
 
-After the [v0.2.2 installation above](#pitbridge-historical-feature-selection),
+After the [v0.2.3 installation above](#pitbridge-historical-feature-selection),
 generate a complete case without Git or a dataset download. Use new input and
 report directories; `init-csv` refuses existing paths.
 
@@ -224,7 +230,7 @@ to revision 1 / 100,000. Inspect the selected source and availability time.
 
 For a separate rolling case, use `init-csv --rolling --out inputs/rolling`, then
 `aggregate --csv-dir inputs/rolling` and `verify-rolling` with a new output.
-The [complete rolling commands and CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.2/docs/CSV_INPUTS.md)
+The [complete rolling commands and CSV contract](https://github.com/dev-belly/PITBridge/blob/v0.2.3/docs/CSV_INPUTS.md)
 explain the ten observations, four decisions and three rules. The three SME-A
 30-day sums are 1,500 / 4,300 / 6,300, with source membership in `members.csv`.
 
