@@ -1,4 +1,73 @@
-# Portfolio review · 2026-11-04
+# Portfolio review · 2026-11-05
+
+## API rerun assumptions and costs · 2026-11-05
+
+[AlphaForge #9](https://github.com/dev-belly/alphaforge/pull/9) closes two
+recomputation paths that had diverged from the corrected research pipeline.
+`/optimize` and `/backtests` now use the configured ex-ante `assumed_ic`
+(default 0.03), never the full-OOS evaluation IC, and retain the cached cost
+model. The existing `cost_rate` request now actually changes proportional
+transaction charges. Explicit zero removes transaction charges; borrowing costs
+remain separately configured. Recomputing does not mutate the cached run.
+
+The local regression uses real accounting with fixed small-panel targets:
+fees change net returns, accessing the future-IC diagnostic raises a test trap,
+and cached configuration is deeply compared before/after. Invalid correlations,
+negative/non-finite fees, basis-point overflow and unaffordable trades return
+JSON-safe HTTP 422 responses, including literal `1e999` requests that previously
+failed while serializing a validation error. All 172 related tests, full-source
+Ruff checks and mypy over `src`/`apps/api` pass locally. This fixes API behavior;
+archived research figures still await their separately documented corrected
+protocol rerun and are not revalidated by these tests.
+
+## Financial-view source downloads · 2026-11-05
+
+[StatementTrace #10](https://github.com/dev-belly/StatementTrace/pull/10) adds
+selected-fact CSV downloads to every cutoff/year panel. Each contains the same
+eleven rows and twelve columns as its slice of the full facts export, including
+missing rows, dates, accession, full fact IDs and SEC links. Metrics and facts
+filenames now combine the cutoff, a restricted ASCII period label and a digest
+of the full period definition, keeping two fiscal years distinct at one cutoff.
+Growth's prior-period revenue still uses the complete report's lineage.
+
+Local checks pass 47 tests with one existing Windows symlink skip, Ruff,
+committed report replay, preview checks and an installed-wheel smoke outside
+the checkout. Seven financial/input files remain byte-identical; only the
+committed HTML and manifest refresh. Verification rebuilds HTML byte for byte:
+older reports use their generating source revision, and a renderer difference
+alone does not establish tampering. No source data or numerical study changed.
+
+All five [PR checks](https://github.com/dev-belly/StatementTrace/actions/runs/41971602517)
+pass on Linux 3.11–3.13, Windows 3.12 and real Chrome. Chrome records 86 actual
+downloads, comparing 387 metric rows and 473 fact rows against full-export
+slices at 1,280px and 390px. Twenty cross-period download checks preserve both
+files. Existing selections, shared links, history, invalid-link fallback and
+no-JavaScript panels also pass. Merge
+[`75cdfde`](https://github.com/dev-belly/StatementTrace/commit/75cdfde0a26980464b4a39b2c63598a51223dda3)
+contains the reviewed change. [Try the source review](START_HERE.md#inspect-a-filing-cutoff).
+
+[Merged-main validation and Pages](https://github.com/dev-belly/StatementTrace/actions/runs/41971811249)
+also pass. Chrome session creation timed out once before opening a report;
+retrying only failed jobs succeeds, including publication. The public HTML,
+full metrics CSV and selected-facts CSV return HTTP 200 and match the checked
+source bytes. The HTML is 60,363 bytes, SHA-256
+`8e51e773fd40c9c341d1c8fde48f851588abe2b6c6f5065fedb0625279c87fd1`.
+
+## Checked Actions maintenance and source-only SQL · 2026-11-05
+
+[WeCom #7](https://github.com/dev-belly/wecom-agent-platform/pull/7),
+[Causal Allocation #4](https://github.com/dev-belly/highdim-causal-allocation-lab/pull/4)
+and [FactorLab #4](https://github.com/dev-belly/ashare-multifactor-research/pull/4)
+update only the pinned `astral-sh/setup-uv` Action to the commit corresponding
+to official v10.3.3. Each PR and its merged main CI pass. Scientific dependency
+versions and retained numerical evidence are outside these patches.
+
+The [SBA SQLite first run](START_HERE.md#creditvintage-replay-sba-review-budgets-in-sqlite)
+now supplies Windows/Linux commands from an empty directory and fixes the source
+snapshot, distinguishing its observed-loan exercise from the wheel's synthetic
+SQL workflow. Commands, CLI options and expected row counts are source-checked;
+this documentation update does not claim a new full model refit or independent
+two-platform installation trial.
 
 ## Preserved PITBridge report destinations · 2026-11-04
 
