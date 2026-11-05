@@ -101,6 +101,12 @@ No account, installation or upload is needed.
    UTF-8 and keep `as_of`, `period` and `exact` as text; the exact FCF value is
    `108807000000/1` USD, while `display` is rounded. **All metrics CSV** retains
    all 54 rows and the full report still provides source facts and lineage.
+5. Choose **Download selected facts · CSV** for that panel's eleven facts,
+   including missing rows, filing dates, accessions, full fact IDs and SEC links.
+   Keep `value_usd`, `accession` and `fact_id` as text when importing. Save FY2023
+   and FY2024 at one cutoff: their safe period identifiers keep both filenames
+   distinct. Growth can also use a prior-period revenue input; follow **Full
+   lineage** in the complete report for that input.
 
 这是从 Apple 2023/2024 年报手工整理的 33 条公开记录，不是原样 API 下载。
 截止日采用 SEC 申报日期，不推断盘中可得或投资收益；两个视图使用同一份数据。
@@ -115,7 +121,9 @@ No account, installation or upload is needed.
 五次比较需要从当前源码仓库运行示例，数据与加载器复用包内实现。
 下方固定版本安装路线可运行 3 万条信用卡对照、单次公开校准实验和合成事件 SQL 演示，分别解释三者口径。
 
-These commands work from a new directory, without Git or a source checkout.
+The checked-wheel routes work from a new directory, without Git or a source checkout.
+The separate [SBA SQLite exercise](#creditvintage-replay-sba-review-budgets-in-sqlite)
+below explicitly uses Git and a pinned source checkout.
 Python 3.12+ is required for both paths below; PITBridge alone supports 3.11+.
 Installation needs internet access; the synthetic and bundled public examples then run offline.
 Use your virtual environment's Python directly; activation is unnecessary.
@@ -280,6 +288,57 @@ reducing AUC to **0.6584**. Retain both results. Review 1,000 loans to inspect
 [Full protocol and original-source reconstruction](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) ·
 [Report an actual independent run](https://github.com/dev-belly/CreditVintage/issues/new?template=sba_reproduction.yml).
 Use a new output folder on repeat; preserve the exact error if a step fails.
+
+### CreditVintage: replay SBA review budgets in SQLite
+
+Use this route to reproduce the **observed SBA review-budget comparison** in SQL.
+It differs from the installed synthetic cohort analysis in the next section.
+The runner and its adjacent SQL file live in `examples/`; installing the v0.8.2
+wheel alone does not create those files. You need Git and Python 3.12+.
+
+Start in a new parent directory. Both routes select source commit
+[`1ac8217a50f723c3851986e67a835415572a9882`](https://github.com/dev-belly/CreditVintage/commit/1ac8217a50f723c3851986e67a835415572a9882),
+recorded as the source snapshot on 2026-11-05. The checkout includes the frozen
+35,000-loan sample; no official raw-data download or PITBridge install is needed.
+
+**Windows PowerShell**
+
+```powershell
+git clone --branch main https://github.com/dev-belly/CreditVintage.git creditvintage-sba-sql-run
+cd creditvintage-sba-sql-run
+git checkout --detach 1ac8217a50f723c3851986e67a835415572a9882
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -m creditvintage sba-benchmark --out outputs/sba-sql
+.\.venv\Scripts\python.exe -m creditvintage verify-sba outputs/sba-sql
+.\.venv\Scripts\python.exe examples/sba_review_sql.py outputs/sba-sql
+```
+
+**Linux / macOS**
+
+```bash
+git clone --branch main https://github.com/dev-belly/CreditVintage.git creditvintage-sba-sql-run
+cd creditvintage-sba-sql-run
+git checkout --detach 1ac8217a50f723c3851986e67a835415572a9882
+python3 -m venv .venv
+.venv/bin/python -m pip install -e .
+.venv/bin/python -m creditvintage sba-benchmark --out outputs/sba-sql
+.venv/bin/python -m creditvintage verify-sba outputs/sba-sql
+.venv/bin/python examples/sba_review_sql.py outputs/sba-sql
+```
+
+Installation requires network access; generation, refitting and SQL replay then
+use bundled inputs offline. Run each command only after the preceding one
+succeeds. Use a new evidence directory on another benchmark run; the SQL runner
+can inspect the same complete evidence repeatedly without modifying it.
+
+The final command independently refits and verifies the saved evidence again
+before SQLite ranks the scores. On success, check `status: matched_saved_evidence`,
+`prediction_rows: 10000`, `policy_rows: 9`, `queue_rows: 3000` and
+`labels_used_for_ranking: false`. The queue count totals three methods' 1,000-row
+lists, not 3,000 distinct borrowers. Explain **26/1,000** precision versus
+**26/89** event capture; neither measures prevented losses.
+[SQL, tie-breaking and the full exercise](https://github.com/dev-belly/CreditVintage/blob/1ac8217a50f723c3851986e67a835415572a9882/docs/SBA_REVIEW_SQL.md).
 
 ### CreditVintage: SQL analysis and a review queue
 

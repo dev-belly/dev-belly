@@ -1,5 +1,17 @@
 # Build history
 
+**2026-11-05 · Align API reruns and take financial facts into review.**
+[AlphaForge #9](https://github.com/dev-belly/alphaforge/pull/9) aligns API
+recomputation with the configured ex-ante IC and cost model, applies fee
+overrides to accounting, and returns safe errors for invalid assumptions.
+[StatementTrace #10](https://github.com/dev-belly/StatementTrace/pull/10) exports
+the current view's eleven selected facts, retains missing rows and source
+metadata, and gives both CSV types safe period-specific filenames. Real Chrome
+checks both downloads against full exports and preserves two years at one cutoff.
+The first-run guide connects this source review and a pinned-source SBA SQLite
+exercise; three checked Actions maintenance PRs are merged.
+[Validation and boundaries](PROJECT_REVIEW.md#financial-view-source-downloads--2026-11-05).
+
 **2026-11-04 · Preserve earlier report files in the checked package.**
 [PITBridge #33](https://github.com/dev-belly/PITBridge/pull/33) ships
 [v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3): repeated

@@ -46,7 +46,7 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 
 [Try in English](https://dev-belly.github.io/CreditVintage/sba-brief/en/) · [中文交互速览](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Observed-loan report](https://dev-belly.github.io/CreditVintage/sba-credit/) · [Run it](START_HERE.md#creditvintage-validate-observed-loans-across-time) · [Source](https://github.com/dev-belly/CreditVintage) · [Checked v0.8.2](https://github.com/dev-belly/CreditVintage/releases/tag/v0.8.2)
 
-[Practice the review-budget SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md): use the current source checkout to recalculate all nine policy rows and 3,000 queue rows after full evidence verification. Distinguish 26/1,000 precision from 26/89 event capture.
+[Run the review-budget SQL from a pinned checkout](START_HERE.md#creditvintage-replay-sba-review-budgets-in-sqlite): recalculate all nine policy rows and 3,000 queue rows after full evidence verification. [SQL and tie-breaking](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) distinguish 26/1,000 precision from 26/89 event capture.
 
 <details>
 <summary>More experiments: static credit, input quality and human review</summary>
@@ -116,6 +116,10 @@ I'm **dev-belly**, a **Data Science & Big Data Technology** student at **Central
 <br />
 
 Recent changes connect the demonstrations to concrete operational checks:
+
+- **Keep API reruns consistent · 2026-11-05:** [AlphaForge #9](https://github.com/dev-belly/alphaforge/pull/9) removes full-OOS IC from historical recomputation, carries configured costs into both API routes, and makes fee overrides affect actual accounting. [Regression evidence and archived-result boundary](PROJECT_REVIEW.md#api-rerun-assumptions-and-costs--2026-11-05).
+
+- **Download financial source rows · 2026-11-05:** [StatementTrace #10](https://github.com/dev-belly/StatementTrace/pull/10) adds each view's selected facts with filing dates and SEC links; both CSV filenames distinguish fiscal years at one cutoff. [Try both downloads](START_HERE.md#inspect-a-filing-cutoff) · [Actual Chrome checks and source scope](PROJECT_REVIEW.md#financial-view-source-downloads--2026-11-05).
 
 - **Keep earlier reports intact · 2026-11-04:** [PITBridge v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3) refuses nonempty report destinations and preserves colliding files. [First run and output rules](START_HERE.md#pitbridge-historical-feature-selection) · [Regression and installed-wheel evidence](PROJECT_REVIEW.md#preserved-pitbridge-report-destinations--2026-11-04).
 
