@@ -11,6 +11,8 @@
 | 金融数据工程 | [PITBridge：修改入库时间](https://dev-belly.github.io/PITBridge/try/) · [下载情景并独立复现](START_HERE.md#download-and-replay-your-browser-scenario) · [安装包生成可编辑三表](START_HERE.md#pitbridge-create-editable-csv-inputs) | 发布/入库/决策时点、修订选择、微秒边界、离线 CSV 接入、SQL 与独立 Python 核验。见[时间连接代码](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)。 |
 | 财务 / 业务数据分析 | [StatementTrace：FY2024 申报前](https://dev-belly.github.io/StatementTrace/#as_of=2024-10-31&period=2024) → [申报后](https://dev-belly.github.io/StatementTrace/#as_of=2024-11-01&period=2024) · [试用与 CSV 核对](START_HERE.md#inspect-a-filing-cutoff) | 同一财年如何从缺失到可用；53 周财年、单位与指标公式、SEC 来源追溯。可下载当期九项指标，保留公式、精确值和缺失状态。见[公开来源台账](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md)。 |
 
+**量化研究补充案例：** [用共同样本与分组反例核对模型评价](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径)。从七行预测里保留五个共同有效样本，独立复算 Rank-IC，再把十只股票手分成五组；可沿固定版本的实现与回归测试核对。
+
 ## 三个可以当场展开的问题
 
 - **校准为什么会让结果变差？** SBA 固定测试中，Logistic AUC 为 0.6723；独立保序校准改善 Brier，却降低排序和相同复核容量下的事件捕获。保留原结果，分别解释概率误差与排名。

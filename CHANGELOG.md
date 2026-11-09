@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-09 · Explain a reproducible evaluation counterexample.**
+Connect the [merged AlphaForge factor correction](https://github.com/dev-belly/alphaforge/pull/10)
+and [model follow-up](https://github.com/dev-belly/alphaforge/pull/11) to the profile,
+recruiter route and Chinese interview practice. A pinned source snapshot compares
+shared-pair Spearman IC with an independent reference and checks five equal-sized
+groups by hand. Record the actually executed 89 focused and 1,397 fast tests,
+link full CI separately, and retain the archived sample's original source boundary.
+[Run and explain the case](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径).
+
 **2026-11-05 · Align API reruns and take financial facts into review.**
 [AlphaForge #9](https://github.com/dev-belly/alphaforge/pull/9) aligns API
 recomputation with the configured ex-ante IC and cost model, applies fee
