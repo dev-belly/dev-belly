@@ -3,6 +3,15 @@
   "owner": "dev-belly",
   "projects": [
     {
+      "repo": "StatementTrace",
+      "group": "flagship",
+      "summary": "三家公司利润与现金流研究、财报来源追溯和 SQL 复算",
+      "stack": "Python · SQL",
+      "boundary": "24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。",
+      "demo": "https://dev-belly.github.io/StatementTrace/cashflow/",
+      "evidence": "docs/CASHFLOW_STUDY.zh-CN.md"
+    },
+    {
       "repo": "CreditVintage",
       "group": "flagship",
       "summary": "跨期信贷验证、客群 SQL 分析与人工复核",
@@ -21,22 +30,30 @@
       "evidence": "examples/README.md"
     },
     {
+      "repo": "alphaforge",
+      "group": "research",
+      "summary": "因子、逐步前推验证、组合约束与交易成本",
+      "stack": "Python · NumPy",
+      "boundary": "旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。",
+      "demo": "https://dev-belly.github.io/alphaforge/sample-run/",
+      "evidence": "docs/research-comparison.md"
+    },
+    {
+      "repo": "TradeForge",
+      "group": "research",
+      "summary": "C++ 订单簿、执行事件与 Python 独立核验",
+      "stack": "C++20 · Python",
+      "boundary": "公开报价只支持假设成交；不代表真实委托或可交易收益。",
+      "evidence": "docs/PUBLIC_MARKET_CASE.md"
+    },
+    {
       "repo": "StressAtlas",
-      "group": "flagship",
+      "group": "research",
       "summary": "相关违约、组合尾部损失和估计精度",
       "stack": "Python · NumPy",
       "boundary": "合成贷款组合；压力情景和重采样不代表真实损失预测。",
       "demo": "https://dev-belly.github.io/StressAtlas/",
       "evidence": "docs/METHODOLOGY.md"
-    },
-    {
-      "repo": "StatementTrace",
-      "group": "financial",
-      "summary": "从公开财报到可追溯的财务指标",
-      "stack": "Python · SQL",
-      "boundary": "精选公开财报摘录；保留期间、来源与可用时间。",
-      "demo": "https://dev-belly.github.io/StatementTrace/",
-      "evidence": "docs/SOURCES.md"
     },
     {
       "repo": "NetworkClear",
@@ -70,23 +87,6 @@
       "stack": "Python",
       "boundary": "示例交易与会计规则；许可证以仓库声明为准。",
       "evidence": "examples/valuation.json"
-    },
-    {
-      "repo": "alphaforge",
-      "group": "research",
-      "summary": "因子、逐步前推验证、组合约束与交易成本",
-      "stack": "Python · NumPy",
-      "boundary": "旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。",
-      "demo": "https://dev-belly.github.io/alphaforge/sample-run/",
-      "evidence": "docs/research-comparison.md"
-    },
-    {
-      "repo": "TradeForge",
-      "group": "research",
-      "summary": "C++ 订单簿、执行事件与 Python 独立核验",
-      "stack": "C++20 · Python",
-      "boundary": "公开报价只支持假设成交；不代表真实委托或可交易收益。",
-      "evidence": "docs/PUBLIC_MARKET_CASE.md"
     },
     {
       "repo": "investor-network-gnn",

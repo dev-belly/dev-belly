@@ -8,9 +8,9 @@ from urllib.parse import quote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
-    "flagship": "先试这三个 / Start here",
-    "financial": "财务、审计与清偿 / Financial systems",
-    "research": "量化与研究实验 / Research experiments",
+    "flagship": "三个代表作 / Selected work",
+    "financial": "财务、审计与会计 / Financial analysis",
+    "research": "研究与方法实验 / Research bench",
     "applications": "应用与早期作品 / Applications",
 }
 REQUIRED = {"repo", "group", "summary", "stack", "boundary"}
@@ -76,9 +76,10 @@ def render(data):
         "",
         "| 你想做什么 | 推荐路线 |",
         "| :--- | :--- |",
+        "| 看一份真实财报研究 | [三家公司的利润与现金流](https://dev-belly.github.io/StatementTrace/cashflow/) |",
         "| 不安装环境，先改一个输入 | [PITBridge 浏览器发票案例](https://dev-belly.github.io/PITBridge/try/) |",
         "| 把浏览器情景带回本地核验 | [下载当前输入并独立重放](START_HERE.md#download-and-replay-your-browser-scenario) |",
-        "| 看信贷分析或数据岗位作品 | CreditVintage → PITBridge → StatementTrace |",
+        "| 看金融研究与数据分析 | StatementTrace → CreditVintage → PITBridge |",
         "| 看量化研究与工程 | AlphaForge → TradeForge → StressAtlas；再看保留负结果的图模型与区间实验 |",
         "| 看审计、会计与内控 | AuditLens → ControlTrace → LedgerX |",
         "| 看应用开发 | WeCom Agent → Personal AI Chat → 两个微信小程序 |",

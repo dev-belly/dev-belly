@@ -1,31 +1,42 @@
-# 实习项目速览 / For recruiters
+# dev-belly · 金融数据与研究实习
 
-中央财经大学 · 数据科学与大数据技术本科在读。希望寻找**数据分析、风险分析、金融数据工程**相关实习。
-主要使用 Python、SQL；项目覆盖时间数据、模型验证和可追溯分析。
+**中央财经大学｜数据科学与大数据技术｜2029 届本科｜均分 91.32 / 100**
 
-先看一个与你的岗位相关的项目，再沿链接核查结果与实现。
+关注券商、基金和研究团队的金融数据整理、企业研究支持、统计分析与量化研究实现。
+主要工具是 **Python、SQL、统计建模**。北京，2027 年 1 月初可到岗，每周可实习 6 天，年后可持续。
 
-| 岗位方向 | 先看这个结果 | 可以继续检查的能力 |
+## 先看一个完整问题
+
+**利润增长，为什么没有变成同幅度的自由现金流增长？**
+
+[StatementTrace 研究页面](https://dev-belly.github.io/StatementTrace/cashflow/) ·
+[中文简报](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md)
+
+整理 Apple、Microsoft、Alphabet 三份年报中的 24 条事实，统一金额、财年与申报日，
+生成六个公司年度的对比。Alphabet 净利润增长 35.67%，FCF 增长 4.70%；
+通过 CFO 与现金 capex 的增量勾稽解释差异。
+
+可以直接检查：[来源事实](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv)、
+[Python](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/cashflow.py)、
+[SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)。
+这是 FY2023–FY2024 的历史案例；财年窗口不同，先比较各自同比。FCF 口径为 CFO 减现金 capex。
+
+## 按岗位看证据
+
+| 岗位关注 | 推荐作品 | 可以当场展开的讨论 |
 | --- | --- | --- |
-| 风控分析 / 模型验证 | [CreditVintage：两分钟看复核名额与事件捕获](https://dev-belly.github.io/CreditVintage/sba-brief/) · [完整 SBA 研究](https://dev-belly.github.io/CreditVintage/sba-credit/) · [从空目录做 SQLite 复算](START_HERE.md#creditvintage-replay-sba-review-budgets-in-sqlite) · [合成 CSV 接入检查](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics) | 按真实放款期划分、24 月表现成熟、训练独占预处理、独立校准、逐笔预测重拟合；SQL 排名和分母核对。见[建模实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/sba_credit.py)。 |
-| 金融数据工程 | [PITBridge：修改入库时间](https://dev-belly.github.io/PITBridge/try/) · [下载情景并独立复现](START_HERE.md#download-and-replay-your-browser-scenario) · [安装包生成可编辑三表](START_HERE.md#pitbridge-create-editable-csv-inputs) | 发布/入库/决策时点、修订选择、微秒边界、离线 CSV 接入、SQL 与独立 Python 核验。见[时间连接代码](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)。 |
-| 财务 / 业务数据分析 | [StatementTrace：FY2024 申报前](https://dev-belly.github.io/StatementTrace/#as_of=2024-10-31&period=2024) → [申报后](https://dev-belly.github.io/StatementTrace/#as_of=2024-11-01&period=2024) · [试用与 CSV 核对](START_HERE.md#inspect-a-filing-cutoff) | 同一财年如何从缺失到可用；53 周财年、单位与指标公式、SEC 来源追溯。可下载当期九项指标，保留公式、精确值和缺失状态。见[公开来源台账](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md)。 |
+| 企业研究 / 财务数据分析 | **StatementTrace**：[现金流研究](https://dev-belly.github.io/StatementTrace/cashflow/) | 口径统一、财报来源、同比归因、资本开支、缺失值；哪些判断需要进一步读附注。 |
+| 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
+| 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
+| 量化研究方法 | **AlphaForge**：[共同样本与分组反例](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
 
-## 三个可以当场展开的问题
+## 三个值得追问的问题
 
-- **校准为什么会让结果变差？** SBA 固定测试中，Logistic AUC 为 0.6723；独立保序校准改善 Brier，却降低排序和相同复核容量下的事件捕获。保留原结果，分别解释概率误差与排名。
-- **两个实现一致，为什么仍可能有错？** SQL 与 Python 可能共用一个有损时间解析器。把晚到 0.9 微秒的输入截断后，两者会一起错；应先校验源精度，再做算法对照。
-- **26/1,000 和 26/89 有什么区别？** 前者是 SBA 固定名单的精确率，后者是测试事件捕获率；63 个事件未进入名单。可从保存的预测用 SQLite 复算，标签不参与排名。合成工作流另有人工处理完成率，不能把任何一个说成避免坏账。
+- **FCF 增长弱，能直接说明企业变差吗？** 不能。先看经营现金流与资本投入，再查投资用途、回报周期、税务和租赁口径；当前案例没有做估值结论。
+- **校准改善 Brier，为什么复核结果可能变差？** 概率误差、排序质量和固定名额下的事件捕获是不同目标，需要在同一测试样本和名额下比较。
+- **SQL 与 Python 一致，是否就证明数据是真的？** 一致能支持计算核对；源数据抄录、历史可得性和共同依赖还需要另外检查。
 
-## 结果的适用范围
+SBA 是回溯研究；PITBridge 是合成事件案例；财报研究使用人工整理的公开申报数据。
+项目代码与分析产物可核查，尚无生产部署、实盘收益或商业效果的证明。
 
-SBA 是真实放款日期下的回溯研究，最终快照缺少历史首次公开和修订记录。
-PITBridge 与人工复核演示使用合成输入；StatementTrace 使用精选公开财报摘录。
-这些项目展示实现、分析与核验方法，尚无真实银行部署或独立业务收益证据。
-
-希望进一步了解时，可以直接选一段输入、一个失败场景和对应测试来讨论。
-更详细的[项目结果与代码](PROJECT_BRIEFS.md)、[面试速讲卡](面试速讲卡.zh-CN.md)、
-[运行入口](START_HERE.md)和[GitHub 主页](https://github.com/dev-belly)均可继续查阅。
-
-[English interactive credit case](https://dev-belly.github.io/CreditVintage/sba-brief/en/)
-uses the same verified data and keeps the selected review capacity when switching languages.
+[GitHub 主页](https://github.com/dev-belly) · [完整项目目录](CATALOG.md) · [运行方法](START_HERE.md) · [面试速讲卡](面试速讲卡.zh-CN.md)

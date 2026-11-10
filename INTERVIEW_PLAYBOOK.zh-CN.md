@@ -319,6 +319,63 @@ python -m venv .venv
 
 审计加练：[ControlTrace 空白审批人](https://github.com/dev-belly/ControlTrace/pull/8)中，补批时间及时而 ID 只有空白字符，仍应保留“批准人不明”的人工核实项。解释为何要保留原始 ID，而不是直接改写源记录。
 
+### 共同样本与分组口径
+
+[已合并的因子修复 #10](https://github.com/dev-belly/alphaforge/pull/10)和
+[模型评估后续修复 #11](https://github.com/dev-belly/alphaforge/pull/11)可以练习一个小而完整的研究判断。
+以下命令和结果固定到模型修复提交
+[`83c67cf`](https://github.com/dev-belly/alphaforge/commit/83c67cf7e53f8364303edf09cae40c2edaac4fd3)，
+可在该提交的[测试文件](https://github.com/dev-belly/alphaforge/blob/83c67cf7e53f8364303edf09cae40c2edaac4fd3/tests/unit/test_models_evaluation.py)和
+[实现](https://github.com/dev-belly/alphaforge/blob/83c67cf7e53f8364303edf09cae40c2edaac4fd3/src/alphaforge/models/evaluation.py)核对；这是一份源码快照。
+
+**先指出共同样本。** A–E 两侧都有数值，F 缺预测，G 缺结果。应先保留 A–E，再分别排名。
+旧模型路径在这个例子给出约 `0.762493`，独立 Spearman 参考值为 `0.8`；
+修复后的逐日路径与参考值一致。实际评价还会剔除正负无穷，最少样本数按共同有限值对计数。
+
+```python
+import numpy as np
+import pandas as pd
+from alphaforge.models.evaluation import daily_rank_ic, quantile_returns
+
+case = pd.DataFrame({
+    "date": pd.Timestamp("2024-01-02"),
+    "symbol": list("ABCDEFG"),
+    "prediction": [0, 10, 20, 30, 40, np.nan, 15],
+    "realised": [0.1, 0.3, 0.2, 0.5, 0.4, 0.25, np.nan],
+})
+paired = case[["prediction", "realised"]].replace([np.inf, -np.inf], np.nan).dropna()
+print(paired["prediction"].corr(paired["realised"], method="spearman"))
+print(daily_rank_ic(case).iloc[0])
+
+groups = pd.DataFrame({
+    "date": pd.Timestamp("2024-01-02"),
+    "symbol": [f"S{i:02d}" for i in range(10)],
+    "prediction": np.arange(10, dtype=float),
+    "realised": np.arange(10) ** 2 / 1000.0,
+})
+print(quantile_returns(groups).iloc[0].round(4).to_list())
+```
+
+预期前两项均约为 `0.8`。第三项为
+`[0.0005, 0.0065, 0.0205, 0.0425, 0.0725]`：
+直接把排序后的编号分成 `[0,1] / [2,3] / [4,5] / [6,7] / [8,9]`，逐组平均平方收益即可核对。
+旧边界是 `1 / 2 / 2 / 2 / 3` 个名字，不能称为相同容量的五组。
+模型层按原始输入行顺序处理并列；因子宽表按所给列顺序处理并列。比较并列组时要给出相同的名字顺序。
+
+**再跑对应测试。** 在按 AlphaForge README 装好开发依赖的源码目录里，切到上述固定版本后运行：
+
+```bash
+git checkout 83c67cf7e53f8364303edf09cae40c2edaac4fd3
+python -m pytest tests/unit/test_models_evaluation.py tests/unit/test_factor_evaluation.py
+```
+
+本次固定提交的本地结果为 **89 项模型/因子测试通过**；全仓库另有 **1,397 项常规测试通过、12 项慢速测试未在这次常规命令中执行**。
+完整平台与流水线结果见[该提交的 CI 记录](https://github.com/dev-belly/alphaforge/actions/runs/42563162059)。
+当前修复含新增 18 个测试用例和强化后的既有分组测试，覆盖非有限值、样本不足、并列、两层对照和最终模型汇总。
+
+这两项是依赖已观察结果的回顾评价。数值改变说明统计口径被修正，不能据此声称策略收益改善；
+旧公开样例没有重拟合，仍要按原来源版本、数据边界和切分协议解释。
+
 ### 会话时间也需要明确的失败边界
 
 [数字工匠 #5](https://github.com/dev-belly/digital-craftsman/pull/5)提供了一个后端例子：无法解析的过期时间会产生 `NaN`，而 `NaN <= Date.now()` 为假，旧判断可能放过失效会话。修复把无法解析或非有限时间归为已过期，并在账户与业务读取前拒绝。14 个实际入口的 196 个离线 SDK 场景覆盖无效、到期及有效的历史格式。

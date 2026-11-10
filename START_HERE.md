@@ -1,5 +1,21 @@
 # Start here / 从这里开始
 
+## Read a financial research study
+
+[Open profit versus cash](https://dev-belly.github.io/StatementTrace/cashflow/): compare three issuers, follow the cash-flow bridge and download the source rows. This is a historical FY2023–FY2024 case with different fiscal windows, not a live market screen. [中文简报与财务解释](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md).
+
+After cloning [StatementTrace](https://github.com/dev-belly/StatementTrace), use the repository root:
+
+```bash
+python -m pip install -e .
+python -m statementtrace compare --out output/cashflow
+python -m statementtrace verify-comparison output/cashflow
+python -m http.server 8000 --directory output/cashflow
+```
+
+Open `http://localhost:8000`. The packet runs offline after installation. For an earlier cutoff, add `--as-of 2025-02-04` to `compare` and choose a new output directory: Alphabet is unavailable because this packet only contains its later filing.
+
+
 Try the invoice case in your browser, install a project locally, or follow a
 business question into its evidence and code.
 先在浏览器改一个时间并核对结果，也可以本地运行项目，或直接审阅业务问题、结果和实现。

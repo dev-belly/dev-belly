@@ -7,39 +7,40 @@
 
 | 你想做什么 | 推荐路线 |
 | :--- | :--- |
+| 看一份真实财报研究 | [三家公司的利润与现金流](https://dev-belly.github.io/StatementTrace/cashflow/) |
 | 不安装环境，先改一个输入 | [PITBridge 浏览器发票案例](https://dev-belly.github.io/PITBridge/try/) |
 | 把浏览器情景带回本地核验 | [下载当前输入并独立重放](START_HERE.md#download-and-replay-your-browser-scenario) |
-| 看信贷分析或数据岗位作品 | CreditVintage → PITBridge → StatementTrace |
+| 看金融研究与数据分析 | StatementTrace → CreditVintage → PITBridge |
 | 看量化研究与工程 | AlphaForge → TradeForge → StressAtlas；再看保留负结果的图模型与区间实验 |
 | 看审计、会计与内控 | AuditLens → ControlTrace → LedgerX |
 | 看应用开发 | WeCom Agent → Personal AI Chat → 两个微信小程序 |
 
 [空目录安装与逐步试用](START_HERE.md) · [成果与代码](PROJECT_BRIEFS.md) · [验证记录](PROJECT_REVIEW.md)
 
-## 先试这三个 / Start here
+## 三个代表作 / Selected work
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
+| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/cashflow/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) | 三家公司利润与现金流研究、财报来源追溯和 SQL 复算<br />Python · SQL | 24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。 |
 | [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-credit/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与人工复核<br />Python · SQL · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
 | [**PITBridge**](https://github.com/dev-belly/PITBridge) · [README](https://github.com/dev-belly/PITBridge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/PITBridge/try/) · [证据 / 方法](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | 按事件与获知时间重建历史快照和滚动特征<br />Python · SQLite | 合成发票与事件示例；演示数据可用性规则。 |
-| [**StressAtlas**](https://github.com/dev-belly/StressAtlas) · [README](https://github.com/dev-belly/StressAtlas/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StressAtlas/) · [证据 / 方法](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) | 相关违约、组合尾部损失和估计精度<br />Python · NumPy | 合成贷款组合；压力情景和重采样不代表真实损失预测。 |
 
-## 财务、审计与清偿 / Financial systems
+## 财务、审计与会计 / Financial analysis
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
-| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md) | 从公开财报到可追溯的财务指标<br />Python · SQL | 精选公开财报摘录；保留期间、来源与可用时间。 |
 | [**NetworkClear**](https://github.com/dev-belly/NetworkClear) · [README](https://github.com/dev-belly/NetworkClear/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/NetworkClear/) · [证据 / 方法](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) | 交易对手冲击、债务清偿与外部损失勾稽<br />Python | 合成金融网络；模型假设见清偿方法。 |
 | [**ControlTrace**](https://github.com/dev-belly/ControlTrace) · [README](https://github.com/dev-belly/ControlTrace/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) | 把内控结论绑定到当前证据版本<br />Python | 审计工作流案例；不等于真实审计意见。 |
 | [**AuditLens**](https://github.com/dev-belly/AuditLens) · [README](https://github.com/dev-belly/AuditLens/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports/) | 总账异常、可解释风险排序与审计底稿<br />Python · SQL · Streamlit | 合成总账和规则实验；结果用于人工审阅。 |
 | [**LedgerX**](https://github.com/dev-belly/LedgerX) · [README](https://github.com/dev-belly/LedgerX/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) | 成交、复式记账与估值的精确勾稽<br />Python | 示例交易与会计规则；许可证以仓库声明为准。 |
 
-## 量化与研究实验 / Research experiments
+## 研究与方法实验 / Research bench
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
 | [**alphaforge**](https://github.com/dev-belly/alphaforge) · [README](https://github.com/dev-belly/alphaforge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/alphaforge/sample-run/) · [证据 / 方法](https://github.com/dev-belly/alphaforge/blob/main/docs/research-comparison.md) | 因子、逐步前推验证、组合约束与交易成本<br />Python · NumPy | 旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。 |
 | [**TradeForge**](https://github.com/dev-belly/TradeForge) · [README](https://github.com/dev-belly/TradeForge/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) | C++ 订单簿、执行事件与 Python 独立核验<br />C++20 · Python | 公开报价只支持假设成交；不代表真实委托或可交易收益。 |
+| [**StressAtlas**](https://github.com/dev-belly/StressAtlas) · [README](https://github.com/dev-belly/StressAtlas/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StressAtlas/) · [证据 / 方法](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md) | 相关违约、组合尾部损失和估计精度<br />Python · NumPy | 合成贷款组合；压力情景和重采样不代表真实损失预测。 |
 | [**investor-network-gnn**](https://github.com/dev-belly/investor-network-gnn) · [README](https://github.com/dev-belly/investor-network-gnn/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17/) | 投资者网络、图模型消融与多种子预测<br />Python · PyTorch | 合成数据；保留 GCN 未显示稳定优势的结果。 |
 | [**highdim-causal-allocation-lab**](https://github.com/dev-belly/highdim-causal-allocation-lab) · [README](https://github.com/dev-belly/highdim-causal-allocation-lab/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/highdim-causal-allocation-lab/) | 高维因果估计、Monte Carlo 与稳健配置<br />Python · React | 模拟因果与配置实验；不建立现实因果结论。 |
 | [**interval-financial-risk**](https://github.com/dev-belly/interval-financial-risk) · [README](https://github.com/dev-belly/interval-financial-risk/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/interval-financial-risk/) | 区间和分布特征的风险识别实验<br />Python | 合成实验中的负结果：区间特征未改善 AUC。 |
