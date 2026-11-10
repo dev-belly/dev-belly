@@ -42,10 +42,10 @@ PROJECTS = [
     ('statementtrace-v4', '01', 'StatementTrace', 'PUBLIC FILINGS / CORPORATE CASH FLOW', GREEN,
      'Profit grows. Does cash follow?', 'Apple / Microsoft / Alphabet — FY2023–FY2024',
      '24 SOURCE FACTS / 6 ISSUER-YEARS / PYTHON + SQL', 'REAL FILINGS. EXPLICIT FISCAL WINDOWS.'),
-    ('creditvintage-v3', '02', 'CreditVintage', 'MODEL VALIDATION / DECISION CAPACITY', '#c7e3ae',
+    ('creditvintage-v4', '02', 'CreditVintage', 'MODEL VALIDATION / DECISION CAPACITY', '#c7e3ae',
      'Better probabilities. Better decisions?', 'Compare calibration, ranking and a fixed review budget.',
      '35,000 OBSERVED SBA LOANS / LATER FUNDING COHORTS', 'RETROSPECTIVE RESEARCH.'),
-    ('pitbridge-v3', '03', 'PITBridge', 'TEMPORAL DATA / RESEARCH INPUTS', GREEN,
+    ('pitbridge-v4', '03', 'PITBridge', 'TEMPORAL DATA / RESEARCH INPUTS', GREEN,
      'What was known at the decision?', 'Change an arrival time. Inspect the selected record.',
      'BROWSER INPUT / SQL SNAPSHOT / PYTHON REPLAY', 'SYNTHETIC EVENT EXAMPLES.'),
 ]
@@ -93,7 +93,7 @@ def stack():
 
 
 def outputs():
-    return {'profile-signal-v3.svg': hero(), 'stack-v3.svg': stack(),
+    return {'profile-signal-v4.svg': hero(), 'stack-v4.svg': stack(),
             **{f'{project[0]}.svg': card(project) for project in PROJECTS}}
 
 

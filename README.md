@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/profile-signal-v3.svg" width="100%" alt="dev-belly — Follow the numbers. Financial research built with Python and SQL. CUFE data science." />
+  <img src="assets/profile-signal-v4.svg" width="100%" alt="dev-belly — Follow the numbers. Financial research built with Python and SQL. CUFE data science." />
   <br /><br />
   <a href="https://dev-belly.github.io/StatementTrace/cashflow/"><b>READ A STUDY</b></a> &nbsp; / &nbsp;
   <a href="FOR_RECRUITERS.md"><b>FOR RECRUITERS · 招聘速览</b></a> &nbsp; / &nbsp;
@@ -26,7 +26,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 
 <sub>Historical case, filed-date cutoff 2025-02-05. Different fiscal windows; Apple's FY2023 has 53 weeks. Compare each issuer with its own prior year. FCF is CFO minus cash capex.</sub>
 
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v3.svg" width="100%" alt="CreditVintage — 35,000 observed SBA loans, later funding cohorts, probability calibration and fixed review capacity." /></a>
+<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v4.svg" width="100%" alt="CreditVintage — 35,000 observed SBA loans, later funding cohorts, probability calibration and fixed review capacity." /></a>
 
 **Does a better probability estimate make a better review queue?** On **35,000 observed SBA loans**, separate training, calibration and later funding cohorts expose a tradeoff: calibration can improve probability error while weakening ranking and event capture at the same review capacity. Saved predictions support independent SQL analysis.
 
@@ -34,7 +34,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 
 <sub>Retrospective funding-cohort research with mature outcome windows. The final source snapshot lacks historical publication and revision records.</sub>
 
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v3.svg" width="100%" alt="PITBridge — reconstruct the facts available at a decision, with publication time, ingestion time and revisions." /></a>
+<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v4.svg" width="100%" alt="PITBridge — reconstruct the facts available at a decision, with publication time, ingestion time and revisions." /></a>
 
 **Was that information available when the decision was made?** Change one invoice's arrival time in the browser, inspect the selected record, then download the scenario and replay it in Python. The implementation separates event time from knowledge time and checks SQL against a separate Python path.
 
@@ -50,7 +50,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
 | [StressAtlas](https://github.com/dev-belly/StressAtlas) | Portfolio tail loss, attribution and simulation uncertainty | [Methods](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md). Synthetic portfolios with stated scenario assumptions. |
 
-<img src="assets/stack-v3.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn; C++20 for execution research." />
+<img src="assets/stack-v4.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn; C++20 for execution research." />
 
 ## Explore further
 
