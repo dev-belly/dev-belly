@@ -6,6 +6,15 @@ These are **candidate resume bullets**, not claims about live customers or reali
 
 ### [StatementTrace](https://github.com/dev-belly/StatementTrace)
 
+
+**Primary study — profit versus cash:** [historical research report](https://dev-belly.github.io/StatementTrace/cashflow/) · [中文简报](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md).
+
+> 从 Apple、Microsoft、Alphabet 三份公开年报整理 24 条事实，统一金额、财年和申报截止日，比较六个公司年度的利润与自由现金流；通过 CFO 和现金资本开支的增量勾稽解释 Alphabet 净利润增长 35.67%、FCF 仅增长 4.70% 的差异，保存来源 CSV、精确比率与 SQLite 对照。
+
+This is a FY2023–FY2024 historical case at a 2025-02-05 filing cutoff. Fiscal windows differ, and Apple's FY2023 has 53 weeks. It supports a cash-flow explanation, not a current investment or valuation conclusion. The Python/SQL cross-check covers arithmetic on selected source rows; source transcription is still manually curated.
+
+**Underlying cutoff demo:**
+
 > 构建公开财报的申报截止日快照与财务指标血缘工具，按实际财年起止日处理 53 周财年和后续申报中的比较期记录；使用 Apple 两份公开年报的 33 条人工摘录生成六组快照及九类财务指标，以独立 SQL 查询和语义复算核验取数、公式与来源，覆盖 45 项自动化测试。
 
 - **Evidence:** [live report](https://dev-belly.github.io/StatementTrace/), [source ledger](https://github.com/dev-belly/StatementTrace/blob/main/docs/SOURCES.md), [selected facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/selected_facts.csv), [metric lineage](https://github.com/dev-belly/StatementTrace/blob/main/examples/demo/lineage.csv), [main CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/39931468275).
