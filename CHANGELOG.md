@@ -1,5 +1,13 @@
 # Build history
 
+**2026-11-11 · Expose a verified financial API.**
+[StatementTrace #14](https://github.com/dev-belly/StatementTrace/pull/14) adds
+FastAPI, Pydantic, Uvicorn and OpenAPI to the existing financial data pipeline:
+six typed read-only routes, exact integer strings, filing lineage, pagination
+and a captured snapshot verified before serving. Connect the implementation,
+request examples and local run guide to the recruiter route and technical strip.
+[Executed tests and boundaries](PROJECT_REVIEW.md#verified-financial-api--2026-11-11).
+
 **2026-11-11 · Implement a modern financial data stack.**
 Connect [StatementTrace #12](https://github.com/dev-belly/StatementTrace/pull/12)
 to the profile, recruiter overview, first-run guide and technical strip.

@@ -1,5 +1,30 @@
 # Portfolio review · 2026-11-11
 
+## Verified financial API · 2026-11-11
+
+[StatementTrace #14](https://github.com/dev-belly/StatementTrace/pull/14) adds
+FastAPI/Pydantic response models, strict typed filters, Uvicorn serving and
+OpenAPI/Swagger documentation over a verified financial packet. Six data routes
+expose snapshot identity, source contracts, issuers, exact cash flow and filing
+facts. Captured bytes are verified before application creation; subsequent
+requests use a fixed snapshot even if the original directory changes.
+
+All 99 Python tests pass locally, including 20 new HTTP/CLI contracts.
+Tests check manually calculated values, exact integer strings beyond JavaScript's
+safe range, missing/zero distinctions, SEC lineage, pagination, concurrent reads,
+independent cutoff apps, unsupported/duplicate filters and rehashed tampering.
+Actual Uvicorn subprocesses pass HTTP checks for the normal and earlier-cutoff
+packets. The wheel installs with its API extra in an independent environment,
+then generates/replays data and serves HTTP outside the checkout.
+Existing report/preview replay, Ruff and lock checks pass.
+
+[The shared warehouse matrix](https://github.com/dev-belly/StatementTrace/actions/workflows/warehouse.yml)
+includes API tests, actual HTTP and installed-wheel service checks on Linux and
+Windows. This is a local service over the same curated 24-fact filing study,
+with no production, authentication or throughput result claimed. Swagger's
+default UI uses CDN assets; data routes and OpenAPI JSON work offline after
+installation. [Run and explain the API](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md).
+
 ## Typed financial warehouse · 2026-11-11
 
 [StatementTrace #12](https://github.com/dev-belly/StatementTrace/pull/12) adds
