@@ -6,7 +6,7 @@
       "repo": "StatementTrace",
       "group": "flagship",
       "summary": "三家公司利润与现金流研究、财报来源追溯和 SQL 复算",
-      "stack": "Python · SQL",
+      "stack": "Python · Polars · Parquet · DuckDB · dbt · SQL",
       "boundary": "24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。",
       "demo": "https://dev-belly.github.io/StatementTrace/cashflow/",
       "evidence": "docs/CASHFLOW_STUDY.zh-CN.md"
@@ -49,11 +49,11 @@
     {
       "repo": "StressAtlas",
       "group": "research",
-      "summary": "相关违约、组合尾部损失和估计精度",
-      "stack": "Python · NumPy",
-      "boundary": "合成贷款组合；压力情景和重采样不代表真实损失预测。",
-      "demo": "https://dev-belly.github.io/StressAtlas/",
-      "evidence": "docs/METHODOLOGY.md"
+      "summary": "CurveShift 利率曲线研究、债券全量重估与信用组合尾部风险",
+      "stack": "QuantLib · Python · Polars · scikit-learn · FastAPI",
+      "boundary": "CurveShift 使用历史拟合零息曲线与假设债券；原信用压力研究使用合成贷款，两类结果分别解释。",
+      "demo": "https://dev-belly.github.io/StressAtlas/curveshift/",
+      "evidence": "labs/curveshift/docs/RESEARCH.zh-CN.md"
     },
     {
       "repo": "NetworkClear",

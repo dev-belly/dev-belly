@@ -681,6 +681,42 @@ Native subsequent-default labels differ from German good/bad classification
 and the synthetic 180-day DPD experiment; none of these random splits proves
 future-vintage performance.
 
+### CurveShift: bend the curve, then replay your scenario
+
+First [open the laboratory](https://dev-belly.github.io/StressAtlas/curveshift/), change a slider and click **Download this scenario**. The file records the visible four-tenor shock, frozen valuation date and exact source fingerprint. Install Python 3.11–3.13 and clone into a new directory.
+
+**Windows PowerShell**
+
+```powershell
+git clone https://github.com/dev-belly/StressAtlas.git
+cd StressAtlas
+python -m venv .venv-curve
+.\.venv-curve\Scripts\python.exe -m pip install .\labs\curveshift
+.\.venv-curve\Scripts\curveshift.exe report --out output\curve
+.\.venv-curve\Scripts\curveshift.exe verify output\curve
+```
+
+**Linux / macOS**
+
+```bash
+git clone https://github.com/dev-belly/StressAtlas.git
+cd StressAtlas
+python3 -m venv .venv-curve
+.venv-curve/bin/python -m pip install ./labs/curveshift
+.venv-curve/bin/curveshift report --out output/curve
+.venv-curve/bin/curveshift verify output/curve
+```
+
+Open `output/curve/index.html`. After installation the report runs offline. To replay the browser download, use the installed environment's `curveshift replay` command with its actual saved path and a new result filename:
+
+```bash
+curveshift replay curveshift-scenario-2025-12-31.json --out scenario-result.json
+```
+
+For example, on Windows prefix that command with `.\.venv-curve\Scripts\`; on Linux/macOS use `.venv-curve/bin/`. Unknown fields, a different source hash or shifts outside ±300bp fail explicitly. The CLI preserves existing destinations.
+
+Try explaining why the long-10Y/short-2Y example has approximately zero parallel DV01 but loses $93,918.70 under the documented twist. Distinguish that hedge from the separate long-only ladder used by the sliders. [Source, method and upstream attribution](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/README.md).
+
 ### StressAtlas: replay with less driver memory
 
 Use Python 3.11+ and current source; the earlier v0.1.0 release predates the

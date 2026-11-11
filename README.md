@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/profile-signal-v4.svg" width="100%" alt="dev-belly — Follow the numbers. Financial research built with Python and SQL. CUFE data science." />
   <br /><br />
-  <a href="https://dev-belly.github.io/StatementTrace/cashflow/"><b>READ A STUDY</b></a> &nbsp; / &nbsp;
+  <a href="https://dev-belly.github.io/StressAtlas/curveshift/"><b>BEND A YIELD CURVE</b></a> &nbsp; / &nbsp;
   <a href="FOR_RECRUITERS.md"><b>FOR RECRUITERS · 招聘速览</b></a> &nbsp; / &nbsp;
   <a href="CATALOG.md"><b>PROJECT INDEX</b></a>
 </div>
@@ -13,6 +13,12 @@ I use **Python, SQL and statistics** to turn financial questions into research s
 
 中央财经大学数据科学本科在读，关注**金融数据分析、企业研究与量化研究方法**。
 希望把数据整理、统计分析和研究实现能力用在券商、基金与研究团队的实习中。
+
+## New research · a hedge with hidden shape risk
+
+**Can a DV01-neutral portfolio still lose money when rates move?** [CurveShift](https://dev-belly.github.io/StressAtlas/curveshift/) matches a hypothetical long 10Y bond with a short 2Y bond. Parallel DV01 is approximately zero, yet a 2Y −25bp / 10Y +25bp twist loses **$93,918.70**. Move four curve points, inspect the repriced cash flows, then download your scenario and replay it in Python.
+
+**QuantLib · Nelson–Siegel–Svensson · Polars · scikit-learn · FastAPI · uv.** The research uses 2,499 historical Treasury curve estimates; the bonds are hypothetical. NSS uses luphord's credited MIT library. [中文简报](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md) · [Source and method](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/METHOD.md) · [Install the application](START_HERE.md#curveshift-bend-the-curve-then-replay-your-scenario).
 
 ## Selected work
 
@@ -48,7 +54,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 | :--- | :--- | :--- |
 | [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor evaluation, walk-forward splits, portfolio constraints and costs | [Small evaluation counterexample](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径). Archived backtests await refitting under the corrected trading-session split protocol. |
 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
-| [StressAtlas](https://github.com/dev-belly/StressAtlas) | Portfolio tail loss, attribution and simulation uncertainty | [Methods](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md). Synthetic portfolios with stated scenario assumptions. |
+| [StressAtlas / CurveShift](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift) | Curve-shape risk, full bond revaluation, historical ES and chronological PCA | [Interactive laboratory](https://dev-belly.github.io/StressAtlas/curveshift/): observed staff curve estimates and hypothetical bonds. The separate [credit study](https://dev-belly.github.io/StressAtlas/) uses synthetic portfolios. |
 
 <img src="assets/stack-v4.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn and C++20. Financial data pipeline: Polars, Parquet, DuckDB and dbt; typed API: FastAPI and Pydantic." />
 

@@ -39,6 +39,12 @@
 [API 中文讲解与本地启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
 [类型与实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py)。
 
+## 固收研究：一个可以现场改动的反例
+
+**平行 DV01 接近零，为什么仍会亏钱？** [CurveShift 交互实验](https://dev-belly.github.io/StressAtlas/curveshift/)匹配假设的 10 年债多头与 2 年债空头；2 年利率降 25bp、10 年升 25bp 时，全量重估亏损 **93,918.70 美元**。这说明单一平移指标无法覆盖曲线形状风险。
+
+技术实现包括 QuantLib 现金流与独立定价、NSS 零息曲线、关键期限 DV01、历史情景 ES、按时间切分的 PCA，以及可重放的 CLI / FastAPI。可拖动四个期限，下载当前情景再用 Python 复算。[中文简报与来源](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md)区分 2,499 条历史拟合曲线、假设债券与开源模型；数据不是实时行情，也不是历史首次可得快照。
+
 ## 按岗位看证据
 
 | 岗位关注 | 推荐作品 | 可以当场展开的讨论 |
@@ -46,6 +52,7 @@
 | 企业研究 / 财务数据分析 | **StatementTrace**：[现金流研究](https://dev-belly.github.io/StatementTrace/cashflow/) | 口径统一、财报来源、同比归因、资本开支、缺失值；哪些判断需要进一步读附注。 |
 | 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
 | 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
+| 固收 / 基金风险研究 | **CurveShift**：[改变曲线形状](https://dev-belly.github.io/StressAtlas/curveshift/) | 平行 DV01 与关键期限风险、凸性误差、全量重估、历史 ES、按时间划分的 PCA。 |
 | 量化研究方法 | **AlphaForge**：[共同样本与分组反例](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
 
 ## 三个值得追问的问题

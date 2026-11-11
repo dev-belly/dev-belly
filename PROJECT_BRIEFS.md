@@ -53,6 +53,17 @@ This is a FY2023–FY2024 historical case at a 2025-02-05 filing cutoff. Fiscal 
 - **Preserve report versions:** [#33](https://github.com/dev-belly/PITBridge/pull/33) ships [v0.2.3](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.3), rejecting nonempty/file/link report targets and preserving a member arriving after preflight. The release gate requires all 18 installed demo/JSON/CSV rejection cases to retain existing bytes. Saved scalar/rolling evidence remains unchanged; interrupted writes use a fresh directory for retry.
 - **Checked release:** [#29](https://github.com/dev-belly/PITBridge/pull/29) publishes the timestamp-safe [v0.2.1 wheel](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.1), with installed boundary checks and exact-commit evidence. [First run](START_HERE.md#pitbridge-historical-feature-selection). [#21](https://github.com/dev-belly/PITBridge/pull/21) introduced the checked release process; [#22](https://github.com/dev-belly/PITBridge/pull/22) and [#23](https://github.com/dev-belly/PITBridge/pull/23) repaired documentation and browser-start reliability.
 
+## Fixed-income curve risk
+
+### [CurveShift](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift)
+
+> 研究平行 DV01 中性与曲线风险中性的差别：使用 2016–2025 年 2,499 条历史 Treasury 拟合零息曲线，以 QuantLib 构建假设债券现金流，并用独立折现路径核对价格；实现关键期限 DV01、交叉 gamma、756 个历史曲线情景的全量重估与尾部 ES、移动块重采样，以及训练期 2016–2024 / 留出期 2025 的 PCA；交互页面支持四期限冲击、共享情景与 Python 重放。
+
+- **Result:** 2025-12-31 的 10 年债多头 / 2 年债空头匹配后，平行 DV01 约为零；2Y −25bp / 10Y +25bp 情景亏损 $93,918.70。总面值敞口 $12.881m。另一个独立的 $10m 纯多头阶梯组合在平行 +50bp 时亏损 $344,453.93，线性估计误差 $12,756.15。
+- **Inspect:** [Interactive laboratory](https://dev-belly.github.io/StressAtlas/curveshift/), [中文研究简报](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md), [method](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/METHOD.md), [pricing engine](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/engine.py), [source ledger and upstream credit](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/ATTRIBUTION.md).
+- **Discuss:** Why the hedge retains opposite key-rate exposures; why convexity changes large-shock P&L; why historical full revaluation holds current cash flows fixed; why held-out PCA reconstruction is not a rate forecast; why mirrored, revised estimates cannot establish historical publication-time availability.
+- **Boundary:** Estimated staff research zero curves, hypothetical bonds and a frozen 2025-12-31 valuation. No observed fills, credit/liquidity/financing model or historical portfolio-P&L backtest. NSS is luphord's credited MIT implementation. CurveShift is independently installable inside StressAtlas; it is not represented as a separately created GitHub fork. Describe personal contributions according to actual participation.
+
 ## Credit portfolio risk
 
 ### [StressAtlas](https://github.com/dev-belly/StressAtlas)
