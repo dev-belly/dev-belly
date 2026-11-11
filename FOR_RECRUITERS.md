@@ -32,6 +32,13 @@
 [CI](https://github.com/dev-belly/StatementTrace/actions/workflows/warehouse.yml)。
 当前是小规模公开案例，尚未测量大规模吞吐与生产效果。
 
+接口层进一步使用 **FastAPI / Pydantic / Uvicorn**，提供六个类型明确的只读数据接口。
+调用方可以筛选公司和财年、分页查询来源事实，并用快照 ID 核对同一批数据。
+金额通过 JSON 时保留为精确整数字符串，缺失值保持为空；启动前核验捕获的数据包，
+启动后的请求不再混读变动的源文件。
+[API 中文讲解与本地启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
+[类型与实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py)。
+
 ## 按岗位看证据
 
 | 岗位关注 | 推荐作品 | 可以当场展开的讨论 |

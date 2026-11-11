@@ -31,6 +31,25 @@ three models and runs 21 data tests. The script checks 138 fields against Python
 and requires a deliberately future-filed source row to fail the cutoff test.
 Use a new or empty output directory. [中文讲解、精度规则与手动 dbt 命令](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
 
+### Query the verified financial API
+
+In the StatementTrace checkout, use a new output directory:
+
+```bash
+uv sync --locked --extra warehouse --extra api --extra dev
+uv run --locked statementtrace warehouse --out output/api-demo
+uv run --locked statementtrace serve-warehouse output/api-demo
+```
+
+Open `http://127.0.0.1:8000/docs`, or query
+`http://127.0.0.1:8000/v1/cashflow?symbol=GOOGL&period=2024`.
+Amounts are exact integer strings; `/v1/facts` retains filing dates, accession,
+fact ID and source URL. A fixed snapshot supports pagination and concurrent reads.
+Unknown/duplicate parameters are rejected. Build another packet and restart to
+change its cutoff. This is a local service, separate from the static Pages report.
+[中文接口指南](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
+[HTTP examples](https://github.com/dev-belly/StatementTrace/blob/main/examples/api/requests.http).
+
 
 Try the invoice case in your browser, install a project locally, or follow a
 business question into its evidence and code.
