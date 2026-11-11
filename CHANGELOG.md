@@ -1,5 +1,13 @@
 # Build history
 
+**2026-11-11 · Size a constrained hedge after diagnosing curve risk.**
+[StressAtlas #10](https://github.com/dev-belly/StressAtlas/pull/10) adds SciPy
+sparse / HiGHS CVaR optimization, gross/per-bond face limits and entry cost.
+Connect the new budget laboratory to the profile, recruiter route, project
+catalog and installed-package first trial. Preserve the separation between
+504 fitting changes and 249 held-out changes, hypothetical instruments and
+observed staff curve estimates. [Validation and boundaries](PROJECT_REVIEW.md#constrained-curve-risk-hedging--2026-11-11).
+
 **2026-11-11 · Expose a verified financial API.**
 [StatementTrace #14](https://github.com/dev-belly/StatementTrace/pull/14) adds
 FastAPI, Pydantic, Uvicorn and OpenAPI to the existing financial data pipeline:

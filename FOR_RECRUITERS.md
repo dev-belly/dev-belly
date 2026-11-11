@@ -45,6 +45,14 @@
 
 技术实现包括 QuantLib 现金流与独立定价、NSS 零息曲线、关键期限 DV01、历史情景 ES、按时间切分的 PCA，以及可重放的 CLI / FastAPI。可拖动四个期限，下载当前情景再用 Python 复算。[中文简报与来源](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md)区分 2,499 条历史拟合曲线、假设债券与开源模型；数据不是实时行情，也不是历史首次可得快照。
 
+**进一步：发现风险后，怎样在仓位与成本限制下配置对冲？**
+[受约束对冲实验](https://dev-belly.github.io/StressAtlas/curveshift/hedge/)使用 **SciPy 稀疏矩阵 / HiGHS**
+求解 513 变量、509 约束的 CVaR 线性规划；加入总面值、单券面值上限与一次建仓成本。
+504 个截至 2024 年底的变化用于拟合，249 个 2025 年变化只用于固定交易后的情景检验。
+默认 600 万美元对冲面值下，97.5% ES 从 71,789.20 美元降到 29,039.70 美元，建仓成本另计 1,200 美元。
+页面可切换预算、查看交易与残余关键期限风险、拖动冲击并下载结果。
+[方法与复现](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md)明确区分情景风险与实际收益。
+
 ## 按岗位看证据
 
 | 岗位关注 | 推荐作品 | 可以当场展开的讨论 |
@@ -52,7 +60,7 @@
 | 企业研究 / 财务数据分析 | **StatementTrace**：[现金流研究](https://dev-belly.github.io/StatementTrace/cashflow/) | 口径统一、财报来源、同比归因、资本开支、缺失值；哪些判断需要进一步读附注。 |
 | 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
 | 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
-| 固收 / 基金风险研究 | **CurveShift**：[改变曲线形状](https://dev-belly.github.io/StressAtlas/curveshift/) | 平行 DV01 与关键期限风险、凸性误差、全量重估、历史 ES、按时间划分的 PCA。 |
+| 固收 / 基金风险研究 | **CurveShift**：[受约束对冲](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) | 曲线风险、全量重估、CVaR 优化、仓位和成本约束、原始—对偶核验、留出年份检验。 |
 | 量化研究方法 | **AlphaForge**：[共同样本与分组反例](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
 
 ## 三个值得追问的问题
