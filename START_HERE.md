@@ -15,6 +15,22 @@ python -m http.server 8000 --directory output/cashflow
 
 Open `http://localhost:8000`. The packet runs offline after installation. For an earlier cutoff, add `--as-of 2025-02-04` to `compare` and choose a new output directory: Alphabet is unavailable because this packet only contains its later filing.
 
+### Run the financial data stack
+
+In the same StatementTrace checkout, install [uv](https://docs.astral.sh/uv/), then:
+
+```bash
+uv sync --locked --extra warehouse --extra dbt --extra dev
+uv run --locked statementtrace warehouse --out output/warehouse
+uv run --locked statementtrace verify-warehouse output/warehouse
+uv run --locked python scripts/check_warehouse_dbt.py output/warehouse
+```
+
+Polars writes typed Zstd Parquet; DuckDB computes the financial mart; dbt builds
+three models and runs 21 data tests. The script checks 138 fields against Python
+and requires a deliberately future-filed source row to fail the cutoff test.
+Use a new or empty output directory. [中文讲解、精度规则与手动 dbt 命令](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
+
 
 Try the invoice case in your browser, install a project locally, or follow a
 business question into its evidence and code.

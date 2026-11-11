@@ -3,7 +3,8 @@
 **中央财经大学｜数据科学与大数据技术｜2029 届本科｜均分 91.32 / 100**
 
 关注券商、基金和研究团队的金融数据整理、企业研究支持、统计分析与量化研究实现。
-主要工具是 **Python、SQL、统计建模**。北京，2027 年 1 月初可到岗，每周可实习 6 天，年后可持续。
+主要工具是 **Python、SQL、统计建模**；财报项目已实现 **Polars、Parquet、DuckDB、dbt** 数据管道。
+北京，2027 年 1 月初可到岗，每周可实习 6 天，年后可持续。
 
 ## 先看一个完整问题
 
@@ -20,6 +21,16 @@
 [Python](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/cashflow.py)、
 [SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)。
 这是 FY2023–FY2024 的历史案例；财年窗口不同，先比较各自同比。FCF 口径为 CFO 减现金 capex。
+
+**工程实现可进一步展开：** [Polars → Parquet → DuckDB → dbt](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md)。
+按明确的金额和日期 schema 写入列式文件，用 SQL 窗口函数计算同比与现金流桥，
+通过 dbt 的 3 个模型、21 项数据检查管理转换流程。
+两条 SQL 路径分别对照 Python 核验 138 个字段；另测未来申报日拦截、缺失值、
+超过浮点精度的整数金额及改值后重新计算哈希的情况。
+可核查[管道代码](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/warehouse.py)、
+[模型](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models)与
+[CI](https://github.com/dev-belly/StatementTrace/actions/workflows/warehouse.yml)。
+当前是小规模公开案例，尚未测量大规模吞吐与生产效果。
 
 ## 按岗位看证据
 

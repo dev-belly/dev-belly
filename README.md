@@ -50,7 +50,16 @@ Three projects, three questions: **understand the business → evaluate a model 
 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
 | [StressAtlas](https://github.com/dev-belly/StressAtlas) | Portfolio tail loss, attribution and simulation uncertainty | [Methods](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md). Synthetic portfolios with stated scenario assumptions. |
 
-<img src="assets/stack-v4.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn; C++20 for execution research." />
+<img src="assets/stack-v4.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn and C++20. Financial data pipeline: Polars, Parquet, DuckDB and dbt." />
+
+**Financial data pipeline:** [Polars → Parquet → DuckDB → dbt](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
+The filing study now has a typed columnar route, SQL window calculations and a
+three-model dbt project with 21 data tests. Direct SQL and dbt each check 138
+fields against Python; tests retain missing filings and exact integer amounts.
+[Pipeline](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/warehouse.py) ·
+[dbt models](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models) ·
+[Locked cross-platform checks](https://github.com/dev-belly/StatementTrace/blob/main/.github/workflows/warehouse.yml).
+The demonstration uses the same 24 curated facts; scale and production performance are unmeasured.
 
 ## Explore further
 

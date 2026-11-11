@@ -1,5 +1,13 @@
 # Build history
 
+**2026-11-11 · Implement a modern financial data stack.**
+Connect [StatementTrace #12](https://github.com/dev-belly/StatementTrace/pull/12)
+to the profile, recruiter overview, first-run guide and technical strip.
+Polars, Parquet, DuckDB and dbt now have runnable code behind their names:
+typed inputs, exact financial SQL, three models and 21 data tests.
+Record the executed 79 Python tests, three dbt scenarios, deliberate cutoff
+failure and isolated-wheel verification. [Evidence and scope](PROJECT_REVIEW.md#typed-financial-warehouse--2026-11-11).
+
 **2026-11-09 · Explain a reproducible evaluation counterexample.**
 Connect the [merged AlphaForge factor correction](https://github.com/dev-belly/alphaforge/pull/10)
 and [model follow-up](https://github.com/dev-belly/alphaforge/pull/11) to the profile,

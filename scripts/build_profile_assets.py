@@ -87,9 +87,11 @@ def card(project):
 
 
 def stack():
-    return svg(1280, 54, 'Python, SQL and statistics; scikit-learn and C++20 for selected research.',
-               '<path d="M0 1H1280M0 53H1280" stroke="#ccd4c7"/>' + text(20, 35,
-               'PYTHON  /  SQL  /  STATISTICS  /  SCIKIT-LEARN  /  C++20', 19, GREEN, 500, MONO))
+    return svg(1280, 88, 'Python, SQL and statistics; Polars, Parquet, DuckDB and dbt for financial data.',
+               f'<rect width="1280" height="88" fill="{PAPER}"/>'
+               + '<path d="M0 1H1280M0 87H1280" stroke="#ccd4c7"/>' + text(20, 34,
+               'PYTHON  /  SQL  /  STATISTICS  /  SCIKIT-LEARN  /  C++20', 19, GREEN, 500, MONO)
+               + text(20, 66, 'FINANCIAL DATA  /  POLARS  /  PARQUET  /  DUCKDB  /  DBT', 17, MUTED, 500, MONO))
 
 
 def outputs():

@@ -1,4 +1,27 @@
-# Portfolio review · 2026-11-05
+# Portfolio review · 2026-11-11
+
+## Typed financial warehouse · 2026-11-11
+
+[StatementTrace #12](https://github.com/dev-belly/StatementTrace/pull/12) adds
+Polars lazy input normalization, typed Zstd Parquet, an exact DuckDB financial mart
+and three dbt models with 21 data tests. Source dates, fact IDs, accessions and
+SEC links survive the export. DECIMAL(38,0) arithmetic and ratio pairs preserve
+large integer amounts, zero denominators and explicit missingness.
+
+Local validation passes all 79 Python tests, Ruff and existing report/preview
+replay. Actual dbt builds pass for the default cutoff, an earlier cutoff and
+extreme integer inputs; each compares 138 fields with Python. A one-row future
+filing is rejected by the named cutoff test in all three runs. A built wheel
+installed into a clean environment runs and verifies outside the checkout.
+Manual dbt build and documentation generation pass with telemetry disabled;
+the project, validation script and documented commands disable usage statistics.
+
+[The warehouse CI](https://github.com/dev-belly/StatementTrace/actions/workflows/warehouse.yml)
+tracks locked Linux 3.11/3.13, Windows 3.12 and installed-wheel checks.
+This is the existing small, manually curated 24-fact filing case: no scale,
+production performance or new financial conclusion is asserted. Both SQL routes
+share the frozen input and upstream selector; arithmetic parity cannot establish
+the accuracy of source transcription. [Run and explain it](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
 
 ## API rerun assumptions and costs · 2026-11-05
 
