@@ -1,5 +1,32 @@
 # Portfolio review · 2026-11-11
 
+## Constrained curve-risk hedging · 2026-11-11
+
+[StressAtlas #10](https://github.com/dev-belly/StressAtlas/pull/10) adds a sparse
+CVaR / HiGHS hedge optimizer, face caps and one-time entry cost. A fixed $10m
+hypothetical 7Y target is hedged with four model maturities. The 513-variable,
+509-constraint program fits 504 pre-2025 changes; 249 changes from 2025 evaluate
+the fixed trades. Five budget cases, residual key DV01, full-revaluation stress
+controls, shareable experiment state and selected-trade downloads are visible
+in the [hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/).
+
+All 54 CurveShift tests pass locally, including 20 new cases: hand-calculated
+LP optima, fractional tail mass, high-cost zero trade, independent QuantLib
+historical revaluation, held-out-data mutation and rehashed false outputs.
+Ruff and saved original/hedge evidence replay pass. A noneditable installed
+wheel generates and verifies both laboratories outside the checkout.
+The [research workflow](https://github.com/dev-belly/StressAtlas/actions/workflows/curveshift.yml)
+checks Linux 3.11/3.13, Windows 3.12, and real Chrome at desktop/mobile widths,
+including QuantLib prices, budgets, downloaded trades and restored/invalid links.
+The PR's completed Chrome job reports **38 QuantLib comparisons and 20 actual
+downloads** across 1280px and 390px viewports, covering both laboratories.
+
+At $6m hedge face, 2025 scenario ES is $29,039.70 versus $71,789.20 unhedged,
+before $1,200 entry cost. Pricing and cash flows remain frozen at 2024-12-31;
+this is a scenario-distribution evaluation, not realized returns. Financing,
+borrow, collateral and revision-vintage availability remain outside scope.
+[中文推导、复现与可准确使用的面试表述](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md).
+
 ## Verified financial API · 2026-11-11
 
 [StatementTrace #14](https://github.com/dev-belly/StatementTrace/pull/14) adds

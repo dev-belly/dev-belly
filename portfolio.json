@@ -49,11 +49,11 @@
     {
       "repo": "StressAtlas",
       "group": "research",
-      "summary": "CurveShift 利率曲线研究、债券全量重估与信用组合尾部风险",
-      "stack": "QuantLib · Python · Polars · scikit-learn · FastAPI",
+      "summary": "CurveShift 利率曲线、受约束 CVaR 对冲与信用组合尾部风险",
+      "stack": "QuantLib · SciPy/HiGHS · Polars · scikit-learn · FastAPI",
       "boundary": "CurveShift 使用历史拟合零息曲线与假设债券；原信用压力研究使用合成贷款，两类结果分别解释。",
-      "demo": "https://dev-belly.github.io/StressAtlas/curveshift/",
-      "evidence": "labs/curveshift/docs/RESEARCH.zh-CN.md"
+      "demo": "https://dev-belly.github.io/StressAtlas/curveshift/hedge/",
+      "evidence": "labs/curveshift/docs/HEDGING.zh-CN.md"
     },
     {
       "repo": "NetworkClear",

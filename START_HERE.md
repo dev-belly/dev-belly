@@ -717,6 +717,34 @@ For example, on Windows prefix that command with `.\.venv-curve\Scripts\`; on Li
 
 Try explaining why the long-10Y/short-2Y example has approximately zero parallel DV01 but loses $93,918.70 under the documented twist. Distinguish that hedge from the separate long-only ladder used by the sliders. [Source, method and upstream attribution](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/README.md).
 
+### CurveShift: solve a hedge under face and cost limits
+
+Open the [hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/).
+Choose $0m, $2m, $4m, $6m or $8m gross hedge face, inspect the signed trades and
+2025 scenario ES, then try a twist. **Download selected trades** exports the
+currently selected positions; the research downloads retain every budget and
+held-out loss. These are fixed-cash-flow scenarios with a 2024-12-31 pricing
+date; the 2025 curves do not refit the hedge.
+
+Using the same installed environment as above, Windows PowerShell:
+
+```powershell
+.\.venv-curve\Scripts\curveshift.exe hedge --budget-usd 6000000 --cost-bp 2
+.\.venv-curve\Scripts\curveshift.exe hedge-report --out output\hedge
+.\.venv-curve\Scripts\curveshift.exe hedge-verify output\hedge
+```
+
+Linux / macOS:
+
+```bash
+.venv-curve/bin/curveshift hedge --budget-usd 6000000 --cost-bp 2
+.venv-curve/bin/curveshift hedge-report --out output/hedge
+.venv-curve/bin/curveshift hedge-verify output/hedge
+```
+
+Open `output/hedge/index.html`. The source-bound API also offers `POST /hedge`.
+[Formulation, assumptions and independent checks](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md).
+
 ### StressAtlas: replay with less driver memory
 
 Use Python 3.11+ and current source; the earlier v0.1.0 release predates the
