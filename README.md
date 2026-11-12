@@ -1,12 +1,8 @@
-<div align="center">
-  <img src="assets/profile-signal-v4.svg" width="100%" alt="dev-belly — Follow the numbers. Financial research built with Python and SQL. CUFE data science." />
-  <br /><br />
-  <a href="https://dev-belly.github.io/StressAtlas/curveshift/hedge/"><b>GIVE THE HEDGE A BUDGET</b></a> &nbsp; / &nbsp;
-  <a href="FOR_RECRUITERS.md"><b>FOR RECRUITERS · 招聘速览</b></a> &nbsp; / &nbsp;
-  <a href="CATALOG.md"><b>PROJECT INDEX</b></a>
-</div>
+# dev-belly
 
-<br />
+**Follow the numbers.** Financial research built with Python and SQL.
+
+[Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) · [招聘速览 / For recruiters](FOR_RECRUITERS.md) · [Project index](CATALOG.md)
 
 I'm **dev-belly**, studying **Data Science & Big Data Technology at Central University of Finance and Economics (CUFE), Class of 2029**.
 I use **Python, SQL and statistics** to turn financial questions into research someone else can inspect and rerun.
@@ -36,29 +32,35 @@ cash flows and download the trades. This is a fixed-cash-flow scenario study.
 
 Three projects, three questions: **understand the business → evaluate a model → reconstruct the data behind a decision**.
 
-<a href="https://github.com/dev-belly/StatementTrace"><img src="assets/statementtrace-v4.svg" width="100%" alt="StatementTrace — compare profit and free cash flow using 24 public filing facts across Apple, Microsoft and Alphabet; Python and SQL arithmetic." /></a>
+### [StatementTrace](https://github.com/dev-belly/StatementTrace)
+
+Public filings · Corporate cash flow · Python + SQL
 
 **Why can profit rise much faster than free cash flow?** A historical FY2023–FY2024 study compares three issuers using 24 curated SEC filing facts. Alphabet's profit grew **35.67%**, while FCF grew **4.70%**; the report reconciles the operating cash-flow increase with higher cash capex.
 
 [Read the report](https://dev-belly.github.io/StatementTrace/cashflow/) · [中文研究简报](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) · [24 source facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv) · [SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)
 
-<sub>Historical case, filed-date cutoff 2025-02-05. Different fiscal windows; Apple's FY2023 has 53 weeks. Compare each issuer with its own prior year. FCF is CFO minus cash capex.</sub>
+Historical case, filed-date cutoff 2025-02-05. Different fiscal windows; Apple's FY2023 has 53 weeks. Compare each issuer with its own prior year. FCF is CFO minus cash capex.
 
-<a href="https://github.com/dev-belly/CreditVintage"><img src="assets/creditvintage-v4.svg" width="100%" alt="CreditVintage — 35,000 observed SBA loans, later funding cohorts, probability calibration and fixed review capacity." /></a>
+### [CreditVintage](https://github.com/dev-belly/CreditVintage)
+
+Model validation · Probability calibration · Fixed review capacity
 
 **Does a better probability estimate make a better review queue?** On **35,000 observed SBA loans**, separate training, calibration and later funding cohorts expose a tradeoff: calibration can improve probability error while weakening ranking and event capture at the same review capacity. Saved predictions support independent SQL analysis.
 
 [Compare review budgets](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Study and assumptions](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) · [SQL exercise](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
 
-<sub>Retrospective funding-cohort research with mature outcome windows. The final source snapshot lacks historical publication and revision records.</sub>
+Retrospective funding-cohort research with mature outcome windows. The final source snapshot lacks historical publication and revision records.
 
-<a href="https://github.com/dev-belly/PITBridge"><img src="assets/pitbridge-v4.svg" width="100%" alt="PITBridge — reconstruct the facts available at a decision, with publication time, ingestion time and revisions." /></a>
+### [PITBridge](https://github.com/dev-belly/PITBridge)
+
+Temporal data · Publication, ingestion and decision time · SQL + Python
 
 **Was that information available when the decision was made?** Change one invoice's arrival time in the browser, inspect the selected record, then download the scenario and replay it in Python. The implementation separates event time from knowledge time and checks SQL against a separate Python path.
 
 [Try one timestamp](https://dev-belly.github.io/PITBridge/try/) · [Replay the scenario](START_HERE.md#download-and-replay-your-browser-scenario) · [Implementation](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)
 
-<sub>Small synthetic invoice/event examples make the temporal rules visible.</sub>
+Small synthetic invoice/event examples make the temporal rules visible.
 
 ## Research bench
 
@@ -68,7 +70,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
 | [StressAtlas / CurveShift](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift) | Curve-shape risk, constrained CVaR hedging, full revaluation and chronological evaluation | [Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/): observed staff curve estimates and hypothetical bonds. The separate [credit study](https://dev-belly.github.io/StressAtlas/) uses synthetic portfolios. |
 
-<img src="assets/stack-v4.svg" width="100%" alt="Working tools: Python, SQL, statistics, scikit-learn and C++20. Financial data pipeline: Polars, Parquet, DuckDB and dbt; typed API: FastAPI and Pydantic." />
+**Tools:** Python · SQL · statistics · scikit-learn · C++20
 
 **Financial data pipeline:** [Polars → Parquet → DuckDB → dbt](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
 The filing study now has a typed columnar route, SQL window calculations and a

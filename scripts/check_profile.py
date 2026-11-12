@@ -122,14 +122,15 @@ def check():
             local_links += check_local_reference(target, document, contents)
 
     profile = parsed["README.md"]
-    image_sources = [local_image_source(source) for source in profile.images]
-    if Counter(source for source in image_sources if source in CARDS) != Counter(CARDS.keys()):
-        raise ValueError("Each generated project card must appear exactly once in README.md")
+    studies = re.findall(r"^### \[([^\]]+)\]\((https://github.com/dev-belly/[^)]+)\)$", contents[ROOT / "README.md"], re.MULTILINE)
+    expected_studies = [(project[2], f"https://github.com/dev-belly/{project[2]}") for project in PROJECTS]
+    if studies != expected_studies:
+        raise ValueError("Each selected study needs its native heading and repository link")
     if profile.card_rows:
         raise ValueError("Flagship projects must use the full-width layout")
     print(
         f"Profile checks passed: {len(expected)} deterministic SVGs, "
-        f"{len(CARDS)} linked flagship panels, "
+        f"{len(studies)} linked study headings, "
         f"{len(DOCS)} documents and {local_links} local references."
     )
 
