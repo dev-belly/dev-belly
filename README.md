@@ -2,13 +2,7 @@
 
 **Follow the numbers.** Financial research built with Python and SQL.
 
-[Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) · [招聘速览 / For recruiters](FOR_RECRUITERS.md) · [Project index](CATALOG.md)
-
-I'm **dev-belly**, studying **Data Science & Big Data Technology at Central University of Finance and Economics (CUFE), Class of 2029**.
-I use **Python, SQL and statistics** to turn financial questions into research someone else can inspect and rerun.
-
-中央财经大学数据科学本科在读，关注**金融数据分析、企业研究与量化研究方法**。
-希望把数据整理、统计分析和研究实现能力用在券商、基金与研究团队的实习中。
+[Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) · [Project index](CATALOG.md)
 
 ## New research · a hedge with a budget
 
