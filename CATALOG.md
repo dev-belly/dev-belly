@@ -15,7 +15,7 @@
 | 看审计、会计与内控 | AuditLens → ControlTrace → LedgerX |
 | 看应用开发 | WeCom Agent → Personal AI Chat → 两个微信小程序 |
 
-[空目录安装与逐步试用](START_HERE.md) · [成果与代码](PROJECT_BRIEFS.md) · [验证记录](PROJECT_REVIEW.md)
+[空目录安装与逐步试用](START_HERE.md) · [项目概览](FOR_RECRUITERS.md) · [验证记录](PROJECT_REVIEW.md)
 
 ## 三个代表作 / Selected work
 

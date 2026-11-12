@@ -61,7 +61,7 @@
 | 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
 | 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
 | 固收 / 基金风险研究 | **CurveShift**：[受约束对冲](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) | 曲线风险、全量重估、CVaR 优化、仓位和成本约束、原始—对偶核验、留出年份检验。 |
-| 量化研究方法 | **AlphaForge**：[共同样本与分组反例](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
+| 量化研究方法 | **AlphaForge**：[因子评价与验证口径](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
 
 ## 三个值得追问的问题
 
@@ -72,4 +72,4 @@
 SBA 是回溯研究；PITBridge 是合成事件案例；财报研究使用人工整理的公开申报数据。
 项目代码与分析产物可核查，尚无生产部署、实盘收益或商业效果的证明。
 
-[GitHub 主页](https://github.com/dev-belly) · [完整项目目录](CATALOG.md) · [运行方法](START_HERE.md) · [面试速讲卡](面试速讲卡.zh-CN.md)
+[GitHub 主页](https://github.com/dev-belly) · [完整项目目录](CATALOG.md) · [运行方法](START_HERE.md)

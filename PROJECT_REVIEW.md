@@ -25,7 +25,7 @@ At $6m hedge face, 2025 scenario ES is $29,039.70 versus $71,789.20 unhedged,
 before $1,200 entry cost. Pricing and cash flows remain frozen at 2024-12-31;
 this is a scenario-distribution evaluation, not realized returns. Financing,
 borrow, collateral and revision-vintage availability remain outside scope.
-[中文推导、复现与可准确使用的面试表述](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md).
+[中文方法与复现](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md).
 
 ## Verified financial API · 2026-11-11
 
@@ -331,13 +331,11 @@ retains checked tree `1a7001837371b6b5990885c7865168189452f4d4` exactly.
 Main checks: [CI](https://github.com/dev-belly/CreditVintage/actions/runs/41578157256)
 and [report publication](https://github.com/dev-belly/CreditVintage/actions/runs/41578157316).
 
-The recruiter overview, short card and full interview guide connect this
-exercise. The old guide's blanket synthetic-data statement is corrected:
+The recruiter overview and first-run guide connect this exercise. The data scopes are distinct:
 SBA is an observed retrospective 24-month recorded-charge-off study; the
 180-day event workflow is synthetic. Historical feature first-publication
 and revision timestamps remain absent, so this is not prevented loss or
-deployment evidence. Practice wording still requires understanding, actual
-participation and truthful attribution of assistance.
+deployment evidence.
 
 ## Scenario-specific copy confirmations · 2026-11-02
 
@@ -418,7 +416,7 @@ and `check-inputs` commands report 480 synthetic applications,
 remain unchanged after this new release.
 
 The [first-run guide](START_HERE.md#creditvintage-editable-csvs-and-input-diagnostics),
-[recruiter overview](FOR_RECRUITERS.md) and [project brief](PROJECT_BRIEFS.md)
+[recruiter overview](FOR_RECRUITERS.md) and [project directory](CATALOG.md)
 connect the new installed path. The small event case remains synthetic and is
 separate from the observed SBA funding-cohort study; recovery checks do not
 establish source authenticity, independent adoption or hiring outcomes.
@@ -497,7 +495,7 @@ environment outside the checkout, including both starters, the edited arrival,
 no-overwrite checks, independent replay and timestamp-precision rejection.
 
 The [first-run guide](START_HERE.md#pitbridge-create-editable-csv-inputs),
-[recruiter overview](FOR_RECRUITERS.md) and [project brief](PROJECT_BRIEFS.md)
+[recruiter overview](FOR_RECRUITERS.md) and [project directory](CATALOG.md)
 connect the installed workflow to its engineering evidence. This work does not
 measure adoption, star growth or hiring outcomes.
 
@@ -640,8 +638,6 @@ release gate requires the installed precision checks as well as independent
 replay and the benchmark. Supported previous scalar and rolling demo bundles
 replay under the new source. Existing normalized evidence cannot recover digits
 already discarded; revisit original timestamps and upstream conversion rules.
-The interview guide now identifies the current and historical integration pins
-and uses the shared-parser counterexample as a practice question.
 
 The local suite passes **146 tests**; the prior public wheel reproduced the
 counterexample and a clean new wheel passed all boundary and replay checks.
@@ -710,8 +706,6 @@ The next pass targets two concrete reader tasks: a recruiter finding relevant
 work quickly, and a developer trying a useful timing rule before installing a
 package. The profile now has a short [role-to-project overview](FOR_RECRUITERS.md),
 an explicit internship focus, and direct paths to the live example and source.
-The interview card separates the observed SBA study from the synthetic workflow
-and removes an unqualified archived AlphaForge return claim.
 
 [PITBridge #28](https://github.com/dev-belly/PITBridge/pull/28) adds the
 [no-sign-in invoice lesson](https://dev-belly.github.io/PITBridge/try/).
@@ -934,362 +928,7 @@ PR workflow above. No default-branch completion is inferred from a PR result.
 **Archived performance remains archived.** AlphaForge's old synthetic sample
 and historical-price comparison have not been refitted under the corrected
 trading-session split. Their original figures are retained as historical
-artifacts and do not establish leakage-free out-of-sample performance. The
-profile, project directory and project briefs now expose that limitation;
-return-arithmetic replay cannot certify a model's original split protocol.
-
-The [interview counterexamples](INTERVIEW_PLAYBOOK.zh-CN.md#用四个修复练习追问)
-connect these changes to time units, matrix dimensions, digit buckets and
-transactional rejection. Author understanding, external use and production
-benefit still require their own evidence.
-
-## Observed SBA funding cohorts · 2026-10-26
-
-[CreditVintage #35](https://github.com/dev-belly/CreditVintage/pull/35) adds
-observed, retrospective funding-cohort validation in v0.8.0. Both complete
-hash-pinned official CSVs contain 1,236,084 logical records. The converter
-counts exclusions, retains one earliest eligible recorded borrower group,
-and samples by outcome-independent row hashes into 20,000 train / 5,000
-calibration / 10,000 test loans. Source bytes, frozen protocol and audit were
-reconstructed exactly from both originals.
-
-Four approval inputs use training-only imputation, missing indicators, scaling
-and categories. Each earlier 24-calendar-month outcome horizon matures before
-the next funding stage starts. The test has **89 recorded events**. Logistic
-AUC is **0.672341** (month-bootstrap 95% interval **0.6246–0.7175**), AP 0.018470,
-Brier 0.009011. Isotonic lowers Brier to **0.008819** while lowering AUC to
-**0.658399**. At the same 1,000 review slots the methods capture 26/89 and 24/89
-events, respectively. Neither capture nor calibrated probability estimates
-prevented loss. All methods, both test years and all 900 bootstrap rows remain.
-
-The final PR passes **428 tests and 28 subtests**, including **52 new cases**.
-All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40272342645)
-pass, including clean installed distributions and same-ZIP refitting across
-Ubuntu/Windows and Python 3.12/3.13. The [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40272342687)
-passes; four final Chrome desktop/mobile captures were visually inspected.
-The mobile check confirms all nine metric cells fit and the page has no
-horizontal overflow. Core merge [`55ad624`](https://github.com/dev-belly/CreditVintage/commit/55ad6249fbee7754a2b1fc687fbff6a1143c3bad)
-retains exactly the tested source tree.
-
-Local source and installed-wheel checks refit from the frozen bytes, recompute
-all metrics and queues, and reject rehashed false AUC and nonfinite scores.
-Malformed manifest inventories have controlled CLI errors. Tests independently
-check AUC with Mann–Whitney ranks, plain Brier arithmetic, calendar boundaries,
-held-out outcome/feature isolation, paired resampling and one-class replicates.
-Ruff lint/format and strict mypy pass. Source/wheel archives include data,
-protocol, audit, license notices, converter and the actual-run issue form.
-A complete site rebuild/refitting passes; CI retains desktop/mobile Chrome
-previews and replays the same Linux-built SBA ZIP on Windows and Python 3.13.
-
-The final snapshot lacks historical first-publication times and feature
-revisions. It is **retrospective funding-cohort validation**, not a claim of
-historical public availability or a replacement for the synthetic event-time
-contract. Recorded 24-month SBA charge-off is distinct from 180-day delinquency
-and UCI targets. The initial rate is missing for 15,250 training loans; this
-shift is retained. Group keys are an imperfect, linkable recorded-identity
-heuristic, not verified firms or anonymous identities. US SBA results do not
-establish current Chinese lending performance, fairness, deployment or adoption.
-
-[Run on Windows/Linux](START_HERE.md#creditvintage-validate-observed-loans-across-time) ·
-[Public report](https://dev-belly.github.io/CreditVintage/sba-credit/) ·
-[Source and method](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) ·
-[Actual-run feedback form](https://github.com/dev-belly/CreditVintage/issues/new?template=sba_reproduction.yml).
-
-
-## Explicit coverage acceptance · 2026-10-25
-
-[CreditVintage #34](https://github.com/dev-belly/CreditVintage/pull/34) adds
-user-defined overall/monthly coverage and minimum-sample rules in v0.7.0.
-`check-feature-quality` validates the source diagnostic, retains every rule and
-returns 0 only for all-pass, 3 for failed/insufficient policy, or 2 for invalid
-inputs/evidence. Independent verification can succeed with `policy_status: fail`.
-A partial/tolerant policy pass never relaxes scoring/distribution completeness.
-
-**376 tests and 28 subtests pass**, including 39 new policy cases. Hand counts
-check that 2/3 fails a required decimal 0.66666667 despite its displayed rounding;
-78/80 passes 0.975 but fails 0.975000000000000001. Tests retain empty, small,
-future and mixed groups, enforce strict policy parsing, preserve source files
-and replay a self-contained bundle after its original report is removed.
-An independently retained policy digest rejects a fully regenerated replacement
-using different rules; it does not authenticate events under those rules.
-
-Ruff lint/format, strict mypy and 85 local documentation links pass. Wheel and
-source archives include the new module/template and old v0.5.0 compatibility
-fixture; existing quality/distribution bytes retain their contracts. Full site
-refitting/replay passes. Clean installed wheels outside the source trees exercise
-healthy, missing-input and insufficient policies with the performance file absent,
-enforce the external pin and reject a rehashed false pass. The installed gap
-case retains two passed rules and one failed rule, distinct from its one
-incomplete current application.
-
-The [public synthetic check](https://dev-belly.github.io/CreditVintage/feature-check/)
-requires full coverage for all three current inputs and deliberately retains three
-failures: 318/320, 319/320 and 319/320. Its four incomplete applications remain
-in the denominators. These are illustrative conditions, not calibrated business
-limits or evidence of real-world failure rates.
-
-[Run the rules](START_HERE.md#creditvintage-check-explicit-coverage-conditions) ·
-[Policy contract and trust limits](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_POLICY.md) ·
-[Official-tool comparison](OPEN_SOURCE_ROADMAP.zh-CN.md).
-
-
-## Decision-time feature coverage · 2026-10-25
-
-[CreditVintage #33](https://github.com/dev-belly/CreditVintage/pull/33) adds
-`monitor-feature-quality` and event-level diagnostic replay in v0.6.0. Every
-visible application contributes three expected feature slots. The report
-separates on-time availability, known late arrival, post-decision observation
-and no event visible by the report cutoff; it retains small monthly counts and
-null rates for empty populations. A diagnostic can verify while reporting gaps;
-strict scoring/distribution paths continue to reject missing inputs.
-
-Local validation passes **337 tests and 28 subtests**, including 27 new
-quality/compatibility cases, Ruff lint/format and strict mypy. Hand examples
-check exact population denominators, unique incomplete-application counts,
-first-arrival delay, future exclusion and empty/small cohorts. A fixture generated
-by a separately installed public v0.5.0 wheel pins all six old feature-report
-file hashes; current code reproduces them exactly. The source archive includes
-this compatibility fixture.
-
-All eight [PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40167747736)
-pass across Ubuntu/Python 3.12 and 3.13 and Windows/Python 3.12, including installed
-distributions and cross-runtime replay. The [Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40167747732)
-passes; its real-Chrome desktop and mobile previews were visually reviewed.
-The merged source is [`a6f6558`](https://github.com/dev-belly/CreditVintage/commit/a6f6558539b21e1d9fd614f882f8eae4e557b668).
-
-Clean installed wheels outside both source trees replay healthy and incomplete
-two-CSV diagnostics while the performance file is absent. The incomplete case
-retains 80 visible current applications / 79 complete / one incomplete; the
-same input still fails the strict distribution gate, and rehashed false coverage
-is rejected. The complete local public-site rebuild/refitting also passes.
-
-The [public synthetic quality case](https://dev-belly.github.io/CreditVintage/feature-quality/)
-uses 480 reference / 320 visible current applications, with 316 complete current
-and 160 future current applications. Its four unavailable slots are deliberately
-injected. These are event-coverage diagnostics, not raw CSV null rates,
-generic quality rules, credit-risk conclusions or production failure rates.
-
-[Run the diagnostic](START_HERE.md#creditvintage-diagnose-missing-decision-time-features) ·
-[Method and input contract](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_QUALITY.md) ·
-[Evidently / GX / TFDV comparison](https://github.com/dev-belly/CreditVintage/blob/main/docs/COMPARISON.zh-CN.md).
-
-
-## Input-distribution monitoring · 2026-10-24
-
-[CreditVintage #32](https://github.com/dev-belly/CreditVintage/pull/32) adds
-`monitor-features` and `verify-feature-monitor` in the checked v0.5.0 distribution.
-Two application/feature CSVs produce a report for four numeric inputs and segment
-composition. The command does not read an outcome file or fit a model. It reuses
-the decision-time snapshot contract and retains input events, chosen snapshots,
-cumulative/category counts, monthly counts and the rendered report for replay.
-
-Local validation passed **310 tests and 28 subtests**, including 31 new cases,
-Ruff lint/format and strict mypy. Exact hand calculations and three generated
-cases agree with SciPy's independent KS implementation. Checks cover both
-directions of a constant-population shift, integer principal distinctions above
-`2^53`, late revisions, future applications, small months and rehashed false
-evidence. A clean non-editable wheel outside both source trees verifies the
-two-CSV route with the performance file absent; its 120 reference / 80 current
-application counts and five monitored inputs replay, and a rehashed false
-distance is rejected. The full local public-site build/refitting also passes.
-
-Merged source: [`bc650c2`](https://github.com/dev-belly/CreditVintage/commit/bc650c2491525c892cb76b82106969362f745d65).
-All [eight final PR CI jobs](https://github.com/dev-belly/CreditVintage/actions/runs/40103834623)
-passed across Linux/Windows and Python 3.12/3.13. The
-[Pages build](https://github.com/dev-belly/CreditVintage/actions/runs/40103834553)
-also passed; its real-Chrome 1440×1600 desktop and 390×2400 mobile screenshots
-were reviewed, including a correction to keep distance values visible on phones.
-
-The [default public report](https://dev-belly.github.io/CreditVintage/feature-monitor/)
-uses a different, larger synthetic fixture: 480 reference / 320 visible current
-applications, with 160 future current applications. Fixed marginal distances
-do not establish significance, default risk, model deterioration or causality.
-Missing-feature rates, arbitrary schemas, real out-of-time validation and
-independent adoption remain separate gaps.
-
-[Run the checked package](START_HERE.md#creditvintage-inspect-input-distributions-without-labels) ·
-[Method and evidence inventory](https://github.com/dev-belly/CreditVintage/blob/main/docs/FEATURE_MONITORING.md) ·
-[Comparison with established tools](https://github.com/dev-belly/CreditVintage/blob/main/docs/COMPARISON.zh-CN.md).
-
-PITBridge [#24](https://github.com/dev-belly/PITBridge/pull/24) also follows up on
-the [review in #7](https://github.com/dev-belly/PITBridge/issues/7#issuecomment-6061916414):
-the optional example rejects malformed numeric text before conversion and keeps
-zero-padded int64 revision handling independent of Python's integer-string digit
-limit. All 137 local tests and ten PR CI jobs passed. The optional example is
-source-level material; the installed v0.2.0 native importer already has the
-corresponding strict syntax. This is feedback and maintenance evidence, not proof
-of production adoption.
-
-## Checked release and audit evidence integrity · 2026-10-24
-
-PITBridge [#21](https://github.com/dev-belly/PITBridge/pull/21) publishes the
-[v0.2.0 checked wheel and source archive](https://github.com/dev-belly/PITBridge/releases/tag/v0.2.0).
-The successful main CI at `c04c533274e2e96e768d73ab78e99ab4ea9edd46` retained the
-actual installed/replayed distributions, installed-check evidence, exact-commit
-manifest and checksums. All five public assets were downloaded again and verified;
-the public wheel then passed clean installation, four scalar/rolling JSON/CSV
-replays and two small benchmark trials outside the checkout. This closes the
-gap between main-only CSV/benchmark features and the old v0.1.0 release.
-[Start here](START_HERE.md#pitbridge-historical-feature-selection) installs that wheel directly.
-
-The work also addresses selection and review integrity in existing projects:
-
-- **StatementTrace [#6](https://github.com/dev-belly/StatementTrace/pull/6):**
-  reported revenue growth requires adjacent configured fiscal periods. A skipped
-  year or date gap cannot become a valid-looking annual growth figure. Current
-  facts and other ratios remain available; all nine saved demo files retain
-  their bytes. The 53/52-week calendar remains supported.
-- **AuditLens [#7](https://github.com/dev-belly/AuditLens/pull/7) and
-  [#8](https://github.com/dev-belly/AuditLens/pull/8):** two scores/amounts one
-  binary64 step apart could change the selected voucher while retaining the same
-  12-digit source fingerprint. `selection-v2` retains 17 significant digits,
-  quotes source fields and identifies its format. The review queue and high-risk
-  extract now also preserve CR/LF/CRLF and fullwidth formula-like identities;
-  a completed-workpaper regression checks the actual handoff.
-- **AuditLens [#6](https://github.com/dev-belly/AuditLens/pull/6):** the existing
-  cleaning draft is completed against current main. All normalized source
-  columns participate in exact-duplicate detection, so conflicting currency,
-  FX, invoice or approval evidence is retained for validation. Nonfinite amounts
-  and overflowing FX products follow explicit missing/fallback rules. The full
-  30,128-voucher pipeline leaves every report byte unchanged relative to the
-  same-environment pre-cleaning baseline.
-- **ControlTrace [#7](https://github.com/dev-belly/ControlTrace/pull/7) and
-  [#6](https://github.com/dev-belly/ControlTrace/pull/6):** CSV policy and timeline
-  interpretation have explicit replay versions. Current version 0.2.10 / format
-  5 orders evidence by actual UTC instants while retaining source timestamps.
-  Old formats 2–4 reconstruct their original timeline and report the legacy
-  order, rather than reinterpreting an old review fingerprint. Actual 0.2.8 and
-  0.2.9 synthetic exports are retained as regression fixtures. Re-running the
-  0.2.9 test database correctly returns its old-order review to pending; all
-  28 source JSON/CSV files and the dataset fingerprint remain byte-identical.
-
-Local full suites pass **134 PITBridge + 42 StatementTrace + 519 AuditLens +
-113 ControlTrace = 808 tests**. These counts cover implementation contracts,
-not independent clients, real fraud/default outcomes or source authenticity.
-The ordinary synthetic reports and numerical evidence are unchanged, apart from
-the explicitly versioned AuditLens source-fingerprint record.
-
-| Project | Main revision | Local suite | Exact main run |
-| --- | --- | ---: | --- |
-| PITBridge | `3715813` | 134 | [CI](https://github.com/dev-belly/PITBridge/actions/runs/40067075342) · [Pages](https://github.com/dev-belly/PITBridge/actions/runs/40067075363) |
-| StatementTrace | `6804c4a` | 42 | [CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/40066128539) |
-| AuditLens | `cbc9365` | 519 | [Pipeline, tests and reproducibility](https://github.com/dev-belly/AuditLens/actions/runs/40068027568) |
-| ControlTrace | `4428ea9` | 113 | [Linux and Windows CI](https://github.com/dev-belly/ControlTrace/actions/runs/40068060419) |
-
-Two delivery problems were also resolved transparently. A CSV documentation
-upload in PITBridge was truncated; [#22](https://github.com/dev-belly/PITBridge/pull/22)
-restores the complete contract. Uploaded blobs are now compared with local Git
-blob hashes. A later main Chrome run timed out during the initial 15-second
-session creation before executing report assertions;
-[#23](https://github.com/dev-belly/PITBridge/pull/23) gives only cold startup
-60 seconds, preserves driver logs and keeps ordinary commands/assertions strict.
-[The subsequent main CI](https://github.com/dev-belly/PITBridge/actions/runs/40067075342)
-passes all ten jobs; the existing release is retained without replacement.
-
-The remaining portfolio evidence gaps still require suitable real chronological
-data and independently observed use. Additional code or test counts cannot
-substitute for those. Keep public static credit data, curated filing excerpts
-and synthetic event/audit cases separate when discussing results.
-
-## Installed CSV intake and exact report identities · 2026-10-23
-
-Five merged PRs extend existing projects: PITBridge [#19](https://github.com/dev-belly/PITBridge/pull/19)
-and [#20](https://github.com/dev-belly/PITBridge/pull/20), StressAtlas
-[#6](https://github.com/dev-belly/StressAtlas/pull/6), StatementTrace
-[#5](https://github.com/dev-belly/StatementTrace/pull/5) and NetworkClear
-[#5](https://github.com/dev-belly/NetworkClear/pull/5).
-
-PITBridge's installed CLI now reads exact-schema scalar/rolling CSV tables with
-no pandas dependency. Intake preserves leading-zero/NA-like IDs and int64
-revisions, names file/physical-line errors and validates before report writes.
-The installed-wheel checker runs both JSON and CSV paths outside the checkout,
-fully replays four bundles and compares feature/lineage tables byte for byte.
-
-All four projects now preserve unusual names in review CSVs and browser
-selectors. Visible `text: ` markers protect formula-shaped labels; CR/LF/CRLF
-remain quoted cell content. ASCII JSON selector keys prevent CR/LF/NUL and
-whitespace identities from collapsing in HTML. Original JSON and financial
-numeric values retain their meaning. Only saved HTML and its hash were refreshed;
-source and numerical evidence files were checked byte for byte. The contracts
-explain regeneration from saved JSON for earlier affected report formats.
-
-| Repository | Main commit | Local suite | Actual Chrome selections | Main checks |
-| --- | --- | ---: | ---: | --- |
-| PITBridge | `9949a82` | 126 | 4 | [CI](https://github.com/dev-belly/PITBridge/actions/runs/39931482482) · [Pages](https://github.com/dev-belly/PITBridge/actions/runs/39931482576) |
-| StressAtlas | `01e9843` | 80 | 10 | [CI](https://github.com/dev-belly/StressAtlas/actions/runs/39931491066) · [Pages](https://github.com/dev-belly/StressAtlas/actions/runs/39931491140) |
-| StatementTrace | `bb2ac7c` | 39 | 4 | [CI and deployment](https://github.com/dev-belly/StatementTrace/actions/runs/39931468275) |
-| NetworkClear | `1784cc3` | 42 | 5 | [CI and deployment](https://github.com/dev-belly/NetworkClear/actions/runs/39931475585) |
-
-All listed main workflows passed. The 287 local tests and 23 real-Chrome
-selections validate these implementation paths; they do not establish source
-authenticity, production adoption or predictive quality.
-
-## Monitoring input readiness · 2026-10-23
-
-[CreditVintage #28](https://github.com/dev-belly/CreditVintage/pull/28), head
-`2970378df99a10e0f18e507db07fcb6988f72c01`, tree
-`393c9a014954cb1058628b87f113a37d213537ea`: remote and locally checked source trees
-match. `preflight --as-of YYYY-MM-DD` checks mature train/calibration populations
-and the visible current cohort without fitting or writing. Current outcome labels
-are neither required nor counted. Not-yet-visible current applications and inputs
-outside configured windows are reported separately.
-
-Preflight and monitoring share cutoff, current-population and label-scope gates;
-the fitting path and preflight share the actual historical cohort selection.
-Historical populations still require 20 records and both mature outcomes; current
-monitoring needs 20 visible applications and their decision-time features. An
-undersized current population fails before fitting. Default evaluation preflight
-retains its mature test-label requirement.
-
-Local **273 tests + 28 subtests**, Ruff lint/format, strict mypy and whitespace
-checks pass. Twenty new regressions cover guards against fitting, ignored current
-outcomes, missing historical labels/classes, the 19/20-application boundary,
-missing visible features, future inputs, custom calendars and real CLI workflows.
-Clean 0.4.0 wheel replay outside both source trees removes every current outcome:
-preflight returns 240 training, 120 calibration, 80 visible current and 40 future
-current applications; actual monitoring verifies the same 80. Default evaluation
-rejects the missing test outcomes. Public-data refitting and optional lineage also
-pass. [Cross-platform checks](https://github.com/dev-belly/CreditVintage/pull/28/checks)
-and [v0.4.0 release evidence](https://github.com/dev-belly/CreditVintage/releases/tag/v0.4.0)
-retain the remote validation and checked distributions.
-
-This checks input/cohort readiness, with no scores or PSI. It cannot guarantee
-numerical fitting, useful score variation, source authenticity or predictive
-quality. Existing input fields, model protocol and report verification tolerances
-remain compatible; the [upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.4.0.md)
-describe the optional CLI argument and unchanged evaluation behavior.
-
-## Checked calendar patch release · 2026-10-22
-
-[CreditVintage #27](https://github.com/dev-belly/CreditVintage/pull/27) delivers
-the calendar fix as the [v0.3.2 checked release](https://github.com/dev-belly/CreditVintage/releases/tag/v0.3.2).
-The runtime implementation is unchanged from #26 below. The version bump and
-upgrade notes make strict CSV/cutoff parsing available to installed-package
-users; the profile, first-run commands and project brief now point to that version.
-Earlier release tags and their original assets remain available.
-
-The release contains the wheel, source archive, installed-check evidence,
-commit/version manifest and SHA-256 list retained from successful main CI.
-[The PR checks](https://github.com/dev-belly/CreditVintage/pull/27/checks) cover
-Linux Python 3.12/3.13, Windows Python 3.12 and refitting of the same saved card
-evidence on another OS/runtime. Local validation additionally passes 60 focused
-release/input tests and clean 0.3.2 wheel replay outside both source trees,
-including rejection of alternate dates and complete optional lineage verification.
-
-The [upgrade notes](https://github.com/dev-belly/CreditVintage/blob/main/docs/releases/v0.3.2.md)
-explain the stricter format: commands, field names, dependency pins and model
-protocol are unchanged; existing generated canonical-date reports still verify.
-This packaging step adds no new prediction or real-world deployment claim.
-
-## Strict calendar inputs and saved evidence · 2026-10-22
-
-[CreditVintage #26](https://github.com/dev-belly/CreditVintage/pull/26), head
-`1925bb959d7c27528b79dee8405ed2819b04ff4c`, tree
-`72b21b482c20db8425a764073e3fd721afba2db1`: the remote tree matches the locally
-checked source. CSV diagnostics and monitoring previously accepted compact dates
-such as `20220101` and ISO week dates while cohort JSON required `YYYY-MM-DD`.
-One strict parser now covers all event CSV dates, cohort configuration, the
-monitoring cutoff and saved evaluation/monitor/benchmark evidence. Diagnostics
+artifacts and do not establish leakage-free o…6014 tokens truncated…nostics
 identify the file, physical line and column; invalid dates do not create reports.
 
 Local **253 tests + 28 subtests** pass, including 26 new workflow regressions.
@@ -1376,7 +1015,7 @@ quote packets with hypothetical fees, latency and matching.
 
 ## Business integrity and delivery · 2026-10-13
 
-本轮从实际失败输入补齐业务约束，保留正常演示口径。面试先用 [速讲卡](面试速讲卡.zh-CN.md)，每个案例都有源码、测试和中文运行入口。
+本轮从实际失败输入补齐业务约束，保留正常演示口径。每个案例都有源码、测试和中文运行入口。
 
 | 项目与已核对提交 | 业务改变 | 验证证据 |
 | --- | --- | --- |
@@ -1436,7 +1075,7 @@ Checked the ten financial project revisions during this review. The two changed 
 | [WeCom Agent Platform #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) | 合同条件在全部索引表格行上查询；业务编号保留前导零，客户持仓用 Decimal 按币种完整汇总。缺失估值不能假装是零。 | 73 passed，2 个 Windows 不适用的既有 POSIX 用例跳过；4 个离线业务场景和源码树外 wheel 导入通过；[PR CI](https://github.com/dev-belly/wecom-agent-platform/actions/runs/38259840960)的 Linux、Windows、前端全部成功。[业务案例](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md)。 |
 | [TradeForge #13](https://github.com/dev-belly/TradeForge/pull/13) | 报告读取根由服务配置决定，请求只能指定根下相对子目录。拒绝绝对路径、父目录、Windows 路径语法和符号链接越界，合法 HTML 报告仍可访问。 | 本机 API/HTML 验证 48 passed，2 个需 Windows 符号链接权限的用例跳过；独立启动配置与同一外部 HTML 的修复前后对照通过。[PR CI](https://github.com/dev-belly/TradeForge/actions/runs/38260579297)的 Python 3.11–3.13、C++ 差分、ASan/UBSan 与确定性重放六项全部成功，随后合并。 |
 
-人工处理完成率、历史事件捕获率和实际损失变化是不同指标。当前队列是合成历史分析示例，本地复核者名字是声明，证据引用不等于已验真的材料；企业查询针对已索引行，不能推断源系统完整性。这些边界都写进项目说明和[面试练习手册](INTERVIEW_PLAYBOOK.zh-CN.md)。
+人工处理完成率、历史事件捕获率和实际损失变化是不同指标。当前队列是合成历史分析示例，本地复核者名字是声明，证据引用不等于已验真的材料；企业查询针对已索引行，不能推断源系统完整性。这些边界均列在对应项目说明中。
 
 ## SQL credit business case · 2026-10-12
 
@@ -1508,7 +1147,7 @@ Ranxin 更新的是 GitHub 源码。实际微信环境还需按[云函数说明]
 
 StatementTrace 的 33 条数据是 Apple 2023/2024 年报表格的人工摘录，原表 USD 百万转换为 USD；保留真实申报链接、比较期和 53/52 周财年，不宣称未修改 API 下载或实际重述。NetworkClear 完全使用合成债务；A 受到 50% 外部资产冲击后，B/C/D 为新增传染违约，12,020 美元内部加外部未偿债务与 3,380 美元外部债权人短缺分开展示，不把重复网络暴露包装为实际社会损失。
 
-[StatementTrace report](https://dev-belly.github.io/StatementTrace/) · [NetworkClear report](https://dev-belly.github.io/NetworkClear/). 两个项目均在全部测试矩阵通过后发布；官方 Actions 固定到已核对发行版提交。项目说明与中文面试讲解列在 [PROJECT_BRIEFS.md](PROJECT_BRIEFS.md)。
+[StatementTrace report](https://dev-belly.github.io/StatementTrace/) · [NetworkClear report](https://dev-belly.github.io/NetworkClear/). 两个项目均在全部测试矩阵通过后发布；官方 Actions 固定到已核对发行版提交。项目入口列在 [CATALOG.md](CATALOG.md)。
 
 ## Cross-platform replay · 2026-10-10
 
@@ -1558,7 +1197,7 @@ StressAtlas 另外发现一个实际平台边界：在所测试的 Windows 与 L
 | 金融数据工程 | [PITBridge](https://github.com/dev-belly/PITBridge) | SQL 时点关联、独立枚举、修订/删除/新鲜度、滚动 sum/mean/count 和逐成员溯源；标量信贷特征实际接入 CreditVintage。 | 依赖可信源时间和逻辑事件身份；成员数量不等于经营数据完整；集成约定为 UTC 日终，没有生产采集。 |
 | 组合风控 / 压力测试 | [StressAtlas](https://github.com/dev-belly/StressAtlas) | 借款人共享违约、离散尾部 ES、可加总贡献和完整路径配对 bootstrap 的 VaR/ES 精度。 | 合成 PD/LGD/EAD；区间仅诊断固定模型下的抽样误差，不能覆盖参数校准误差或未出现的稀有损失。 |
 | 银行数据 / 信贷风控 | [CreditVintage](https://github.com/dev-belly/CreditVintage) | 申请时点特征、180 天标签成熟、分离校准、跨期测试；从 PIT 源记录重建特征并重拟合模型，保留逐笔预测溯源。 | 合成借款人；联合案例与原评估样本不同；损失场景中的 LGD 是假设值；标签并非完整监管违约定义。 |
-| 量化数据 / 研究工程 | [AlphaForge](https://github.com/dev-belly/alphaforge) | 从因子到组合、交易成本及报告的完整流程；信号与成交时点分离。 | 范围较大，面试优先深讲一个完整数据路径；公开样例未证明可交易优势。 |
+| 量化数据 / 研究工程 | [AlphaForge](https://github.com/dev-belly/alphaforge) | 从因子到组合、交易成本及报告的完整流程；信号与成交时点分离。 | 公开样例未证明可交易优势。 |
 | 金融技术 / 执行工程 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 核心与 Python 逐事件对照，因果检查及执行成本比较。 | L2 队列近似、成交模型和合成市场会影响结论。 |
 | 财务数据分析 | [AuditLens](https://github.com/dev-belly/AuditLens) | 30,128 笔凭证、九项程序、SQL 仓库、可解释评分和 300 笔复核底稿。 | 注入异常与规则口径关联，合成命中率不能作为真实舞弊识别率。 |
 | IT 控制 / 证据工程 | [ControlTrace](https://github.com/dev-belly/ControlTrace) | HR、权限、工单、代码与部署关联；追加复核历史、底稿校验与规则重放。 | 记录关联不能证明源系统抽取完整，规则命中仍需要人工判断。 |
@@ -1569,7 +1208,6 @@ StressAtlas 另外发现一个实际平台边界：在所测试的 Windows 与 L
 - 主页采用独立的 `db` 标记、黑白与荧光绿视觉，以及三张全宽重点项目面板；其他项目集中在表格中，每项直接连接源码、演示或可检查的成果。
 - 银行与风控方向优先展示 CreditVintage；AlphaForge 和 TradeForge 体现研究工程与底层实现能力。
 - 三个重点项目分别链接在线报告；真实更新以带日期的工作记录呈现，探索性研究和早期应用收进折叠区。
-- [PROJECT_BRIEFS.md](PROJECT_BRIEFS.md) 保留有来源的简历表述和面试问题。
 - 10 月 2 日复查确认八个主项目的最近 `main` CI 均成功；整理此前冲突的主页 PR，补齐 SVG 可重建性、项目卡片对应关系、本地文件和章节入口的自动检查。在线网站的可用性需要另外检查，离线 CI 不宣称覆盖外部链接。
 - 新增 [PITBridge 滚动报告](https://dev-belly.github.io/PITBridge/rolling/)：4 个合成决策、12 条特征结果、28 条源成员关联；30 天净流入从 1,500 变为 4,300 的案例解释修订的可得时点。
 - 新增 [StressAtlas 精度报告](https://dev-belly.github.io/StressAtlas/precision/)：20,000 条路径、300 次配对重采样、30 条区间结果及 1,500 条情景重采样记录；区分 99% 风险水平和 95% 近似区间置信水平。

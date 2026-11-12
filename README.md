@@ -24,7 +24,7 @@ At $6m hedge face, held-out scenario ES falls **$71,789 → $29,040**, before a
 **$1,200** entry cost. Change the budget, inspect residual DV01, stress the actual
 cash flows and download the trades. This is a fixed-cash-flow scenario study.
 
-**SciPy sparse · HiGHS · QuantLib · FastAPI.** [中文推导与面试说明](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) ·
+**SciPy sparse · HiGHS · QuantLib · FastAPI.** [中文方法与复现](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) ·
 [Optimizer](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/hedge.py) ·
 [Saved decisions and losses](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift/reports/hedge).
 
@@ -64,7 +64,7 @@ Three projects, three questions: **understand the business → evaluate a model 
 
 | Project | What to inspect | Current evidence |
 | :--- | :--- | :--- |
-| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor evaluation, walk-forward splits, portfolio constraints and costs | [Small evaluation counterexample](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径). Archived backtests await refitting under the corrected trading-session split protocol. |
+| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor evaluation, walk-forward splits, portfolio constraints and costs | [Factor evaluation method](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08). Archived backtests await refitting under the corrected trading-session split protocol. |
 | [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
 | [StressAtlas / CurveShift](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift) | Curve-shape risk, constrained CVaR hedging, full revaluation and chronological evaluation | [Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/): observed staff curve estimates and hypothetical bonds. The separate [credit study](https://dev-belly.github.io/StressAtlas/) uses synthetic portfolios. |
 
@@ -91,11 +91,11 @@ The API runs locally; GitHub Pages hosts the static study.
 
 ## Explore further
 
-[All 19 projects and their data scope](CATALOG.md) · [Run a project](START_HERE.md) · [Project briefs](PROJECT_BRIEFS.md) · [Current priorities](OPEN_SOURCE_ROADMAP.zh-CN.md)
+[All 19 projects and their data scope](CATALOG.md) · [Run a project](START_HERE.md) · [Current priorities](OPEN_SOURCE_ROADMAP.zh-CN.md)
 
 <details>
 <summary>Implementation history and review notes</summary>
 
-[Validation archive](PROJECT_REVIEW.md) · [Changelog](CHANGELOG.md) · [Interview workbook](INTERVIEW_PLAYBOOK.zh-CN.md) · [Contribution guide](CONTRIBUTING.md)
+[Validation archive](PROJECT_REVIEW.md) · [Changelog](CHANGELOG.md) · [Contribution guide](CONTRIBUTING.md)
 
 </details>

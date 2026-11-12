@@ -161,8 +161,7 @@ No account, installation or upload is needed.
 
 这是从 Apple 2023/2024 年报手工整理的 33 条公开记录，不是原样 API 下载。
 截止日采用 SEC 申报日期，不推断盘中可得或投资收益；两个视图使用同一份数据。
-可继续看 [三分钟面试讲解](https://github.com/dev-belly/StatementTrace/blob/main/docs/INTERVIEW.md)
-与 [期间、单位和指标合同](https://github.com/dev-belly/StatementTrace/blob/main/docs/METHODOLOGY.md)。
+可继续看 [期间、单位和指标合同](https://github.com/dev-belly/StatementTrace/blob/main/docs/METHODOLOGY.md)。
 
 ## Try a project
 
@@ -809,11 +808,6 @@ Use synthetic inputs in public reports.
 | Financial data engineering: what could a past decision know? | [Source-to-prediction explorer](https://dev-belly.github.io/CreditVintage/lineage/) | [PITBridge selection engine](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py) | Why must publication and ingestion both precede the decision? |
 | Portfolio risk: how stable is a tail estimate? | [Stress precision report](https://dev-belly.github.io/StressAtlas/precision/) | [Precision method](https://github.com/dev-belly/StressAtlas/blob/main/docs/PRECISION.md) | Which uncertainty is measured, and which PD/LGD assumptions remain unvalidated? |
 
-For each project, explain the input, decision, method, validation and boundary.
-Recruiters can follow the links to inspect the evidence; candidates should use
-only claims and contribution descriptions they can personally explain.
+Each result links its inputs, method, validation and limitations.
 
-[60-second interview card](面试速讲卡.zh-CN.md) ·
-[Business walkthrough](INTERVIEW_PLAYBOOK.zh-CN.md) ·
-[Evidence and candidate resume wording](PROJECT_BRIEFS.md) ·
-[Other roles and projects](PROJECT_BRIEFS.md#choosing-what-goes-on-a-resume)
+[Project directory](CATALOG.md) · [Project overview](FOR_RECRUITERS.md) · [Validation archive](PROJECT_REVIEW.md)

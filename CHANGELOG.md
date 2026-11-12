@@ -27,11 +27,11 @@ failure and isolated-wheel verification. [Evidence and scope](PROJECT_REVIEW.md#
 **2026-11-09 · Explain a reproducible evaluation counterexample.**
 Connect the [merged AlphaForge factor correction](https://github.com/dev-belly/alphaforge/pull/10)
 and [model follow-up](https://github.com/dev-belly/alphaforge/pull/11) to the profile,
-recruiter route and Chinese interview practice. A pinned source snapshot compares
+recruiter route and research-method documentation. A pinned source snapshot compares
 shared-pair Spearman IC with an independent reference and checks five equal-sized
 groups by hand. Record the actually executed 89 focused and 1,397 fast tests,
 link full CI separately, and retain the archived sample's original source boundary.
-[Run and explain the case](INTERVIEW_PLAYBOOK.zh-CN.md#共同样本与分组口径).
+[Evaluation method](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08).
 
 **2026-11-05 · Align API reruns and take financial facts into review.**
 [AlphaForge #9](https://github.com/dev-belly/alphaforge/pull/9) aligns API
@@ -78,7 +78,7 @@ unchanged; the recruiter route and project brief connect the new entry.
 that fully verifies/refits saved SBA evidence before recomputing all nine review
 budgets and all 3,000 queue members. Ranking excludes outcomes, ties use record
 ID, and precision and capture retain separate denominators. Connect the source
-exercise to the recruiter overview, interview card and full practice guide;
+exercise to the recruiter overview and first-run guide;
 keep retrospective observed loans separate from synthetic workflow claims.
 It requires current repository files and is not a new published wheel command.
 
@@ -126,7 +126,7 @@ first-run guide offer both routes; the retrospective research scope is unchanged
 streaming to all five commands, with identical fingerprints and report bytes
 on the checked build. It also fixes a one-row reduction-order difference.
 A 50,000-path synthetic comparison reports both memory savings and extra CPU
-time. The profile, first-run guide and interview notes link the reproduction;
+time. The profile and first-run guide link the reproduction;
 the suite has 87 tests and the existing eleven evidence files remain unchanged.
 
 
@@ -158,7 +158,7 @@ The observed SBA protocol and results retain their original scope.
 Add a [one-page internship overview](FOR_RECRUITERS.md), surface it in the
 profile navigation, and connect the first-run guide and catalog to the new
 [no-install invoice lesson](https://dev-belly.github.io/PITBridge/try/).
-Refresh the interview card around observed SBA validation and explicitly
+Keep observed SBA validation separate from the synthetic workflow and explicitly
 archive the unrefitted AlphaForge returns. The live lesson includes visible
 source records, shareable scenarios and project/author links; public controls,
 exact microseconds and actual desktop/mobile viewports are checked.
@@ -187,7 +187,6 @@ factor-covariance fixes; AuditLens's decimal digit boundaries; ControlTrace's
 blank approver handling; and TradeForge's rejected-fill rollback. Refresh the
 drafts against current maintenance guidance, repair blocked checks, and expose
 the archived AlphaForge split-protocol limitation throughout the portfolio.
-The interview guide now includes concrete counterexamples.
 [Repairs, validation and limits](PROJECT_REVIEW.md#financial-correctness-repairs--2026-10-27).
 
 **2026-10-26 · Make the public portfolio easier to explore and maintain.**
@@ -290,9 +289,9 @@ These dated entries describe the revision checked at the time. Current validatio
 
 **2026-10-14 · A first run from an empty directory.** [Start here](START_HERE.md) separates project trial from business/code review. The trial installs fixed GitHub source snapshots without Git or an editable checkout, generates local PITBridge or CreditVintage evidence and verifies it before inspection. The profile keeps its three flagship projects visible and folds the additional tools and detailed change log.
 
-**2026-10-13 · [Business integrity and delivery](PROJECT_REVIEW.md#business-integrity-and-delivery--2026-10-13).** CreditVintage delivers replayable review evidence and rejects ambiguous JSON; LedgerX accepts whole retriable event batches; AuditLens refuses conflicting master records and restores prior cleaning outputs on handled publication failures; WeCom publishes one coherent index generation with reader-safe retirement. Each change has failure regressions and a Chinese runnable case. [Start with the 60-second interview card](面试速讲卡.zh-CN.md).
+**2026-10-13 · [Business integrity and delivery](PROJECT_REVIEW.md#business-integrity-and-delivery--2026-10-13).** CreditVintage delivers replayable review evidence and rejects ambiguous JSON; LedgerX accepts whole retriable event batches; AuditLens refuses conflicting master records and restores prior cleaning outputs on handled publication failures; WeCom publishes one coherent index generation with reader-safe retirement. Each change has failure regressions and a Chinese runnable case.
 
-**2026-10-12 · [Business workflow closure](PROJECT_REVIEW.md#business-workflow-closure--2026-10-12).** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds durable case ownership, review reasons, version conflicts and retry protection; [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) ties current review conclusions to the evidence version; [WeCom #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) queries all indexed contract/holding rows and reports exact currency totals. Their Linux and Windows checks pass. [Practice the business decisions and code paths](INTERVIEW_PLAYBOOK.zh-CN.md).
+**2026-10-12 · [Business workflow closure](PROJECT_REVIEW.md#business-workflow-closure--2026-10-12).** [CreditVintage #11](https://github.com/dev-belly/CreditVintage/pull/11) adds durable case ownership, review reasons, version conflicts and retry protection; [ControlTrace #5](https://github.com/dev-belly/ControlTrace/pull/5) ties current review conclusions to the evidence version; [WeCom #2](https://github.com/dev-belly/wecom-agent-platform/pull/2) queries all indexed contract/holding rows and reports exact currency totals. Their Linux and Windows checks pass.
 
 | Shipped | Inspect the work |
 | :--- | :--- |
