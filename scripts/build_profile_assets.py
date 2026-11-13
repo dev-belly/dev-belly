@@ -32,7 +32,7 @@ def hero():
         text(912, 145, '01 / READ THE BUSINESS', 16, INK, 600, MONO),
         text(912, 200, '02 / TEST THE IDEA', 16, INK, 600, MONO),
         text(912, 255, '03 / SHOW THE WORK', 16, INK, 600, MONO),
-        text(44, 343, 'CUFE / DATA SCIENCE / CLASS OF 2029', 14, MUTED, 500, MONO, .4),
+        text(44, 343, 'SOURCE / METHOD / RESULT / REPLAY', 14, MUTED, 500, MONO, .4),
         text(942, 343, 'PYTHON + SQL + STATISTICS', 14, GREEN, 600, MONO),
     ]
     return svg(1280, 360, 'dev-belly — Follow the numbers. Financial research built with code.', ''.join(parts))

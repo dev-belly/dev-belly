@@ -7,7 +7,10 @@ import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 
-from build_profile_assets import PROJECTS, outputs
+if __package__:
+    from .build_profile_assets import PROJECTS, outputs
+else:
+    from build_profile_assets import PROJECTS, outputs
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = tuple(path.name for path in sorted(ROOT.glob("*.md")))
@@ -33,7 +36,8 @@ class ProfileHTML(HTMLParser):
         if tag == "a":
             target = attrs.get("href", "")
             self.links.append(target)
-            self.references.append(target)
+            if "href" in attrs:
+                self.references.append(target)
         elif tag == "tr":
             self.row = []
         elif tag == "img":
@@ -66,6 +70,7 @@ class ProfileHTML(HTMLParser):
 def heading_anchors(markdown):
     """Recognize the ordinary Markdown headings used by the profile documents."""
     anchors, occurrences = set(), Counter()
+    anchors.update(re.findall(r'''<a\s+id=["']([^"']+)["']\s*></a>''', markdown))
     for heading in re.findall(r"^#{1,6}\s+(.+?)\s*#*\s*$", markdown, re.MULTILINE):
         slug = re.sub(r"[^\w\- ]", "", heading.lower()).replace(" ", "-")
         count = occurrences[slug]
@@ -126,6 +131,12 @@ def check():
     expected_studies = [(project[2], f"https://github.com/dev-belly/{project[2]}") for project in PROJECTS]
     if studies != expected_studies:
         raise ValueError("Each selected study needs its native heading and repository link")
+    english = contents[ROOT / "README.en.md"]
+    english_studies = re.findall(
+        r"^### \[([^\]]+)\]\((https://github.com/dev-belly/[^)]+)\)$", english, re.MULTILINE
+    )
+    if english_studies != expected_studies:
+        raise ValueError("English and Chinese entries must link the same selected studies")
     if profile.card_rows:
         raise ValueError("Flagship projects must use the full-width layout")
     print(

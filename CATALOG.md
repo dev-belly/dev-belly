@@ -7,7 +7,7 @@
 
 | 你想做什么 | 推荐路线 |
 | :--- | :--- |
-| 看一份真实财报研究 | [三家公司的利润与现金流](https://dev-belly.github.io/StatementTrace/cashflow/) |
+| 看一份真实财报研究 | [三家公司的利润与现金流 · 中文报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) |
 | 不安装环境，先改一个输入 | [PITBridge 浏览器发票案例](https://dev-belly.github.io/PITBridge/try/) |
 | 把浏览器情景带回本地核验 | [下载当前输入并独立重放](START_HERE.md#download-and-replay-your-browser-scenario) |
 | 看金融研究与数据分析 | StatementTrace → CreditVintage → PITBridge |
@@ -21,8 +21,8 @@
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
-| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/cashflow/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) | 三家公司利润与现金流研究、财报来源追溯和 SQL 复算<br />Python · Polars · Parquet · DuckDB · dbt · SQL | 24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。 |
-| [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-credit/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与人工复核<br />Python · SQL · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
+| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) | 三家公司利润与现金流研究、财报来源追溯和 SQL 复算<br />Python · Polars · Parquet · DuckDB · dbt · FastAPI · SQL | 24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。 |
+| [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-brief/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与人工复核<br />Python · SQL · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
 | [**PITBridge**](https://github.com/dev-belly/PITBridge) · [README](https://github.com/dev-belly/PITBridge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/PITBridge/try/) · [证据 / 方法](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | 按事件与获知时间重建历史快照和滚动特征<br />Python · SQLite | 合成发票与事件示例；演示数据可用性规则。 |
 
 ## 财务、审计与会计 / Financial analysis

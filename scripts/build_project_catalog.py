@@ -76,7 +76,7 @@ def render(data):
         "",
         "| 你想做什么 | 推荐路线 |",
         "| :--- | :--- |",
-        "| 看一份真实财报研究 | [三家公司的利润与现金流](https://dev-belly.github.io/StatementTrace/cashflow/) |",
+        "| 看一份真实财报研究 | [三家公司的利润与现金流 · 中文报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) |",
         "| 不安装环境，先改一个输入 | [PITBridge 浏览器发票案例](https://dev-belly.github.io/PITBridge/try/) |",
         "| 把浏览器情景带回本地核验 | [下载当前输入并独立重放](START_HERE.md#download-and-replay-your-browser-scenario) |",
         "| 看金融研究与数据分析 | StatementTrace → CreditVintage → PITBridge |",
