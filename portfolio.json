@@ -6,9 +6,9 @@
       "repo": "StatementTrace",
       "group": "flagship",
       "summary": "三家公司利润与现金流研究、财报来源追溯和 SQL 复算",
-      "stack": "Python · Polars · Parquet · DuckDB · dbt · SQL",
+      "stack": "Python · Polars · Parquet · DuckDB · dbt · FastAPI · SQL",
       "boundary": "24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。",
-      "demo": "https://dev-belly.github.io/StatementTrace/cashflow/",
+      "demo": "https://dev-belly.github.io/StatementTrace/cashflow/zh/",
       "evidence": "docs/CASHFLOW_STUDY.zh-CN.md"
     },
     {
@@ -17,7 +17,7 @@
       "summary": "跨期信贷验证、客群 SQL 分析与人工复核",
       "stack": "Python · SQL · scikit-learn",
       "boundary": "SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。",
-      "demo": "https://dev-belly.github.io/CreditVintage/sba-credit/",
+      "demo": "https://dev-belly.github.io/CreditVintage/sba-brief/",
       "evidence": "docs/SBA_CREDIT.md"
     },
     {

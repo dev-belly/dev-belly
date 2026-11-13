@@ -1,97 +1,77 @@
 # dev-belly
 
-**Follow the numbers.** Financial research built with Python and SQL.
+**用可追溯的数据，回答具体的金融问题。**
 
-[Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) · [Project index](CATALOG.md)
+Financial research · Python · SQL · reproducible evidence
 
-## New research · a hedge with a budget
+[English](README.en.md) · [全部项目](CATALOG.md) · [本地复现](START_HERE.md)
 
-**What should you trade after finding the risk?** [CurveShift's constrained hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/)
-keeps a hypothetical $10m 7Y bond and optimizes four hedge maturities under gross
-face limits, per-bond caps and entry cost. A sparse **513-variable CVaR program**
-uses 504 changes through 2024; 249 changes in 2025 evaluate the fixed trades.
-At $6m hedge face, held-out scenario ES falls **$71,789 → $29,040**, before a
-**$1,200** entry cost. Change the budget, inspect residual DV01, stress the actual
-cash flows and download the trades. This is a fixed-cash-flow scenario study.
+## 从一个有约束的对冲决策开始
 
-**SciPy sparse · HiGHS · QuantLib · FastAPI.** [中文方法与复现](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) ·
-[Optimizer](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/hedge.py) ·
-[Saved decisions and losses](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift/reports/hedge).
+**发现曲线风险后，有限的仓位和成本，应该怎么分配？**
 
-**Can a DV01-neutral portfolio still lose money when rates move?** [CurveShift](https://dev-belly.github.io/StressAtlas/curveshift/) matches a hypothetical long 10Y bond with a short 2Y bond. Parallel DV01 is approximately zero, yet a 2Y −25bp / 10Y +25bp twist loses **$93,918.70**. Move four curve points, inspect the repriced cash flows, then download your scenario and replay it in Python.
+[打开 CurveShift 对冲实验](https://dev-belly.github.io/StressAtlas/curveshift/hedge/)，调整预算，检查四个期限的交易、残余风险和全现金流重估结果，再下载情景复算。
 
-**QuantLib · Nelson–Siegel–Svensson · Polars · scikit-learn · FastAPI · uv.** The research uses 2,499 historical Treasury curve estimates; the bonds are hypothetical. NSS uses luphord's credited MIT library. [中文简报](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md) · [Source and method](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/METHOD.md) · [Install the application](START_HERE.md#curveshift-bend-the-curve-then-replay-your-scenario).
+| 同一个假设的 7 年期目标债券 | 2025 年情景 ES，97.5% | 一次建仓成本 |
+| --- | ---: | ---: |
+| 未对冲 | $71,789.20 | $0 |
+| $6m 对冲面值预算 | $29,039.70 | $1,200，单独计入 |
 
-## Selected work
+**实现：** QuantLib 定价，SciPy 稀疏矩阵与 HiGHS 求解 513 变量的 CVaR 优化。用截至 2024 年底的 504 个变化拟合，用 2025 年的 249 个变化检验固定交易。曲线是历史拟合数据，债券是假设工具；表中 ES 未扣除一次成本，情景损失不是实盘收益。
 
-Three projects, three questions: **understand the business → evaluate a model → reconstruct the data behind a decision**.
+[中文推导](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) · [优化器](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/hedge.py) · [保存的交易与损失](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift/reports/hedge)
+
+<a id="selected-work"></a>
+
+## 三个代表作
 
 ### [StatementTrace](https://github.com/dev-belly/StatementTrace)
 
-Public filings · Corporate cash flow · Python + SQL
+**利润增长，为什么没有变成同幅度的自由现金流增长？**
 
-**Why can profit rise much faster than free cash flow?** A historical FY2023–FY2024 study compares three issuers using 24 curated SEC filing facts. Alphabet's profit grew **35.67%**, while FCF grew **4.70%**; the report reconciles the operating cash-flow increase with higher cash capex.
+从三家公司的 24 条公开财报事实出发，统一财年、申报日与金额，生成六个公司年度的比较。Alphabet 的净利润增长 **35.67%**，自由现金流增长 **4.70%**；现金流桥逐项解释经营现金流和资本开支的贡献。
 
-[Read the report](https://dev-belly.github.io/StatementTrace/cashflow/) · [中文研究简报](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) · [24 source facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv) · [SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)
+**看什么：** 来源追溯、精确金额、现金流归因，以及 Python / SQL / dbt 的计算核对。历史申报日截止 2025-02-05；财年窗口不同，FCF 为 CFO 减现金资本开支。
 
-Historical case, filed-date cutoff 2025-02-05. Different fiscal windows; Apple's FY2023 has 53 weeks. Compare each issuer with its own prior year. FCF is CFO minus cash capex.
+[中文报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) · [项目说明](https://github.com/dev-belly/StatementTrace/blob/main/README.zh-CN.md) · [来源事实](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv)
 
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
-Model validation · Probability calibration · Fixed review capacity
+**更准确的违约概率，会带来更好的人工复核队列吗？**
 
-**Does a better probability estimate make a better review queue?** On **35,000 observed SBA loans**, separate training, calibration and later funding cohorts expose a tradeoff: calibration can improve probability error while weakening ranking and event capture at the same review capacity. Saved predictions support independent SQL analysis.
+在 **35,000 条观察到的 SBA 贷款**上分开训练、校准与更晚放款批次，比较相同复核名额下的排序和事件捕获。概率误差改善与业务排序改善并不等价；保存的预测可以继续用 SQL 检查。
 
-[Compare review budgets](https://dev-belly.github.io/CreditVintage/sba-brief/) · [Study and assumptions](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) · [SQL exercise](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
+**看什么：** 时间切分、概率校准、固定处理容量与可重放的人工复核。它是成熟结果窗口下的回溯研究；最终来源快照没有历史发布与修订记录。
 
-Retrospective funding-cohort research with mature outcome windows. The final source snapshot lacks historical publication and revision records.
+[调整复核名额](https://dev-belly.github.io/CreditVintage/sba-brief/) · [研究口径](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) · [SQL 练习](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md)
 
 ### [PITBridge](https://github.com/dev-belly/PITBridge)
 
-Temporal data · Publication, ingestion and decision time · SQL + Python
+**做出决策的那一刻，这条数据真的已经可得了吗？**
 
-**Was that information available when the decision was made?** Change one invoice's arrival time in the browser, inspect the selected record, then download the scenario and replay it in Python. The implementation separates event time from knowledge time and checks SQL against a separate Python path.
+改一张发票的到达时间，查看决策时点选中的版本，再下载输入，用 Python 独立重放。把事件时间、获知时间和决策时间分开，用 SQLite 与另一条 Python 路径核对。
 
-[Try one timestamp](https://dev-belly.github.io/PITBridge/try/) · [Replay the scenario](START_HERE.md#download-and-replay-your-browser-scenario) · [Implementation](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)
+**看什么：** 迟到数据、修订版本、历史快照与来源级解释。交互案例使用小规模合成发票，便于直接观察时间规则。
 
-Small synthetic invoice/event examples make the temporal rules visible.
+[改一个时间](https://dev-belly.github.io/PITBridge/try/) · [重放下载的情景](START_HERE.md#download-and-replay-your-browser-scenario) · [实现](https://github.com/dev-belly/PITBridge/blob/main/src/pitbridge/core.py)
 
-## Research bench
+## 从研究结果读到工程实现
 
-| Project | What to inspect | Current evidence |
-| :--- | :--- | :--- |
-| [AlphaForge](https://github.com/dev-belly/alphaforge) | Factor evaluation, walk-forward splits, portfolio constraints and costs | [Factor evaluation method](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08). Archived backtests await refitting under the corrected trading-session split protocol. |
-| [TradeForge](https://github.com/dev-belly/TradeForge) | C++20 order-book logic and Python execution analysis | [Public-market case](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md). Public depth supports hypothetical execution, not observed fills. |
-| [StressAtlas / CurveShift](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift) | Curve-shape risk, constrained CVaR hedging, full revaluation and chronological evaluation | [Hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/): observed staff curve estimates and hypothetical bonds. The separate [credit study](https://dev-belly.github.io/StressAtlas/) uses synthetic portfolios. |
+| 路线 | 已实现的能力 | 阅读入口 |
+| --- | --- | --- |
+| 财务数据管道 | Polars / Parquet / DuckDB / dbt；明确金额和日期类型，每条 SQL 路径核对 138 个字段 | [管道说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md) |
+| 研究 API | FastAPI / Pydantic；六个只读接口、分页、精确金额字符串与同一快照标识 | [接口与请求示例](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) |
+| 审计分析 | 可解释的风险排序、人工复核与来源绑定的工作底稿 | [AuditLens 中文入口](https://github.com/dev-belly/AuditLens/blob/main/README.zh-CN.md) |
+| 执行分析 | C++20 订单簿、Python 交易成本分析、公开市场假设成交案例 | [TradeForge](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) |
 
-**Tools:** Python · SQL · statistics · scikit-learn · C++20
-
-**Financial data pipeline:** [Polars → Parquet → DuckDB → dbt](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md).
-The filing study now has a typed columnar route, SQL window calculations and a
-three-model dbt project with 21 data tests. Direct SQL and dbt each check 138
-fields against Python; tests retain missing filings and exact integer amounts.
-[Pipeline](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/warehouse.py) ·
-[dbt models](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models) ·
-[Locked cross-platform checks](https://github.com/dev-belly/StatementTrace/blob/main/.github/workflows/warehouse.yml).
-The demonstration uses the same 24 curated facts; scale and production performance are unmeasured.
-
-**Typed research API:** [FastAPI + Pydantic + Uvicorn](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md).
-Query cash flow and selected filing facts by issuer and fiscal year, with bounded
-pagination and one verified snapshot identity. Exact monetary strings survive
-JSON without floating-point loss; unsupported cutoff overrides are rejected.
-Six read-only data routes, OpenAPI/Swagger documentation and real HTTP checks
-also run from an installed wheel outside the checkout.
-[Application factory](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) ·
-[Request examples](https://github.com/dev-belly/StatementTrace/blob/main/examples/api/requests.http).
-The API runs locally; GitHub Pages hosts the static study.
-
-## Explore further
-
-[All 19 projects and their data scope](CATALOG.md) · [Run a project](START_HERE.md) · [Current priorities](OPEN_SOURCE_ROADMAP.zh-CN.md)
+管道与 API 使用同一组 24 条人工整理的财报事实；计算一致性与来源抄录准确性分别审阅。API 在本地运行，静态页面托管研究报告。
 
 <details>
-<summary>Implementation history and review notes</summary>
+<summary>更多研究与复现记录</summary>
 
-[Validation archive](PROJECT_REVIEW.md) · [Changelog](CHANGELOG.md) · [Contribution guide](CONTRIBUTING.md)
+- [CurveShift 曲线风险实验](https://dev-belly.github.io/StressAtlas/curveshift/)：平行 DV01 近似为零，曲线扭转仍可产生损失。
+- [AlphaForge 因子评价](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08)：共同有效样本、Rank-IC、等分组与逐步前推验证。旧回测待按修正的交易日协议重拟合，暂不引用其收益成绩。
+- [19 个项目与各自数据范围](CATALOG.md) · [运行指南](START_HERE.md) · [当前优先事项](OPEN_SOURCE_ROADMAP.zh-CN.md)。
+- [验证记录](PROJECT_REVIEW.md) · [变更记录](CHANGELOG.md) · [参与维护](CONTRIBUTING.md)。
 
 </details>
