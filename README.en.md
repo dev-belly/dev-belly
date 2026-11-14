@@ -55,6 +55,7 @@ Change an invoice's arrival time, inspect the selected revision, then download t
 | --- | --- | --- |
 | Financial pipeline | Polars → Parquet → DuckDB → dbt; 138 exact field comparisons per SQL route | [Pipeline](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md) |
 | Typed research API | Six read-only FastAPI/Pydantic routes, bounded pagination and exact money strings | [API](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) |
+| Model comparison | Six audited session-split folds; five methods, three model seeds and two cost scenarios | [AlphaForge refit](https://dev-belly.github.io/alphaforge/research-comparison/) |
 | Audit workflow | Explainable risk ordering and source-bound review workpapers | [AuditLens](https://github.com/dev-belly/AuditLens) |
 | Execution analysis | C++20 order book, Python costs and a public-depth hypothetical matching case | [TradeForge](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) |
 
@@ -64,7 +65,7 @@ The pipeline and local API use the same 24 curated facts. Arithmetic parity does
 <summary>Research bench and implementation history</summary>
 
 - [CurveShift curve laboratory](https://dev-belly.github.io/StressAtlas/curveshift/): parallel DV01 neutrality can leave curve-shape risk.
-- [AlphaForge evaluation method](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08): shared finite pairs, Rank-IC and trading-session splits. Archived returns await a corrected-protocol refit.
+- [AlphaForge session-split refit](https://dev-belly.github.io/alphaforge/experiments/real-sp500-session-v2/): the same 840,736-row supervised dataset, 22 retained cases and six audited training-label boundaries. Ridge's Sharpe is below the equal-weight baseline. Historical membership and publication-time limits remain explicit.
 - [All 19 projects](CATALOG.md) · [First-run guide](START_HERE.md) · [Priorities](OPEN_SOURCE_ROADMAP.zh-CN.md).
 - [Validation archive](PROJECT_REVIEW.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md).
 
