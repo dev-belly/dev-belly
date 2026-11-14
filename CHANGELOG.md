@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-14 · Refit a complete quantitative comparison.**
+Connect [AlphaForge's session-split experiment](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/)
+to both profile languages, the catalog, project overview and first-run guide.
+The same 840,736-row supervised dataset now has six audited trading-session
+folds and 22 retained method/seed/cost results. Training-label endpoints,
+sample counts, source identities and daily-return replay can be inspected.
+Historical membership, actual filing availability and proxy-size limits remain;
+the earlier frozen archive is preserved separately.
+
 **2026-11-11 · Size a constrained hedge after diagnosing curve risk.**
 [StressAtlas #10](https://github.com/dev-belly/StressAtlas/pull/10) adds SciPy
 sparse / HiGHS CVaR optimization, gross/per-bond face limits and entry cost.

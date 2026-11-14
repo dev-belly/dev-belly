@@ -61,6 +61,7 @@ Financial research · Python · SQL · reproducible evidence
 | --- | --- | --- |
 | 财务数据管道 | Polars / Parquet / DuckDB / dbt；明确金额和日期类型，每条 SQL 路径核对 138 个字段 | [管道说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md) |
 | 研究 API | FastAPI / Pydantic；六个只读接口、分页、精确金额字符串与同一快照标识 | [接口与请求示例](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) |
+| 量化实验对照 | 六个交易日隔离窗口；五种方法、三个模型种子、两档成本，共 22 个结果组合 | [AlphaForge 重训与窗口核查](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/) |
 | 审计分析 | 可解释的风险排序、人工复核与来源绑定的工作底稿 | [AuditLens 中文入口](https://github.com/dev-belly/AuditLens/blob/main/README.zh-CN.md) |
 | 执行分析 | C++20 订单簿、Python 交易成本分析、公开市场假设成交案例 | [TradeForge](https://github.com/dev-belly/TradeForge/blob/main/docs/PUBLIC_MARKET_CASE.md) |
 
@@ -70,7 +71,7 @@ Financial research · Python · SQL · reproducible evidence
 <summary>更多研究与复现记录</summary>
 
 - [CurveShift 曲线风险实验](https://dev-belly.github.io/StressAtlas/curveshift/)：平行 DV01 近似为零，曲线扭转仍可产生损失。
-- [AlphaForge 因子评价](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08)：共同有效样本、Rank-IC、等分组与逐步前推验证。旧回测待按修正的交易日协议重拟合，暂不引用其收益成绩。
+- [AlphaForge 重训对照](https://dev-belly.github.io/alphaforge/experiments/real-sp500-session-v2/)：同一份 84 万行监督数据，按交易日隔离重新拟合全部模型；保存 22 个结果和六个窗口的标签结束日。Ridge 的 Sharpe 低于简单等权基准。历史成员与披露时点缺口继续单独说明。
 - [19 个项目与各自数据范围](CATALOG.md) · [运行指南](START_HERE.md) · [当前优先事项](OPEN_SOURCE_ROADMAP.zh-CN.md)。
 - [验证记录](PROJECT_REVIEW.md) · [变更记录](CHANGELOG.md) · [参与维护](CONTRIBUTING.md)。
 

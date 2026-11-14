@@ -55,7 +55,7 @@
 | 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
 | 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
 | 固收 / 基金风险研究 | **CurveShift**：[受约束对冲](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) | 曲线风险、全量重估、CVaR 优化、仓位和成本约束、原始—对偶核验、留出年份检验。 |
-| 量化研究方法 | **AlphaForge**：[因子评价与验证口径](https://github.com/dev-belly/alphaforge/blob/main/docs/modules/factor_research.md#evaluation-correction-2026-11-08) | Rank-IC 的共同有效样本、等分组、交易日标签与切分边界。旧回测待按修正协议重拟合，暂不引用收益成绩。 |
+| 量化研究方法 | **AlphaForge**：[重训与中文研究简报](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/) | 同一份 84 万行监督数据，重新拟合六个隔离窗口；22 个模型 / 种子 / 成本组合。可以解释 Ridge 的收益与等权接近但 Sharpe 更低，以及交易日标签何时真正可得。原始镜像的历史成员与披露时点缺口仍在。 |
 
 ## 三个值得追问的问题
 

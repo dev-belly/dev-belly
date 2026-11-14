@@ -32,11 +32,11 @@
     {
       "repo": "alphaforge",
       "group": "research",
-      "summary": "因子、逐步前推验证、组合约束与交易成本",
+      "summary": "交易日隔离重训、五种方法与 22 个种子/成本对照",
       "stack": "Python · NumPy",
-      "boundary": "旧回测的自然日缓冲与交易日标签不一致；尚未按修正协议重拟合，不能作为无泄漏样本外证据。",
-      "demo": "https://dev-belly.github.io/alphaforge/sample-run/",
-      "evidence": "docs/research-comparison.md"
+      "boundary": "同一份监督表按六个交易日隔离窗口重训；镜像缺少完整历史退出、真实披露与市值，仍属探索性研究。旧归档单独保留。",
+      "demo": "https://dev-belly.github.io/alphaforge/experiments/real-sp500-session-v2/",
+      "evidence": "docs/research-comparison.zh-CN.md"
     },
     {
       "repo": "TradeForge",

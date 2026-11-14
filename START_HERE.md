@@ -789,6 +789,40 @@ Full losses, sector paths and bootstrap statistics remain in memory. Windows
 generates and verifies its own bundle; the saved Linux fingerprint need not
 match another numerical build. [Method and measurements](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md#driver-memory-and-streaming).
 
+### Verify a session-split model comparison
+
+[AlphaForge's refitted experiment](https://dev-belly.github.io/alphaforge/experiments/real-sp500-session-v2/)
+compares five methods under one forecast coverage, three predefined model seeds
+and two cost assumptions. Inspect the six training-label boundaries in the
+[Chinese brief](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/).
+
+From an empty working directory, **Linux / macOS**:
+
+```bash
+git clone https://github.com/dev-belly/alphaforge.git
+cd alphaforge
+python -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/python scripts/verify_comparison.py docs/experiments/real-sp500-session-v2
+```
+
+**Windows PowerShell**:
+
+```powershell
+git clone https://github.com/dev-belly/alphaforge.git
+cd alphaforge
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\python.exe scripts/verify_comparison.py docs/experiments/real-sp500-session-v2
+```
+
+Installation uses the network. Verification then reads the saved bundle without
+downloading raw market data or fitting models: expect 22 cases, six audited folds
+and 1,217 return dates per case. It reconstructs the date masks and denominators,
+and recomputes financial headlines from daily returns. Hashes identify files;
+they do not certify historical source quality. Full refitting uses CPython 3.12
+and the separate recorded research constraints in the linked brief.
+
 ### If a step fails
 
 Check that Python satisfies the required version and that installation finished
