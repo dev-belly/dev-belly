@@ -35,6 +35,8 @@ Financial research · Python · SQL · reproducible evidence
 
 [中文报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) · [项目说明](https://github.com/dev-belly/StatementTrace/blob/main/README.zh-CN.md) · [来源事实](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv)
 
+[继续拆解净利润到 CFO](https://dev-belly.github.io/StatementTrace/cashflow/profit-bridge/)：六个年度逐项勾稽，分开税款、收购与融资租赁；116 个选中值及 8 个明确缺失，Python / SQLite 核对 144 个字段。
+
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
 **更准确的违约概率，会带来更好的人工复核队列吗？**

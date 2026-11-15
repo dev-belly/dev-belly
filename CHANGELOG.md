@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-15 · Complete the operating-cash-flow drill-down.**
+[StatementTrace's profit-to-CFO study](https://dev-belly.github.io/StatementTrace/cashflow/profit-bridge/)
+reconciles six issuer-years and separates cash taxes, acquisition-related
+investing outflows, noncash finance-lease additions and financing principal.
+Preserve 116 selected source values, eight explicit missing fields and original
+disclosure precision; Python and SQLite check 144 exact fields. Both languages
+and a six-file offline replay packet have public entry points. Mark the cash-flow
+task complete; historical quant-source coverage and real-user feedback stay open.
+
 **2026-11-14 · Refit a complete quantitative comparison.**
 Connect [AlphaForge's session-split experiment](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/)
 to both profile languages, the catalog, project overview and first-run guide.

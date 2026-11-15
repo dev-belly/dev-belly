@@ -789,6 +789,38 @@ Full losses, sector paths and bootstrap statistics remain in memory. Windows
 generates and verifies its own bundle; the saved Linux fingerprint need not
 match another numerical build. [Method and measurements](https://github.com/dev-belly/StressAtlas/blob/main/docs/METHODOLOGY.md#driver-memory-and-streaming).
 
+### Reconcile profit to operating cash
+
+Replay the completed [profit-to-CFO research](https://dev-belly.github.io/StatementTrace/cashflow/profit-bridge/).
+From an empty working directory, Linux / macOS:
+
+```bash
+git clone https://github.com/dev-belly/StatementTrace.git
+cd StatementTrace
+python -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/python -m statementtrace profit-bridge --out output/profit-bridge
+.venv/bin/python -m statementtrace verify-profit-bridge output/profit-bridge
+```
+
+Windows PowerShell, also from an empty working directory:
+
+```powershell
+git clone https://github.com/dev-belly/StatementTrace.git
+cd StatementTrace
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\python.exe -m statementtrace profit-bridge --out output/profit-bridge
+.\.venv\Scripts\python.exe -m statementtrace verify-profit-bridge output/profit-bridge
+```
+
+The default report is Chinese; use `--language en` for English. Expect six
+issuer-years and 144 exact Python/SQLite checks. Saved sources include 116
+selected values and eight explicitly unextracted amounts. Rounded tax cash
+payments retain their reported precision; missing acquisition and finance-lease
+details are never converted to zero. `--as-of 2025-02-04` redacts Alphabet's
+comparative figures under this packet's filed-date convention.
+
 ### Verify a session-split model comparison
 
 [AlphaForge's refitted experiment](https://dev-belly.github.io/alphaforge/experiments/real-sp500-session-v2/)
