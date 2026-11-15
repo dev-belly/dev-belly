@@ -31,6 +31,8 @@ Inspect source lineage, fiscal windows, exact values and Python/SQL arithmetic. 
 
 [Report](https://dev-belly.github.io/StatementTrace/cashflow/) · [Source facts](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv) · [SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)
 
+[Continue from profit to CFO](https://dev-belly.github.io/StatementTrace/cashflow/profit-bridge/en/): six reconciled issuer-years, tax/acquisition/lease boundaries, 116 selected values and eight explicit missing fields; 144 exact Python/SQLite checks.
+
 ### [CreditVintage](https://github.com/dev-belly/CreditVintage)
 
 **Does a better probability estimate make a better review queue?**
