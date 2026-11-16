@@ -1,5 +1,11 @@
 # Build history
 
+**2026-11-16 · Adopt typed AI SDK 7 message streams.**
+Update the engineering entry for Next.js 16.4, React 19.3, strict TypeScript 7,
+Zod contracts and React Compiler. Link the standard UIMessage transport, shared
+schema and Anthropic/OpenAI-compatible provider layer. The 33 production HTTP
+checks cover both provider protocols and upstream cancellation.
+
 **2026-11-16 · Make the chat architecture inspectable.**
 Connect [Personal AI Chat #5](https://github.com/dev-belly/personal-ai-chat/pull/5)
 to both profile languages and the engineering overview. Surface its modular BFF,
