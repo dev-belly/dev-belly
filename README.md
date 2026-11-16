@@ -13,7 +13,7 @@
 
 | 项目 | 已实现的开发能力 | 先看哪里 |
 | --- | --- | --- |
-| **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js / React 页面与服务端路由；本地模拟、私有模型连接、取消与重试、请求校验 | [本地运行与工程说明](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [页面](https://github.com/dev-belly/personal-ai-chat/blob/main/app/page.js) · [接口](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) |
+| **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js App Router / React；模块化 BFF、SSE 流式回复、取消重试与请求校验 | [本地运行与工程说明](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [架构与协议](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ARCHITECTURE.zh-CN.md) · [接口](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) |
 | **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | FastAPI / Pydantic 类型接口；筛选分页、精确金额、来源追溯与不可变快照 | [API 启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) · [实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) · [接口测试](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py) |
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | 浏览器交互、URL 状态、JSON 下载与 Python / SQLite 独立重放 | [立即试用](https://dev-belly.github.io/PITBridge/try/) · [下载后重放](START_HERE.md#download-and-replay-your-browser-scenario) |
 

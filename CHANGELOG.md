@@ -1,5 +1,12 @@
 # Build history
 
+**2026-11-16 · Make the chat architecture inspectable.**
+Connect [Personal AI Chat #5](https://github.com/dev-belly/personal-ai-chat/pull/5)
+to both profile languages and the engineering overview. Surface its modular BFF,
+SSE transport, explicit completion state, upstream cancellation, public request IDs
+and 23 production HTTP checks. Link architecture decisions, JSON/SSE contracts,
+provider adapter and Chromium verification directly to implementation.
+
 **2026-11-16 · Surface application and API engineering.**
 Align both profile languages, the project overview and current priorities with
 full-stack development and the summer 2027 internship goal. Put the existing
