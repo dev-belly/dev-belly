@@ -1,23 +1,24 @@
 # dev-belly
 
-**Follow the numbers.** Financial research built with Python and SQL.
+**Connect interfaces, APIs and data in runnable applications.**
 
-[中文](README.md) · [Project index](CATALOG.md) · [Run a project](START_HERE.md)
+CUFE undergraduate · Data Science & Big Data Technology · Current focus: full-stack development
 
-## A hedge with a budget
+[中文](README.md) · [Engineering overview](FOR_RECRUITERS.md) · [Run a project](START_HERE.md) · [Project index](CATALOG.md)
 
-**What should you trade after finding the risk?**
+## Applications and APIs first
 
-[CurveShift's hedge laboratory](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) keeps a hypothetical $10m-face 7Y target fixed and optimizes four hedge maturities under face caps and entry costs. Change the budget, inspect residual key-rate risk and download the trades.
+Working toward a **summer 2027 development internship**, currently studying HTML, CSS and JavaScript.
+Explore the existing implementations, setup instructions and verification paths below.
 
-| Same hypothetical target | 2025 scenario ES, 97.5% | One-time entry cost |
-| --- | ---: | ---: |
-| Unhedged | $71,789.20 | $0 |
-| $6m gross hedge-face budget | $29,039.70 | $1,200, separate |
+| Project | Implemented behavior | Inspect |
+| --- | --- | --- |
+| **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js / React UI and server route; local demo, private model connection, cancellation, retry and request validation | [Setup](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [UI](https://github.com/dev-belly/personal-ai-chat/blob/main/app/page.js) · [API](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) |
+| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | Typed FastAPI / Pydantic endpoints, pagination, exact money, source lineage and immutable snapshots | [API setup](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) · [Implementation](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) · [HTTP contracts](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py) |
+| **[PITBridge](https://github.com/dev-belly/PITBridge)** | Browser interaction, URL state, JSON download and independent Python / SQLite replay | [Try it](https://dev-belly.github.io/PITBridge/try/) · [Replay](START_HERE.md#download-and-replay-your-browser-scenario) |
 
-QuantLib prices the cash flows; SciPy sparse matrices and HiGHS solve a 513-variable CVaR program. Fit on 504 changes through 2024, then evaluate fixed trades on 249 changes in 2025. ES is before the separate entry cost. Historical estimated curves and hypothetical bonds support a scenario study, not realized trading returns.
-
-[Method](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) · [Optimizer](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/hedge.py) · [Saved decisions](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift/reports/hedge)
+Personal AI Chat starts with fixed local replies; a real model requires separate configuration.
+The StatementTrace API runs locally. [Engineering overview](FOR_RECRUITERS.md) maps the UI, API, data and checks to source files.
 
 ## Selected work
 

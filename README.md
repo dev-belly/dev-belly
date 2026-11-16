@@ -1,25 +1,24 @@
 # dev-belly
 
-**用可追溯的数据，回答具体的金融问题。**
+**把界面、接口和数据处理连成可运行的应用。**
 
-Financial research · Python · SQL · reproducible evidence
+中央财经大学 · 数据科学与大数据技术本科在读 · 当前方向：全栈开发
 
-[English](README.en.md) · [全部项目](CATALOG.md) · [本地复现](START_HERE.md)
+[English](README.en.md) · [开发项目速览](FOR_RECRUITERS.md) · [本地运行](START_HERE.md) · [全部项目](CATALOG.md)
 
-## 从一个有约束的对冲决策开始
+## 先看应用与接口
 
-**发现曲线风险后，有限的仓位和成本，应该怎么分配？**
+面向 **2027 年暑期开发实习**积累作品，当前系统学习 HTML、CSS 与 JavaScript。
+下面的入口可以直接查看现有实现、运行命令与验证方法。
 
-[打开 CurveShift 对冲实验](https://dev-belly.github.io/StressAtlas/curveshift/hedge/)，调整预算，检查四个期限的交易、残余风险和全现金流重估结果，再下载情景复算。
+| 项目 | 已实现的开发能力 | 先看哪里 |
+| --- | --- | --- |
+| **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js / React 页面与服务端路由；本地模拟、私有模型连接、取消与重试、请求校验 | [本地运行与工程说明](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [页面](https://github.com/dev-belly/personal-ai-chat/blob/main/app/page.js) · [接口](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) |
+| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | FastAPI / Pydantic 类型接口；筛选分页、精确金额、来源追溯与不可变快照 | [API 启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) · [实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) · [接口测试](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py) |
+| **[PITBridge](https://github.com/dev-belly/PITBridge)** | 浏览器交互、URL 状态、JSON 下载与 Python / SQLite 独立重放 | [立即试用](https://dev-belly.github.io/PITBridge/try/) · [下载后重放](START_HERE.md#download-and-replay-your-browser-scenario) |
 
-| 同一个假设的 7 年期目标债券 | 2025 年情景 ES，97.5% | 一次建仓成本 |
-| --- | ---: | ---: |
-| 未对冲 | $71,789.20 | $0 |
-| $6m 对冲面值预算 | $29,039.70 | $1,200，单独计入 |
-
-**实现：** QuantLib 定价，SciPy 稀疏矩阵与 HiGHS 求解 513 变量的 CVaR 优化。用截至 2024 年底的 504 个变化拟合，用 2025 年的 249 个变化检验固定交易。曲线是历史拟合数据，债券是假设工具；表中 ES 未扣除一次成本，情景损失不是实盘收益。
-
-[中文推导](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md) · [优化器](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/src/curveshift/hedge.py) · [保存的交易与损失](https://github.com/dev-belly/StressAtlas/tree/main/labs/curveshift/reports/hedge)
+Personal AI Chat 默认使用本地固定回复，真实模型需要自行配置；StatementTrace API 在本机运行。
+[开发项目速览](FOR_RECRUITERS.md)将页面、接口、数据与验证对应到具体源码。
 
 <a id="selected-work"></a>
 

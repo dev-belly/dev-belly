@@ -7,13 +7,14 @@
 
 | 你想做什么 | 推荐路线 |
 | :--- | :--- |
+| 看全栈应用与接口实现 | [Personal AI Chat：Next.js / React](https://github.com/dev-belly/personal-ai-chat) → [StatementTrace：FastAPI](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md)；[本地运行](START_HERE.md#run-the-full-stack-chat-application--运行全栈聊天应用) |
 | 看一份真实财报研究 | [三家公司的利润与现金流 · 中文报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) |
 | 不安装环境，先改一个输入 | [PITBridge 浏览器发票案例](https://dev-belly.github.io/PITBridge/try/) |
 | 把浏览器情景带回本地核验 | [下载当前输入并独立重放](START_HERE.md#download-and-replay-your-browser-scenario) |
 | 看金融研究与数据分析 | StatementTrace → CreditVintage → PITBridge |
 | 看量化研究与工程 | AlphaForge → TradeForge → StressAtlas；再看保留负结果的图模型与区间实验 |
 | 看审计、会计与内控 | AuditLens → ControlTrace → LedgerX |
-| 看应用开发 | WeCom Agent → Personal AI Chat → 两个微信小程序 |
+| 看其他应用原型 | WeCom Agent → 两个微信小程序 |
 
 [空目录安装与逐步试用](START_HERE.md) · [项目概览](FOR_RECRUITERS.md) · [验证记录](PROJECT_REVIEW.md)
 
@@ -51,7 +52,7 @@
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
 | [**wecom-agent-platform**](https://github.com/dev-belly/wecom-agent-platform) · [README](https://github.com/dev-belly/wecom-agent-platform/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md) | 合同全量筛选、持仓汇总与企业微信 Agent 原型<br />Python · FastAPI · React | 静态界面和离线业务试验；模型、企微回复及部署有独立边界。 |
-| [**personal-ai-chat**](https://github.com/dev-belly/personal-ai-chat) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) | 本地聊天模拟与单独配置的私有模型连接<br />Next.js · Cloudflare Workers | 默认固定本地模拟；真实服务需要独立配置与访问口令。 |
+| [**personal-ai-chat**](https://github.com/dev-belly/personal-ai-chat) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ENGINEERING.zh-CN.md) | 聊天页面、服务端模型代理、取消重试与本地 HTTP 验证<br />Next.js · React · JavaScript · Cloudflare Workers | 默认固定本地模拟；真实服务需要独立配置与访问口令。本地验证不代表已部署。 |
 | [**digital-craftsman**](https://github.com/dev-belly/digital-craftsman) · [README](https://github.com/dev-belly/digital-craftsman/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/digital-craftsman/blob/main/%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md) | 学生能力档案、企业评价与作品集小程序<br />微信小程序 · 云函数 | 小程序及云环境需单独部署验收；不上线状态承诺。 |
 | [**ranxin-mini-program**](https://github.com/dev-belly/ranxin-mini-program) · [README](https://github.com/dev-belly/ranxin-mini-program/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/ranxin-mini-program/blob/main/ONBOARDING.md) | MBTI、纹样收集与 DIY 创作比赛原型<br />微信小程序 · JavaScript | 默认本地 Mock；云函数和真实数据库需单独验收。 |
 | [**goose-leg-auntie-site**](https://github.com/dev-belly/goose-leg-auntie-site) · [README](https://github.com/dev-belly/goose-leg-auntie-site/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/goose-leg-auntie-site/) | 校园传播案例的信息组织与页面呈现<br />HTML · CSS | 公开报道与分析推断分开；不是独立经营审计。 |

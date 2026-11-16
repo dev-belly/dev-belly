@@ -131,9 +131,10 @@
     {
       "repo": "personal-ai-chat",
       "group": "applications",
-      "summary": "本地聊天模拟与单独配置的私有模型连接",
-      "stack": "Next.js · Cloudflare Workers",
-      "boundary": "默认固定本地模拟；真实服务需要独立配置与访问口令。"
+      "summary": "聊天页面、服务端模型代理、取消重试与本地 HTTP 验证",
+      "stack": "Next.js · React · JavaScript · Cloudflare Workers",
+      "boundary": "默认固定本地模拟；真实服务需要独立配置与访问口令。本地验证不代表已部署。",
+      "evidence": "docs/ENGINEERING.zh-CN.md"
     },
     {
       "repo": "digital-craftsman",

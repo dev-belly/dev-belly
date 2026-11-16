@@ -1,5 +1,33 @@
 # Start here / 从这里开始
 
+## Run the full-stack chat application / 运行全栈聊天应用
+
+Requires Node.js 20.9 or later. Start from a new checkout:
+
+```bash
+git clone https://github.com/dev-belly/personal-ai-chat.git
+cd personal-ai-chat
+npm ci
+npm test
+npm run dev
+```
+
+Open `http://localhost:3000`. The default local demo uses fixed browser replies;
+it needs no access token or model key. Send a message, cancel a pending reply,
+retry, then start a new conversation. To inspect the production HTTP boundary:
+
+```bash
+npm run build
+npm run check:http
+```
+
+The HTTP check starts Next.js and a local model fixture on loopback addresses.
+It checks authorization, invalid requests, error responses and usable reply text
+without contacting a model provider. The optional real model connection and
+Cloudflare Workers deployment are described in the
+[project README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md).
+构建和本地 HTTP 验证不会发布网站；部署需要单独配置。
+
 ## Read a financial research study
 
 [Open profit versus cash](https://dev-belly.github.io/StatementTrace/cashflow/): compare three issuers, follow the cash-flow bridge and download the source rows. This is a historical FY2023–FY2024 case with different fiscal windows, not a live market screen. [中文简报与财务解释](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md).

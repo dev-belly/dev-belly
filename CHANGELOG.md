@@ -1,5 +1,14 @@
 # Build history
 
+**2026-11-16 · Surface application and API engineering.**
+Align both profile languages, the project overview and current priorities with
+full-stack development and the summer 2027 internship goal. Put the existing
+Next.js / React chat application before research entries, link UI/server code
+and HTTP verification, and add a first-run path. Keep the financial studies,
+source limitations and historical evidence available. The chat application now
+rejects upstream replies without usable text and verifies its production HTTP
+boundary against a local fixture.
+
 **2026-11-15 · Complete the operating-cash-flow drill-down.**
 [StatementTrace's profit-to-CFO study](https://dev-belly.github.io/StatementTrace/cashflow/profit-bridge/)
 reconciles six issuer-years and separates cash taxes, acquisition-related

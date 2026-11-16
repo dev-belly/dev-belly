@@ -1,69 +1,62 @@
-# dev-belly
+# dev-belly · 开发项目速览
 
-## 先看一个完整问题
+中央财经大学数据科学与大数据技术本科在读，当前方向为**全栈开发**，目标是 2027 年暑期开发实习。
+目前系统学习 HTML、CSS 与 JavaScript；作品集按可运行的页面、接口、数据和验证组织。
 
-**利润增长，为什么没有变成同幅度的自由现金流增长？**
+## 先看 Personal AI Chat：页面到服务端接口
 
-[StatementTrace 研究页面](https://dev-belly.github.io/StatementTrace/cashflow/) ·
-[中文简报](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md)
+[仓库与运行说明](https://github.com/dev-belly/personal-ai-chat) ·
+[工程说明与 HTTP 验证](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ENGINEERING.zh-CN.md)
 
-整理 Apple、Microsoft、Alphabet 三份年报中的 24 条事实，统一金额、财年与申报日，
-生成六个公司年度的对比。Alphabet 净利润增长 35.67%，FCF 增长 4.70%；
-通过 CFO 与现金 capex 的增量勾稽解释差异。
+用 **Next.js / React / JavaScript** 实现聊天界面和同仓库的服务端路由。
+默认本地模拟让读者先体验；真实服务通过服务端代理调用模型，浏览器使用独立访问口令。
 
-可以直接检查：[来源事实](https://github.com/dev-belly/StatementTrace/blob/main/examples/cashflow/source_facts.csv)、
-[Python](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/cashflow.py)、
-[SQL](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/cashflow_compare.sql)。
-这是 FY2023–FY2024 的历史案例；财年窗口不同，先比较各自同比。FCF 口径为 CFO 减现金 capex。
-
-**工程实现可进一步展开：** [Polars → Parquet → DuckDB → dbt](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md)。
-按明确的金额和日期 schema 写入列式文件，用 SQL 窗口函数计算同比与现金流桥，
-通过 dbt 的 3 个模型、21 项数据检查管理转换流程。
-两条 SQL 路径分别对照 Python 核验 138 个字段；另测未来申报日拦截、缺失值、
-超过浮点精度的整数金额及改值后重新计算哈希的情况。
-可核查[管道代码](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/warehouse.py)、
-[模型](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models)与
-[CI](https://github.com/dev-belly/StatementTrace/actions/workflows/warehouse.yml)。
-当前是小规模公开案例，尚未测量大规模吞吐与生产效果。
-
-接口层进一步使用 **FastAPI / Pydantic / Uvicorn**，提供六个类型明确的只读数据接口。
-调用方可以筛选公司和财年、分页查询来源事实，并用快照 ID 核对同一批数据。
-金额通过 JSON 时保留为精确整数字符串，缺失值保持为空；启动前核验捕获的数据包，
-启动后的请求不再混读变动的源文件。
-[API 中文讲解与本地启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
-[类型与实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py)。
-
-## 固收研究：一个可以现场改动的反例
-
-**平行 DV01 接近零，为什么仍会亏钱？** [CurveShift 交互实验](https://dev-belly.github.io/StressAtlas/curveshift/)匹配假设的 10 年债多头与 2 年债空头；2 年利率降 25bp、10 年升 25bp 时，全量重估亏损 **93,918.70 美元**。这说明单一平移指标无法覆盖曲线形状风险。
-
-技术实现包括 QuantLib 现金流与独立定价、NSS 零息曲线、关键期限 DV01、历史情景 ES、按时间切分的 PCA，以及可重放的 CLI / FastAPI。可拖动四个期限，下载当前情景再用 Python 复算。[中文简报与来源](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/RESEARCH.zh-CN.md)区分 2,499 条历史拟合曲线、假设债券与开源模型；数据不是实时行情，也不是历史首次可得快照。
-
-**进一步：发现风险后，怎样在仓位与成本限制下配置对冲？**
-[受约束对冲实验](https://dev-belly.github.io/StressAtlas/curveshift/hedge/)使用 **SciPy 稀疏矩阵 / HiGHS**
-求解 513 变量、509 约束的 CVaR 线性规划；加入总面值、单券面值上限与一次建仓成本。
-504 个截至 2024 年底的变化用于拟合，249 个 2025 年变化只用于固定交易后的情景检验。
-默认 600 万美元对冲面值下，97.5% ES 从 71,789.20 美元降到 29,039.70 美元，建仓成本另计 1,200 美元。
-页面可切换预算、查看交易与残余关键期限风险、拖动冲击并下载结果。
-[方法与复现](https://github.com/dev-belly/StressAtlas/blob/main/labs/curveshift/docs/HEDGING.zh-CN.md)明确区分情景风险与实际收益。
-
-## 按岗位看证据
-
-| 岗位关注 | 推荐作品 | 可以当场展开的讨论 |
+| 可以检查的能力 | 对应源码 | 具体行为 |
 | --- | --- | --- |
-| 企业研究 / 财务数据分析 | **StatementTrace**：[现金流研究](https://dev-belly.github.io/StatementTrace/cashflow/) | 口径统一、财报来源、同比归因、资本开支、缺失值；哪些判断需要进一步读附注。 |
-| 数据分析 / 风险研究 | **CreditVintage**：[真实放款研究](https://dev-belly.github.io/CreditVintage/sba-brief/) · [SQL](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_REVIEW_SQL.md) | 35,000 条观察贷款，跨放款期验证；概率校准与排序的取舍，固定复核名额下的精确率和事件捕获率。 |
-| 金融数据处理 / 研究工程 | **PITBridge**：[浏览器改一个时间](https://dev-belly.github.io/PITBridge/try/) | 数据发生、公开、入库和决策时点，修订记录选择，SQL 与独立 Python 对照。 |
-| 固收 / 基金风险研究 | **CurveShift**：[受约束对冲](https://dev-belly.github.io/StressAtlas/curveshift/hedge/) | 曲线风险、全量重估、CVaR 优化、仓位和成本约束、原始—对偶核验、留出年份检验。 |
-| 量化研究方法 | **AlphaForge**：[重训与中文研究简报](https://dev-belly.github.io/alphaforge/research-comparison.zh-CN/) | 同一份 84 万行监督数据，重新拟合六个隔离窗口；22 个模型 / 种子 / 成本组合。可以解释 Ridge 的收益与等权接近但 Sharpe 更低，以及交易日标签何时真正可得。原始镜像的历史成员与披露时点缺口仍在。 |
+| 页面状态与交互 | [app/page.js](https://github.com/dev-belly/personal-ai-chat/blob/main/app/page.js) | 等待、取消、失败重试、新会话与模式切换；旧请求不能写入新会话。 |
+| 对话上下文 | [lib/chat-client.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-client.mjs) | 只携带完成的对话轮次；按消息数、字符数和 UTF-8 字节预算裁剪。 |
+| 服务端接口 | [app/api/chat/route.js](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) | 配置检查、独立口令、服务端模型调用和对外错误响应。 |
+| 输入契约 | [lib/chat-validation.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-validation.mjs) | 流式读取并限制请求体；校验角色交替、消息长度和完整会话。 |
+| HTTP 集成验证 | [scripts/check-http.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-http.mjs) | 启动生产 Next.js 与本地上游，经过真实 HTTP 请求检查接口边界，无真实模型费用。 |
+| 构建与部署配置 | [CI](https://github.com/dev-belly/personal-ai-chat/blob/main/.github/workflows/ci.yml) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) | Node 测试、生产构建、HTTP 验证与 OpenNext / Cloudflare Workers 构建。 |
 
-## 三个值得追问的问题
+首次试用可按 [运行指南](START_HERE.md#run-the-full-stack-chat-application--运行全栈聊天应用)执行。
+默认模拟回复是固定示例；真实模型与生产部署需单独配置。
 
-- **FCF 增长弱，能直接说明企业变差吗？** 不能。先看经营现金流与资本投入，再查投资用途、回报周期、税务和租赁口径；当前案例没有做估值结论。
-- **校准改善 Brier，为什么复核结果可能变差？** 概率误差、排序质量和固定名额下的事件捕获是不同目标，需要在同一测试样本和名额下比较。
-- **SQL 与 Python 一致，是否就证明数据是真的？** 一致能支持计算核对；源数据抄录、历史可得性和共同依赖还需要另外检查。
+## 再看 StatementTrace：类型接口与数据一致性
 
-SBA 是回溯研究；PITBridge 是合成事件案例；财报研究使用人工整理的公开申报数据。
-项目代码与分析产物可核查，尚无生产部署、实盘收益或商业效果的证明。
+[API 运行说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
+[接口实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) ·
+[接口测试](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py)
 
-[GitHub 主页](https://github.com/dev-belly) · [完整项目目录](CATALOG.md) · [运行方法](START_HERE.md)
+**FastAPI / Pydantic / Uvicorn** 提供六个只读接口，支持公司与财年筛选、来源事实分页。
+启动前捕获并核验数据包，请求读取同一份快照；金额通过 JSON 时保留为精确整数字符串，
+缺失值保持 `null`。未知和重复参数返回 422。
+
+数据层使用 **Polars → Parquet → DuckDB → dbt**，将同一组 24 条财报事实生成六个公司年度。
+每条 SQL 路径与 Python 核对 138 个字段。可阅读
+[管道实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/warehouse.py)、
+[SQL 与 dbt 模型](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models)及
+[管道说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md)。
+
+这是三家公司 FY2023–FY2024 的手工整理案例。API 本地运行，公开静态报告与服务端接口分别验收。
+
+## 浏览器交互与独立重放
+
+[PITBridge 立即试用](https://dev-belly.github.io/PITBridge/try/)：修改发票到达时间和决策时间，
+查看选中的版本，分享 URL 状态，下载 JSON 后用 Python / SQLite 重放。
+用一个小规模合成案例查看界面状态如何与可验证输入对应。
+[下载后重放](START_HERE.md#download-and-replay-your-browser-scenario)。
+
+## 可以继续展开的工程问题
+
+- 取消请求与创建新会话时，如何避免较晚返回的响应写入错误会话？
+- 为什么消息字符数合规，中文与 JSON 转义仍可能使请求超过字节上限？
+- 为什么工具函数单测通过后，还需要启动真实 HTTP 服务验证？
+- 前端如何区分缺失金额、合法的零和超过 Number 精度范围的整数？
+- 分页请求跨越数据更新时，快照身份如何帮助保持一致？
+
+金融数据与研究案例保留在 [三个代表作](README.md#三个代表作)和 [完整目录](CATALOG.md)。
+下一阶段的学习与工程任务见 [当前优先级](OPEN_SOURCE_ROADMAP.zh-CN.md)。
+
+[GitHub 主页](https://github.com/dev-belly) · [本地运行](START_HERE.md)
