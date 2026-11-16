@@ -3,22 +3,27 @@
 中央财经大学数据科学与大数据技术本科在读，当前方向为**全栈开发**，目标是 2027 年暑期开发实习。
 目前系统学习 HTML、CSS 与 JavaScript；作品集按可运行的页面、接口、数据和验证组织。
 
-## 先看 Personal AI Chat：页面到服务端接口
+## 先看 Personal AI Chat：页面到可取消的流式接口
 
 [仓库与运行说明](https://github.com/dev-belly/personal-ai-chat) ·
-[工程说明与 HTTP 验证](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ENGINEERING.zh-CN.md)
+[架构与设计取舍](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ARCHITECTURE.zh-CN.md) ·
+[JSON / SSE 协议](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/API.zh-CN.md)
 
-用 **Next.js / React / JavaScript** 实现聊天界面和同仓库的服务端路由。
-默认本地模拟让读者先体验；真实服务通过服务端代理调用模型，浏览器使用独立访问口令。
+用 **Next.js App Router / React / JavaScript** 实现模块化 BFF：页面、状态、传输、HTTP 编排和模型适配器各有边界。
+默认本地模拟让读者先体验；真实服务逐段显示模型回复，浏览器使用独立访问口令。
+半途断流或取消会保留“未完成回复”，只有明确完成的轮次进入后续上下文。
 
 | 可以检查的能力 | 对应源码 | 具体行为 |
 | --- | --- | --- |
-| 页面状态与交互 | [app/page.js](https://github.com/dev-belly/personal-ai-chat/blob/main/app/page.js) | 等待、取消、失败重试、新会话与模式切换；旧请求不能写入新会话。 |
+| 页面状态与交互 | [use-chat.js](https://github.com/dev-belly/personal-ai-chat/blob/main/app/hooks/use-chat.js) · [chat-state.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-state.mjs) | 流入、完成、未完成、取消重试与新会话；旧请求动作不能写入新会话。 |
+| 流式传输 | [chat-transport.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-transport.mjs) | 按 UTF-8 增量解码并解析 SSE；明确收到完成事件才提交成功。 |
 | 对话上下文 | [lib/chat-client.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-client.mjs) | 只携带完成的对话轮次；按消息数、字符数和 UTF-8 字节预算裁剪。 |
-| 服务端接口 | [app/api/chat/route.js](https://github.com/dev-belly/personal-ai-chat/blob/main/app/api/chat/route.js) | 配置检查、独立口令、服务端模型调用和对外错误响应。 |
+| 服务端接口 | [chat-handler.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/server/chat-handler.mjs) | 配置、独立口令、JSON / SSE 协商、50 秒截止时间、取消传播与请求编号。 |
+| 模型适配器 | [anthropic-provider.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/server/anthropic-provider.mjs) | 将供应商事件转成文本；未见完成事件即断开时报告失败；不自动重试。 |
 | 输入契约 | [lib/chat-validation.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-validation.mjs) | 流式读取并限制请求体；校验角色交替、消息长度和完整会话。 |
-| HTTP 集成验证 | [scripts/check-http.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-http.mjs) | 启动生产 Next.js 与本地上游，经过真实 HTTP 请求检查接口边界，无真实模型费用。 |
-| 构建与部署配置 | [CI](https://github.com/dev-belly/personal-ai-chat/blob/main/.github/workflows/ci.yml) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) | Node 测试、生产构建、HTTP 验证与 OpenNext / Cloudflare Workers 构建。 |
+| HTTP 集成验证 | [scripts/check-http.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-http.mjs) | 23 项检查经过生产 Next.js 和 SDK，验证先到达的文本、断流、公开错误与上游连接关闭，无真实模型费用。 |
+| 浏览器验收 | [check-browser.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-browser.mjs) | Chromium 验证流式显示、取消重试、错误、清空会话与手机布局；CI 保存合成会话截图。 |
+| 构建与部署配置 | [CI](https://github.com/dev-belly/personal-ai-chat/blob/main/.github/workflows/ci.yml) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) | Node 测试、依赖审计、HTTP 与浏览器验证、Next.js 及 OpenNext / Cloudflare Workers 双构建。 |
 
 首次试用可按 [运行指南](START_HERE.md#run-the-full-stack-chat-application--运行全栈聊天应用)执行。
 默认模拟回复是固定示例；真实模型与生产部署需单独配置。
@@ -50,6 +55,7 @@
 
 ## 可以继续展开的工程问题
 
+- 为什么已经显示部分回复，仍必须等到明确的完成事件才纳入下一轮上下文？
 - 取消请求与创建新会话时，如何避免较晚返回的响应写入错误会话？
 - 为什么消息字符数合规，中文与 JSON 转义仍可能使请求超过字节上限？
 - 为什么工具函数单测通过后，还需要启动真实 HTTP 服务验证？
