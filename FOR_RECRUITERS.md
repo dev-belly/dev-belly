@@ -27,8 +27,9 @@
 | 服务端接口 | [chat-handler.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/server/chat-handler.ts) | 配置、独立口令、JSON / SSE 协商、50 秒截止时间、取消传播与请求编号。 |
 | 模型适配器 | [model-provider.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/server/model-provider.ts) | Anthropic 与 OpenAI 兼容服务共享 AI SDK 接口；验证终止原因，不自动重试。 |
 | 输入契约 | [lib/chat-validation.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-validation.ts) | 流式读取并限制请求体；校验角色交替、消息长度和完整会话。 |
-| HTTP 集成验证 | [scripts/check-http.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-http.mjs) | 33 项检查经过生产 Next.js 和 AI SDK，验证先到达的文本、断流、公开错误与上游连接关闭，无真实模型费用。 |
+| HTTP 集成验证 | [scripts/check-http.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-http.mjs) | 41 项检查经过生产 Next.js 和 AI SDK，验证先到达的文本、断流、公开错误、Unicode 边界与上游连接关闭，无真实模型费用。 |
 | 浏览器验收 | [check-browser.mjs](https://github.com/dev-belly/personal-ai-chat/blob/main/scripts/check-browser.mjs) | Chromium 验证流式显示、取消重试、刷新恢复、跨标签页冲突、存储降级、代码复制与手机布局；CI 保存合成会话截图。 |
+| 文字与编码边界 | [检查说明](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/TEXT_BOUNDARIES.zh-CN.md) · [回归测试](https://github.com/dev-belly/personal-ai-chat/blob/main/test/text-boundaries.test.mjs) | 严格 UTF-8、完整 emoji 标题、跨事件 Unicode 缓冲及损坏字符拒绝；源码与文档持续扫描。 |
 | 构建与部署配置 | [CI](https://github.com/dev-belly/personal-ai-chat/blob/main/.github/workflows/ci.yml) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) | strict TypeScript、Node 测试、依赖审计、HTTP 与浏览器验证、Next.js 及 OpenNext / Cloudflare Workers 双构建。 |
 
 首次试用可按 [运行指南](START_HERE.md#run-the-full-stack-chat-application--运行全栈聊天应用)执行。

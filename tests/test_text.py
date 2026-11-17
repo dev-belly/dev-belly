@@ -1,8 +1,11 @@
 """Examples of corruption that must fail, and legitimate Unicode that must pass."""
 
 import unittest
+import tempfile
+from pathlib import Path
+import subprocess
 
-from scripts.check_text import findings
+from scripts.check_text import findings, inspect
 
 
 class TextQualityTests(unittest.TestCase):
@@ -16,7 +19,7 @@ class TextQualityTests(unittest.TestCase):
         self.assertTrue(findings("中文".encode("gbk"), ".md"))
 
     def test_broken_characters_and_nul_fail(self):
-        for text in ("bad\ufffdtext", "cafÃ©", "itâ€™s", "bad\x00text", "bad\x81text", "bad\x85text"):
+        for text in ("bad\ufffdtext", "caf\u00c3\u00a9", "it\u00e2\u20ac\u2122s", "bad\x00text", "bad\x81text", "bad\x85text"):
             with self.subTest(text=text):
                 self.assertTrue(findings(text.encode(), ".md"))
 
@@ -34,6 +37,18 @@ class TextQualityTests(unittest.TestCase):
 
     def test_invalid_utf8_inside_a_script_still_fails(self):
         self.assertTrue(findings(b"<script>\xff</script>", ".html"))
+
+    def test_source_and_configuration_are_checked_too(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+            raw = b"print('\xff')"
+            (root / "broken.py").write_bytes(raw)
+            (root / "ci.yml").write_text("name: 中文检查\n", encoding="utf-8")
+            report = inspect(root)
+            self.assertEqual(report["checked_files"], 2)
+            self.assertEqual(report["issues"], [{"path": "broken.py", "line": 1, "reason": "not valid UTF-8"}])
+            self.assertEqual((root / "broken.py").read_bytes(), raw)
 
 
 if __name__ == "__main__":

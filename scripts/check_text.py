@@ -1,4 +1,4 @@
-"""Check public documentation bytes without changing or guessing their encoding.
+"""Check source and public documentation without guessing their encoding.
 
 Only high-confidence corruption signatures are blocking. A clean result cannot
 prove that an installed font contains every glyph or that a client renders it.
@@ -10,8 +10,10 @@ from pathlib import Path
 import re
 import subprocess
 
-SUFFIXES = {".md", ".rst", ".html", ".svg", ".txt"}
-CORRUPTION = re.compile("\ufffd|Ã[\u0080-\u00bf]|â€[™œ\u009d]|锟斤拷")
+SUFFIXES = {".md", ".rst", ".html", ".svg", ".txt", ".py", ".json", ".yml", ".yaml",
+            ".toml", ".css", ".js", ".mjs", ".ts", ".tsx", ".ps1"}
+TEXT_NAMES = {"LICENSE", ".gitignore", ".gitattributes", ".env.example"}
+CORRUPTION = re.compile(r"\ufffd|\u00c3[\u0080-\u00bf]|\u00e2\u20ac[\u2122\u0153\u009d]|\u951f\u65a4\u62f7")
 CONTROLS = re.compile("[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]")
 UTF8_META = re.compile(r'''<meta\b[^>]*\bcharset\s*=\s*["']?utf-8\b''', re.I)
 
@@ -52,10 +54,10 @@ def inspect(root):
     checked, issues = 0, []
     for name in names:
         path = root / name
-        if path.suffix.lower() not in SUFFIXES:
+        if path.suffix.lower() not in SUFFIXES and path.name not in TEXT_NAMES:
             continue
         if path.is_symlink() or not path.resolve().is_relative_to(root):
-            issues.append({"path": name, "line": 1, "reason": "documentation symlink leaves the checked file set"})
+            issues.append({"path": name, "line": 1, "reason": "text symlink leaves the checked file set"})
             continue
         if not path.exists():
             continue  # Staged files deleted in the working tree are not read.
@@ -81,7 +83,7 @@ def main():
     else:
         for item in report["issues"]:
             print(f"{item['path']}:{item['line']}: {item['reason']}")
-        print(f"Text checks: {report['checked_files']} public files, {len(report['issues'])} findings.")
+        print(f"Text checks: {report['checked_files']} source/documentation files, {len(report['issues'])} findings.")
     return 1 if report["issues"] else 0
 
 
