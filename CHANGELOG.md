@@ -1,5 +1,15 @@
 # Build history
 
+**2026-11-17 · Save conversations and render streaming Markdown.**
+Personal AI Chat adds explicit local saving with Dexie / IndexedDB: atomic
+summary/body writes, revision conflicts, reactive cross-tab history, title
+search, deletion, reload/continue and JSON export. Streamdown / Shiki with
+Tailwind CSS 4 render streaming Markdown, tables and copyable highlighted code.
+Link the storage design and implementation in both profile languages and the
+engineering overview; browser checks exercise persistence, races, unavailable
+storage and rendered-content boundaries. Account sync and server persistence
+remain outside the implemented feature set.
+
 **2026-11-16 · Adopt typed AI SDK 7 message streams.**
 Update the engineering entry for Next.js 16.4, React 19.3, strict TypeScript 7,
 Zod contracts and React Compiler. Link the standard UIMessage transport, shared
