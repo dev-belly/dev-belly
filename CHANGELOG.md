@@ -1,5 +1,13 @@
 # Build history
 
+**2026-11-17 · Check text bytes and Unicode boundaries.**
+Audit the chat and profile text files, then fix reproducible Unicode boundary
+failures: emoji titles, invalid request bytes, unpaired JSON escapes and split
+provider deltas. Expand the profile guard to source/configuration and add a
+source/documentation guard to chat CI. Link the repair design and regressions;
+the chat HTTP fixture now checks 41 behaviors. File scans report problems and
+preserve original bytes rather than guessing an encoding.
+
 **2026-11-17 · Save conversations and render streaming Markdown.**
 Personal AI Chat adds explicit local saving with Dexie / IndexedDB: atomic
 summary/body writes, revision conflicts, reactive cross-tab history, title
