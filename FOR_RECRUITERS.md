@@ -19,7 +19,7 @@
 | 可以检查的能力 | 对应源码 | 具体行为 |
 | --- | --- | --- |
 | 页面状态与交互 | [use-chat.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/app/hooks/use-chat.ts) · [chat-state.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-state.ts) | 流入、完成、未完成、取消重试与新会话；旧请求动作不能写入新会话。 |
-| 会话存储与并发 | [conversation-store.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/local/conversation-store.ts) · [设计](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/LOCAL_CONVERSATIONS.zh-CN.md) | 摘要/正文同事务写入；修订冲突、跨标签页响应式目录、保存与新会话隔离；只在用户主动保存时落盘。 |
+| 会话存储与并发 | [conversation-store.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/local/conversation-store.ts) · [设计](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/LOCAL_CONVERSATIONS.zh-CN.md) | 摘要和正文同事务写入，修订检查防止跨标签页覆盖，目录随存储更新。切换会话时比对上次保存的内容，取消确认可保留草稿和对话。 |
 | Markdown 与代码 | [message-markdown.tsx](https://github.com/dev-belly/personal-ai-chat/blob/main/app/components/message-markdown.tsx) | 未闭合代码围栏增量显示，完成后复制；限制链接协议，外部图片用替代文字显示。 |
 | 流式传输 | [chat-ui-transport.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-ui-transport.ts) | 使用 AI SDK 官方传输与 UIMessage 读取器；校验元数据、帧预算和明确完成事件。 |
 | 共享数据契约 | [chat-contract.ts](https://github.com/dev-belly/personal-ai-chat/blob/main/lib/chat-contract.ts) | Zod 4 校验实际输入并推导类型；标准 UI 信封按真实序列化开销裁剪。 |
