@@ -2,7 +2,7 @@
 
 ## Run the full-stack chat application / 运行全栈聊天应用
 
-Requires Node.js 20.9 or later. Start from a new checkout:
+Use Node.js 22.18 or later and start from a new checkout.
 
 ```bash
 git clone https://github.com/dev-belly/personal-ai-chat.git
@@ -69,8 +69,11 @@ uv run --locked statementtrace warehouse --out output/api-demo
 uv run --locked statementtrace serve-warehouse output/api-demo
 ```
 
-Open `http://127.0.0.1:8000/docs`, or query
-`http://127.0.0.1:8000/v1/cashflow?symbol=GOOGL&period=2024`.
+Open `http://127.0.0.1:8000/explorer/?symbol=AAPL&period=2024` and select free
+cash flow to inspect operating cash flow, capital spending and the original
+filings. The address retains the selected issuer and year. Open
+`http://127.0.0.1:8000/docs` for the interactive API documentation, or query
+`http://127.0.0.1:8000/v1/cashflow?symbol=GOOGL&period=2024` directly.
 Amounts are exact integer strings; `/v1/facts` retains filing dates, accession,
 fact ID and source URL. A fixed snapshot supports pagination and concurrent reads.
 Unknown/duplicate parameters are rejected. Build another packet and restart to
@@ -78,10 +81,58 @@ change its cutoff. This is a local service, separate from the static Pages repor
 [中文接口指南](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
 [HTTP examples](https://github.com/dev-belly/StatementTrace/blob/main/examples/api/requests.http).
 
+## Run the review, ledger and contract demos
 
-Try the invoice case in your browser, install a project locally, or follow a
-business question into its evidence and code.
-先在浏览器改一个时间并核对结果，也可以本地运行项目，或直接审阅业务问题、结果和实现。
+### CreditVintage review workbench
+
+From a current [CreditVintage](https://github.com/dev-belly/CreditVintage)
+checkout with a Python 3.12+ virtual environment active, run the following
+commands. Use new output paths for a fresh trial.
+
+```bash
+python -m pip install -e .
+creditvintage analyze docs/demo --out outputs/browser-analysis
+creditvintage review-init outputs/browser-analysis --db outputs/browser-reviews.sqlite
+creditvintage review-web outputs/browser-reviews.sqlite
+```
+
+Open the printed loopback URL. Choose a synthetic case, enter a test reviewer
+name and save a `claim`. Refresh the page to see the saved case history.
+Open the same case in two tabs before a change to see how the older case version
+is rejected. [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md).
+
+### LedgerX reconciliation workbench
+
+From a current [LedgerX](https://github.com/dev-belly/LedgerX) checkout with a
+Python 3.11+ virtual environment active, run these commands with a new journal name.
+Use port 8766 to keep it separate from the review workbench.
+
+```bash
+python -m pip install -e .
+ledgerx web browser-demo-ledger.jsonl --port 8766
+```
+
+Open the printed loopback URL and import `examples/ingestion_events.jsonl`
+twice. The first import appends three unique events and reuses the duplicate
+row. The second reuses all four rows and keeps the balances and journal head
+unchanged.
+[Sample event feed](https://github.com/dev-belly/LedgerX/blob/main/examples/ingestion_events.jsonl).
+
+### WeCom Agent contract search
+
+From a current [WeCom Agent](https://github.com/dev-belly/wecom-agent-platform)
+checkout, use Node.js 22.12 or later.
+
+```bash
+cd web
+npm ci
+npm run dev
+```
+
+Open `http://localhost:5173/wecom-agent-platform/` in Demo mode and select **合同查询**. Search
+`DEMO-001` to see one synthetic contract with its source page. Clear the
+filters and search again to see twelve matches with ten displayed.
+[Demo and Live setup](https://github.com/dev-belly/wecom-agent-platform/blob/main/README.md#浏览器合同查询).
 
 ## Try in your browser
 

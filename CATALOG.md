@@ -22,8 +22,8 @@
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
-| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) | 三家公司利润与现金流研究、财报来源追溯和 SQL 复算<br />Python · Polars · Parquet · DuckDB · dbt · FastAPI · SQL | 24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。 |
-| [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-brief/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与人工复核<br />Python · SQL · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
+| [**StatementTrace**](https://github.com/dev-belly/StatementTrace) · [README](https://github.com/dev-belly/StatementTrace/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/StatementTrace/cashflow/zh/) · [证据 / 方法](https://github.com/dev-belly/StatementTrace/blob/main/docs/CASHFLOW_STUDY.zh-CN.md) | 财报浏览器、申报来源追溯与三家公司现金流的 SQL 复算<br />Python · Polars · Parquet · DuckDB · dbt · FastAPI · SQL | 24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。 |
+| [**CreditVintage**](https://github.com/dev-belly/CreditVintage) · [README](https://github.com/dev-belly/CreditVintage/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/CreditVintage/sba-brief/) · [证据 / 方法](https://github.com/dev-belly/CreditVintage/blob/main/docs/SBA_CREDIT.md) | 跨期信贷验证、客群 SQL 分析与支持并发版本检查的网页复核台<br />Python · SQLite · JavaScript · scikit-learn | SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。 |
 | [**PITBridge**](https://github.com/dev-belly/PITBridge) · [README](https://github.com/dev-belly/PITBridge/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/PITBridge/try/) · [证据 / 方法](https://github.com/dev-belly/PITBridge/blob/main/examples/README.md) | 按事件与获知时间重建历史快照和滚动特征<br />Python · SQLite | 合成发票与事件示例；演示数据可用性规则。 |
 
 ## 财务、审计与会计 / Financial analysis
@@ -33,7 +33,7 @@
 | [**NetworkClear**](https://github.com/dev-belly/NetworkClear) · [README](https://github.com/dev-belly/NetworkClear/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/NetworkClear/) · [证据 / 方法](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) | 交易对手冲击、债务清偿与外部损失勾稽<br />Python | 合成金融网络；模型假设见清偿方法。 |
 | [**ControlTrace**](https://github.com/dev-belly/ControlTrace) · [README](https://github.com/dev-belly/ControlTrace/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/ControlTrace/blob/main/docs/CASE_STUDY.md) | 把内控结论绑定到当前证据版本<br />Python | 审计工作流案例；不等于真实审计意见。 |
 | [**AuditLens**](https://github.com/dev-belly/AuditLens) · [README](https://github.com/dev-belly/AuditLens/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/AuditLens/tree/main/outputs/reports/) | 总账异常、可解释风险排序与审计底稿<br />Python · SQL · Streamlit | 合成总账和规则实验；结果用于人工审阅。 |
-| [**LedgerX**](https://github.com/dev-belly/LedgerX) · [README](https://github.com/dev-belly/LedgerX/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) | 成交、复式记账与估值的精确勾稽<br />Python | 示例交易与会计规则；许可证以仓库声明为准。 |
+| [**LedgerX**](https://github.com/dev-belly/LedgerX) · [README](https://github.com/dev-belly/LedgerX/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/LedgerX/blob/main/examples/valuation.json) | 浏览器批量导入、复式记账对账与估值勾稽<br />Python · JavaScript | 示例交易与会计规则；许可证以仓库声明为准。 |
 
 ## 研究与方法实验 / Research bench
 
@@ -51,8 +51,8 @@
 
 | 项目与入口 | 解决的问题 / 技术 | 数据与使用边界 |
 | :--- | :--- | :--- |
-| [**wecom-agent-platform**](https://github.com/dev-belly/wecom-agent-platform) · [README](https://github.com/dev-belly/wecom-agent-platform/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md) | 合同全量筛选、持仓汇总与企业微信 Agent 原型<br />Python · FastAPI · React | 静态界面和离线业务试验；模型、企微回复及部署有独立边界。 |
-| [**personal-ai-chat**](https://github.com/dev-belly/personal-ai-chat) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ENGINEERING.zh-CN.md) | 聊天页面、服务端模型代理、取消重试与本地 HTTP 验证<br />Next.js · React · JavaScript · Cloudflare Workers | 默认固定本地模拟；真实服务需要独立配置与访问口令。本地验证不代表已部署。 |
+| [**wecom-agent-platform**](https://github.com/dev-belly/wecom-agent-platform) · [README](https://github.com/dev-belly/wecom-agent-platform/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/wecom-agent-platform/blob/main/docs/business-workflow.md) | 带来源页码的网页合同筛选、持仓汇总与企业微信 Agent 原型<br />React · TypeScript · FastAPI · Python | Demo 使用合成数据，Live 查询需要单独配置并建立文档索引。 |
+| [**personal-ai-chat**](https://github.com/dev-belly/personal-ai-chat) · [README](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ENGINEERING.zh-CN.md) | 可取消的流式聊天、IndexedDB 会话历史与服务端模型代理<br />Next.js · React · TypeScript · Dexie · Cloudflare Workers | 默认固定本地模拟；真实服务需要独立配置与访问口令。本地验证不代表已部署。 |
 | [**digital-craftsman**](https://github.com/dev-belly/digital-craftsman) · [README](https://github.com/dev-belly/digital-craftsman/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/digital-craftsman/blob/main/%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md) | 学生能力档案、企业评价与作品集小程序<br />微信小程序 · 云函数 | 小程序及云环境需单独部署验收；不上线状态承诺。 |
 | [**ranxin-mini-program**](https://github.com/dev-belly/ranxin-mini-program) · [README](https://github.com/dev-belly/ranxin-mini-program/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/ranxin-mini-program/blob/main/ONBOARDING.md) | MBTI、纹样收集与 DIY 创作比赛原型<br />微信小程序 · JavaScript | 默认本地 Mock；云函数和真实数据库需单独验收。 |
 | [**goose-leg-auntie-site**](https://github.com/dev-belly/goose-leg-auntie-site) · [README](https://github.com/dev-belly/goose-leg-auntie-site/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/goose-leg-auntie-site/) | 校园传播案例的信息组织与页面呈现<br />HTML · CSS | 公开报道与分析推断分开；不是独立经营审计。 |

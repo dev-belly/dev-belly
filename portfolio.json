@@ -5,7 +5,7 @@
     {
       "repo": "StatementTrace",
       "group": "flagship",
-      "summary": "三家公司利润与现金流研究、财报来源追溯和 SQL 复算",
+      "summary": "财报浏览器、申报来源追溯与三家公司现金流的 SQL 复算",
       "stack": "Python · Polars · Parquet · DuckDB · dbt · FastAPI · SQL",
       "boundary": "24 条人工整理的公开财报事实；FY2023–FY2024 历史案例，各公司财年窗口不同。",
       "demo": "https://dev-belly.github.io/StatementTrace/cashflow/zh/",
@@ -14,8 +14,8 @@
     {
       "repo": "CreditVintage",
       "group": "flagship",
-      "summary": "跨期信贷验证、客群 SQL 分析与人工复核",
-      "stack": "Python · SQL · scikit-learn",
+      "summary": "跨期信贷验证、客群 SQL 分析与支持并发版本检查的网页复核台",
+      "stack": "Python · SQLite · JavaScript · scikit-learn",
       "boundary": "SBA 放款分期回溯、UCI 静态数据与合成事件实验分别解释。",
       "demo": "https://dev-belly.github.io/CreditVintage/sba-brief/",
       "evidence": "docs/SBA_CREDIT.md"
@@ -83,8 +83,8 @@
     {
       "repo": "LedgerX",
       "group": "financial",
-      "summary": "成交、复式记账与估值的精确勾稽",
-      "stack": "Python",
+      "summary": "浏览器批量导入、复式记账对账与估值勾稽",
+      "stack": "Python · JavaScript",
       "boundary": "示例交易与会计规则；许可证以仓库声明为准。",
       "evidence": "examples/valuation.json"
     },
@@ -123,16 +123,16 @@
     {
       "repo": "wecom-agent-platform",
       "group": "applications",
-      "summary": "合同全量筛选、持仓汇总与企业微信 Agent 原型",
-      "stack": "Python · FastAPI · React",
-      "boundary": "静态界面和离线业务试验；模型、企微回复及部署有独立边界。",
+      "summary": "带来源页码的网页合同筛选、持仓汇总与企业微信 Agent 原型",
+      "stack": "React · TypeScript · FastAPI · Python",
+      "boundary": "Demo 使用合成数据，Live 查询需要单独配置并建立文档索引。",
       "evidence": "docs/business-workflow.md"
     },
     {
       "repo": "personal-ai-chat",
       "group": "applications",
-      "summary": "聊天页面、服务端模型代理、取消重试与本地 HTTP 验证",
-      "stack": "Next.js · React · JavaScript · Cloudflare Workers",
+      "summary": "可取消的流式聊天、IndexedDB 会话历史与服务端模型代理",
+      "stack": "Next.js · React · TypeScript · Dexie · Cloudflare Workers",
       "boundary": "默认固定本地模拟；真实服务需要独立配置与访问口令。本地验证不代表已部署。",
       "evidence": "docs/ENGINEERING.zh-CN.md"
     },

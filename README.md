@@ -14,11 +14,11 @@
 | 项目 | 已实现的开发能力 | 先看哪里 |
 | --- | --- | --- |
 | **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js 16.4 / React 19.3 / TypeScript 7 / AI SDK 7；Dexie 多会话与草稿保护、Streamdown / Shiki 流式 Markdown、双模型协议 | [本地运行与工程说明](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [本机会话](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/LOCAL_CONVERSATIONS.zh-CN.md) · [架构与协议](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ARCHITECTURE.zh-CN.md) |
-| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | FastAPI / Pydantic 类型接口；筛选分页、精确金额、来源追溯与不可变快照 | [API 启动](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) · [实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) · [接口测试](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py) |
+| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | 财报浏览器通过 FastAPI 按公司和财年读取固定快照，从自由现金流追到原始申报 | [本地运行](START_HERE.md#query-the-verified-financial-api) · [页面实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/explorer/explorer.js) |
+| **[CreditVintage](https://github.com/dev-belly/CreditVintage)** | 网页领取、结案和重开复核任务，查看 SQLite 事件历史；版本检查防止两个标签页覆盖同一案件 | [用样例试跑](START_HERE.md#creditvintage-review-workbench) · [复核实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | 浏览器交互、URL 状态、JSON 下载与 Python / SQLite 独立重放 | [立即试用](https://dev-belly.github.io/PITBridge/try/) · [下载后重放](START_HERE.md#download-and-replay-your-browser-scenario) |
 
-Personal AI Chat 默认使用本地固定回复，真实模型需要自行配置；StatementTrace API 在本机运行。
-[开发项目速览](FOR_RECRUITERS.md)将页面、接口、数据与验证对应到具体源码。
+Personal AI Chat 的本地演示使用固定回复。LedgerX 导入对账与 WeCom Agent 合同查询的运行入口和实现见[开发项目速览](FOR_RECRUITERS.md#复核对账与合同查询)。
 
 <a id="selected-work"></a>
 
