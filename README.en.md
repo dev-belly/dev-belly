@@ -14,11 +14,11 @@ Explore the existing implementations, setup instructions and verification paths 
 | Project | Implemented behavior | Inspect |
 | --- | --- | --- |
 | **[Personal AI Chat](https://github.com/dev-belly/personal-ai-chat)** | Next.js 16.4 / React 19.3 / TypeScript 7 / AI SDK 7, with Dexie history and unsaved-work prompts, Streamdown / Shiki streaming Markdown, and two provider protocols | [Setup](https://github.com/dev-belly/personal-ai-chat/blob/main/README.md) · [Local history](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/LOCAL_CONVERSATIONS.zh-CN.md) · [Architecture](https://github.com/dev-belly/personal-ai-chat/blob/main/docs/ARCHITECTURE.zh-CN.md) |
-| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | Typed FastAPI / Pydantic endpoints, pagination, exact money, source lineage and immutable snapshots | [API setup](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) · [Implementation](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) · [HTTP contracts](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py) |
+| **[StatementTrace](https://github.com/dev-belly/StatementTrace)** | Filter a verified financial snapshot by issuer and year, then trace free cash flow to its original filings through a FastAPI-backed explorer | [Run locally](START_HERE.md#query-the-verified-financial-api) · [Explorer code](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/explorer/explorer.js) |
+| **[CreditVintage](https://github.com/dev-belly/CreditVintage)** | Claim, resolve and reopen cases in a browser with SQLite event history and version checks for concurrent edits | [Try on sample data](START_HERE.md#creditvintage-review-workbench) · [Review code](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | Browser interaction, URL state, JSON download and independent Python / SQLite replay | [Try it](https://dev-belly.github.io/PITBridge/try/) · [Replay](START_HERE.md#download-and-replay-your-browser-scenario) |
 
-Personal AI Chat starts with fixed local replies; a real model requires separate configuration.
-The StatementTrace API runs locally. [Engineering overview](FOR_RECRUITERS.md) maps the UI, API, data and checks to source files.
+Personal AI Chat starts with fixed local replies. The [engineering overview](FOR_RECRUITERS.md#复核对账与合同查询) links to LedgerX reconciliation and WeCom Agent contract search.
 
 ## Selected work
 

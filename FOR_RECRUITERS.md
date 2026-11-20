@@ -36,11 +36,15 @@
 默认模拟回复是固定示例；真实模型与生产部署需单独配置。
 保存的记录在当前浏览器中，没有账号同步或服务端会话库。
 
-## 再看 StatementTrace：类型接口与数据一致性
+## StatementTrace 财报浏览器与类型接口
 
-[API 运行说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/API.zh-CN.md) ·
+[本地运行](START_HERE.md#query-the-verified-financial-api) ·
+[浏览器实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/data/explorer/explorer.js) ·
 [接口实现](https://github.com/dev-belly/StatementTrace/blob/main/src/statementtrace/api.py) ·
-[接口测试](https://github.com/dev-belly/StatementTrace/blob/main/tests/test_api.py)
+[浏览器验收](https://github.com/dev-belly/StatementTrace/blob/main/scripts/check_browser.py)
+
+在浏览器选择公司和财年，点击自由现金流查看经营现金流与资本开支对应的申报来源。
+页面用 URL 记录当前筛选，区分零与缺失金额，并检查结果来自同一份数据快照。
 
 **FastAPI / Pydantic / Uvicorn** 提供六个只读接口，支持公司与财年筛选、来源事实分页。
 启动前捕获并核验数据包，请求读取同一份快照；金额通过 JSON 时保留为精确整数字符串，
@@ -52,7 +56,15 @@
 [SQL 与 dbt 模型](https://github.com/dev-belly/StatementTrace/tree/main/warehouse_dbt/models)及
 [管道说明](https://github.com/dev-belly/StatementTrace/blob/main/docs/WAREHOUSE.zh-CN.md)。
 
-这是三家公司 FY2023–FY2024 的手工整理案例。API 本地运行，公开静态报告与服务端接口分别验收。
+这是三家公司 FY2023–FY2024 的手工整理案例。浏览器和 API 由同一个本地服务提供。
+
+## 复核、对账与合同查询
+
+| 应用 | 可以试跑的流程 | 实现入口 |
+| --- | --- | --- |
+| CreditVintage 网页复核台 | 领取、结案或重开合成信贷案件，查看 SQLite 事件历史。两个标签页同时修改案件时，旧版本提交收到冲突，页面刷新案件。 | [本地运行](START_HERE.md#creditvintage-review-workbench) · [网页接口](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/workbench.py) · [事务与重放](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
+| LedgerX 导入对账 | 上传示例 JSONL，检查余额、分录和日志末条哈希。重导同一批事件时复用已有记录，余额和哈希保持一致。 | [本地运行](START_HERE.md#ledgerx-reconciliation-workbench) · [网页接口](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/workbench.py) · [批量导入](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/ingestion.py) |
+| WeCom Agent 合同查询 | 在 React 页面筛选合成合同，核对匹配总数、展示条数与来源页码。Live 模式可连接已建立文档索引的 FastAPI 服务。 | [本地运行](START_HERE.md#wecom-agent-contract-search) · [界面](https://github.com/dev-belly/wecom-agent-platform/blob/main/web/src/components/ContractView.tsx) · [前端测试](https://github.com/dev-belly/wecom-agent-platform/blob/main/web/tests/contracts.test.mjs) |
 
 ## 浏览器交互与独立重放
 
