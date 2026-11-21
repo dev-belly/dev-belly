@@ -123,9 +123,10 @@
     {
       "repo": "wecom-agent-platform",
       "group": "applications",
-      "summary": "带来源页码的网页合同筛选、持仓汇总与企业微信 Agent 原型",
+      "summary": "网页合同筛选、固定索引版本分页、持仓汇总与企业微信 Agent 原型",
       "stack": "React · TypeScript · FastAPI · Python",
       "boundary": "Demo 使用合成数据，Live 查询需要单独配置并建立文档索引。",
+      "demo": "https://dev-belly.github.io/wecom-agent-platform/?view=contracts",
       "evidence": "docs/business-workflow.md"
     },
     {

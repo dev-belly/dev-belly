@@ -120,6 +120,10 @@ unchanged.
 
 ### WeCom Agent contract search
 
+Open the [online contract demo](https://dev-belly.github.io/wecom-agent-platform/?view=contracts)
+to see the first ten of twelve synthetic matches. Select **下一页** to see the
+last two with their source pages. Search `DEMO-001` to see a single result.
+
 From a current [WeCom Agent](https://github.com/dev-belly/wecom-agent-platform)
 checkout, use Node.js 22.12 or later.
 
@@ -129,9 +133,9 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:5173/wecom-agent-platform/` in Demo mode and select **合同查询**. Search
-`DEMO-001` to see one synthetic contract with its source page. Clear the
-filters and search again to see twelve matches with ten displayed.
+Open `http://localhost:5173/wecom-agent-platform/?view=contracts` to run the same
+sample locally. Live queries page through the same index version and prompt
+for a fresh search if that version changes.
 [Demo and Live setup](https://github.com/dev-belly/wecom-agent-platform/blob/main/README.md#浏览器合同查询).
 
 ## Try in your browser
