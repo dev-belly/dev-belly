@@ -61,6 +61,8 @@ Use a new or empty output directory. [中文讲解、精度规则与手动 dbt �
 
 ### Query the verified financial API
 
+[Open the online explorer](https://dev-belly.github.io/StatementTrace/explorer/?symbol=GOOGL&period=2024) and switch the filing cutoff from February 5 to February 4, 2025. Alphabet's figures become unavailable under the earlier snapshot. Select the free cash flow amount at the later cutoff to inspect both source facts.
+
 In the StatementTrace checkout, use a new output directory:
 
 ```bash
@@ -84,6 +86,8 @@ change its cutoff. This is a local service, separate from the static Pages repor
 ## Run the review, ledger and contract demos
 
 ### CreditVintage review workbench
+
+[Try the browser demo](https://dev-belly.github.io/CreditVintage/review/) with 48 synthetic cases. Claim a case, resolve it with a reason and evidence reference, then reopen it and inspect the recorded actions. The demo saves changes in the current browser tab.
 
 From a current [CreditVintage](https://github.com/dev-belly/CreditVintage)
 checkout with a Python 3.12+ virtual environment active, run the following
