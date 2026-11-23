@@ -45,7 +45,7 @@
 | [**investor-network-gnn**](https://github.com/dev-belly/investor-network-gnn) · [README](https://github.com/dev-belly/investor-network-gnn/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/investor-network-gnn/tree/main/experiments/2026-09-17/) | 投资者网络、图模型消融与多种子预测<br />Python · PyTorch | 合成数据；保留 GCN 未显示稳定优势的结果。 |
 | [**highdim-causal-allocation-lab**](https://github.com/dev-belly/highdim-causal-allocation-lab) · [README](https://github.com/dev-belly/highdim-causal-allocation-lab/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/highdim-causal-allocation-lab/) | 高维因果估计、Monte Carlo 与稳健配置<br />Python · React | 模拟因果与配置实验；不建立现实因果结论。 |
 | [**interval-financial-risk**](https://github.com/dev-belly/interval-financial-risk) · [README](https://github.com/dev-belly/interval-financial-risk/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/interval-financial-risk/) | 区间和分布特征的风险识别实验<br />Python | 合成实验中的负结果：区间特征未改善 AUC。 |
-| [**ashare-multifactor-research**](https://github.com/dev-belly/ashare-multifactor-research) · [README](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.md) · [证据 / 方法](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md) | A 股因子研究、purged 验证与数据接入<br />Python · SQL | 默认合成数据；真实 A 股结果须按对应数据路径单独验证。 |
+| [**ashare-multifactor-research**](https://github.com/dev-belly/ashare-multifactor-research) · [README](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.md) · [试用 / 报告](https://dev-belly.github.io/ashare-multifactor-research/) · [证据 / 方法](https://github.com/dev-belly/ashare-multifactor-research/blob/main/README.zh-CN.md) | A 股因子研究、purged 验证与数据接入<br />Python · SQL | 默认合成数据；真实 A 股结果须按对应数据路径单独验证。 |
 
 ## 应用与早期作品 / Applications
 

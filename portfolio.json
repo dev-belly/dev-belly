@@ -118,6 +118,7 @@
       "summary": "A 股因子研究、purged 验证与数据接入",
       "stack": "Python · SQL",
       "boundary": "默认合成数据；真实 A 股结果须按对应数据路径单独验证。",
+      "demo": "https://dev-belly.github.io/ashare-multifactor-research/",
       "evidence": "README.zh-CN.md"
     },
     {
