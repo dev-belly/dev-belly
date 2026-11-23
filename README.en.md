@@ -33,8 +33,8 @@ Open `index.html` in each linked workbench folder to filter the saved evidence, 
 | **AuditLens** | [Filter 300 review vouchers and inspect the selection and risk evidence](https://github.com/dev-belly/AuditLens/tree/main/docs/workbench) |
 | **ControlTrace** | [Trace automated control findings to timestamped source records](https://github.com/dev-belly/ControlTrace/tree/main/docs/workbench) |
 | **NetworkClear** | [Explore 15 stress cases, cascades and exact clearing payments](https://github.com/dev-belly/NetworkClear/tree/main/docs/workbench) |
-| **StressAtlas** | [Compare tail losses and attribute expected shortfall to sectors](https://github.com/dev-belly/StressAtlas/tree/main/demo/workbench) |
-| **AlphaForge** | [Compare 22 model and cost cases with the audited label cutoffs](https://github.com/dev-belly/alphaforge/tree/main/docs/workbench) |
+| **StressAtlas** | [Compare tail losses and attribute expected shortfall to sectors](https://dev-belly.github.io/StressAtlas/workbench/) · [Source](https://github.com/dev-belly/StressAtlas/tree/main/demo/workbench) |
+| **AlphaForge** | [Compare 22 model and cost cases with the audited label cutoffs](https://dev-belly.github.io/alphaforge/workbench/) · [Source](https://github.com/dev-belly/alphaforge/tree/main/docs/workbench) |
 | **Investor Network GNN** | [Compare saved model results and examine test-edge ablations by seed](https://github.com/dev-belly/investor-network-gnn/tree/main/docs/workbench) |
 | **LedgerX** | [Run the local batch import, retry and journal reconciliation demo](START_HERE.md#ledgerx-reconciliation-workbench) |
 

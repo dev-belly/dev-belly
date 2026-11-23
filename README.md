@@ -69,8 +69,8 @@ Personal AI Chat 的本地演示使用固定回复。
 | **AuditLens** | 从 300 条复核凭证筛出风险或随机样本，检查入选理由 | [审计复核](https://github.com/dev-belly/AuditLens/tree/main/docs/workbench) |
 | **ControlTrace** | 逐条核对五项内控规则命中的事件时间线和来源记录 | [证据工作台](https://github.com/dev-belly/ControlTrace/tree/main/docs/workbench) |
 | **NetworkClear** | 切换 15 个冲击与注资情景，追踪传染违约和精确付款 | [清算工作台](https://github.com/dev-belly/NetworkClear/tree/main/docs/workbench) |
-| **StressAtlas** | 比较尾部损失和违约相关性，并把 ES 分解到行业 | [尾部风险](https://github.com/dev-belly/StressAtlas/tree/main/demo/workbench) |
-| **AlphaForge** | 对照 22 组市场实验，查看净夏普、成本拖累和标签边界 | [量化实验](https://github.com/dev-belly/alphaforge/tree/main/docs/workbench) |
+| **StressAtlas** | 比较尾部损失和违约相关性，并把 ES 分解到行业 | [在线尾部风险工作台](https://dev-belly.github.io/StressAtlas/workbench/) · [源码](https://github.com/dev-belly/StressAtlas/tree/main/demo/workbench) |
+| **AlphaForge** | 对照 22 组市场实验，查看净夏普、成本拖累和标签边界 | [在线量化实验工作台](https://dev-belly.github.io/alphaforge/workbench/) · [源码](https://github.com/dev-belly/alphaforge/tree/main/docs/workbench) |
 | **Investor Network GNN** | 切换模型和种子，核对样本外指标与删边对照 | [图模型实验](https://github.com/dev-belly/investor-network-gnn/tree/main/docs/workbench) |
 | **LedgerX** | 导入批次、验证安全重试，从流水查看借贷分录 | [本地对账台](START_HERE.md#ledgerx-reconciliation-workbench) |
 
