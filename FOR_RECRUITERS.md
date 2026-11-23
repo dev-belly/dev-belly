@@ -65,7 +65,8 @@
 | 应用 | 可以试跑的流程 | 实现入口 |
 | --- | --- | --- |
 | CreditVintage 网页复核台 | 领取、结案或重开合成信贷案件，查看 SQLite 事件历史。两个标签页同时修改案件时，旧版本提交收到冲突，页面刷新案件。 | [在线合成案件](https://dev-belly.github.io/CreditVintage/review/) · [本地运行](START_HERE.md#creditvintage-review-workbench) · [网页接口](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/workbench.py) · [事务与重放](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
-| LedgerX 导入对账 | 上传示例 JSONL，检查余额、分录和日志末条哈希。重导同一批事件时复用已有记录，余额和哈希保持一致。 | [本地运行](START_HERE.md#ledgerx-reconciliation-workbench) · [网页接口](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/workbench.py) · [批量导入](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/ingestion.py) |
+| LedgerX 导入对账 | 用内置样例验证重复导入，检索分录，查看借贷过账和账本哈希，下载对账快照。 | [本地运行](START_HERE.md#ledgerx-reconciliation-workbench) · [网页接口](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/workbench.py) · [批量导入](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/ingestion.py) |
+| NetworkClear 清算对照 | 对比资产冲击和注资情景，区分总未偿债务、外部债权人损失与新增违约。 | [在线试用](https://dev-belly.github.io/NetworkClear/) · [验证口径](https://github.com/dev-belly/NetworkClear/blob/main/docs/METHODOLOGY.md) |
 | WeCom Agent 合同查询 | 在线翻看 12 条合成合同及来源页码。FastAPI 在 Live 模式按同一索引版本分页，索引更新后提示重新查询。 | [在线试用](https://dev-belly.github.io/wecom-agent-platform/?view=contracts) · [界面](https://github.com/dev-belly/wecom-agent-platform/blob/main/web/src/components/ContractView.tsx) · [接口](https://github.com/dev-belly/wecom-agent-platform/blob/main/src/main.py) · [接口测试](https://github.com/dev-belly/wecom-agent-platform/blob/main/tests/test_business_queries.py) |
 
 ## 浏览器交互与独立重放

@@ -116,11 +116,20 @@ python -m pip install -e .
 ledgerx web browser-demo-ledger.jsonl --port 8766
 ```
 
-Open the printed loopback URL and import `examples/ingestion_events.jsonl`
-twice. The first import appends three unique events and reuses the duplicate
-row. The second reuses all four rows and keeps the balances and journal head
-unchanged.
+Open the printed loopback URL. Choose **Load example** and press **Import batch**
+twice. The first receipt shows three appended events and one reused input.
+The second shows zero appended events and four reused inputs. Select `fill-002`
+in the journal to see the postings for the sale. **Download snapshot** saves the
+current reconciliation and recent entries as JSON.
 [Sample event feed](https://github.com/dev-belly/LedgerX/blob/main/examples/ingestion_events.jsonl).
+
+### NetworkClear clearing explorer
+
+Open [NetworkClear](https://dev-belly.github.io/NetworkClear/) and compare
+`anchor-050-pct` with an unshocked or funded scenario. Filter for institution
+`A` to see its payment and exact recovery fraction. Download the scenario and
+payment CSVs to inspect the matching evidence. The scenarios use synthetic
+institutions.
 
 ### WeCom Agent contract search
 

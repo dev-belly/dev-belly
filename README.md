@@ -18,8 +18,10 @@
 | **[CreditVintage](https://github.com/dev-belly/CreditVintage)** | 网页领取、结案和重开复核任务，查看 SQLite 事件历史；版本检查防止两个标签页覆盖同一案件 | [在线案件复核台](https://dev-belly.github.io/CreditVintage/review/) · [本地运行](START_HERE.md#creditvintage-review-workbench) · [复核实现](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
 | **[WeCom Agent](https://github.com/dev-belly/wecom-agent-platform)** | React 合同筛选与 FastAPI 分页，按索引版本保持结果一致，每条合同可查来源页码 | [在线试用](https://dev-belly.github.io/wecom-agent-platform/?view=contracts) · [接口与测试](FOR_RECRUITERS.md#复核对账与合同查询) |
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | 浏览器交互、URL 状态、JSON 下载与 Python / SQLite 独立重放 | [立即试用](https://dev-belly.github.io/PITBridge/try/) · [下载后重放](START_HERE.md#download-and-replay-your-browser-scenario) |
+| **[LedgerX](https://github.com/dev-belly/LedgerX)** | JSONL 批量导入、重复批次回执、逐笔复式分录和对账快照下载 | [本地对账工作台](START_HERE.md#ledgerx-reconciliation-workbench) · [导入与重放实现](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/ingestion.py) |
+| **[NetworkClear](https://github.com/dev-belly/NetworkClear)** | 比较清算场景，按机构筛回收率、连锁违约和外部债权人损失 | [在线清算控制台](https://dev-belly.github.io/NetworkClear/) · [清算算法](https://github.com/dev-belly/NetworkClear/blob/main/src/networkclear/engine.py) |
 
-Personal AI Chat 的本地演示使用固定回复。LedgerX 导入对账的运行入口和实现见[开发项目速览](FOR_RECRUITERS.md#复核对账与合同查询)。
+Personal AI Chat 的本地演示使用固定回复。
 
 <a id="selected-work"></a>
 
