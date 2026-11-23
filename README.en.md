@@ -4,7 +4,7 @@
 
 CUFE undergraduate · Data Science & Big Data Technology · Current focus: full-stack development
 
-[中文](README.md) · [Engineering overview](FOR_RECRUITERS.md) · [Run a project](START_HERE.md) · [Project index](CATALOG.md)
+[中文](README.md) · [Engineering overview](FOR_RECRUITERS.md) · [Data workbenches](#data-workbenches) · [Run a project](START_HERE.md) · [Project index](CATALOG.md)
 
 ## Applications and APIs first
 
@@ -20,6 +20,21 @@ Explore the existing implementations, setup instructions and verification paths 
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | Browser interaction, URL state, JSON download and independent Python / SQLite replay | [Try it](https://dev-belly.github.io/PITBridge/try/) · [Replay](START_HERE.md#download-and-replay-your-browser-scenario) |
 
 Personal AI Chat starts with fixed local replies. Find the LedgerX reconciliation setup in the [engineering overview](FOR_RECRUITERS.md#复核对账与合同查询).
+
+## Data workbenches
+
+Open `index.html` in each linked workbench folder to filter the saved evidence, inspect a record, or export results offline.
+
+| Project | Browser workflow |
+| --- | --- |
+| **TradeForge** | [Compare 18 fee and latency scenarios and break down execution costs](https://github.com/dev-belly/TradeForge/tree/main/docs/workbench) |
+| **AuditLens** | [Filter 300 review vouchers and inspect the selection and risk evidence](https://github.com/dev-belly/AuditLens/tree/main/docs/workbench) |
+| **ControlTrace** | [Trace automated control findings to timestamped source records](https://github.com/dev-belly/ControlTrace/tree/main/docs/workbench) |
+| **NetworkClear** | [Explore 15 stress cases, cascades and exact clearing payments](https://github.com/dev-belly/NetworkClear/tree/main/docs/workbench) |
+| **StressAtlas** | [Compare tail losses and attribute expected shortfall to sectors](https://github.com/dev-belly/StressAtlas/tree/main/demo/workbench) |
+| **AlphaForge** | [Compare 22 model and cost cases with the audited label cutoffs](https://github.com/dev-belly/alphaforge/tree/main/docs/workbench) |
+| **Investor Network GNN** | [Compare saved model results and examine test-edge ablations by seed](https://github.com/dev-belly/investor-network-gnn/tree/main/docs/workbench) |
+| **LedgerX** | [Run the local batch import, retry and journal reconciliation demo](START_HERE.md#ledgerx-reconciliation-workbench) |
 
 ## Selected work
 
