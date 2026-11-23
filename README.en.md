@@ -18,8 +18,10 @@ Explore the existing implementations, setup instructions and verification paths 
 | **[CreditVintage](https://github.com/dev-belly/CreditVintage)** | Claim, resolve and reopen cases in a browser with SQLite event history and version checks for concurrent edits | [Online case demo](https://dev-belly.github.io/CreditVintage/review/) · [Run locally](START_HERE.md#creditvintage-review-workbench) · [Review code](https://github.com/dev-belly/CreditVintage/blob/main/src/creditvintage/reviews.py) |
 | **[WeCom Agent](https://github.com/dev-belly/wecom-agent-platform)** | React contract filters and FastAPI pagination with index-version checks and source page references | [Live demo](https://dev-belly.github.io/wecom-agent-platform/?view=contracts) · [API and tests](FOR_RECRUITERS.md#复核对账与合同查询) |
 | **[PITBridge](https://github.com/dev-belly/PITBridge)** | Browser interaction, URL state, JSON download and independent Python / SQLite replay | [Try it](https://dev-belly.github.io/PITBridge/try/) · [Replay](START_HERE.md#download-and-replay-your-browser-scenario) |
+| **[LedgerX](https://github.com/dev-belly/LedgerX)** | Import JSONL batches, inspect replay receipts and balanced postings, and download a reconciliation snapshot | [Local workbench](START_HERE.md#ledgerx-reconciliation-workbench) · [Batch implementation](https://github.com/dev-belly/LedgerX/blob/main/src/ledgerx/ingestion.py) |
+| **[NetworkClear](https://github.com/dev-belly/NetworkClear)** | Compare debt-clearing scenarios and inspect recovery ratios, cascade defaults, and outside creditor losses by institution | [Online clearing explorer](https://dev-belly.github.io/NetworkClear/) · [Clearing engine](https://github.com/dev-belly/NetworkClear/blob/main/src/networkclear/engine.py) |
 
-Personal AI Chat starts with fixed local replies. Find the LedgerX reconciliation setup in the [engineering overview](FOR_RECRUITERS.md#复核对账与合同查询).
+Personal AI Chat starts with fixed local replies.
 
 ## Selected work
 
