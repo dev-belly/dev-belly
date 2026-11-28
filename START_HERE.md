@@ -105,6 +105,29 @@ name and save a `claim`. Refresh the page to see the saved case history.
 Open the same case in two tabs before a change to see how the older case version
 is rejected. [Review workflow](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_WORKFLOW.md).
 
+### Compare two CreditVintage deliveries
+
+Download the later snapshot using **Download example ZIP**. Expand **Compare
+deliveries** to download the earlier snapshot using **Download baseline ZIP**.
+Copy the two SHA-256 digests from **Snapshot checkpoints**.
+[Completed sample](https://dev-belly.github.io/CreditVintage/review/#evidence).
+
+In the current CreditVintage checkout with a Python 3.12+ virtual environment
+active, install the project and start the local reader.
+
+```bash
+python -m pip install -e .
+creditvintage review-web
+```
+
+Open the printed loopback URL and expand **Choose deliveries**. Give the reader
+the earlier and later ZIPs with their matching checkpoints. The comparison
+shows one new decision and a change from **In review · v1** to
+**Resolved · Escalated · v2**. Expand **Inspect new actions** to see the reason
+and evidence reference. The two downloads contain the queue and review journal
+needed to reproduce the comparison.
+[Delivery walkthrough](https://github.com/dev-belly/CreditVintage/blob/main/docs/REVIEW_DELIVERY.md).
+
 ### LedgerX reconciliation workbench
 
 From a current [LedgerX](https://github.com/dev-belly/LedgerX) checkout with a
